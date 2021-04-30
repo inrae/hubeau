@@ -105,9 +105,10 @@ follow:
 
 ``` r
 # All source and destination withdrawals for the year 2016 in the Ardennes departement
-comData <- getComSeriesDep("08", 2016, code_usage = "AEP", code_type_eau = "CONT")
-str(comData)
-#> 'data.frame':    4 obs. of  2 variables:
-#>  $ insee_com: chr  "08096" "08135" "08247" "08420"
-#>  $ volume   : int  33024 13583 439424 95274
+getComSeriesDep("08", 2016, code_usage = "AEP", code_type_eau = "CONT")
+#>   insee_com volume
+#> 1     08096  33024
+#> 2     08135  13583
+#> 3     08247 439424
+#> 4     08420  95274
 ```
