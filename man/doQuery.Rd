@@ -2,7 +2,7 @@
 % Please edit documentation in R/doQuery.R
 \name{doQuery}
 \alias{doQuery}
-\title{Internal function for doing the queries}
+\title{Internal function for doing the queries for the bnpe package}
 \usage{
 doQuery(
   url_path,
@@ -15,7 +15,7 @@ doQuery(
 \arguments{
 \item{url_path}{the end of the URL path}
 
-\item{params}{A list containing the parameters sent in the query. \link{character} Name of the geographical identifier ("insee_com", "code_dep"...)}
+\item{params}{A list containing the parameters sent in the query}
 
 \item{cfg}{a \link{config} object Configuration of the communication. Use by default the internal package
 configuration stored at location \code{system.file("config.yml", package = "bnpe")}}
@@ -26,5 +26,5 @@ configuration stored at location \code{system.file("config.yml", package = "bnpe
 a \link[httr:response]{httr::response} object from a \link[httr:GET]{httr::GET}
 }
 \description{
-Internal function for doing the queries
+Internal function for doing the queries for the bnpe package
 }

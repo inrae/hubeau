@@ -1,7 +1,7 @@
-#' Internal function for doing the queries
+#' Internal function for doing the queries for the bnpe package
 #'
 #' @param url_path the end of the URL path
-#' @param params A list containing the parameters sent in the query. [character] Name of the geographical identifier ("insee_com", "code_dep"...)
+#' @param params A list containing the parameters sent in the query
 #' @inheritParams getCookie
 #' @param cookie a named [character] [vector] with the values of the cookies (See [getCookie])
 #'
