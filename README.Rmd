@@ -1,0 +1,74 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r opts, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# bnpe
+
+<!-- badges: start -->
+`r badger::badge_license(color = "orange")`
+`r badger::badge_lifecycle("experimental", color = "blue")`
+<!-- badges: end -->
+
+'bnpe' is an R-package proposes a collection of function to help retrieve the French national data bank of quantitative withdrawals (Banque Nationale des Prélèvements quantitatifs en Eau - BNPE) available on its website: https://bnpe.eaufrance.fr
+
+## Installation
+
+You can install the bnpe R-package from it's development repository with:
+
+``` r
+install.packages("remotes")
+remotes::install_gitlab("in-wop/bnpe", host = "gitlab.irstea.fr")
+```
+
+## Get started
+
+### Loading library
+
+```{r library}
+library(bnpe)
+```
+
+### Time series
+
+Functions for getting time series are: 
+
+- `getTimeSeriesDep`: for one department
+- `getTimeSeriesCom`: for one commune
+
+These functions uses the French official geographical codification (https://fr.wikipedia.org/wiki/Code_officiel_g%C3%A9ographique).
+
+Type `?getTimeSeriesCom` for getting help.
+
+Examples:
+
+```{r timeseries}
+# Time series for all type of withdrawal sources and destinations in the Ardennes departement
+getTimeSeriesDep("08")
+
+# Time series for drinking water withdrawals in surface water bodies in the Ardennes department
+getTimeSeriesDep("08", code_usage = "AEP", code_type_eau = "CONT")
+
+# Withdrawal time series for the commune of Charleville-Mézières
+getTimeSeriesCom("08105")
+```
+
+###  Communal data in one departement
+
+For getting list of communes of departement with corresponding withdrawal volumes for one year, use the function `getComSeriesDep` as follow:
+
+```{r}
+# All source and destination withdrawals for the year 2016 in the Ardennes departement
+getComSeriesDep("08", 2016, code_usage = "AEP", code_type_eau = "CONT")
+```
+
