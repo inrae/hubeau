@@ -112,3 +112,35 @@ getComSeriesDep("08", 2016, code_usage = "AEP", code_type_eau = "CONT")
 #> 3     08247 439424
 #> 4     08420  95274
 ```
+
+### Properties and time series from one device (“ouvrage”)
+
+For getting metadata and withdrawal yearly time series from on device
+identified by its “code Sandre” (See
+<https://www.sandre.eaufrance.fr/atlas/srv/fre/catalog.search#/metadata/e315633f-0930-41e8-a1c4-61fb2303039c>):
+
+``` r
+# metadata and timeseries from withdrawal "COPRIMANCHE-forage LD LE PACO (40m)" 
+ouvrage <- getOuvrageSeries("OPR0000200109")
+str(ouvrage)
+#> List of 12
+#>  $ id               : int 200108
+#>  $ code             : chr "OPR0000200109"
+#>  $ codeCommune      : chr "50151"
+#>  $ codePrecision    : int 1
+#>  $ codeStatut       : chr "Validé"
+#>  $ codeTypeEau      : chr "SOUT"
+#>  $ codeUsage        : chr "4"
+#>  $ commentaire      : chr ""
+#>  $ exploitationDebut: Date[1:1], format: "1987-01-01"
+#>  $ geom             :List of 2
+#>   ..$ type       : chr "Point"
+#>   ..$ coordinates:List of 2
+#>   .. ..$ : num -1.58
+#>   .. ..$ : num 49.2
+#>  $ ouvNom           : chr "COPRIMANCHE-forage LD LE PACO (40m)"
+#>  $ TS               :'data.frame':   6 obs. of  3 variables:
+#>   ..$ annee     : chr [1:6] "2013" "2014" "2015" "2016" ...
+#>   ..$ volume    : int [1:6] 101970 84430 85220 87820 106219 118124
+#>   ..$ peuplement: chr [1:6] "1" "1" "1" "1" ...
+```

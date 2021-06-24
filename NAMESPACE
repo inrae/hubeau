@@ -3,5 +3,6 @@
 export(doQuery)
 export(getComSeriesDep)
 export(getCookie)
+export(getOuvrageSeries)
 export(getTimeSeriesCom)
 export(getTimeSeriesDep)
