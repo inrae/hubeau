@@ -1,5 +1,7 @@
 default:
-  url: https://bnpe.eaufrance.fr/Bnpe-Diffusion/synthese
-  url_time_series: synthese_temporelle
-  url_com_series: synthese_geographique
+  url: https://bnpe.eaufrance.fr/Bnpe-Diffusion
+  url_time_series: synthese/synthese_temporelle
+  url_com_series: synthese/synthese_geographique
+  url_ouvrage: suggest/get_ouvrages
+  url_ouv_series: synthese/synthese_temporelle_ouvrage
   user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:88.0) Gecko/20100101 Firefox/88.0

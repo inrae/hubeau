@@ -72,3 +72,12 @@ For getting list of communes of departement with corresponding withdrawal volume
 getComSeriesDep("08", 2016, code_usage = "AEP", code_type_eau = "CONT")
 ```
 
+### Properties and time series from one device ("ouvrage")
+
+For getting metadata and withdrawal yearly time series from on device identified by its "code Sandre" (See https://www.sandre.eaufrance.fr/atlas/srv/fre/catalog.search#/metadata/e315633f-0930-41e8-a1c4-61fb2303039c):
+
+```{r}
+# metadata and timeseries from withdrawal "COPRIMANCHE-forage LD LE PACO (40m)" 
+ouvrage <- getOuvrageSeries("OPR0000200109")
+str(ouvrage)
+```
