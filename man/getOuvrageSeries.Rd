@@ -2,7 +2,7 @@
 % Please edit documentation in R/getOuvrageSeries.R
 \name{getOuvrageSeries}
 \alias{getOuvrageSeries}
-\title{Retrieve data by device ("ouvrage") (metadata and yearly)}
+\title{Retrieve data by device ("ouvrage") (metadata and annual withdrawal volumes)}
 \usage{
 getOuvrageSeries(
   code_sandre,
@@ -36,7 +36,7 @@ configuration stored at location \code{system.file("config.yml", package = "bnpe
 }
 }
 \description{
-Retrieve data by device ("ouvrage") (metadata and yearly)
+Retrieve data by device ("ouvrage") (metadata and annual withdrawal volumes)
 }
 \examples{
 getOuvrageSeries("OPR0000200109")

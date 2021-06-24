@@ -1,4 +1,4 @@
-#' Retrieve data by device ("ouvrage") (metadata and yearly)
+#' Retrieve data by device ("ouvrage") (metadata and annual withdrawal volumes)
 #'
 #' @param code_sandre [character] Sandre identifier of the device
 #' @param cookie a named [character] [vector] with the values of the cookies (See [getCookie])
