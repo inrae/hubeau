@@ -1,0 +1,22 @@
+url: https://in-wop.g-eau.fr/bnpe
+development:
+  mode: unreleased
+
+template:
+  params:
+    bootswatch: flatly
+
+navbar:
+  structure:
+    right: [gitlab]
+  components:
+    github: ~
+    gitlab:
+      icon: fab fa-gitlab fa-lg
+      href: https://gitlab.irstea.fr/in-wop/bnpe
+
+repo:
+  url:
+    home: https://gitlab.irstea.fr/in-wop/bnpe/
+    source: https://gitlab.irstea.fr/in-wop/bnpe/-/blob/master/
+    issue: https://gitlab.irstea.fr/in-wop/bnpe/-/issues/
