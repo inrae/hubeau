@@ -1,4 +1,8 @@
 default:
+  api_prelevements:
+    url: https://hubeau.eaufrance.fr/api/v1/prelevements
+    points_prelevement: referentiel/points_prelevement
+    chroniques: chroniques
   url: https://bnpe.eaufrance.fr/Bnpe-Diffusion
   url_time_series: synthese/synthese_temporelle
   url_com_series: synthese/synthese_geographique
