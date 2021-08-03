@@ -37,4 +37,4 @@ website:
     - R -e 'devtools::update_packages(packages = "pkgdown")'
     - R -e 'pkgdown::build_site()'
     - sudo apt-get update && sudo apt-get install -y sshpass rsync
-    - sshpass -p "${OVH_PASS}" rsync -a -e "ssh -o StrictHostKeyChecking=no" docs/ ${OVH_LOGIN}@${OVH_SFTP}:/home/${OVH_LOGIN}/in-wop/bnpe/
+    - sshpass -p "${OVH_PASS}" rsync -a -e "ssh -o StrictHostKeyChecking=no" docs/ ${OVH_LOGIN}@${OVH_SFTP}:/home/${OVH_LOGIN}/in-wop/hubeau/

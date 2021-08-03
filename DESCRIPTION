@@ -1,17 +1,15 @@
-Package: bnpe
+Package: hubeau
 Type: Package
-Title: Retrieval Functions for the French national data bank of quantitative withdrawals (BNPE)
+Title: Functions for the French API on water data "Hub'eau"
 Version: 0.2.0.9000
 Authors@R: c(
     person("David", "Dorchies", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-6595-7984"), email = "david.dorchies@inrae.fr")
     )
-Description: Collection of functions to help retrieve the French national data bank of 
-    quantitative withdrawals (Banque Nationale des Prélèvements quantitatifs en Eau - BNPE) 
-    available on its website <https://bnpe.eaufrance.fr/>.
+Description: Collection of functions to help retrieve the French national data bank on water <https://hubeau.eaufrance.fr/>.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-Imports: 
+Imports:
     config,
     httr,
     purrr,

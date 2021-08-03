@@ -4,3 +4,6 @@
 ^LICENSE\.md$
 ^man-roxygen$
 ^docs$
+^\.gitlab-ci\.yml$
+^_pkgdown.yml$
+^pkgdown$

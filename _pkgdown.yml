@@ -1,4 +1,4 @@
-url: https://in-wop.g-eau.fr/bnpe
+url: https://in-wop.g-eau.fr/hubeau
 development:
   mode: unreleased
 
@@ -13,10 +13,10 @@ navbar:
     github: ~
     gitlab:
       icon: fab fa-gitlab fa-lg
-      href: https://gitlab.irstea.fr/in-wop/bnpe
+      href: https://gitlab.irstea.fr/in-wop/hubeau
 
 repo:
   url:
-    home: https://gitlab.irstea.fr/in-wop/bnpe/
-    source: https://gitlab.irstea.fr/in-wop/bnpe/-/blob/master/
-    issue: https://gitlab.irstea.fr/in-wop/bnpe/-/issues/
+    home: https://gitlab.irstea.fr/in-wop/hubeau/
+    source: https://gitlab.irstea.fr/in-wop/hubeau/-/blob/master/
+    issue: https://gitlab.irstea.fr/in-wop/hubeau/-/issues/

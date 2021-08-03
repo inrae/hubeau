@@ -13,38 +13,36 @@ knitr::opts_chunk$set(
 )
 ```
 
-# bnpe
+# hubeau
 
 <!-- badges: start -->
 `r badger::badge_license(color = "orange")`
 `r badger::badge_lifecycle("experimental", color = "blue")`
 <!-- badges: end -->
 
-'bnpe' is an R-package proposing a collection of function to help retrieve the French national data bank of quantitative withdrawals (Banque Nationale des Prélèvements quantitatifs en Eau - BNPE) available on its website https://bnpe.eaufrance.fr and on https://hubeau.eaufrance.fr/page/api-prelevements-eau
+'hubeau' is an R-package proposing a collection of function to help retrieve the French national data bank of quantitative withdrawals (Banque Nationale des Prélèvements quantitatifs en Eau - BNPE) available on its website https://hubeau.eaufrance.fr and on https://hubeau.eaufrance.fr/page/api-prelevements-eau
 
 ## Installation
 
-You can install the bnpe R-package from it's development repository with:
+You can install the hubeau R-package from it's development repository with:
 
 ``` r
 install.packages("remotes")
-remotes::install_gitlab("in-wop/bnpe", host = "gitlab.irstea.fr")
+remotes::install_gitlab("in-wop/hubeau", host = "gitlab.irstea.fr")
 ```
 
-## Get started
-
-### Loading library
+## Loading library
 
 ```{r library}
-library(bnpe)
+library(hubeau)
 ```
 
-### Loading data from the Hub'Eau API
+## Loading data from the Hub'Eau API
 
 Two functions are available:
 
-- `get_points_prelevement`: retrieve data about abstraction points
-- `get_chronique`: retrieve annual volume time series and characteristics
+- `get_prelevements_prelevement`: retrieve data about abstraction points
+- `get_prelevements_chronique`: retrieve annual volume time series and characteristics
 
 The available filters for these functions are detailed in the API documentation respectively: https://hubeau.eaufrance.fr/page/api-prelevements-eau#/prelevements/prelevement and https://hubeau.eaufrance.fr/page/api-prelevements-eau#/prelevements/chronique
 
@@ -52,56 +50,14 @@ Examples:
 
 ```{r}
 # Characteristics of surface abstraction points in the Ardennes departement
-pp08 <- get_points_prelevement(list(code_departement = "08", code_type_milieu = "CONT"))
+pp08 <- get_prelevements_prelevement(list(code_departement = "08", code_type_milieu = "CONT"))
 str(pp08)
 
 # Time series of annual abstracted volumes for drinking water supply from surface water in the Ardennes departement
 # As the parameter "source of the water" (ground, surface...) is not available here, we can use the list of abstraction points previously downloaded as filter:
-dfAEP <- get_chronique(list(code_ouvrage = paste(pp08$code_ouvrage, collapse = ","), 
+dfAEP <- get_prelevements_chronique(list(code_ouvrage = paste(pp08$code_ouvrage, collapse = ","),
                             code_usage = "AEP"))
 str(dfAEP)
 ```
 
 
-### Scrapping aggregated data from the BNPE website
-
-Functions for getting time series are: 
-
-- `getTimeSeriesDep`: for one department
-- `getTimeSeriesCom`: for one commune
-
-These functions uses the French official geographical codification (https://fr.wikipedia.org/wiki/Code_officiel_g%C3%A9ographique).
-
-Type `?getTimeSeriesCom` for getting help.
-
-Examples:
-
-```{r timeseries}
-# Time series for all type of withdrawal sources and destinations in the Ardennes departement
-getTimeSeriesDep("08")
-
-# Time series for drinking water withdrawals in surface water bodies in the Ardennes department
-getTimeSeriesDep("08", code_usage = "AEP", code_type_eau = "CONT")
-
-# Withdrawal time series for the commune of Charleville-Mézières
-getTimeSeriesCom("08105")
-```
-
-###  Communal data in one departement
-
-For getting list of communes of departement with corresponding withdrawal volumes for one year, use the function `getComSeriesDep` as follow:
-
-```{r}
-# All source and destination withdrawals for the year 2016 in the Ardennes departement
-getComSeriesDep("08", 2016, code_usage = "AEP", code_type_eau = "CONT")
-```
-
-### Properties and time series from one device ("ouvrage")
-
-For getting metadata and withdrawal yearly time series from on device identified by its "code Sandre" (See https://www.sandre.eaufrance.fr/atlas/srv/fre/catalog.search#/metadata/e315633f-0930-41e8-a1c4-61fb2303039c):
-
-```{r}
-# metadata and timeseries from withdrawal "COPRIMANCHE-forage LD LE PACO (40m)" 
-ouvrage <- getOuvrageSeries("OPR0000200109")
-str(ouvrage)
-```

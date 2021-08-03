@@ -1,6 +1,6 @@
 doApiQuery <- function(url_path,
                        params,
-                       cfg = config::get(file = system.file("config.yml", package = "bnpe"))) {
+                       cfg = config::get(file = system.file("config.yml", package = "hubeau"))) {
   query <- file.path(cfg$api$url, url_path)
   for (paramName in names(params)) {
     if (!is.null(params[[paramName]])) {
