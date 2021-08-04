@@ -1,11 +1,76 @@
 default:
-  api_prelevements:
-    url: https://hubeau.eaufrance.fr/api/v1/prelevements
-    points_prelevement: referentiel/points_prelevement
-    chroniques: chroniques
-  url: https://bnpe.eaufrance.fr/Bnpe-Diffusion
-  url_time_series: synthese/synthese_temporelle
-  url_com_series: synthese/synthese_geographique
-  url_ouvrage: suggest/get_ouvrages
-  url_ouv_series: synthese/synthese_temporelle_ouvrage
-  user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:88.0) Gecko/20100101 Firefox/88.0
+  api_url: https://hubeau.eaufrance.fr/api
+  apis:
+    prelevements:
+      path: v1/prelevements
+      operations:
+        points_prelevement:
+          path: referentiel/points_prelevement
+          fields:
+           - code_bdlisa
+           - code_bss_point_eau
+           - code_commune_insee
+           - code_departement
+           - code_entite_hydro_cours_eau
+           - code_entite_hydro_plan_eau
+           - code_mer_ocean
+           - code_nature
+           - code_ouvrage
+           - code_point_prelevement
+           - code_type_milieu
+           - code_zone_hydro
+           - date_exploitation
+           - fields
+           - libelle_departement
+           - nappe_accompagnement
+           - nom_commune
+           - nom_point_prelevement
+        chroniques:
+          path: chroniques
+          fields:
+            - annee
+            - bbox
+            - code_commune_insee
+            - code_departement
+            - code_mode_obtention_volume
+            - code_ouvrage
+            - code_qualification_volume
+            - code_statut_instruction
+            - code_statut_volume
+            - code_usage
+            - distance
+            - fields
+            - latitude
+            - libelle_departement
+            - longitude
+            - nom_commune
+            - prelevement_ecrasant
+            - producteur_donnee
+            - volume_max
+            - volume_min
+    indicateurs_services:
+      path: v0/indicateurs_services
+      operations:
+        communes:
+          path: communes
+          fields:
+            - annee
+            - code_commune
+            - code_departement
+            - detail_service
+            - fields
+            - type_service
+        indicateurs:
+          path: indicateurs
+          fields:
+            - annee
+            - code_indicateur
+            - fields
+        services:
+          path: services
+          fields:
+            - annee
+            - code_commune
+            - code_departement
+            - fields
+            - type_service

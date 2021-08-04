@@ -13,18 +13,18 @@ knitr::opts_chunk$set(
 )
 ```
 
-# hubeau
+# hubeau an R package for the Hub'eau APIs
 
 <!-- badges: start -->
 `r badger::badge_license(color = "orange")`
 `r badger::badge_lifecycle("experimental", color = "blue")`
 <!-- badges: end -->
 
-'hubeau' is an R-package proposing a collection of function to help retrieve the French national data bank of quantitative withdrawals (Banque Nationale des Prélèvements quantitatifs en Eau - BNPE) available on its website https://hubeau.eaufrance.fr and on https://hubeau.eaufrance.fr/page/api-prelevements-eau
+'hubeau' is an R-package proposing a collection of function to help retrieve data from the French national databases on water: https://hubeau.eaufrance.fr
 
 ## Installation
 
-You can install the hubeau R-package from it's development repository with:
+You can install the 'hubeau' R-package from it's development repository with:
 
 ``` r
 install.packages("remotes")
@@ -37,27 +37,19 @@ remotes::install_gitlab("in-wop/hubeau", host = "gitlab.irstea.fr")
 library(hubeau)
 ```
 
-## Loading data from the Hub'Eau API
+## Get started
 
-Two functions are available:
+See the package documentation by typing:
 
-- `get_prelevements_prelevement`: retrieve data about abstraction points
-- `get_prelevements_chronique`: retrieve annual volume time series and characteristics
-
-The available filters for these functions are detailed in the API documentation respectively: https://hubeau.eaufrance.fr/page/api-prelevements-eau#/prelevements/prelevement and https://hubeau.eaufrance.fr/page/api-prelevements-eau#/prelevements/chronique
-
-Examples:
 
 ```{r}
-# Characteristics of surface abstraction points in the Ardennes departement
-pp08 <- get_prelevements_prelevement(list(code_departement = "08", code_type_milieu = "CONT"))
-str(pp08)
+?hubeau
+```
 
-# Time series of annual abstracted volumes for drinking water supply from surface water in the Ardennes departement
-# As the parameter "source of the water" (ground, surface...) is not available here, we can use the list of abstraction points previously downloaded as filter:
-dfAEP <- get_prelevements_chronique(list(code_ouvrage = paste(pp08$code_ouvrage, collapse = ","),
-                            code_usage = "AEP"))
-str(dfAEP)
+Each function is documented with at least one example: 
+
+```{r}
+example("get_prelevements_chroniques")
 ```
 
 
