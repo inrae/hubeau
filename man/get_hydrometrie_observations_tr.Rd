@@ -6,7 +6,6 @@
 \usage{
 get_hydrometrie_observations_tr(
   params,
-  unique_site = TRUE,
   cfg = config::get(file = system.file("config.yml", package = "hubeau"))
 )
 }

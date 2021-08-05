@@ -12,7 +12,6 @@
 #' get_hydrometrie_observations_tr(list(code_entite = "H0203020", grandeur_hydro = "Q"))
 #'
 get_hydrometrie_observations_tr  <- function(params,
-                                   unique_site = TRUE,
                                    cfg = config::get(file = system.file("config.yml",
                                                         package = "hubeau"))) {
   l <- doApiQuery(
