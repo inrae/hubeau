@@ -95,3 +95,27 @@ default:
             - code_departement
             - fields
             - type_service
+    hydrometrie:
+      path: v1/hydrometrie
+      operations:
+        stations:
+          path: referentiel/stations
+          fields:
+            - bbox
+            - code_commune_station
+            - code_cours_eau
+            - code_departement
+            - code_region
+            - code_sandre_reseau_station
+            - code_site
+            - code_station
+            - date_fermeture_station
+            - date_ouverture_station
+            - distance
+            - en_service
+            - fields
+            - latitude
+            - libelle_cours_eau
+            - libelle_site
+            - libelle_station
+            - longitude

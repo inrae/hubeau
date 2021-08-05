@@ -4,6 +4,14 @@
 #'
 #' Currently available APIs and related "operations" are listed below.
 #'
+#' **API "Hydrométrie"**
+#'
+#' API documentation: \url{https://hubeau.eaufrance.fr/page/api-hydrometrie}
+#'
+#' Available functions:
+#'
+#' - [get_hydrometrie_stations]
+#'
 #' **API "Indicateurs des services"**
 #'
 #' API documentation: \url{https://hubeau.eaufrance.fr/page/api-indicateurs-services}
@@ -20,6 +28,7 @@
 #' Available functions:
 #'
 #' - [get_prelevements_chroniques]
+#' - [get_prelevements_ouvrages]
 #' - [get_prelevements_points_prelevement]
 #'
 #' @docType package

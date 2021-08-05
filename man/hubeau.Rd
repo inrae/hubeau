@@ -10,6 +10,15 @@ The 'hubeau' package provides functions for APIs and related "operations". These
 \details{
 Currently available APIs and related "operations" are listed below.
 
+\strong{API "Hydrométrie"}
+
+API documentation: \url{https://hubeau.eaufrance.fr/page/api-hydrometrie}
+
+Available functions:
+\itemize{
+\item \link{get_hydrometrie_stations}
+}
+
 \strong{API "Indicateurs des services"}
 
 API documentation: \url{https://hubeau.eaufrance.fr/page/api-indicateurs-services}
@@ -27,6 +36,7 @@ API documentation: \url{https://hubeau.eaufrance.fr/page/api-prelevements-eau}
 Available functions:
 \itemize{
 \item \link{get_prelevements_chroniques}
+\item \link{get_prelevements_ouvrages}
 \item \link{get_prelevements_points_prelevement}
 }
 }
