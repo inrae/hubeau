@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_prelevements_points_prelevement.R
 \name{get_prelevements_points_prelevement}
 \alias{get_prelevements_points_prelevement}
-\title{Retrieve withdrawal points from Hub'Eau API}
+\title{Retrieve withdrawal points from API "Prélèvements en eau"}
 \usage{
 get_prelevements_points_prelevement(
   params,
@@ -16,7 +16,7 @@ get_prelevements_points_prelevement(
 configuration}
 }
 \value{
-a \link[tibble:tibble]{tibble::tibble} with all available parameters in columns and one row by device.
+a \link[tibble:tibble]{tibble::tibble} with all available parameters in columns and one row by withdrawal point.
 }
 \description{
 See the API documentation for available filter parameters: \url{https://hubeau.eaufrance.fr/page/api-prelevements-eau#/prelevements/prelevement}

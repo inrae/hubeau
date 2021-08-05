@@ -1,6 +1,6 @@
-#' Retrieve time series of withdrawals from Hub'Eau API
+#' Retrieve time series of withdrawals from API "Prélèvements en eau"
 #'
-#' See the API documentation for available filter parameters: \url{https://hubeau.eaufrance.fr/page/api-prelevements-eau#/prelevements/chronique}
+#' See the API documentation for available filter parameters: \url{https://hubeau.eaufrance.fr/page/api-prelevements-eau}
 #'
 #' @template param_get_common
 #'

@@ -1,10 +1,10 @@
-#' Retrieve withdrawal points from Hub'Eau API
+#' Retrieve withdrawal points from API "Prélèvements en eau"
 #'
 #' See the API documentation for available filter parameters: \url{https://hubeau.eaufrance.fr/page/api-prelevements-eau#/prelevements/prelevement}
 #'
 #' @template param_get_common
 #'
-#' @return a [tibble::tibble] with all available parameters in columns and one row by device.
+#' @return a [tibble::tibble] with all available parameters in columns and one row by withdrawal point.
 #' @export
 #'
 #' @examples

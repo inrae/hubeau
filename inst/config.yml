@@ -48,6 +48,27 @@ default:
             - producteur_donnee
             - volume_max
             - volume_min
+        ouvrages:
+          path: referentiel/ouvrages
+          fields:
+            - bbox
+            - code_bdlisa
+            - code_commune_insee
+            - code_departement
+            - code_entite_hydro_cours_eau
+            - code_entite_hydro_plan_eau
+            - code_mer_ocean
+            - code_ouvrage
+            - code_type_milieu
+            - codes_points_prelevements
+            - date_exploitation
+            - distance
+            - fields
+            - latitude
+            - libelle_departement
+            - longitude
+            - nom_commune
+            - nom_ouvrage
     indicateurs_services:
       path: v0/indicateurs_services
       operations:
