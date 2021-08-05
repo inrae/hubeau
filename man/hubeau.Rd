@@ -16,6 +16,7 @@ API documentation: \url{https://hubeau.eaufrance.fr/page/api-hydrometrie}
 
 Available functions:
 \itemize{
+\item \link{get_hydrometrie_observations_tr}
 \item \link{get_hydrometrie_sites}
 \item \link{get_hydrometrie_stations}
 }

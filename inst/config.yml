@@ -136,3 +136,17 @@ default:
             - libelle_cours_eau
             - libelle_site
             - longitude
+        observations_tr:
+          path: observations_tr
+          fields:
+            - bbox
+            - code_entite
+            - cursor
+            - date_debut_obs
+            - date_fin_obs
+            - distance
+            - fields
+            - grandeur_hydro
+            - latitude
+            - longitude
+            - timestep
