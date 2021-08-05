@@ -23,7 +23,7 @@ get_available_params(
 
 \item{operation}{a \link{character} name of the operation, see example for available operations in an API}
 
-\item{params}{a \link{list} the list of parameters of the queries and their values in the format \code{list(ParamName = "Param value", ...)}, use the function \code{get_available_params} for a list of the available parameters for a given operation in an API}
+\item{params}{a \link{list} the list of parameters of the queries and their values in the format \code{list(ParamName = "Param value", ...)}, use the function \link{get_available_params} for a list of the available parameters for a given operation in an API and see the API documentation for the complete list of available filter parameters}
 
 \item{cfg}{a \link{config} object Configuration of the communication. Use by default the internal package
 configuration}

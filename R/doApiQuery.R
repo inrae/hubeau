@@ -9,7 +9,6 @@
 #'
 #' @param api a [character] name of the API (e.g.: "indicateurs_services", "prelevements"...), see example for available APIs
 #' @param operation a [character] name of the operation, see example for available operations in an API
-#' @param params a [list] the list of parameters of the queries and their values in the format `list(ParamName = "Param value", ...)`, use the function `get_available_params` for a list of the available parameters for a given operation in an API
 #' @template param_get_common
 #'
 #' @return A [list] with the concatenated results returned by the API.

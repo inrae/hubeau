@@ -2,7 +2,6 @@
 #'
 #' See the API documentation for available filter parameters: \url{https://hubeau.eaufrance.fr/page/api-indicateurs-services}
 #'
-#' @param params [list] where the keys are the names of the filtered parameters and the values are the values of the filters. See the API documentation for the complete list of available filter parameters
 #' @template param_get_common
 #'
 #' @return a [tibble::tibble] with one row by commune, by service and by year and the following columns:

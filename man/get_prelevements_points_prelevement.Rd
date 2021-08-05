@@ -10,7 +10,7 @@ get_prelevements_points_prelevement(
 )
 }
 \arguments{
-\item{params}{\link{list} where the keys are the names of the filtered parameters and the values are the values of the filters. See the API documentation for the complete list of available filter parameters}
+\item{params}{a \link{list} the list of parameters of the queries and their values in the format \code{list(ParamName = "Param value", ...)}, use the function \link{get_available_params} for a list of the available parameters for a given operation in an API and see the API documentation for the complete list of available filter parameters}
 
 \item{cfg}{a \link{config} object Configuration of the communication. Use by default the internal package
 configuration}
