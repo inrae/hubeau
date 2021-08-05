@@ -37,22 +37,24 @@ get_hydrometrie_sites  <- function(params,
       )
     bFirst <- TRUE
     for (field in fields) {
-      fieldValue <- unique(unlist(x[[field]]))
-      if (unique_site && length(fieldValue) > 1) {
-        if(bFirst) {
-          warning(
-            "The site '",
-            x$code_site,
-            "' has ",
-            length(fieldValue),
-            " different locations, only the first one is returned",
-            call. = FALSE
-          )
-          bFirst <- FALSE
+      if (!is.null(x[[field]])) {
+        fieldValue <- unique(unlist(x[[field]]))
+        if (unique_site && length(fieldValue) > 1) {
+          if(bFirst) {
+            warning(
+              "The site '",
+              x$code_site,
+              "' has ",
+              length(fieldValue),
+              " different locations, only the first one is returned",
+              call. = FALSE
+            )
+            bFirst <- FALSE
+          }
+          fieldValue <- x[[field]][[1]]
         }
-        fieldValue <- x[[field]][[1]]
+        x[[field]] <- fieldValue
       }
-      x[[field]] <- fieldValue
     }
     x$geometry <- NULL
     x
