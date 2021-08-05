@@ -86,8 +86,10 @@ doApiQuery <- function(api,
     } else {
       l <- httr::content(resp, "parsed")
       if (as.numeric(l$count) > 20000) {
-        stop("The request reach the API limitation of 20000 records.\n",
-             "Use filter arguments to reduce the number of records of your request.")
+        stop(
+          "The request reach the API limitation of 20000 records.\n",
+          "Use filter arguments to reduce the number of records of your request."
+        )
       }
       data <- c(data, l$data)
       if (resp$status_code == 206) {
@@ -103,4 +105,25 @@ doApiQuery <- function(api,
     }
   }
   return(data)
+}
+
+
+#' Convert list provided by the API into a tibble
+#'
+#' @param l a [list] provided by the API
+#'
+#' @return a [tibble:tibble] with one row by list item and one column by list sub-item
+#' @noRd
+#'
+convert_list_to_tibble <- function(l) {
+  l <-
+    lapply(l, function(row) {
+      lapply(row, function(cell) {
+        if (is.null(unlist(cell)))
+          NA
+        else
+          unlist(cell)
+      })
+    })
+  return(purrr::map_df(l, tibble::as_tibble))
 }

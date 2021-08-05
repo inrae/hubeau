@@ -18,6 +18,5 @@ get_prelevements_points_prelevement <- function(params, cfg = config::get(file =
                   params = params,
                   cfg = cfg)
 
-  l <- lapply(l, function(row) {lapply(row, function(cell) { if(is.null(unlist(cell))) NA else unlist(cell) })})
-  return(purrr::map_df(l, tibble::as_tibble))
+  convert_list_to_tibble(l)
 }

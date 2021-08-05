@@ -26,12 +26,10 @@ get_indicateurs_services_indicateurs <- function(params,
                   params = params,
                   cfg = cfg)
 
-  li <- lapply(l, function(x) {
+  l <- lapply(l, function(x) {
     x$codes_commune <- NULL
     x$noms_commune <- NULL
     x
   })
-  li <- lapply(li, function(row) {lapply(row, function(cell) { if(is.null(unlist(cell))) NA else unlist(cell) })})
-  df <- purrr::map_df(li, tibble::as_tibble)
-  return()
+  convert_list_to_tibble(l)
 }

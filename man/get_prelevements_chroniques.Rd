@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_prelevements_chroniques.R
 \name{get_prelevements_chroniques}
 \alias{get_prelevements_chroniques}
-\title{Retrieve time series of withdrawals from Hub'Eau API}
+\title{Retrieve time series of withdrawals from API "Prélèvements en eau"}
 \usage{
 get_prelevements_chroniques(
   params,
@@ -19,7 +19,7 @@ configuration}
 a \link[tibble:tibble]{tibble::tibble} with all available parameters in columns and one row by device, year and usage.
 }
 \description{
-See the API documentation for available filter parameters: \url{https://hubeau.eaufrance.fr/page/api-prelevements-eau#/prelevements/chronique}
+See the API documentation for available filter parameters: \url{https://hubeau.eaufrance.fr/page/api-prelevements-eau}
 }
 \examples{
 # For retrieving the withdrawal time series of the devices located in Romilly-sur-Seine

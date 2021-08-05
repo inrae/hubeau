@@ -32,6 +32,5 @@ get_indicateurs_services_communes <- function(params,
     x$indicateurs <- NULL
     x
   })
-  l <- lapply(l, function(row) {lapply(row, function(cell) { if(is.null(unlist(cell))) NA else unlist(cell) })})
-  return(purrr::map_df(l, tibble::as_tibble))
+  convert_list_to_tibble(l)
 }
