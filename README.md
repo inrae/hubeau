@@ -3,6 +3,8 @@
 
 # hubeau an R package for the Hub’eau APIs
 
+<img src="man/figures/logo.svg" align="right" height="120px"/>
+
 <!-- badges: start -->
 
 [![License:
@@ -67,3 +69,22 @@ example("get_prelevements_chroniques")
 #> #   code_departement <chr>, libelle_departement <chr>, nom_ouvrage <chr>,
 #> #   uri_ouvrage <chr>
 ```
+
+## Acknowledgement
+
+The authors would like to thank the European Commission and the French
+National Research Agency (ANR) for funding in the frame of the
+collaborative international consortium
+[IN-WOP](http://www.waterjpi.eu/joint-calls/joint-call-2018-waterworks-2017/booklet/in-wop)
+financed under the 2018 Joint call of the WaterWorks2017 ERA-NET Cofund.
+This ERA-NET is an integral part of the activities developed by the
+Water JPI.
+
+<div style="display: flex; justify-content: space-between;">
+
+![Water JPI](man/figures/logo_water_jpi.png) ![Water Works
+2017](man/figures/logo_water_works_2017.png) ![European
+Commission](man/figures/logo_european_commission.jpg) ![2018 Joint
+call](man/figures/logo_2018_joint_call.png)
+
+</div>
