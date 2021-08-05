@@ -119,3 +119,20 @@ default:
             - libelle_site
             - libelle_station
             - longitude
+        sites:
+          path: referentiel/sites
+          fields:
+            - bbox
+            - code_commune_site
+            - code_cours_eau
+            - code_departement
+            - code_region
+            - code_site
+            - code_troncon_hydro_site
+            - code_zone_hydro_site
+            - distance
+            - fields
+            - latitude
+            - libelle_cours_eau
+            - libelle_site
+            - longitude

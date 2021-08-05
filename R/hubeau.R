@@ -10,6 +10,7 @@
 #'
 #' Available functions:
 #'
+#' - [get_hydrometrie_sites]
 #' - [get_hydrometrie_stations]
 #'
 #' **API "Indicateurs des services"**

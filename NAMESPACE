@@ -2,6 +2,7 @@
 
 export(doApiQuery)
 export(get_available_params)
+export(get_hydrometrie_sites)
 export(get_hydrometrie_stations)
 export(get_indicateurs_services_communes)
 export(get_indicateurs_services_indicateurs)
