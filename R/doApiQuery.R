@@ -86,6 +86,10 @@ doApiQuery <- function(api,
       }
     } else {
       l <- httr::content(resp, "parsed")
+      if (as.numeric(l$count) > 20000) {
+        stop("The request reach the API limitation of 20000 records.\n",
+             "Use filter arguments to reduce the number of records of your request.")
+      }
       data <- c(data, l$data)
       if (resp$status_code == 206) {
         query <- l$`next`

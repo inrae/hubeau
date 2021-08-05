@@ -38,7 +38,7 @@ Pagination of the queries is handled automatically and the returned \link{list} 
 \details{
 The function \code{get_available_params} returns the list of available query parameters for a given operation in an API.
 
-The functions \verb{get_[api]_[operation]} call the function \code{doQueryApi} and convert the response in a convenient format for the user (\link{data.frame} or \link{tibble})
+The functions \verb{get_[api]_[operation]} call the function \code{doQueryApi} and convert the response in a convenient format for the user (\link{data.frame} or \link[tibble:tibble]{tibble::tibble})
 }
 \examples{
 # To get the available APIs in the package
