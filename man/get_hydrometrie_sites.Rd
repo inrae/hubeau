@@ -25,7 +25,7 @@ a \link[tibble:tibble]{tibble::tibble} with all available parameters in columns 
 See the API documentation for available filter parameters: \url{https://hubeau.eaufrance.fr/page/api-hydrometrie}
 }
 \examples{
-# For retrieving the hydrometric sites in the department of Aube
+# Retrieve the hydrometric sites in the department of Aube
 get_hydrometrie_sites(list(code_departement = "10"))
 
 # The same operation returning 2 rows for the site 'H0203020' which has 2 different locations

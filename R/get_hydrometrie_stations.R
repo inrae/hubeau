@@ -9,7 +9,7 @@
 #' @export
 #'
 #' @examples
-#' # For retrieving the hydrometric stations in the department of Aube
+#' # Retrieve the hydrometric stations in the department of Aube
 #' get_hydrometrie_stations(list(code_departement = "10"))
 #'
 get_hydrometrie_stations  <- function(params, code_sandre_reseau_station = FALSE, cfg = config::get(file = system.file("config.yml",

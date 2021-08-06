@@ -8,7 +8,7 @@
 #' @export
 #'
 #' @examples
-#' # For retrieving the withdrawal time series of the devices located in Romilly-sur-Seine
+#' # Retrieve the withdrawal time series of the devices located in Romilly-sur-Seine
 #' get_prelevements_chroniques(list(code_commune_insee = "10323"))
 #'
 get_prelevements_chroniques <- function(params, cfg = config::get(file = system.file("config.yml",

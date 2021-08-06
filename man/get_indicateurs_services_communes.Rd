@@ -29,7 +29,7 @@ a \link[tibble:tibble]{tibble::tibble} with one row by commune, by service and b
 See the API documentation for available filter parameters: \url{https://hubeau.eaufrance.fr/page/api-indicateurs-services}
 }
 \examples{
-# For retrieving performance indicator time series of the services in Romilly-sur-Seine
+# Retrieve performance indicator time series of the services in Romilly-sur-Seine
 get_indicateurs_services_communes(list(code_commune = "10323"))
 
 }

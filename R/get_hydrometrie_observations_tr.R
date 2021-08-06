@@ -8,7 +8,7 @@
 #' @export
 #'
 #' @examples
-#' # For retrieving the hydrometric last real time observed discharge at station 'H020302002'
+#' # Retrieve the hydrometric last real time observed discharge at station 'H020302002'
 #' get_hydrometrie_observations_tr(list(code_entite = "H0203020", grandeur_hydro = "Q"))
 #'
 get_hydrometrie_observations_tr  <- function(params,

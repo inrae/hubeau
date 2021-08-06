@@ -15,7 +15,7 @@
 #' @export
 #'
 #' @examples
-#' # For retrieving the withdrawal time series of the devices located in Romilly-sur-Seine
+#' # Retrieve the withdrawal time series of the devices located in Romilly-sur-Seine
 #' get_indicateurs_services_indicateurs(list(code_indicateur = "D102.0", annee = "2012"))
 #'
 get_indicateurs_services_indicateurs <- function(params,

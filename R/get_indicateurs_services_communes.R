@@ -15,7 +15,7 @@
 #' @export
 #'
 #' @examples
-#' # For retrieving performance indicator time series of the services in Romilly-sur-Seine
+#' # Retrieve performance indicator time series of the services in Romilly-sur-Seine
 #' get_indicateurs_services_communes(list(code_commune = "10323"))
 #'
 get_indicateurs_services_communes <- function(params,

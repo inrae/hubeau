@@ -22,7 +22,7 @@ a \link[tibble:tibble]{tibble::tibble} with all available parameters in columns 
 See the API documentation for available filter parameters: \url{https://hubeau.eaufrance.fr/page/api-prelevements-eau}
 }
 \examples{
-# For retrieving the withdrawal devices located in Romilly-sur-Seine
+# Retrieve the withdrawal devices located in Romilly-sur-Seine
 get_prelevements_ouvrages(list(code_commune_insee = "10323"))
 
 }

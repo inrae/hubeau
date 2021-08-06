@@ -22,7 +22,7 @@ a \link[tibble:tibble]{tibble::tibble} with all available parameters in columns 
 See the API documentation for available filter parameters: \url{https://hubeau.eaufrance.fr/page/api-hydrometrie}
 }
 \examples{
-# For retrieving the hydrometric last real time observed discharge at station 'H020302002'
+# Retrieve the hydrometric last real time observed discharge at station 'H020302002'
 get_hydrometrie_observations_tr(list(code_entite = "H0203020", grandeur_hydro = "Q"))
 
 }

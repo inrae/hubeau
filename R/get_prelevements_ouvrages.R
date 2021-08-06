@@ -8,7 +8,7 @@
 #' @export
 #'
 #' @examples
-#' # For retrieving the withdrawal devices located in Romilly-sur-Seine
+#' # Retrieve the withdrawal devices located in Romilly-sur-Seine
 #' get_prelevements_ouvrages(list(code_commune_insee = "10323"))
 #'
 get_prelevements_ouvrages <- function(params, cfg = config::get(file = system.file("config.yml",

@@ -8,7 +8,7 @@
 #' @export
 #'
 #' @examples
-#' # For retrieving the withdrawal points located in Romilly-sur-Seine
+#' # Retrieve the withdrawal points located in Romilly-sur-Seine
 #' get_prelevements_points_prelevement(list(code_commune_insee = "10323"))
 #'
 get_prelevements_points_prelevement <- function(params, cfg = config::get(file = system.file("config.yml",

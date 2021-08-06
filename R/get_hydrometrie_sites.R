@@ -9,7 +9,7 @@
 #' @export
 #'
 #' @examples
-#' # For retrieving the hydrometric sites in the department of Aube
+#' # Retrieve the hydrometric sites in the department of Aube
 #' get_hydrometrie_sites(list(code_departement = "10"))
 #'
 #' # The same operation returning 2 rows for the site 'H0203020' which has 2 different locations
