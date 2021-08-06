@@ -6,11 +6,14 @@
 \usage{
 get_hydrometrie_observations_tr(
   params,
+  entities = "station",
   cfg = config::get(file = system.file("config.yml", package = "hubeau"))
 )
 }
 \arguments{
 \item{params}{a \link{list} the list of parameters of the queries and their values in the format \code{list(ParamName = "Param value", ...)}, use the function \link{get_available_params} for a list of the available parameters for a given operation in an API and see the API documentation for the complete list of available filter parameters}
+
+\item{entities}{1-\link{character} string filtering the rows of the returned value, possible values are: "station" for filtering on station rows, "site" for filtering on site rows, "both" for keeping all the rows}
 
 \item{cfg}{a \link{config} object Configuration of the communication. Use by default the internal package
 configuration}

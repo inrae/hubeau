@@ -22,7 +22,8 @@ a \link[tibble:tibble]{tibble::tibble} with all available parameters in columns 
 See the API documentation for available filter parameters: \url{https://hubeau.eaufrance.fr/page/api-piezometrie}
 }
 \examples{
-# For retrieving the last real time observed piezometric level at station 'BSS001VZGZ' (new BSS identifier)
+# For retrieving the last real time observed piezometric level
+# at station 'BSS001VZGZ' (new BSS identifier)
 df <- get_niveaux_nappes_chroniques_tr(list(bss_id = "BSS001VZGZ"))
 
 # Plot the water elevation (NGF)
