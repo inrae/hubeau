@@ -29,6 +29,7 @@ Available functions:
 \itemize{
 \item \link{get_indicateurs_services_communes}: performance indicators by commune
 \item \link{get_indicateurs_services_indicateurs}: performance indicators by indicator
+\item \link{get_indicateurs_services_services}: performance indicators by commune for each service
 }
 
 \strong{API "Piézométrie"}

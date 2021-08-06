@@ -22,6 +22,7 @@
 #'
 #' - [get_indicateurs_services_communes]: performance indicators by commune
 #' - [get_indicateurs_services_indicateurs]: performance indicators by indicator
+#' - [get_indicateurs_services_services]: performance indicators by commune for each service
 #'
 #' **API "Piézométrie"**
 #'
