@@ -1,4 +1,4 @@
-url: https://in-wop.g-eau.fr/hubeau
+url: https://inrae.github.io/hubeau/
 development:
   mode: unreleased
 
@@ -8,15 +8,14 @@ template:
 
 navbar:
   structure:
-    right: [gitlab]
+    right: [github, gitlab]
   components:
-    github: ~
     gitlab:
       icon: fab fa-gitlab fa-lg
       href: https://gitlab.irstea.fr/in-wop/hubeau
 
 repo:
   url:
-    home: https://gitlab.irstea.fr/in-wop/hubeau/
-    source: https://gitlab.irstea.fr/in-wop/hubeau/-/blob/master/
+    home: https://github.com/inrae/hubeau
+    source: https://github.com/inrae/hubeau/blob/master/
     issue: https://gitlab.irstea.fr/in-wop/hubeau/-/issues/
