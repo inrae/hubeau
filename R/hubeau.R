@@ -10,9 +10,9 @@
 #'
 #' Available functions:
 #'
-#' - [get_hydrometrie_observations_tr]
-#' - [get_hydrometrie_sites]
-#' - [get_hydrometrie_stations]
+#' - [get_hydrometrie_observations_tr]: hydrometry water level and discharge time series
+#' - [get_hydrometrie_sites]: hydrometry sites (can contain several stations)
+#' - [get_hydrometrie_stations]: hydrometry stations
 #'
 #' **API "Indicateurs des services"**
 #'
@@ -20,8 +20,8 @@
 #'
 #' Available functions:
 #'
-#' - [get_indicateurs_services_communes]
-#' - [get_indicateurs_services_indicateurs]
+#' - [get_indicateurs_services_communes]: performance indicators by commune
+#' - [get_indicateurs_services_indicateurs]: performance indicators by indicator
 #'
 #' **API "Piézométrie"**
 #'
@@ -29,7 +29,9 @@
 #'
 #' Available functions:
 #'
-#' - [get_niveaux_nappes_stations]
+#' - [get_hydrometrie_chroniques]: archived time series of piezometric stations
+#' - [get_hydrometrie_chroniques_tr]: real-time time series of piezometric stations
+#' - [get_niveaux_nappes_stations]: piezometric stations
 #'
 #' **API "Prélèvements en eau"**
 #'
@@ -37,9 +39,9 @@
 #'
 #' Available functions:
 #'
-#' - [get_prelevements_chroniques]
-#' - [get_prelevements_ouvrages]
-#' - [get_prelevements_points_prelevement]
+#' - [get_prelevements_chroniques]: time series of annual withdrawn volumes by device
+#' - [get_prelevements_ouvrages]: withdrawal devices (can contain several withdrawal points)
+#' - [get_prelevements_points_prelevement]: withdrawal points
 #'
 #' @docType package
 #' @name hubeau

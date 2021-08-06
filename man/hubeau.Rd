@@ -16,9 +16,9 @@ API documentation: \url{https://hubeau.eaufrance.fr/page/api-hydrometrie}
 
 Available functions:
 \itemize{
-\item \link{get_hydrometrie_observations_tr}
-\item \link{get_hydrometrie_sites}
-\item \link{get_hydrometrie_stations}
+\item \link{get_hydrometrie_observations_tr}: hydrometry water level and discharge time series
+\item \link{get_hydrometrie_sites}: hydrometry sites (can contain several stations)
+\item \link{get_hydrometrie_stations}: hydrometry stations
 }
 
 \strong{API "Indicateurs des services"}
@@ -27,8 +27,8 @@ API documentation: \url{https://hubeau.eaufrance.fr/page/api-indicateurs-service
 
 Available functions:
 \itemize{
-\item \link{get_indicateurs_services_communes}
-\item \link{get_indicateurs_services_indicateurs}
+\item \link{get_indicateurs_services_communes}: performance indicators by commune
+\item \link{get_indicateurs_services_indicateurs}: performance indicators by indicator
 }
 
 \strong{API "Piézométrie"}
@@ -37,7 +37,9 @@ API documentation: \url{https://hubeau.eaufrance.fr/page/api-piezometrie}
 
 Available functions:
 \itemize{
-\item \link{get_niveaux_nappes_stations}
+\item \link{get_hydrometrie_chroniques}: archived time series of piezometric stations
+\item \link{get_hydrometrie_chroniques_tr}: real-time time series of piezometric stations
+\item \link{get_niveaux_nappes_stations}: piezometric stations
 }
 
 \strong{API "Prélèvements en eau"}
@@ -46,8 +48,8 @@ API documentation: \url{https://hubeau.eaufrance.fr/page/api-prelevements-eau}
 
 Available functions:
 \itemize{
-\item \link{get_prelevements_chroniques}
-\item \link{get_prelevements_ouvrages}
-\item \link{get_prelevements_points_prelevement}
+\item \link{get_prelevements_chroniques}: time series of annual withdrawn volumes by device
+\item \link{get_prelevements_ouvrages}: withdrawal devices (can contain several withdrawal points)
+\item \link{get_prelevements_points_prelevement}: withdrawal points
 }
 }
