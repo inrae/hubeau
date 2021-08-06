@@ -66,5 +66,5 @@ github:
     - git config --global user.email "gitlab@inrae.fr"
     - git config --global user.name "Gitlab CI"
   script:
-    - git remote add github https://github.com/inrae/hubeau.git || exit 0
+    - git remote add github https://github.com/inrae/hubeau.git || FAILED=true
     - git push --mirror github
