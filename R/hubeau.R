@@ -30,8 +30,8 @@
 #'
 #' Available functions:
 #'
-#' - [get_hydrometrie_chroniques]: archived time series of piezometric stations
-#' - [get_hydrometrie_chroniques_tr]: real-time time series of piezometric stations
+#' - [get_niveaux_nappes_chroniques]: archived time series of piezometric stations
+#' - [get_niveaux_nappes_chroniques_tr]: real-time time series of piezometric stations
 #' - [get_niveaux_nappes_stations]: piezometric stations
 #'
 #' **API "Prélèvements en eau"**

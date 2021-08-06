@@ -38,8 +38,8 @@ API documentation: \url{https://hubeau.eaufrance.fr/page/api-piezometrie}
 
 Available functions:
 \itemize{
-\item \link{get_hydrometrie_chroniques}: archived time series of piezometric stations
-\item \link{get_hydrometrie_chroniques_tr}: real-time time series of piezometric stations
+\item \link{get_niveaux_nappes_chroniques}: archived time series of piezometric stations
+\item \link{get_niveaux_nappes_chroniques_tr}: real-time time series of piezometric stations
 \item \link{get_niveaux_nappes_stations}: piezometric stations
 }
 
