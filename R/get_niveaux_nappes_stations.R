@@ -8,7 +8,7 @@
 #' @export
 #'
 #' @examples
-#' # For retrieving the hydrometric stations in the department of Aube
+#' # Retrieve the hydrometric stations in the department of Aube
 #' get_niveaux_nappes_stations(list(code_departement = "10"))
 #'
 get_niveaux_nappes_stations  <- function(params, cfg = config::get(file = system.file("config.yml",
