@@ -150,3 +150,50 @@ default:
             - latitude
             - longitude
             - timestep
+    niveaux_nappes:
+      path: v1/niveaux_nappes
+      operations:
+        stations:
+          path: stations
+          fields:
+            - bbox
+            - bss_id
+            - code_bdlisa
+            - code_bss
+            - code_commune
+            - code_departement
+            - codes_masse_eau_edl
+            - date_recherche
+            - fields
+            - srid
+        sites:
+          path: referentiel/sites
+          fields:
+            - bbox
+            - code_commune_site
+            - code_cours_eau
+            - code_departement
+            - code_region
+            - code_site
+            - code_troncon_hydro_site
+            - code_zone_hydro_site
+            - distance
+            - fields
+            - latitude
+            - libelle_cours_eau
+            - libelle_site
+            - longitude
+        observations_tr:
+          path: observations_tr
+          fields:
+            - bbox
+            - code_entite
+            - cursor
+            - date_debut_obs
+            - date_fin_obs
+            - distance
+            - fields
+            - grandeur_hydro
+            - latitude
+            - longitude
+            - timestep

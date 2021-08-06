@@ -23,6 +23,14 @@
 #' - [get_indicateurs_services_communes]
 #' - [get_indicateurs_services_indicateurs]
 #'
+#' **API "Piézométrie"**
+#'
+#' API documentation: \url{https://hubeau.eaufrance.fr/page/api-piezometrie}
+#'
+#' Available functions:
+#'
+#' - [get_niveaux_nappes_stations]
+#'
 #' **API "Prélèvements en eau"**
 #'
 #' API documentation: \url{https://hubeau.eaufrance.fr/page/api-prelevements-eau}

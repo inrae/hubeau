@@ -31,6 +31,15 @@ Available functions:
 \item \link{get_indicateurs_services_indicateurs}
 }
 
+\strong{API "Piézométrie"}
+
+API documentation: \url{https://hubeau.eaufrance.fr/page/api-piezometrie}
+
+Available functions:
+\itemize{
+\item \link{get_niveaux_nappes_stations}
+}
+
 \strong{API "Prélèvements en eau"}
 
 API documentation: \url{https://hubeau.eaufrance.fr/page/api-prelevements-eau}

@@ -5,7 +5,7 @@
 #' @template param_get_common
 #' @param code_sandre_reseau_station optional [logical] indicating if `code_sandre_reseau_station` field is included in the result; if so, one line is added by item and other fields are repeated
 #'
-#' @return a [tibble::tibble] with all available parameters in columns and one row by device, year and usage.
+#' @return a [tibble::tibble] with all available parameters in columns and one row by station.
 #' @export
 #'
 #' @examples
