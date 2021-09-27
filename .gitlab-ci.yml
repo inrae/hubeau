@@ -71,4 +71,4 @@ github:
   script:
     - git remote add github git@github.com:inrae/hubeau.git || FAILED=true
     - git remote set-url github git@github.com:inrae/hubeau.git
-    - git push --mirror github
+    - git push github master
