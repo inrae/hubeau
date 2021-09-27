@@ -30,7 +30,7 @@ You can install the 'hubeau' R-package from it's development repository with:
 
 ``` r
 install.packages("remotes")
-remotes::install_gitlab("in-wop/hubeau", host = "gitlab.irstea.fr")
+remotes::install_github("inrae/hubeau")
 ```
 
 ## Loading library
@@ -48,7 +48,7 @@ See the package documentation by typing:
 ?hubeau
 ```
 
-Each function is documented with at least one example: 
+Each function is documented with at least one example:
 
 ```{r}
 example("get_prelevements_chroniques")

@@ -23,7 +23,7 @@ with:
 
 ``` r
 install.packages("remotes")
-remotes::install_gitlab("in-wop/hubeau", host = "gitlab.irstea.fr")
+remotes::install_github("inrae/hubeau")
 ```
 
 ## Loading library
@@ -44,22 +44,22 @@ Each function is documented with at least one example:
 
 ``` r
 example("get_prelevements_chroniques")
-#> 
+#>
 #> gt_pr_> # For retrieving the withdrawal time series of the devices located in Romilly-sur-Seine
 #> gt_pr_> get_prelevements_chroniques(list(code_commune_insee = "10323"))
 #> # A tibble: 36 x 23
 #>    code_ouvrage  annee volume code_usage libelle_usage code_statut_volume
-#>    <chr>         <int>  <dbl> <chr>      <chr>         <chr>             
-#>  1 OPR0000032603  2012 617624 AEP        EAU POTABLE   1                 
-#>  2 OPR0000032603  2013 463545 AEP        EAU POTABLE   1                 
-#>  3 OPR0000032603  2014 535557 AEP        EAU POTABLE   1                 
-#>  4 OPR0000032603  2015 541785 AEP        EAU POTABLE   1                 
-#>  5 OPR0000032603  2016 478938 AEP        EAU POTABLE   1                 
-#>  6 OPR0000032603  2017 402363 AEP        EAU POTABLE   1                 
-#>  7 OPR0000032603  2018 402383 AEP        EAU POTABLE   1                 
-#>  8 OPR0000032604  2012 617624 AEP        EAU POTABLE   1                 
-#>  9 OPR0000032604  2013 463545 AEP        EAU POTABLE   1                 
-#> 10 OPR0000032604  2014 535557 AEP        EAU POTABLE   1                 
+#>    <chr>         <int>  <dbl> <chr>      <chr>         <chr>
+#>  1 OPR0000032603  2012 617624 AEP        EAU POTABLE   1
+#>  2 OPR0000032603  2013 463545 AEP        EAU POTABLE   1
+#>  3 OPR0000032603  2014 535557 AEP        EAU POTABLE   1
+#>  4 OPR0000032603  2015 541785 AEP        EAU POTABLE   1
+#>  5 OPR0000032603  2016 478938 AEP        EAU POTABLE   1
+#>  6 OPR0000032603  2017 402363 AEP        EAU POTABLE   1
+#>  7 OPR0000032603  2018 402383 AEP        EAU POTABLE   1
+#>  8 OPR0000032604  2012 617624 AEP        EAU POTABLE   1
+#>  9 OPR0000032604  2013 463545 AEP        EAU POTABLE   1
+#> 10 OPR0000032604  2014 535557 AEP        EAU POTABLE   1
 #> # ... with 26 more rows, and 17 more variables: libelle_statut_volume <chr>,
 #> #   code_qualification_volume <chr>, libelle_qualification_volume <chr>,
 #> #   code_statut_instruction <chr>, libelle_statut_instruction <chr>,
