@@ -1,4 +1,4 @@
-params <- list(code_entite = "H0203020",
+params <- list(bbox = "1.6,47.79,1.8,47.99",
                date_debut_obs = format(Sys.Date()-3),
                grandeur_hydro = "Q")
 
@@ -8,7 +8,6 @@ test_that("entities not in ('station', 'site', 'both') should throw an error", {
     regexp = "must be one of these values"
   )
 })
-
 
 test_that("`entities = 'station'` => 'code_station' must be always not NA", {
   skip_on_cran()
