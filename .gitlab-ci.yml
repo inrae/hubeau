@@ -59,6 +59,9 @@ github:
     - mkdir -p ~/.ssh
     - chmod 700 ~/.ssh
 
+    ## Add Github to known hosts (https://stackoverflow.com/a/29380672)
+    - ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
+
     ##
     ## Optionally, if you will be using any Git commands, set the user name and
     ## and email.
