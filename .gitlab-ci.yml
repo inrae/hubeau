@@ -71,4 +71,6 @@ github:
   script:
     - git remote add github git@github.com:inrae/hubeau.git || FAILED=true
     - git remote set-url github git@github.com:inrae/hubeau.git
-    - git push github master
+    - git fetch
+    - git push github HEAD:master
+    - git push --tags github
