@@ -25,7 +25,10 @@ a \link[tibble:tibble]{tibble::tibble} with all available parameters in columns 
 See the API documentation for available filter parameters: \url{https://hubeau.eaufrance.fr/page/api-hydrometrie}
 }
 \examples{
+\dontrun{
+# This function is temporarily unavailable because of https://github.com/BRGM/hubeau/issues/85
+
 # Retrieve the hydrometric stations in the department of Aube
 get_hydrometrie_stations(list(code_departement = "10"))
-
+}
 }

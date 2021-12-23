@@ -9,9 +9,12 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
+#' # This function is temporarily unavailable because of https://github.com/BRGM/hubeau/issues/85
+#'
 #' # Retrieve the hydrometric stations in the department of Aube
 #' get_hydrometrie_stations(list(code_departement = "10"))
-#'
+#' }
 get_hydrometrie_stations  <- function(params, code_sandre_reseau_station = FALSE, cfg = config::get(file = system.file("config.yml",
                                                                                       package = "hubeau"))) {
   l <- doApiQuery(api = "hydrometrie",

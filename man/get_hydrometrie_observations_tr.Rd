@@ -20,6 +20,7 @@ configuration}
 }
 \value{
 a \link[tibble:tibble]{tibble::tibble} with all available parameters in columns and one row by time step and by station.
+If the query returns no records then the returned value is \link{NULL}.
 }
 \description{
 See the API documentation for available filter parameters: \url{https://hubeau.eaufrance.fr/page/api-hydrometrie}
