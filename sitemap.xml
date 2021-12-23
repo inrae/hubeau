@@ -1,48 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://inrae.github.io/hubeau//index.html</loc>
+    <loc>https://inrae.github.io/hubeau/404.html</loc>
   </url>
   <url>
-    <loc>https://inrae.github.io/hubeau//reference/doApiQuery.html</loc>
+    <loc>https://inrae.github.io/hubeau/LICENSE-text.html</loc>
   </url>
   <url>
-    <loc>https://inrae.github.io/hubeau//reference/get_hydrometrie_observations_tr.html</loc>
+    <loc>https://inrae.github.io/hubeau/LICENSE.html</loc>
   </url>
   <url>
-    <loc>https://inrae.github.io/hubeau//reference/get_hydrometrie_sites.html</loc>
+    <loc>https://inrae.github.io/hubeau/authors.html</loc>
   </url>
   <url>
-    <loc>https://inrae.github.io/hubeau//reference/get_hydrometrie_stations.html</loc>
+    <loc>https://inrae.github.io/hubeau/index.html</loc>
   </url>
   <url>
-    <loc>https://inrae.github.io/hubeau//reference/get_indicateurs_services_communes.html</loc>
+    <loc>https://inrae.github.io/hubeau/news/index.html</loc>
   </url>
   <url>
-    <loc>https://inrae.github.io/hubeau//reference/get_indicateurs_services_indicateurs.html</loc>
+    <loc>https://inrae.github.io/hubeau/reference/doApiQuery.html</loc>
   </url>
   <url>
-    <loc>https://inrae.github.io/hubeau//reference/get_indicateurs_services_services.html</loc>
+    <loc>https://inrae.github.io/hubeau/reference/get_hydrometrie_observations_tr.html</loc>
   </url>
   <url>
-    <loc>https://inrae.github.io/hubeau//reference/get_niveaux_nappes_chroniques.html</loc>
+    <loc>https://inrae.github.io/hubeau/reference/get_hydrometrie_sites.html</loc>
   </url>
   <url>
-    <loc>https://inrae.github.io/hubeau//reference/get_niveaux_nappes_chroniques_tr.html</loc>
+    <loc>https://inrae.github.io/hubeau/reference/get_hydrometrie_stations.html</loc>
   </url>
   <url>
-    <loc>https://inrae.github.io/hubeau//reference/get_niveaux_nappes_stations.html</loc>
+    <loc>https://inrae.github.io/hubeau/reference/get_indicateurs_services_communes.html</loc>
   </url>
   <url>
-    <loc>https://inrae.github.io/hubeau//reference/get_prelevements_chroniques.html</loc>
+    <loc>https://inrae.github.io/hubeau/reference/get_indicateurs_services_indicateurs.html</loc>
   </url>
   <url>
-    <loc>https://inrae.github.io/hubeau//reference/get_prelevements_ouvrages.html</loc>
+    <loc>https://inrae.github.io/hubeau/reference/get_indicateurs_services_services.html</loc>
   </url>
   <url>
-    <loc>https://inrae.github.io/hubeau//reference/get_prelevements_points_prelevement.html</loc>
+    <loc>https://inrae.github.io/hubeau/reference/get_niveaux_nappes_chroniques.html</loc>
   </url>
   <url>
-    <loc>https://inrae.github.io/hubeau//reference/hubeau.html</loc>
+    <loc>https://inrae.github.io/hubeau/reference/get_niveaux_nappes_chroniques_tr.html</loc>
+  </url>
+  <url>
+    <loc>https://inrae.github.io/hubeau/reference/get_niveaux_nappes_stations.html</loc>
+  </url>
+  <url>
+    <loc>https://inrae.github.io/hubeau/reference/get_prelevements_chroniques.html</loc>
+  </url>
+  <url>
+    <loc>https://inrae.github.io/hubeau/reference/get_prelevements_ouvrages.html</loc>
+  </url>
+  <url>
+    <loc>https://inrae.github.io/hubeau/reference/get_prelevements_points_prelevement.html</loc>
+  </url>
+  <url>
+    <loc>https://inrae.github.io/hubeau/reference/hubeau.html</loc>
+  </url>
+  <url>
+    <loc>https://inrae.github.io/hubeau/reference/index.html</loc>
   </url>
 </urlset>

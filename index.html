@@ -26,6 +26,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -45,12 +47,6 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
-  <a href="index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="reference/index.html">Reference</a>
 </li>
 <li>
@@ -59,13 +55,13 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/inrae/hubeau">
+  <a href="https://github.com/inrae/hubeau" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
 <li>
-  <a href="https://gitlab.irstea.fr/in-wop/hubeau">
+  <a href="https://gitlab.irstea.fr/in-wop/hubeau" class="external-link">
     <span class="fab fa-gitlab fa-lg"></span>
      
   </a>
@@ -82,36 +78,36 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-<div id="hubeau-an-r-package-for-the-hubeau-apis" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#hubeau-an-r-package-for-the-hubeau-apis" class="anchor"></a>hubeau an R package for the Hub’eau APIs</h1></div>
+<div class="section level1">
+<div class="page-header"><h1 id="hubeau-an-r-package-for-the-hubeau-apis">hubeau an R package for the Hub’eau APIs<a class="anchor" aria-label="anchor" href="#hubeau-an-r-package-for-the-hubeau-apis"></a>
+</h1></div>
 <p><img src="reference/figures/logo.svg" align="right" height="120px"></p>
 <!-- badges: start -->
-<p><a href="https://cran.r-project.org/web/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-orange.svg" alt="License: MIT"></a> <a href="https://lifecycle.r-lib.org/articles/stages.html#experimental"><img src="https://img.shields.io/badge/lifecycle-experimental-blue.svg"></a> <!-- badges: end --></p>
-<p>‘hubeau’ is an R-package proposing a collection of function to help retrieve data from the French national databases on water: <a href="https://hubeau.eaufrance.fr" class="uri">https://hubeau.eaufrance.fr</a></p>
-<div id="installation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h2>
+
+<p>‘hubeau’ is an R-package proposing a collection of function to help retrieve data from the French national databases on water: <a href="https://hubeau.eaufrance.fr" class="external-link uri">https://hubeau.eaufrance.fr</a></p>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
 <p>You can install the ‘hubeau’ R-package from it’s development repository with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span>
-<span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"inrae/hubeau"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span>
+<span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"inrae/hubeau"</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="loading-library" class="section level2">
-<h2 class="hasAnchor">
-<a href="#loading-library" class="anchor"></a>Loading library</h2>
+<div class="section level2">
+<h2 id="loading-library">Loading library<a class="anchor" aria-label="anchor" href="#loading-library"></a>
+</h2>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">hubeau</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://inrae.github.io/hubeau">hubeau</a></span><span class="op">)</span></code></pre></div>
 </div>
-<div id="get-started" class="section level2">
-<h2 class="hasAnchor">
-<a href="#get-started" class="anchor"></a>Get started</h2>
+<div class="section level2">
+<h2 id="get-started">Get started<a class="anchor" aria-label="anchor" href="#get-started"></a>
+</h2>
 <p>See the package documentation by typing:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="op">?</span><span class="va">hubeau</span></code></pre></div>
 <p>Each function is documented with at least one example:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/example.html">example</a></span><span class="op">(</span><span class="st">"get_prelevements_chroniques"</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/example.html" class="external-link">example</a></span><span class="op">(</span><span class="st">"get_prelevements_chroniques"</span><span class="op">)</span>
 <span class="co">#&gt;</span>
 <span class="co">#&gt; gt_pr_&gt; # For retrieving the withdrawal time series of the devices located in Romilly-sur-Seine</span>
 <span class="co">#&gt; gt_pr_&gt; get_prelevements_chroniques(list(code_commune_insee = "10323"))</span>
@@ -137,10 +133,10 @@
 <span class="co">#&gt; #   code_departement &lt;chr&gt;, libelle_departement &lt;chr&gt;, nom_ouvrage &lt;chr&gt;,</span>
 <span class="co">#&gt; #   uri_ouvrage &lt;chr&gt;</span></code></pre></div>
 </div>
-<div id="acknowledgement" class="section level2">
-<h2 class="hasAnchor">
-<a href="#acknowledgement" class="anchor"></a>Acknowledgement</h2>
-<p>The authors would like to thank the European Commission and the French National Research Agency (ANR) for funding in the frame of the collaborative international consortium <a href="http://www.waterjpi.eu/joint-calls/joint-call-2018-waterworks-2017/booklet/in-wop">IN-WOP</a> financed under the 2018 Joint call of the WaterWorks2017 ERA-NET Cofund. This ERA-NET is an integral part of the activities developed by the Water JPI.</p>
+<div class="section level2">
+<h2 id="acknowledgement">Acknowledgement<a class="anchor" aria-label="anchor" href="#acknowledgement"></a>
+</h2>
+<p>The authors would like to thank the European Commission and the French National Research Agency (ANR) for funding in the frame of the collaborative international consortium <a href="http://www.waterjpi.eu/joint-calls/joint-call-2018-waterworks-2017/booklet/in-wop" class="external-link">IN-WOP</a> financed under the 2018 Joint call of the WaterWorks2017 ERA-NET Cofund. This ERA-NET is an integral part of the activities developed by the Water JPI.</p>
 <div style="display: flex; justify-content: space-between;">
 <p><img src="reference/figures/logo_water_jpi.png" alt="Water JPI"><img src="reference/figures/logo_water_works_2017.png" alt="Water Works 2017"><img src="reference/figures/logo_european_commission.jpg" alt="European Commission"><img src="reference/figures/logo_2018_joint_call.png" alt="2018 Joint call"></p>
 </div>
@@ -150,23 +146,41 @@
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
-<h2>Links</h2>
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Browse source code at <br><a href="https://github.com/inrae/hubeau">https://​github.com/​inrae/​hubeau</a>
-</li>
+<li><a href="https://github.com/inrae/hubeau" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/inrae/hubeau/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
+
 <div class="license">
-<h2>License</h2>
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
 <li><a href="LICENSE.html">Full license</a></li>
-<li><small><a href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
+<li><small><a href="https://opensource.org/licenses/mit-license.php" class="external-link">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
 </ul>
 </div>
-<div class="developers">
-<h2>Developers</h2>
+
+
+<div class="citation">
+<h2 data-toc-skip>Citation</h2>
 <ul class="list-unstyled">
-<li>David Dorchies <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-6595-7984" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li><a href="authors.html#citation">Citing hubeau</a></li>
+</ul>
+</div>
+
+<div class="developers">
+<h2 data-toc-skip>Developers</h2>
+<ul class="list-unstyled">
+<li>David Dorchies <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-6595-7984" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+</ul>
+</div>
+
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://cran.r-project.org/web/licenses/MIT" class="external-link"><img src="https://img.shields.io/badge/license-MIT-orange.svg" alt="License: MIT"></a></li>
+<li><a href="https://lifecycle.r-lib.org/articles/stages.html#experimental" class="external-link"><img src="https://img.shields.io/badge/lifecycle-experimental-blue.svg"></a></li>
 </ul>
 </div>
 
@@ -175,11 +189,13 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by David Dorchies.</p>
+  <p></p>
+<p>Developed by David Dorchies.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
 </div>
 
       </footer>
@@ -187,6 +203,8 @@
 
   
 
+
+  
 
   </body>
 </html>
