@@ -7,6 +7,8 @@ Authors@R: c(
     )
 Description: Collection of functions to help retrieve the French national data bank on water <https://hubeau.eaufrance.fr/>.
 License: MIT + file LICENSE
+URL: https://inrae.github.io/hubeau, https://github.com/inrae/hubeau#readme
+BugReports: https://github.com/inrae/hubeau/issues
 Encoding: UTF-8
 LazyData: true
 Imports:
