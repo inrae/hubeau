@@ -150,6 +150,21 @@ default:
             - latitude
             - longitude
             - timestep
+        obs_elab:
+          path: obs_elab
+          fields:
+            - bbox
+            - code_entite
+            - cursor
+            - date_debut_obs_elab
+            - date_fin_obs_elab
+            - distance
+            - fields
+            - grandeur_hydro_elab
+            - latitude
+            - longitude
+            - resultat_max
+            - resultat_min
     niveaux_nappes:
       path: v1/niveaux_nappes
       operations:
