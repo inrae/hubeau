@@ -86,20 +86,20 @@ If the query returns no records then the returned value is <a href="https://rdrr
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># Retrieve the hydrometric last real time observed discharge at station 'H020302002'</span></span>
 <span class="r-in"><span class="fu">get_hydrometrie_observations_tr</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>code_entite <span class="op">=</span> <span class="st">"H0203020"</span>, grandeur_hydro <span class="op">=</span> <span class="st">"Q"</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 4,287 × 16</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 4,290 × 16</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    code_site code_station grandeur_hydro date_debut_serie     date_fin_serie    </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> H0203020  H020302002   Q              2021-12-23T00:00:01Z 2021-12-23T16:00:…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> H0203020  H020302002   Q              2021-12-23T00:00:01Z 2021-12-23T16:00:…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> H0203020  H020302002   Q              2021-12-23T00:00:01Z 2021-12-23T16:00:…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> H0203020  H020302002   Q              2021-12-23T00:00:01Z 2021-12-23T16:00:…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> H0203020  H020302002   Q              2021-12-23T00:00:01Z 2021-12-23T16:00:…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> H0203020  H020302002   Q              2021-12-23T00:00:01Z 2021-12-23T16:00:…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> H0203020  H020302002   Q              2021-12-23T00:00:01Z 2021-12-23T15:00:…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> H0203020  H020302002   Q              2021-12-23T00:00:01Z 2021-12-23T15:00:…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> H0203020  H020302002   Q              2021-12-23T00:00:01Z 2021-12-23T15:00:…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> H0203020  H020302002   Q              2021-12-23T00:00:01Z 2021-12-23T15:00:…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 4,277 more rows, and 11 more variables: statut_serie &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> H0203020  H020302002   Q              2021-12-24T00:00:01Z 2021-12-24T16:00:…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> H0203020  H020302002   Q              2021-12-24T00:00:01Z 2021-12-24T16:00:…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> H0203020  H020302002   Q              2021-12-24T00:00:01Z 2021-12-24T16:00:…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> H0203020  H020302002   Q              2021-12-24T00:00:01Z 2021-12-24T16:00:…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> H0203020  H020302002   Q              2021-12-24T00:00:01Z 2021-12-24T16:00:…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> H0203020  H020302002   Q              2021-12-24T00:00:01Z 2021-12-24T16:00:…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> H0203020  H020302002   Q              2021-12-24T00:00:01Z 2021-12-24T15:00:…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> H0203020  H020302002   Q              2021-12-24T00:00:01Z 2021-12-24T15:00:…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> H0203020  H020302002   Q              2021-12-24T00:00:01Z 2021-12-24T15:00:…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> H0203020  H020302002   Q              2021-12-24T00:00:01Z 2021-12-24T15:00:…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 4,280 more rows, and 11 more variables: statut_serie &lt;int&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   code_systeme_alti_serie &lt;int&gt;, date_obs &lt;chr&gt;, resultat_obs &lt;dbl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   code_methode_obs &lt;int&gt;, libelle_methode_obs &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   code_qualification_obs &lt;int&gt;, libelle_qualification_obs &lt;chr&gt;,</span></span>
