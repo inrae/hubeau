@@ -80,11 +80,11 @@ Pagination of the queries is handled automatically and the returned <a href="htt
     <dl><dt>api</dt>
 <dd><p>a <a href="https://rdrr.io/r/base/character.html" class="external-link">character</a> name of the API (e.g.: "indicateurs_services", "prelevements"...), see example for available APIs</p></dd>
 <dt>operation</dt>
-<dd><p>a <a href="https://rdrr.io/r/base/character.html" class="external-link">character</a> name of the operation, see example for available operations in an API</p></dd>
+<dd><p>a <a href="https://rdrr.io/r/base/character.html" class="external-link">character</a> name of the endpoint, see example for available endpoints in an API</p></dd>
 <dt>params</dt>
-<dd><p>a <a href="https://rdrr.io/r/base/list.html" class="external-link">list</a> the list of parameters of the queries and their values in the format <code>list(ParamName = "Param value", ...)</code>, use the function get_available_params for a list of the available parameters for a given operation in an API and see the API documentation for the complete list of available filter parameters</p></dd>
+<dd><p>a <a href="https://rdrr.io/r/base/list.html" class="external-link">list</a> the list of parameters of the queries and their values in the format <code>list(ParamName = "Param value", ...)</code>, use the function get_available_params for a list of the available filter parameters for a given operation in an API and see the API documentation for their description</p></dd>
 <dt>cfg</dt>
-<dd><p>a config object Configuration of the communication. Use by default the internal package
+<dd><p>a config object describing the configuration of the APIs. Use the internal package configuration by default
 configuration</p></dd>
 </dl></div>
     <div id="value">

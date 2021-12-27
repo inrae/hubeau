@@ -19,46 +19,22 @@
     <loc>https://inrae.github.io/hubeau/news/index.html</loc>
   </url>
   <url>
+    <loc>https://inrae.github.io/hubeau/reference/convert_list_to_tibble.html</loc>
+  </url>
+  <url>
     <loc>https://inrae.github.io/hubeau/reference/doApiQuery.html</loc>
   </url>
   <url>
-    <loc>https://inrae.github.io/hubeau/reference/get_hydrometrie_obs_elab.html</loc>
+    <loc>https://inrae.github.io/hubeau/reference/get_hydrometrie.html</loc>
   </url>
   <url>
-    <loc>https://inrae.github.io/hubeau/reference/get_hydrometrie_observations_tr.html</loc>
+    <loc>https://inrae.github.io/hubeau/reference/get_indicateurs_services.html</loc>
   </url>
   <url>
-    <loc>https://inrae.github.io/hubeau/reference/get_hydrometrie_sites.html</loc>
+    <loc>https://inrae.github.io/hubeau/reference/get_niveaux_nappes.html</loc>
   </url>
   <url>
-    <loc>https://inrae.github.io/hubeau/reference/get_hydrometrie_stations.html</loc>
-  </url>
-  <url>
-    <loc>https://inrae.github.io/hubeau/reference/get_indicateurs_services_communes.html</loc>
-  </url>
-  <url>
-    <loc>https://inrae.github.io/hubeau/reference/get_indicateurs_services_indicateurs.html</loc>
-  </url>
-  <url>
-    <loc>https://inrae.github.io/hubeau/reference/get_indicateurs_services_services.html</loc>
-  </url>
-  <url>
-    <loc>https://inrae.github.io/hubeau/reference/get_niveaux_nappes_chroniques.html</loc>
-  </url>
-  <url>
-    <loc>https://inrae.github.io/hubeau/reference/get_niveaux_nappes_chroniques_tr.html</loc>
-  </url>
-  <url>
-    <loc>https://inrae.github.io/hubeau/reference/get_niveaux_nappes_stations.html</loc>
-  </url>
-  <url>
-    <loc>https://inrae.github.io/hubeau/reference/get_prelevements_chroniques.html</loc>
-  </url>
-  <url>
-    <loc>https://inrae.github.io/hubeau/reference/get_prelevements_ouvrages.html</loc>
-  </url>
-  <url>
-    <loc>https://inrae.github.io/hubeau/reference/get_prelevements_points_prelevement.html</loc>
+    <loc>https://inrae.github.io/hubeau/reference/get_prelevements.html</loc>
   </url>
   <url>
     <loc>https://inrae.github.io/hubeau/reference/hubeau.html</loc>
