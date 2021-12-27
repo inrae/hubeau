@@ -21,11 +21,11 @@ get_available_params(
 \arguments{
 \item{api}{a \link{character} name of the API (e.g.: "indicateurs_services", "prelevements"...), see example for available APIs}
 
-\item{operation}{a \link{character} name of the operation, see example for available operations in an API}
+\item{operation}{a \link{character} name of the endpoint, see example for available endpoints in an API}
 
-\item{params}{a \link{list} the list of parameters of the queries and their values in the format \code{list(ParamName = "Param value", ...)}, use the function \link{get_available_params} for a list of the available parameters for a given operation in an API and see the API documentation for the complete list of available filter parameters}
+\item{params}{a \link{list} the list of parameters of the queries and their values in the format \code{list(ParamName = "Param value", ...)}, use the function \link{get_available_params} for a list of the available filter parameters for a given operation in an API and see the API documentation for their description}
 
-\item{cfg}{a \link{config} object Configuration of the communication. Use by default the internal package
+\item{cfg}{a \link{config} object describing the configuration of the APIs. Use the internal package configuration by default
 configuration}
 }
 \value{

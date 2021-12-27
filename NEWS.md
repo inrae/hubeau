@@ -3,6 +3,7 @@ hubeau (development version)
 
 New features
 ------------
+* Aggregate documentation by API (#16)
 * Add informations in DESCRIPTION file (#12)
 * `get_hydrometrie_observations_tr` add an option for handling duplicate entries (#10)
 * Deploy pkgdown website on github (#9)

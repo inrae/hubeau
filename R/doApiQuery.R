@@ -8,8 +8,10 @@
 #' @details The functions `get_[api]_[operation]` call the function `doQueryApi` and convert the response in a convenient format for the user ([data.frame] or [tibble::tibble])
 #'
 #' @param api a [character] name of the API (e.g.: "indicateurs_services", "prelevements"...), see example for available APIs
-#' @param operation a [character] name of the operation, see example for available operations in an API
-#' @template param_get_common
+#' @param operation a [character] name of the endpoint, see example for available endpoints in an API
+#' @param params a [list] the list of parameters of the queries and their values in the format `list(ParamName = "Param value", ...)`, use the function [get_available_params] for a list of the available filter parameters for a given operation in an API and see the API documentation for their description
+#' @param cfg a [config] object describing the configuration of the APIs. Use the internal package configuration by default
+#'        configuration
 #'
 #' @return A [list] with the concatenated results returned by the API.
 #' @export
@@ -110,12 +112,13 @@ doApiQuery <- function(api,
 }
 
 
-#' Convert list provided by the API into a tibble
+#' Convert list provided by the APIs into a tibble
 #'
-#' @param l a [list] provided by the API
+#' @param l a [list] provided by the API (See [doApiQuery])
 #'
-#' @return a [tibble:tibble] with one row by list item and one column by list sub-item
-#' @noRd
+#' @return a [tibble::tibble] with one row by list item and one column by list sub-item
+#'
+#' @export
 #'
 convert_list_to_tibble <- function(l) {
   l <-
