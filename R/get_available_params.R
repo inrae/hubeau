@@ -1,5 +1,11 @@
-#' @rdname doApiQuery
+#' List available query parameters of an API endpoint
+#'
+#' @inheritParams doApiQuery
+#'
+#' @return A [character] vector with available query parameters for the requested API/endpoint
+#'
 #' @export
+#' @inherit doApiQuery examples
 #'
 get_available_params <- function(api,
                                  operation,

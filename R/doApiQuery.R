@@ -22,7 +22,7 @@
 #' cfg <- config::get(file = system.file("config.yml", package = "hubeau"))
 #' names(cfg$apis)
 #'
-#' # To get the available operation in an API
+#' # To get the available endpoints in an API
 #' names(cfg$apis[["prelevements"]]$operations)
 #'
 #' # To get available parameters in operation "chroniques" of the API "prelevements"
