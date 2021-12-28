@@ -1,9 +1,8 @@
-#' Retrieve performance indicators from drinking water supply and sanitation services at commune level
+#' Retrieve data from API "Indicateurs des services"
 #'
 #' @description
-#' Available endpoints are:
 #'
-#' -
+#' Retrieve performance indicators collected in drinking water and sanitation services in France.
 #'
 #' See [get_available_params] and the API documentation for available filter parameters: \url{https://hubeau.eaufrance.fr/page/api-indicateurs-services}
 #'

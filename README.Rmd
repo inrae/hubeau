@@ -43,7 +43,6 @@ library(hubeau)
 
 See the package documentation by typing:
 
-
 ```r
 ?hubeau
 ```
