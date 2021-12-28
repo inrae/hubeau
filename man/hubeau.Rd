@@ -5,10 +5,11 @@
 \alias{hubeau}
 \title{hubeau: A package for retrieving data on the French databases on water "Hub'eau"}
 \description{
-The 'hubeau' package provides functions for APIs and related "operations". These functions are named as follow: \verb{hubeau::get_[API]_[operation]}.
+The 'hubeau' package provides functions for "Hub'eau" APIs and their related endpoints.
+These functions are named as follow: \verb{hubeau::get_[API]_[endpoint]}.
 }
 \details{
-Currently available APIs and related "operations" are listed below.
+Currently available APIs and related endpoints are listed below.
 
 \strong{API "Hydrométrie"}
 
@@ -16,9 +17,10 @@ API documentation: \url{https://hubeau.eaufrance.fr/page/api-hydrometrie}
 
 Available functions:
 \itemize{
-\item \link{get_hydrometrie_observations_tr}: hydrometry water level and discharge time series
 \item \link{get_hydrometrie_sites}: hydrometry sites (can contain several stations)
 \item \link{get_hydrometrie_stations}: hydrometry stations
+\item \link{get_hydrometrie_observations_tr}: hydrometry water level and discharge time series
+\item \link{get_hydrometrie_obs_elab}: hydrometric elaborate observations (daily/monthly mean flow)
 }
 
 \strong{API "Indicateurs des services"}

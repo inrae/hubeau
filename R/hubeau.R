@@ -1,8 +1,9 @@
 #' hubeau: A package for retrieving data on the French databases on water "Hub'eau"
 #'
-#' The 'hubeau' package provides functions for APIs and related "operations". These functions are named as follow: `hubeau::get_[API]_[operation]`.
+#' The 'hubeau' package provides functions for "Hub'eau" APIs and their related endpoints.
+#' These functions are named as follow: `hubeau::get_[API]_[endpoint]`.
 #'
-#' Currently available APIs and related "operations" are listed below.
+#' Currently available APIs and related endpoints are listed below.
 #'
 #' **API "Hydrométrie"**
 #'
@@ -10,9 +11,10 @@
 #'
 #' Available functions:
 #'
-#' - [get_hydrometrie_observations_tr]: hydrometry water level and discharge time series
 #' - [get_hydrometrie_sites]: hydrometry sites (can contain several stations)
 #' - [get_hydrometrie_stations]: hydrometry stations
+#' - [get_hydrometrie_observations_tr]: hydrometry water level and discharge time series
+#' - [get_hydrometrie_obs_elab]: hydrometric elaborate observations (daily/monthly mean flow)
 #'
 #' **API "Indicateurs des services"**
 #'

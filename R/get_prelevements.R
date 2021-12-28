@@ -27,7 +27,7 @@
 get_prelevements_points_prelevement <- function(params, cfg = config::get(file = system.file("config.yml",
                                                                         package = "hubeau"))) {
   l <- doApiQuery(api = "prelevements",
-                  operation = "points_prelevement",
+                  endpoint = "points_prelevement",
                   params = params,
                   cfg = cfg)
 
@@ -39,7 +39,7 @@ get_prelevements_points_prelevement <- function(params, cfg = config::get(file =
 get_prelevements_ouvrages <- function(params, cfg = config::get(file = system.file("config.yml",
                                                                                              package = "hubeau"))) {
   l <- doApiQuery(api = "prelevements",
-                  operation = "ouvrages",
+                  endpoint = "ouvrages",
                   params = params,
                   cfg = cfg)
   l <- lapply(l, function(x) {
@@ -56,7 +56,7 @@ get_prelevements_ouvrages <- function(params, cfg = config::get(file = system.fi
 get_prelevements_chroniques <- function(params, cfg = config::get(file = system.file("config.yml",
                                                                        package = "hubeau"))) {
   l <- doApiQuery(api = "prelevements",
-                  operation = "chroniques",
+                  endpoint = "chroniques",
                   params = params,
                   cfg = cfg)
   l <- lapply(l, function(x) {

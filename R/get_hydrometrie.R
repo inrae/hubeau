@@ -47,7 +47,7 @@ get_hydrometrie_obs_elab <- function(params,
                                                                           package = "hubeau"))) {
   l <- doApiQuery(
     api = "hydrometrie",
-    operation = "obs_elab",
+    endpoint = "obs_elab",
     params = params,
     cfg = cfg
   )
@@ -68,7 +68,7 @@ get_hydrometrie_observations_tr  <- function(params,
 
   l <- doApiQuery(
     api = "hydrometrie",
-    operation = "observations_tr",
+    endpoint = "observations_tr",
     params = params,
     cfg = cfg
   )
@@ -101,7 +101,7 @@ get_hydrometrie_sites  <- function(params,
                                                         package = "hubeau"))) {
   l <- doApiQuery(
     api = "hydrometrie",
-    operation = "sites",
+    endpoint = "sites",
     params = params,
     cfg = cfg
   )
@@ -148,7 +148,7 @@ get_hydrometrie_sites  <- function(params,
 get_hydrometrie_stations  <- function(params, code_sandre_reseau_station = FALSE, cfg = config::get(file = system.file("config.yml",
                                                                                       package = "hubeau"))) {
   l <- doApiQuery(api = "hydrometrie",
-                  operation = "stations",
+                  endpoint = "stations",
                   params = params,
                   cfg = cfg)
   l <- lapply(l, function(x) {

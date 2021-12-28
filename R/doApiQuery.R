@@ -1,15 +1,13 @@
-#' Main internal functions for querying the Hub'eau APIs
+#' Main internal functions for querying the Hub'eau API endpoints
 #'
-#' The function `doQueryApi` is called by all the function querying the APIs and return the raw data sent by the API.
+#' The function `doQueryApi` is called by all the function querying the API endpoints and return the raw data sent by the endpoint.
 #' Pagination of the queries is handled automatically and the returned [list] is the concatenation of all the results sent by the API.
 #'
-#' The function `get_available_params` returns the list of available query parameters for a given operation in an API.
-#'
-#' @details The functions `get_[api]_[operation]` call the function `doQueryApi` and convert the response in a convenient format for the user ([data.frame] or [tibble::tibble])
+#' @details The functions `get_[api]_[endpoint]` call the function `doQueryApi` and convert the response in a convenient format for the user ([data.frame] or [tibble::tibble])
 #'
 #' @param api a [character] name of the API (e.g.: "indicateurs_services", "prelevements"...), see example for available APIs
-#' @param operation a [character] name of the endpoint, see example for available endpoints in an API
-#' @param params a [list] the list of parameters of the queries and their values in the format `list(ParamName = "Param value", ...)`, use the function [get_available_params] for a list of the available filter parameters for a given operation in an API and see the API documentation for their description
+#' @param endpoint a [character] name of the endpoint, see example for available endpoints in an API
+#' @param params a [list] the list of parameters of the queries and their values in the format `list(ParamName = "Param value", ...)`, use the function [get_available_params] for a list of the available filter parameters for a given API endpoint and see the API documentation for their description
 #' @param cfg a [config] object describing the configuration of the APIs. Use the internal package configuration by default
 #'        configuration
 #'
@@ -23,26 +21,26 @@
 #' names(cfg$apis)
 #'
 #' # To get the available endpoints in an API
-#' names(cfg$apis[["prelevements"]]$operations)
+#' names(cfg$apis[["prelevements"]]$endpoints)
 #'
-#' # To get available parameters in operation "chroniques" of the API "prelevements"
-#' get_available_params(api = "prelevements", operation = "chroniques")
+#' # To get available parameters in endpoint "chroniques" of the API "prelevements"
+#' get_available_params(api = "prelevements", endpoint = "chroniques")
 #'
-#' # To query the operation "chroniques" of the API "prelevements"
+#' # To query the endpoint "chroniques" of the API "prelevements"
 #' # on all devices in the commune of Romilly-sur-Seine in 2018
 #' doApiQuery(api = "prelevements",
-#'            operation = "chroniques",
+#'            endpoint = "chroniques",
 #'            params = list(code_commune_insee = "10323", annee = "2018"))
 doApiQuery <- function(api,
-                       operation,
+                       endpoint,
                        params,
                        cfg = config::get(file = system.file("config.yml", package = "hubeau"))) {
-  availableParams <- get_available_params(api, operation, cfg)
+  availableParams <- get_available_params(api, endpoint, cfg)
 
   query <-
-    file.path(cfg$api_url, cfg$apis[[api]]$path, cfg$apis[[api]]$operations[[operation]]$path)
+    file.path(cfg$api_url, cfg$apis[[api]]$path, cfg$apis[[api]]$endpoints[[endpoint]]$path)
   for (paramName in names(params)) {
-    if (!paramName %in% cfg$apis[[api]]$operations[[operation]]$fields) {
+    if (!paramName %in% cfg$apis[[api]]$endpoints[[endpoint]]$fields) {
       stop(
         sprintf(
           "The parameter '%s' is not available for this query. ",
@@ -52,7 +50,7 @@ doApiQuery <- function(api,
         sprintf(
           "Run `hubeau::get_available_params(\"%s\", \"%s\")` to get available parameters.",
           api,
-          operation
+          endpoint
         )
       )
     }

@@ -37,7 +37,7 @@
 get_niveaux_nappes_stations  <- function(params, cfg = config::get(file = system.file("config.yml",
                                                                                       package = "hubeau"))) {
   l <- doApiQuery(api = "niveaux_nappes",
-                  operation = "stations",
+                  endpoint = "stations",
                   params = params,
                   cfg = cfg)
   l <- lapply(l, function(x) {
@@ -54,7 +54,7 @@ get_niveaux_nappes_chroniques  <- function(params,
                                                         package = "hubeau"))) {
   l <- doApiQuery(
     api = "niveaux_nappes",
-    operation = "chroniques",
+    endpoint = "chroniques",
     params = params,
     cfg = cfg
   )
@@ -68,7 +68,7 @@ get_niveaux_nappes_chroniques_tr  <- function(params,
                                                         package = "hubeau"))) {
   l <- doApiQuery(
     api = "niveaux_nappes",
-    operation = "chroniques_tr",
+    endpoint = "chroniques_tr",
     params = params,
     cfg = cfg
   )

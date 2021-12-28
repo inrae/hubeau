@@ -6,14 +6,14 @@
 \usage{
 get_available_params(
   api,
-  operation,
+  endpoint,
   cfg = config::get(file = system.file("config.yml", package = "hubeau"))
 )
 }
 \arguments{
 \item{api}{a \link{character} name of the API (e.g.: "indicateurs_services", "prelevements"...), see example for available APIs}
 
-\item{operation}{a \link{character} name of the endpoint, see example for available endpoints in an API}
+\item{endpoint}{a \link{character} name of the endpoint, see example for available endpoints in an API}
 
 \item{cfg}{a \link{config} object describing the configuration of the APIs. Use the internal package configuration by default
 configuration}
@@ -30,14 +30,14 @@ cfg <- config::get(file = system.file("config.yml", package = "hubeau"))
 names(cfg$apis)
 
 # To get the available endpoints in an API
-names(cfg$apis[["prelevements"]]$operations)
+names(cfg$apis[["prelevements"]]$endpoints)
 
-# To get available parameters in operation "chroniques" of the API "prelevements"
-get_available_params(api = "prelevements", operation = "chroniques")
+# To get available parameters in endpoint "chroniques" of the API "prelevements"
+get_available_params(api = "prelevements", endpoint = "chroniques")
 
-# To query the operation "chroniques" of the API "prelevements"
+# To query the endpoint "chroniques" of the API "prelevements"
 # on all devices in the commune of Romilly-sur-Seine in 2018
 doApiQuery(api = "prelevements",
-           operation = "chroniques",
+           endpoint = "chroniques",
            params = list(code_commune_insee = "10323", annee = "2018"))
 }

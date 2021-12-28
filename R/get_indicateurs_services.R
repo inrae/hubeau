@@ -67,7 +67,7 @@ get_indicateurs_services_communes <- function(params,
                                                                                    package = "hubeau"))) {
 
   l <- doApiQuery(api = "indicateurs_services",
-                  operation = "communes",
+                  endpoint = "communes",
                   params = params,
                   cfg = cfg)
 
@@ -85,7 +85,7 @@ get_indicateurs_services_indicateurs <- function(params,
                                                 cfg = config::get(file = system.file("config.yml",
                                                                                      package = "hubeau"))) {
   l <- doApiQuery(api = "indicateurs_services",
-                  operation = "indicateurs",
+                  endpoint = "indicateurs",
                   params = params,
                   cfg = cfg)
 
@@ -104,7 +104,7 @@ get_indicateurs_services_services <- function(params,
                                                                                    package = "hubeau"))) {
 
   l <- doApiQuery(api = "indicateurs_services",
-                  operation = "services",
+                  endpoint = "services",
                   params = params,
                   cfg = cfg)
 

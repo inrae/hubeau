@@ -3,7 +3,7 @@ default:
   apis:
     prelevements:
       path: v1/prelevements
-      operations:
+      endpoints:
         points_prelevement:
           path: referentiel/points_prelevement
           fields:
@@ -71,7 +71,7 @@ default:
             - nom_ouvrage
     indicateurs_services:
       path: v0/indicateurs_services
-      operations:
+      endpoints:
         communes:
           path: communes
           fields:
@@ -97,7 +97,7 @@ default:
             - type_service
     hydrometrie:
       path: v1/hydrometrie
-      operations:
+      endpoints:
         stations:
           path: referentiel/stations
           fields:
@@ -167,7 +167,7 @@ default:
             - resultat_min
     niveaux_nappes:
       path: v1/niveaux_nappes
-      operations:
+      endpoints:
         chroniques:
           path: chroniques
           fields:
