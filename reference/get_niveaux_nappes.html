@@ -68,33 +68,38 @@ See the API documentation for available filter parameters: https://hubeau.eaufra
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">get_niveaux_nappes_stations</span><span class="op">(</span>
-  <span class="va">params</span>,
-  cfg <span class="op">=</span> <span class="fu">config</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/config/man/get.html" class="external-link">get</a></span><span class="op">(</span>file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"config.yml"</span>, package <span class="op">=</span> <span class="st">"hubeau"</span><span class="op">)</span><span class="op">)</span>
-<span class="op">)</span>
-
-<span class="fu">get_niveaux_nappes_chroniques</span><span class="op">(</span>
-  <span class="va">params</span>,
-  cfg <span class="op">=</span> <span class="fu">config</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/config/man/get.html" class="external-link">get</a></span><span class="op">(</span>file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"config.yml"</span>, package <span class="op">=</span> <span class="st">"hubeau"</span><span class="op">)</span><span class="op">)</span>
-<span class="op">)</span>
-
-<span class="fu">get_niveaux_nappes_chroniques_tr</span><span class="op">(</span>
-  <span class="va">params</span>,
-  cfg <span class="op">=</span> <span class="fu">config</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/config/man/get.html" class="external-link">get</a></span><span class="op">(</span>file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"config.yml"</span>, package <span class="op">=</span> <span class="st">"hubeau"</span><span class="op">)</span><span class="op">)</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">get_niveaux_nappes_stations</span><span class="op">(</span></span>
+<span>  <span class="va">params</span>,</span>
+<span>  cfg <span class="op">=</span> <span class="fu">config</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/config/man/get.html" class="external-link">get</a></span><span class="op">(</span>file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"config.yml"</span>, package <span class="op">=</span> <span class="st">"hubeau"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">get_niveaux_nappes_chroniques</span><span class="op">(</span></span>
+<span>  <span class="va">params</span>,</span>
+<span>  cfg <span class="op">=</span> <span class="fu">config</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/config/man/get.html" class="external-link">get</a></span><span class="op">(</span>file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"config.yml"</span>, package <span class="op">=</span> <span class="st">"hubeau"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">get_niveaux_nappes_chroniques_tr</span><span class="op">(</span></span>
+<span>  <span class="va">params</span>,</span>
+<span>  cfg <span class="op">=</span> <span class="fu">config</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/config/man/get.html" class="external-link">get</a></span><span class="op">(</span>file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"config.yml"</span>, package <span class="op">=</span> <span class="st">"hubeau"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>params</dt>
 <dd><p>a <a href="https://rdrr.io/r/base/list.html" class="external-link">list</a> the list of parameters of the queries and their values in the format <code>list(ParamName = "Param value", ...)</code>, use the function <a href="get_available_params.html">get_available_params</a> for a list of the available query parameters for a given API endpoint and see the API documentation for their description</p></dd>
+
+
 <dt>cfg</dt>
 <dd><p>a config object describing the configuration of the APIs. Use the internal package configuration by default
 configuration</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>a <a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble::tibble</a> with all available parameters in columns.</p>
+    
+
+<p>a <a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble::tibble</a> with all available parameters in columns.</p>
     </div>
     <div id="see-also">
     <h2>See also</h2>
@@ -103,9 +108,9 @@ configuration</p></dd>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># Retrieve the hydrometric stations in the department of Aube</span></span>
-<span class="r-in"><span class="fu">get_niveaux_nappes_stations</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>code_departement <span class="op">=</span> <span class="st">"10"</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 722 × 21</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Retrieve the hydrometric stations in the department of Aube</span></span></span>
+<span class="r-in"><span><span class="fu">get_niveaux_nappes_stations</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>code_departement <span class="op">=</span> <span class="st">"10"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 757 × 21</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    code_bss        urn_bss     date_debut_mesu… date_fin_mesure code_commune_in…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 03001X0160/T200 http://ser… 1986-01-30       1986-12-03      10411           </span>
@@ -116,33 +121,33 @@ configuration</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 02994X0325/D410 http://ser… 1986-03-03       1986-12-22      10372           </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 03001X0073/D10  http://ser… 1985-04-12       1986-04-16      10372           </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 02623X0022/S10  http://ser… 1977-12-12       1991-12-30      10354           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 03001X0137/T120 http://ser… 1985-07-31       1986-11-14      10411           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 02994X0219/T220 http://ser… 1986-01-09       1986-12-22      10372           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 712 more rows, and 16 more variables: nom_commune &lt;chr&gt;, x &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 02623X0022/S10  http://ser… 1977-12-12       1991-12-30      10354           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 03001X0137/T120 http://ser… 1985-07-31       1986-11-14      10411           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 747 more rows, and 16 more variables: nom_commune &lt;chr&gt;, x &lt;dbl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   y &lt;dbl&gt;, codes_bdlisa &lt;chr&gt;, urns_bdlisa &lt;chr&gt;, bss_id &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   altitude_station &lt;chr&gt;, nb_mesures_piezo &lt;int&gt;, code_departement &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   nom_departement &lt;chr&gt;, libelle_pe &lt;chr&gt;, profondeur_investigation &lt;dbl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   codes_masse_eau_edl &lt;chr&gt;, noms_masse_eau_edl &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   urns_masse_eau_edl &lt;chr&gt;, date_maj &lt;chr&gt;</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># Retrieve the archived observed piezometric level at station '07548X0009/F' (old BSS identifier)</span></span>
-<span class="r-in"><span class="co"># for the year 2020</span></span>
-<span class="r-in"><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu">get_niveaux_nappes_chroniques</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>code_bss <span class="op">=</span> <span class="st">"07548X0009/F"</span>,</span>
-<span class="r-in">                                      date_debut_mesure <span class="op">=</span> <span class="st">"2020-01-01"</span>,</span>
-<span class="r-in">                                      date_fin_mesure <span class="op">=</span> <span class="st">"2020-12-31"</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># Plot the water elevation (NGF)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/as.POSIXlt.html" class="external-link">as.POSIXct</a></span><span class="op">(</span><span class="va">df</span><span class="op">$</span><span class="va">date_mesure</span><span class="op">)</span>, <span class="va">df</span><span class="op">$</span><span class="va">niveau_nappe_eau</span>, type <span class="op">=</span> <span class="st">"l"</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Retrieve the archived observed piezometric level at station '07548X0009/F' (old BSS identifier)</span></span></span>
+<span class="r-in"><span><span class="co"># for the year 2020</span></span></span>
+<span class="r-in"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu">get_niveaux_nappes_chroniques</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>code_bss <span class="op">=</span> <span class="st">"07548X0009/F"</span>,</span></span>
+<span class="r-in"><span>                                      date_debut_mesure <span class="op">=</span> <span class="st">"2020-01-01"</span>,</span></span>
+<span class="r-in"><span>                                      date_fin_mesure <span class="op">=</span> <span class="st">"2020-12-31"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Plot the water elevation (NGF)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/as.POSIXlt.html" class="external-link">as.POSIXct</a></span><span class="op">(</span><span class="va">df</span><span class="op">$</span><span class="va">date_mesure</span><span class="op">)</span>, <span class="va">df</span><span class="op">$</span><span class="va">niveau_nappe_eau</span>, type <span class="op">=</span> <span class="st">"l"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="get_niveaux_nappes-1.png" alt="" width="700" height="433"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># For retrieving the last real time observed piezometric level</span></span>
-<span class="r-in"><span class="co"># at station 'BSS001VZGZ' (new BSS identifier)</span></span>
-<span class="r-in"><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu">get_niveaux_nappes_chroniques_tr</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>bss_id <span class="op">=</span> <span class="st">"BSS001VZGZ"</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># Plot the water elevation (NGF)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/as.POSIXlt.html" class="external-link">as.POSIXct</a></span><span class="op">(</span><span class="va">df</span><span class="op">$</span><span class="va">date_mesure</span><span class="op">)</span>, <span class="va">df</span><span class="op">$</span><span class="va">niveau_eau_ngf</span>, type <span class="op">=</span> <span class="st">"l"</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># For retrieving the last real time observed piezometric level</span></span></span>
+<span class="r-in"><span><span class="co"># at station 'BSS001VZGZ' (new BSS identifier)</span></span></span>
+<span class="r-in"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu">get_niveaux_nappes_chroniques_tr</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>bss_id <span class="op">=</span> <span class="st">"BSS001VZGZ"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Plot the water elevation (NGF)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/as.POSIXlt.html" class="external-link">as.POSIXct</a></span><span class="op">(</span><span class="va">df</span><span class="op">$</span><span class="va">date_mesure</span><span class="op">)</span>, <span class="va">df</span><span class="op">$</span><span class="va">niveau_eau_ngf</span>, type <span class="op">=</span> <span class="st">"l"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="get_niveaux_nappes-2.png" alt="" width="700" height="433"></span>
-<span class="r-in"></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -157,7 +162,7 @@ configuration</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>

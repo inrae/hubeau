@@ -61,29 +61,38 @@ Pagination of the queries is handled automatically and the returned <a href="htt
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">doApiQuery</span><span class="op">(</span>
-  <span class="va">api</span>,
-  <span class="va">endpoint</span>,
-  <span class="va">params</span>,
-  cfg <span class="op">=</span> <span class="fu">config</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/config/man/get.html" class="external-link">get</a></span><span class="op">(</span>file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"config.yml"</span>, package <span class="op">=</span> <span class="st">"hubeau"</span><span class="op">)</span><span class="op">)</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">doApiQuery</span><span class="op">(</span></span>
+<span>  <span class="va">api</span>,</span>
+<span>  <span class="va">endpoint</span>,</span>
+<span>  <span class="va">params</span>,</span>
+<span>  cfg <span class="op">=</span> <span class="fu">config</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/config/man/get.html" class="external-link">get</a></span><span class="op">(</span>file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"config.yml"</span>, package <span class="op">=</span> <span class="st">"hubeau"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>api</dt>
 <dd><p>a <a href="https://rdrr.io/r/base/character.html" class="external-link">character</a> name of the API (e.g.: "indicateurs_services", "prelevements"...), see example for available APIs</p></dd>
+
+
 <dt>endpoint</dt>
 <dd><p>a <a href="https://rdrr.io/r/base/character.html" class="external-link">character</a> name of the endpoint, see example for available endpoints in an API</p></dd>
+
+
 <dt>params</dt>
 <dd><p>a <a href="https://rdrr.io/r/base/list.html" class="external-link">list</a> the list of parameters of the queries and their values in the format <code>list(ParamName = "Param value", ...)</code>, use the function <a href="get_available_params.html">get_available_params</a> for a list of the available filter parameters for a given API endpoint and see the API documentation for their description</p></dd>
+
+
 <dt>cfg</dt>
 <dd><p>a config object describing the configuration of the APIs. Use the internal package configuration by default
 configuration</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A <a href="https://rdrr.io/r/base/list.html" class="external-link">list</a> with the concatenated results returned by the API.</p>
+    
+
+<p>A <a href="https://rdrr.io/r/base/list.html" class="external-link">list</a> with the concatenated results returned by the API.</p>
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -92,18 +101,18 @@ configuration</p></dd>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># To get the available APIs in the package</span></span>
-<span class="r-in"><span class="va">cfg</span> <span class="op">&lt;-</span> <span class="fu">config</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/config/man/get.html" class="external-link">get</a></span><span class="op">(</span>file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"config.yml"</span>, package <span class="op">=</span> <span class="st">"hubeau"</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">cfg</span><span class="op">$</span><span class="va">apis</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># To get the available APIs in the package</span></span></span>
+<span class="r-in"><span><span class="va">cfg</span> <span class="op">&lt;-</span> <span class="fu">config</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/config/man/get.html" class="external-link">get</a></span><span class="op">(</span>file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"config.yml"</span>, package <span class="op">=</span> <span class="st">"hubeau"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">cfg</span><span class="op">$</span><span class="va">apis</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "prelevements"         "indicateurs_services" "hydrometrie"         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [4] "niveaux_nappes"      </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># To get the available endpoints in an API</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">cfg</span><span class="op">$</span><span class="va">apis</span><span class="op">[[</span><span class="st">"prelevements"</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">endpoints</span><span class="op">)</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [4] "niveaux_nappes"       "etat_piscicole"      </span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># To get the available endpoints in an API</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">cfg</span><span class="op">$</span><span class="va">apis</span><span class="op">[[</span><span class="st">"prelevements"</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">endpoints</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "points_prelevement" "chroniques"         "ouvrages"          </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># To get available parameters in endpoint "chroniques" of the API "prelevements"</span></span>
-<span class="r-in"><span class="fu"><a href="get_available_params.html">get_available_params</a></span><span class="op">(</span>api <span class="op">=</span> <span class="st">"prelevements"</span>, endpoint <span class="op">=</span> <span class="st">"chroniques"</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># To get available parameters in endpoint "chroniques" of the API "prelevements"</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="get_available_params.html">get_available_params</a></span><span class="op">(</span>api <span class="op">=</span> <span class="st">"prelevements"</span>, endpoint <span class="op">=</span> <span class="st">"chroniques"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "annee"                      "bbox"                      </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [3] "code_commune_insee"         "code_departement"          </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [5] "code_mode_obtention_volume" "code_ouvrage"              </span>
@@ -114,12 +123,12 @@ configuration</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [15] "longitude"                  "nom_commune"               </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [17] "prelevement_ecrasant"       "producteur_donnee"         </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [19] "volume_max"                 "volume_min"                </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># To query the endpoint "chroniques" of the API "prelevements"</span></span>
-<span class="r-in"><span class="co"># on all devices in the commune of Romilly-sur-Seine in 2018</span></span>
-<span class="r-in"><span class="fu">doApiQuery</span><span class="op">(</span>api <span class="op">=</span> <span class="st">"prelevements"</span>,</span>
-<span class="r-in">           endpoint <span class="op">=</span> <span class="st">"chroniques"</span>,</span>
-<span class="r-in">           params <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>code_commune_insee <span class="op">=</span> <span class="st">"10323"</span>, annee <span class="op">=</span> <span class="st">"2018"</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># To query the endpoint "chroniques" of the API "prelevements"</span></span></span>
+<span class="r-in"><span><span class="co"># on all devices in the commune of Romilly-sur-Seine in 2018</span></span></span>
+<span class="r-in"><span><span class="fu">doApiQuery</span><span class="op">(</span>api <span class="op">=</span> <span class="st">"prelevements"</span>,</span></span>
+<span class="r-in"><span>           endpoint <span class="op">=</span> <span class="st">"chroniques"</span>,</span></span>
+<span class="r-in"><span>           params <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>code_commune_insee <span class="op">=</span> <span class="st">"10323"</span>, annee <span class="op">=</span> <span class="st">"2018"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[1]]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[1]]$code_ouvrage</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "OPR0000032603"</span>
@@ -167,10 +176,10 @@ configuration</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "AESN"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[1]]$longitude</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 3.721672</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 3.719831</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[1]]$latitude</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 48.51858</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 48.5157</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[1]]$code_commune_insee</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "10323"</span>
@@ -203,10 +212,10 @@ configuration</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[1]]$geometry$coordinates</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[1]]$geometry$coordinates[[1]]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 3.721672</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 3.719831</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[1]]$geometry$coordinates[[2]]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 48.51858</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 48.5157</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -261,10 +270,10 @@ configuration</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "AESN"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[2]]$longitude</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 3.721672</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 3.719831</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[2]]$latitude</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 48.51858</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 48.5157</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[2]]$code_commune_insee</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "10323"</span>
@@ -297,10 +306,10 @@ configuration</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[2]]$geometry$coordinates</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[2]]$geometry$coordinates[[1]]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 3.721672</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 3.719831</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[2]]$geometry$coordinates[[2]]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 48.51858</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 48.5157</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -698,7 +707,7 @@ configuration</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>

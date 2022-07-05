@@ -64,33 +64,38 @@ See get_available_params and the API documentation for available filter paramete
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">get_indicateurs_services_communes</span><span class="op">(</span>
-  <span class="va">params</span>,
-  cfg <span class="op">=</span> <span class="fu">config</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/config/man/get.html" class="external-link">get</a></span><span class="op">(</span>file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"config.yml"</span>, package <span class="op">=</span> <span class="st">"hubeau"</span><span class="op">)</span><span class="op">)</span>
-<span class="op">)</span>
-
-<span class="fu">get_indicateurs_services_indicateurs</span><span class="op">(</span>
-  <span class="va">params</span>,
-  cfg <span class="op">=</span> <span class="fu">config</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/config/man/get.html" class="external-link">get</a></span><span class="op">(</span>file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"config.yml"</span>, package <span class="op">=</span> <span class="st">"hubeau"</span><span class="op">)</span><span class="op">)</span>
-<span class="op">)</span>
-
-<span class="fu">get_indicateurs_services_services</span><span class="op">(</span>
-  <span class="va">params</span>,
-  cfg <span class="op">=</span> <span class="fu">config</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/config/man/get.html" class="external-link">get</a></span><span class="op">(</span>file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"config.yml"</span>, package <span class="op">=</span> <span class="st">"hubeau"</span><span class="op">)</span><span class="op">)</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">get_indicateurs_services_communes</span><span class="op">(</span></span>
+<span>  <span class="va">params</span>,</span>
+<span>  cfg <span class="op">=</span> <span class="fu">config</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/config/man/get.html" class="external-link">get</a></span><span class="op">(</span>file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"config.yml"</span>, package <span class="op">=</span> <span class="st">"hubeau"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">get_indicateurs_services_indicateurs</span><span class="op">(</span></span>
+<span>  <span class="va">params</span>,</span>
+<span>  cfg <span class="op">=</span> <span class="fu">config</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/config/man/get.html" class="external-link">get</a></span><span class="op">(</span>file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"config.yml"</span>, package <span class="op">=</span> <span class="st">"hubeau"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">get_indicateurs_services_services</span><span class="op">(</span></span>
+<span>  <span class="va">params</span>,</span>
+<span>  cfg <span class="op">=</span> <span class="fu">config</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/config/man/get.html" class="external-link">get</a></span><span class="op">(</span>file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"config.yml"</span>, package <span class="op">=</span> <span class="st">"hubeau"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>params</dt>
 <dd><p>a <a href="https://rdrr.io/r/base/list.html" class="external-link">list</a> the list of parameters of the queries and their values in the format <code>list(ParamName = "Param value", ...)</code>, use the function <a href="get_available_params.html">get_available_params</a> for a list of the available query parameters for a given API endpoint and see the API documentation for their description</p></dd>
+
+
 <dt>cfg</dt>
 <dd><p>a config object describing the configuration of the APIs. Use the internal package configuration by default
 configuration</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>a <a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble::tibble</a> with all available parameters in columns.</p>
+    
+
+<p>a <a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble::tibble</a> with all available parameters in columns.</p>
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -129,8 +134,8 @@ configuration</p></dd>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># Retrieve performance indicator time series in the commune of Romilly-sur-Seine</span></span>
-<span class="r-in"><span class="fu">get_indicateurs_services_communes</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>code_commune <span class="op">=</span> <span class="st">"10323"</span><span class="op">)</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Retrieve performance indicator time series in the commune of Romilly-sur-Seine</span></span></span>
+<span class="r-in"><span><span class="fu">get_indicateurs_services_communes</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>code_commune <span class="op">=</span> <span class="st">"10323"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 28 × 39</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    code_commune_insee nom_commune codes_service noms_service annee D102.0 D151.0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
@@ -151,9 +156,9 @@ configuration</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   VP.179 &lt;dbl&gt;, VP.061 &lt;dbl&gt;, DC.192 &lt;dbl&gt;, VP.228 &lt;dbl&gt;, VP.231 &lt;dbl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   D204.0 &lt;dbl&gt;, P201.1 &lt;dbl&gt;, P203.3 &lt;dbl&gt;, P204.3 &lt;dbl&gt;, P205.3 &lt;dbl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   P258.1 &lt;dbl&gt;, VP.186 &lt;dbl&gt;, VP.176 &lt;dbl&gt;, VP.023 &lt;dbl&gt;, VP.229 &lt;dbl&gt;</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># Retrieve the drinking water withdrawal indicators of the year 2012 for all services</span></span>
-<span class="r-in"><span class="fu">get_indicateurs_services_indicateurs</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>code_indicateur <span class="op">=</span> <span class="st">"D102.0"</span>, annee <span class="op">=</span> <span class="st">"2012"</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Retrieve the drinking water withdrawal indicators of the year 2012 for all services</span></span></span>
+<span class="r-in"><span><span class="fu">get_indicateurs_services_indicateurs</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>code_indicateur <span class="op">=</span> <span class="st">"D102.0"</span>, annee <span class="op">=</span> <span class="st">"2012"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 5,471 × 8</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    code_service nom_service numero_siren type_collectivite    mode_gestion annee</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
@@ -169,9 +174,9 @@ configuration</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>        <span style="text-decoration: underline;">99</span>909 eau potable 258800713    Syndicat Intercommu… Régie         <span style="text-decoration: underline;">2</span>012</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 5,461 more rows, and 2 more variables: indicateur &lt;dbl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   uri_indicateur &lt;chr&gt;</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># Retrieve performance indicator time series of Romilly-sur-Seine with service details</span></span>
-<span class="r-in"><span class="fu">get_indicateurs_services_services</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>code_commune <span class="op">=</span> <span class="st">"10323"</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Retrieve performance indicator time series of Romilly-sur-Seine with service details</span></span></span>
+<span class="r-in"><span><span class="fu">get_indicateurs_services_services</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>code_commune <span class="op">=</span> <span class="st">"10323"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 9 × 38</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   code_service nom_service codes_commune noms_commune      numero_siren</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       </span>
@@ -191,7 +196,7 @@ configuration</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   P152.1 &lt;dbl&gt;, P155.1 &lt;dbl&gt;, VP.056 &lt;lgl&gt;, VP.177 &lt;dbl&gt;, VP.190 &lt;dbl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   VP.178 &lt;dbl&gt;, VP.191 &lt;dbl&gt;, VP.179 &lt;dbl&gt;, VP.059 &lt;lgl&gt;, VP.060 &lt;lgl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   VP.061 &lt;dbl&gt;, VP.063 &lt;lgl&gt;, VP.201 &lt;lgl&gt;, DC.192 &lt;dbl&gt;, VP.228 &lt;dbl&gt;, …</span></span>
-<span class="r-in"></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -206,7 +211,7 @@ configuration</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>
