@@ -22,19 +22,14 @@ a \link[tibble:tibble]{tibble::tibble} with all available parameters in columns.
 Available endpoints are:
 \itemize{
 \item \code{get_poisson_observations} retrieves operation
+\item other endpoints should soon be added
 }
 
 See the API documentation for available filter parameters: \url{https://hubeau.eaufrance.fr/page/api-poisson}
 }
 \examples{
-# Retrieve the withdrawal points located in Romilly-sur-Seine
-get_prelevements_points_prelevement(list(code_commune_insee = "10323"))
-
-# Retrieve the withdrawal devices located in Romilly-sur-Seine
-get_prelevements_ouvrages(list(code_commune_insee = "10323"))
-
-# Retrieve the withdrawal time series of the devices located in Romilly-sur-Seine
-get_prelevements_chroniques(list(code_commune_insee = "10323"))
+# Retrieve the river fish sampled in Brest
+get_poisson_observations(list(code_commune = "29019"))
 
 }
 \seealso{
