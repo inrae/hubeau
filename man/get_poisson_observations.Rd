@@ -28,8 +28,12 @@ Available endpoints are:
 See the API documentation for available filter parameters: \url{https://hubeau.eaufrance.fr/page/api-poisson}
 }
 \examples{
+# Get the query parameters for the requested API/endpoint
+get_available_params(api = "etat_piscicole",
+                     endpoint = "observations")
+
 # Retrieve the river fish sampled in Brest
-get_poisson_observations(list(code_commune = "29019"))
+get_poisson_observations(list(libelle_commune = "Brest"))
 
 }
 \seealso{

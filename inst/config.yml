@@ -319,4 +319,81 @@ default:
             - libelles_fractions_pathologies_individu
             - uris_fractions_pathologies_individu
             - importances_pathologies_individu
+            - fields
+    ecoulement:
+      path: vbeta/ecoulement
+      endpoints:
+        stations:
+          path: stations
+          fields:
+            - code_station
+            - libelle_station
+            - uri_station
+            - code_departement
+            - libelle_departement
+            - code_commune
+            - libelle_commune
+            - code_region
+            - libelle_region
+            - code_bassin
+            - libelle_bassin
+            - coordonnee_x_station
+            - coordonnee_y_station
+            - code_projection_station
+            - libelle_projection_station
+            - code_epsg_station
+            - code_cours_eau
+            - libelle_cours_eau
+            - uri_cours_eau
+            - etat_station
+            - date_maj_station
+            - latitude
+            - longitude
+        observations:
+          path: observations
+          fields:
+            - format
+            - code_station
+            - libelle_station
+            - code_departement
+            - libelle_departement
+            - code_commune
+            - libelle_commune
+            - code_region
+            - libelle_region
+            - code_bassin
+            - libelle_bassin
+            - code_cours_eau
+            - libelle_cours_eau
+            - code_campagne
+            - code_reseau
+            - libelle_reseau
+            - date_observation_min
+            - date_observation_max
+            - code_ecoulement
+            - libelle_ecoulement
+            - longitude
+            - latitude
+            - distance
+            - bbox
+            - page
+            - size
+            - fields
+            - accept
+        campagnes:
+          path: campagnes
+          fields:
+            - code_campagne
+            - date_campagne_min
+            - date_campagne_max
+            - code_type_campagne
+            - libelle_type_campagne
+            - code_reseau
+            - libelle_reseau
+            - code_departement
+            - libelle_departement
+            - page
+            - size
+            - fields
+            - accept
 
