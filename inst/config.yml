@@ -319,6 +319,7 @@ default:
             - libelles_fractions_pathologies_individu
             - uris_fractions_pathologies_individu
             - importances_pathologies_individu
+            - fields
     ecoulement:
       path: vbeta/ecoulement
       endpoints:
