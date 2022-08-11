@@ -3,7 +3,8 @@ Type: Package
 Title: Functions for the French API on water data "Hub'eau"
 Version: 0.2.0.9000
 Authors@R: c(
-    person("David", "Dorchies", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-6595-7984"), email = "david.dorchies@inrae.fr")
+    person("David", "Dorchies", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-6595-7984"), email = "david.dorchies@inrae.fr"),
+    person("Pascal", "Irz", role = "ctb", email = "pascal.irz@ofb.gouv.fr")
     )
 Description: Collection of functions to help retrieve the French national data bank on water <https://hubeau.eaufrance.fr/>.
 License: MIT + file LICENSE
