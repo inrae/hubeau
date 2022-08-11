@@ -42,7 +42,7 @@ brest_fishes <- get_poisson_observations(
  group_by_at(vars(-effectif_lot)) \%>\%
    summarise(nb_individals = sum(effectif_lot))
 
-View(brest_fishes)
+brest_fishes
 
 }
 \seealso{
