@@ -90,8 +90,125 @@ configuration</p></dd>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Retrieve the river fish sampled in Brest</span></span></span>
-<span class="r-in"><span><span class="fu">get_poisson_observations</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>code_commune <span class="op">=</span> <span class="st">"29019"</span><span class="op">)</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Get the query parameters for the requested API/endpoint</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="get_available_params.html">get_available_params</a></span><span class="op">(</span>api <span class="op">=</span> <span class="st">"etat_piscicole"</span>,</span></span>
+<span class="r-in"><span>                     endpoint <span class="op">=</span> <span class="st">"observations"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] "code_operation"                               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [2] "date_operation"                               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [3] "etat_avancement_operation"                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [4] "code_qualification_operation"                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [5] "libelle_qualification_operation"              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [6] "code_station"                                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [7] "libelle_station"                              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [8] "uri_station"                                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [9] "coordonnee_x_station"                         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [10] "coordonnee_y_station"                         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [11] "code_epsg_projection_station"                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [12] "code_projection_station"                      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [13] "libelle_projection_station"                   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [14] "code_point_prelevement"                       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [15] "code_point_prelevement_aspe"                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [16] "libelle_point_prelevement_aspe"               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [17] "coordonnee_x_point_prelevement"               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [18] "coordonnee_y_point_prelevement"               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [19] "code_epsg_projection_point_prelevement"       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [20] "code_projection_point_prelevement"            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [21] "libelle_projection_point_prelevement"         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [22] "lieu_dit_point_prelevement"                   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [23] "localisation_precise_point_prelevement"       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [24] "longitude"                                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [25] "code_entite_hydro"                            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [26] "latitude"                                     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [27] "libelle_entite_hydro"                         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [28] "uri_entite_hydro"                             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [29] "code_commune"                                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [30] "libelle_commune"                              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [31] "code_departement"                             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [32] "libelle_departement"                          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [33] "code_region"                                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [34] "libelle_region"                               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [35] "code_bassin"                                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [36] "libelle_bassin"                               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [37] "codes_dispositifs_collecte"                   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] "libelles_dispositifs_collecte"                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [39] "uris_dispositifs_collecte"                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [40] "protocole_peche"                              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [41] "objectifs_operation"                          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [42] "code_prelevement_elementaire"                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [43] "type_prelevement_elementaire"                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [44] "duree_prelevement_elementaire"                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [45] "numero_passage"                               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [46] "type_points"                                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [47] "nombre_points"                                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [48] "nombre_points_sans_poisson"                   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [49] "nombre_points_facies_courant"                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [50] "nombre_points_facies_plat"                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [51] "nombre_points_facies_profond"                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [52] "nombre_points_annexes"                        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [53] "nombre_points_berge"                          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [54] "nombre_points_chenal"                         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [55] "nom_ambiance"                                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [56] "longueur_ambiance"                            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [57] "largeur_ambiance"                             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [58] "profondeur_ambiance"                          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [59] "code_facies_ambiance"                         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [60] "libelle_facies_ambiance"                      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [61] "situation_ambiance"                           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [62] "localisation_ambiance"                        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [63] "classe_vitesse_courant_ambiance"              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [64] "code_ombrage_ambiance"                        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [65] "libelle_ombrage_ambiance"                     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [66] "code_granulo_ambiance_dominant"               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [67] "libelle_granulo_ambiance_dominant"            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [68] "code_granulo_ambiance_accessoire"             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [69] "libelle_granulo_ambiance_accessoire"          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [70] "vegetation_ambiance"                          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [71] "abondance_cache_vegetation_aquatique_ambiance"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [72] "abondance_cache_embacles_ambiance"            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [73] "abondance_cache_vegetation_bordure_ambiance"  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [74] "abondance_cache_sous_berge_ambiance"          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] "abondance_cache_granulo_ambiance"             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [76] "observation_ambiance"                         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [77] "code_lot"                                     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [78] "code_type_lot"                                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [79] "libelle_type_lot"                             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [80] "effectif_lot"                                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [81] "code_taxon"                                   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [82] "code_alternatif_taxon"                        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [83] "nom_commun_taxon"                             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [84] "nom_latin_taxon"                              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [85] "uri_taxon"                                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [86] "taille_min_lot"                               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [87] "taille_max_lot"                               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [88] "type_longueur_lot"                            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [89] "poids_lot_mesure"                             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [90] "poids_lot_estime"                             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [91] "methode_estimation_poids_lot"                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [92] "code_individu"                                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [93] "taille_individu"                              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [94] "type_longueur_individu"                       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [95] "mesure_individu_reelle"                       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [96] "poids_individu_mesure"                        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [97] "poids_individu_estime"                        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [98] "methode_estimation_poids_individu"            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [99] "sexe_individu"                                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [100] "age_individu"                                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [101] "codes_pathologies_lot"                        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [102] "libelles_pathologies_lot"                     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [103] "codes_fractions_pathologies_lot"              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [104] "libelles_fractions_pathologies_lot"           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [105] "uris_fractions_pathologies_lot"               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [106] "importances_pathologies_lot"                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [107] "codes_pathologies_individu"                   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [108] "libelles_pathologies_individu"                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [109] "codes_fractions_pathologies_individu"         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [110] "libelles_fractions_pathologies_individu"      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [111] "uris_fractions_pathologies_individu"          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] "importances_pathologies_individu"             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [113] "fields"                                       </span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Retrieve the river fish sampled in Brest</span></span></span>
+<span class="r-in"><span><span class="fu">get_poisson_observations</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>libelle_commune <span class="op">=</span> <span class="st">"Brest"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 120 × 113</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    code_operat…¹ date_…² etat_…³ code_…⁴ libel…⁵ code_…⁶ libel…⁷ uri_s…⁸ coord…⁹</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>  </span>
