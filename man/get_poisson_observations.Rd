@@ -31,12 +31,18 @@ See the API documentation for available filter parameters: \url{https://hubeau.e
 get_available_params(api = "poisson",
                      endpoint = "observations")
 
-# Retrieve the river fish sampled in Brest
+# Retrieve selected fields on a river fish sampled in Brest
 library(dplyr)
+fields <- paste("code_operation",
+                "date_operation",
+                "libelle_point_prelevement_aspe",
+                "effectif_lot",
+                "code_alternatif_taxon",
+                sep = ",")
 brest_fishes <- get_poisson_observations(
   list(
     libelle_commune = "Brest",
-    fields = "code_operation,date_operation,libelle_point_prelevement_aspe,effectif_lot,code_alternatif_taxon"
+    fields = fields
     )
  ) \%>\%
  group_by_at(vars(-effectif_lot)) \%>\%
