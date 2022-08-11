@@ -42,7 +42,7 @@ Currently available APIs and related endpoints are listed below.
 
 ## API “Hydrométrie”
 
-API documentation:
+API documentation: <https://hubeau.eaufrance.fr/page/api-hydrometrie>
 
 Available functions:
 
@@ -58,6 +58,7 @@ Available functions:
 ## API “Indicateurs des services”
 
 API documentation:
+<https://hubeau.eaufrance.fr/page/api-indicateurs-services>
 
 Available functions:
 
@@ -70,7 +71,7 @@ Available functions:
 
 ## API “Piézométrie”
 
-API documentation:
+API documentation: <https://hubeau.eaufrance.fr/page/api-piezometrie>
 
 Available functions:
 
@@ -81,9 +82,19 @@ Available functions:
 -   [`get_niveaux_nappes_stations`](https://inrae.github.io/hubeau/reference/get_niveaux_nappes.html):
     piezometric stations
 
+## API “Poisson”
+
+API documentation: <https://hubeau.eaufrance.fr/page/api-poisson>
+
+Available function:
+
+-   [`get_poisson_observations`](https://inrae.github.io/hubeau/reference/get_poisson.html):
+    scientific fishery observations
+
 ## API “Prélèvements en eau”
 
 API documentation:
+<https://hubeau.eaufrance.fr/page/api-prelevements-eau>
 
 Available functions:
 
@@ -93,6 +104,9 @@ Available functions:
     withdrawal devices (can contain several withdrawal points)
 -   [`get_prelevements_points_prelevement`](https://inrae.github.io/hubeau/reference/get_prelevements.html):
     withdrawal points
+
+A complete documentation is available on the package website:
+<https://inrae.github.io/hubeau/>
 
 # Acknowledgement
 

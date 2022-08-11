@@ -46,6 +46,16 @@ Available functions:
 }
 }
 
+\subsection{API "Poisson"}{
+
+API documentation: \url{https://hubeau.eaufrance.fr/page/api-poisson}
+
+Available function:
+\itemize{
+\item \code{\link[=get_poisson_observations]{get_poisson_observations()}}: scientific fishery observations
+}
+}
+
 \subsection{API "Prélèvements en eau"}{
 
 API documentation: \url{https://hubeau.eaufrance.fr/page/api-prelevements-eau}

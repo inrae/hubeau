@@ -5,7 +5,7 @@ Currently available APIs and related endpoints are listed below.
 
 ## API "Hydrométrie"
 
-API documentation: \url{https://hubeau.eaufrance.fr/page/api-hydrometrie}
+API documentation: <https://hubeau.eaufrance.fr/page/api-hydrometrie>
 
 Available functions:
 
@@ -16,7 +16,7 @@ Available functions:
 
 ## API "Indicateurs des services"
 
-API documentation: \url{https://hubeau.eaufrance.fr/page/api-indicateurs-services}
+API documentation: <https://hubeau.eaufrance.fr/page/api-indicateurs-services>
 
 Available functions:
 
@@ -26,7 +26,7 @@ Available functions:
 
 ## API "Piézométrie"
 
-API documentation: \url{https://hubeau.eaufrance.fr/page/api-piezometrie}
+API documentation: <https://hubeau.eaufrance.fr/page/api-piezometrie>
 
 Available functions:
 
@@ -34,9 +34,17 @@ Available functions:
 - [get_niveaux_nappes_chroniques_tr()]: real-time time series of piezometric stations
 - [get_niveaux_nappes_stations()]: piezometric stations
 
+## API "Poisson"
+
+API documentation: <https://hubeau.eaufrance.fr/page/api-poisson>
+
+Available function:
+
+- [get_poisson_observations()]: scientific fishery observations
+
 ## API "Prélèvements en eau"
 
-API documentation: \url{https://hubeau.eaufrance.fr/page/api-prelevements-eau}
+API documentation: <https://hubeau.eaufrance.fr/page/api-prelevements-eau>
 
 Available functions:
 
