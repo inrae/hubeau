@@ -40,6 +40,19 @@ related endpoints. These functions are named as follow:
 
 Currently available APIs and related endpoints are listed below.
 
+## API “Ecoulement des cours d’eau”
+
+API documentation: <https://hubeau.eaufrance.fr/page/api-ecoulement>
+
+Available functions:
+
+-   [`get_ecoulement_stations`](https://inrae.github.io/hubeau/reference/get_ecoulement.html):
+    site data and locations
+-   [`get_ecoulement_observations`](https://inrae.github.io/hubeau/reference/get_ecoulement.html):
+    flow observations collected during campaigns
+-   [`get_ecoulement_campagnes`](https://inrae.github.io/hubeau/reference/get_ecoulement.html):
+    observation campaign information
+
 ## API “Hydrométrie”
 
 API documentation: <https://hubeau.eaufrance.fr/page/api-hydrometrie>

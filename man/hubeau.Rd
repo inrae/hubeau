@@ -9,6 +9,18 @@ The 'hubeau' package provides functions for "Hub'eau" APIs and their related end
 These functions are named as follow: \verb{hubeau::get_[API]_[endpoint]}.
 
 Currently available APIs and related endpoints are listed below.
+\subsection{API "Ecoulement des cours d'eau"}{
+
+API documentation: \url{https://hubeau.eaufrance.fr/page/api-ecoulement}
+
+Available functions:
+\itemize{
+\item \code{\link[=get_ecoulement_stations]{get_ecoulement_stations()}}: site data and locations
+\item \code{\link[=get_ecoulement_observations]{get_ecoulement_observations()}}: flow observations collected during campaigns
+\item \code{\link[=get_ecoulement_campagnes]{get_ecoulement_campagnes()}}: observation campaign information
+}
+}
+
 \subsection{API "Hydrométrie"}{
 
 API documentation: \url{https://hubeau.eaufrance.fr/page/api-hydrometrie}
