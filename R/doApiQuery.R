@@ -7,9 +7,7 @@
 #'
 #' @param api a [character] name of the API (e.g.: "indicateurs_services", "prelevements"...), see example for available APIs
 #' @param endpoint a [character] name of the endpoint, see example for available endpoints in an API
-#' @param params a [list] the list of parameters of the queries and their values in the format `list(ParamName = "Param value", ...)`, use the function [get_available_params] for a list of the available filter parameters for a given API endpoint and see the API documentation for their description
-#' @param cfg a [config] object describing the configuration of the APIs. Use the internal package configuration by default
-#'        configuration
+#' @param params a [list] the list of parameters of the queries and their values in the format `list(ParamName = "Param value", ...)`, use the function [list_params] for a list of the available filter parameters for a given API endpoint and see the API documentation for their description
 #'
 #' @return A [list] with the concatenated results returned by the API.
 #' @export
@@ -17,14 +15,13 @@
 #'
 #' @examples
 #' # To get the available APIs in the package
-#' cfg <- config::get(file = system.file("config.yml", package = "hubeau"))
-#' names(cfg$apis)
+#' list_apis()
 #'
 #' # To get the available endpoints in an API
-#' names(cfg$apis[["prelevements"]]$endpoints)
+#' list_endpoints("prelevements")
 #'
 #' # To get available parameters in endpoint "chroniques" of the API "prelevements"
-#' get_available_params(api = "prelevements", endpoint = "chroniques")
+#' list_params(api = "prelevements", endpoint = "chroniques")
 #'
 #' # To query the endpoint "chroniques" of the API "prelevements"
 #' # on all devices in the commune of Romilly-sur-Seine in 2018
@@ -33,14 +30,13 @@
 #'            params = list(code_commune_insee = "10323", annee = "2018"))
 doApiQuery <- function(api,
                        endpoint,
-                       params,
-                       cfg = config::get(file = system.file("config.yml", package = "hubeau"))) {
-  availableParams <- get_available_params(api, endpoint, cfg)
+                       params) {
+  availableParams <- list_params(api, endpoint)
 
   query <-
-    file.path(cfg$api_url, cfg$apis[[api]]$path, cfg$apis[[api]]$endpoints[[endpoint]]$path)
+    file.path(.cfg$api_url, .cfg$apis[[api]]$path, .cfg$apis[[api]]$endpoints[[endpoint]]$path)
   for (paramName in names(params)) {
-    if (!paramName %in% cfg$apis[[api]]$endpoints[[endpoint]]$fields) {
+    if (!paramName %in% .cfg$apis[[api]]$endpoints[[endpoint]]$fields) {
       stop(
         sprintf(
           "The parameter '%s' is not available for this query. ",
@@ -48,7 +44,7 @@ doApiQuery <- function(api,
         ),
         "\n",
         sprintf(
-          "Run `hubeau::get_available_params(\"%s\", \"%s\")` to get available parameters.",
+          "Run `hubeau::list_params(\"%s\", \"%s\")` to get available parameters.",
           api,
           endpoint
         )
@@ -113,6 +109,10 @@ doApiQuery <- function(api,
 #' Convert list provided by the APIs into a tibble
 #'
 #' @param l a [list] provided by the API (See [doApiQuery])
+#'
+#' @details
+#' This function is used internally by all the retrieving data functions for
+#' converting data after the call to [doApiQuery].
 #'
 #' @return a [tibble::tibble] with one row by list item and one column by list sub-item
 #'

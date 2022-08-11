@@ -4,22 +4,14 @@
 \alias{doApiQuery}
 \title{Main internal functions for querying the Hub'eau API endpoints}
 \usage{
-doApiQuery(
-  api,
-  endpoint,
-  params,
-  cfg = config::get(file = system.file("config.yml", package = "hubeau"))
-)
+doApiQuery(api, endpoint, params)
 }
 \arguments{
 \item{api}{a \link{character} name of the API (e.g.: "indicateurs_services", "prelevements"...), see example for available APIs}
 
 \item{endpoint}{a \link{character} name of the endpoint, see example for available endpoints in an API}
 
-\item{params}{a \link{list} the list of parameters of the queries and their values in the format \code{list(ParamName = "Param value", ...)}, use the function \link{get_available_params} for a list of the available filter parameters for a given API endpoint and see the API documentation for their description}
-
-\item{cfg}{a \link{config} object describing the configuration of the APIs. Use the internal package configuration by default
-configuration}
+\item{params}{a \link{list} the list of parameters of the queries and their values in the format \code{list(ParamName = "Param value", ...)}, use the function \link{list_params} for a list of the available filter parameters for a given API endpoint and see the API documentation for their description}
 }
 \value{
 A \link{list} with the concatenated results returned by the API.
@@ -33,14 +25,13 @@ The functions \verb{get_[api]_[endpoint]} call the function \code{doQueryApi} an
 }
 \examples{
 # To get the available APIs in the package
-cfg <- config::get(file = system.file("config.yml", package = "hubeau"))
-names(cfg$apis)
+list_apis()
 
 # To get the available endpoints in an API
-names(cfg$apis[["prelevements"]]$endpoints)
+list_endpoints("prelevements")
 
 # To get available parameters in endpoint "chroniques" of the API "prelevements"
-get_available_params(api = "prelevements", endpoint = "chroniques")
+list_params(api = "prelevements", endpoint = "chroniques")
 
 # To query the endpoint "chroniques" of the API "prelevements"
 # on all devices in the commune of Romilly-sur-Seine in 2018

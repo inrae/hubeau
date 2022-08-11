@@ -7,13 +7,13 @@
 #'
 #' See the API documentation for available filter parameters: \url{https://hubeau.eaufrance.fr/page/api-poisson}
 #'
-#' @template param_get_common
+#' @inheritParams doApiQuery
 #'
 #' @export
 #'
 #' @examples
 #' # Get the query parameters for the requested API/endpoint
-#' get_available_params(api = "poisson",
+#' list_params(api = "poisson",
 #'                      endpoint = "observations")
 #'
 #' # Retrieve selected fields on a river fish sampled in Brest
@@ -35,16 +35,13 @@
 #'
 #' brest_fishes
 #'
-get_poisson_observations <- function(params,
-                                     cfg = config::get(file = system.file("config.yml",
-                                                                          package = "hubeau")))
+get_poisson_observations <- function(params)
 
   {
 
   l <- doApiQuery(api = "poisson",
                   endpoint = "observations",
-                  params = params,
-                  cfg = cfg)
+                  params = params)
 
   convert_list_to_tibble(l)
 }

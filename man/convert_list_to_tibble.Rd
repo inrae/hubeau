@@ -15,3 +15,7 @@ a \link[tibble:tibble]{tibble::tibble} with one row by list item and one column 
 \description{
 Convert list provided by the APIs into a tibble
 }
+\details{
+This function is used internally by all the retrieving data functions for
+converting data after the call to \link{doApiQuery}.
+}

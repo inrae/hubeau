@@ -6,34 +6,19 @@
 \alias{get_indicateurs_services_services}
 \title{Retrieve data from API "Indicateurs des services"}
 \usage{
-get_indicateurs_services_communes(
-  params,
-  cfg = config::get(file = system.file("config.yml", package = "hubeau"))
-)
+get_indicateurs_services_communes(params)
 
-get_indicateurs_services_indicateurs(
-  params,
-  cfg = config::get(file = system.file("config.yml", package = "hubeau"))
-)
+get_indicateurs_services_indicateurs(params)
 
-get_indicateurs_services_services(
-  params,
-  cfg = config::get(file = system.file("config.yml", package = "hubeau"))
-)
+get_indicateurs_services_services(params)
 }
 \arguments{
-\item{params}{a \link{list} the list of parameters of the queries and their values in the format \code{list(ParamName = "Param value", ...)}, use the function \link{get_available_params} for a list of the available query parameters for a given API endpoint and see the API documentation for their descriptions}
-
-\item{cfg}{a \link{config} object describing the configuration of the APIs. Use the internal package configuration by default
-configuration}
-}
-\value{
-a \link[tibble:tibble]{tibble::tibble} with all available parameters in columns.
+\item{params}{a \link{list} the list of parameters of the queries and their values in the format \code{list(ParamName = "Param value", ...)}, use the function \link{list_params} for a list of the available filter parameters for a given API endpoint and see the API documentation for their description}
 }
 \description{
 Retrieve performance indicators collected in drinking water and sanitation services in France.
 
-See \link{get_available_params} and the API documentation for available filter parameters: \url{https://hubeau.eaufrance.fr/page/api-indicateurs-services}
+See \link{list_params} and the API documentation for available filter parameters: \url{https://hubeau.eaufrance.fr/page/api-indicateurs-services}
 }
 \details{
 \code{get_indicateurs_services_communes} returns a \link[tibble:tibble]{tibble::tibble} with one row by commune, by service and by year and the following columns:
@@ -89,7 +74,4 @@ get_indicateurs_services_indicateurs(list(code_indicateur = "D102.0", annee = "2
 # Retrieve performance indicator time series of Romilly-sur-Seine with service details
 get_indicateurs_services_services(list(code_commune = "10323"))
 
-}
-\seealso{
-\link{doApiQuery} for more details on the API querying process.
 }

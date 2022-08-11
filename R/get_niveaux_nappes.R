@@ -9,7 +9,7 @@
 #'
 #' See the API documentation for available filter parameters: \url{https://hubeau.eaufrance.fr/page/api-piezometrie}
 #'
-#' @template param_get_common
+#' @inheritParams doApiQuery
 #'
 #' @rdname get_niveaux_nappes
 #' @export
@@ -34,12 +34,10 @@
 #' # Plot the water elevation (NGF)
 #' plot(as.POSIXct(df$date_mesure), df$niveau_eau_ngf, type = "l")
 #'
-get_niveaux_nappes_stations  <- function(params, cfg = config::get(file = system.file("config.yml",
-                                                                                      package = "hubeau"))) {
+get_niveaux_nappes_stations  <- function(params) {
   l <- doApiQuery(api = "niveaux_nappes",
                   endpoint = "stations",
-                  params = params,
-                  cfg = cfg)
+                  params = params)
   l <- lapply(l, function(x) {
     x$geometry <- NULL
     x
@@ -49,28 +47,22 @@ get_niveaux_nappes_stations  <- function(params, cfg = config::get(file = system
 
 #' @rdname get_niveaux_nappes
 #' @export
-get_niveaux_nappes_chroniques  <- function(params,
-                                   cfg = config::get(file = system.file("config.yml",
-                                                        package = "hubeau"))) {
+get_niveaux_nappes_chroniques  <- function(params) {
   l <- doApiQuery(
     api = "niveaux_nappes",
     endpoint = "chroniques",
-    params = params,
-    cfg = cfg
+    params = params
   )
   convert_list_to_tibble(l)
 }
 
 #' @rdname get_niveaux_nappes
 #' @export
-get_niveaux_nappes_chroniques_tr  <- function(params,
-                                   cfg = config::get(file = system.file("config.yml",
-                                                        package = "hubeau"))) {
+get_niveaux_nappes_chroniques_tr  <- function(params) {
   l <- doApiQuery(
     api = "niveaux_nappes",
     endpoint = "chroniques_tr",
-    params = params,
-    cfg = cfg
+    params = params
   )
   convert_list_to_tibble(l)
 }
