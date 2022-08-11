@@ -64,43 +64,19 @@ Available endpoints are:</p><ul><li><p><code>get_ecoulement_stations</code> retr
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">get_ecoulement_stations</span><span class="op">(</span></span>
-<span>  <span class="va">params</span>,</span>
-<span>  cfg <span class="op">=</span> <span class="fu">config</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/config/man/get.html" class="external-link">get</a></span><span class="op">(</span>file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"config.yml"</span>, package <span class="op">=</span> <span class="st">"hubeau"</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">get_ecoulement_stations</span><span class="op">(</span><span class="va">params</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">get_ecoulement_observations</span><span class="op">(</span></span>
-<span>  <span class="va">params</span>,</span>
-<span>  cfg <span class="op">=</span> <span class="fu">config</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/config/man/get.html" class="external-link">get</a></span><span class="op">(</span>file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"config.yml"</span>, package <span class="op">=</span> <span class="st">"hubeau"</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="op">)</span></span>
+<span><span class="fu">get_ecoulement_observations</span><span class="op">(</span><span class="va">params</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">get_ecoulement_campagnes</span><span class="op">(</span></span>
-<span>  <span class="va">params</span>,</span>
-<span>  cfg <span class="op">=</span> <span class="fu">config</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/config/man/get.html" class="external-link">get</a></span><span class="op">(</span>file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"config.yml"</span>, package <span class="op">=</span> <span class="st">"hubeau"</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">get_ecoulement_campagnes</span><span class="op">(</span><span class="va">params</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>params</dt>
-<dd><p>a <a href="https://rdrr.io/r/base/list.html" class="external-link">list</a> the list of parameters of the queries and their values in the format <code>list(ParamName = "Param value", ...)</code>, use the function <a href="get_available_params.html">get_available_params</a> for a list of the available query parameters for a given API endpoint and see the API documentation for their descriptions</p></dd>
-
-
-<dt>cfg</dt>
-<dd><p>a config object describing the configuration of the APIs. Use the internal package configuration by default
-configuration</p></dd>
+<dd><p>a <a href="https://rdrr.io/r/base/list.html" class="external-link">list</a> the list of parameters of the queries and their values in the format <code>list(ParamName = "Param value", ...)</code>, use the function <a href="lists.html">list_params</a> for a list of the available filter parameters for a given API endpoint and see the API documentation for their description</p></dd>
 
 </dl></div>
-    <div id="value">
-    <h2>Value</h2>
-    
-
-<p>a <a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble::tibble</a> with all available parameters in columns.</p>
-    </div>
-    <div id="see-also">
-    <h2>See also</h2>
-    <div class="dont-index"><p><a href="doApiQuery.html">doApiQuery</a> for more details on the API querying process.</p></div>
-    </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
@@ -144,7 +120,7 @@ configuration</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ Use `print(n = ...)` to see more rows</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Get the query parameters for the requested API/endpoint</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="get_available_params.html">get_available_params</a></span><span class="op">(</span>api <span class="op">=</span> <span class="st">"ecoulement"</span>,</span></span>
+<span class="r-in"><span><span class="fu"><a href="lists.html">list_params</a></span><span class="op">(</span>api <span class="op">=</span> <span class="st">"ecoulement"</span>,</span></span>
 <span class="r-in"><span>                     endpoint <span class="op">=</span> <span class="st">"observations"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "format"               "code_station"         "libelle_station"     </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [4] "code_departement"     "libelle_departement"  "code_commune"        </span>

@@ -55,12 +55,7 @@ Pagination of the queries is handled automatically and the returned <a href="htt
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">doApiQuery</span><span class="op">(</span></span>
-<span>  <span class="va">api</span>,</span>
-<span>  <span class="va">endpoint</span>,</span>
-<span>  <span class="va">params</span>,</span>
-<span>  cfg <span class="op">=</span> <span class="fu">config</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/config/man/get.html" class="external-link">get</a></span><span class="op">(</span>file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"config.yml"</span>, package <span class="op">=</span> <span class="st">"hubeau"</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">doApiQuery</span><span class="op">(</span><span class="va">api</span>, <span class="va">endpoint</span>, <span class="va">params</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -74,12 +69,7 @@ Pagination of the queries is handled automatically and the returned <a href="htt
 
 
 <dt>params</dt>
-<dd><p>a <a href="https://rdrr.io/r/base/list.html" class="external-link">list</a> the list of parameters of the queries and their values in the format <code>list(ParamName = "Param value", ...)</code>, use the function <a href="get_available_params.html">get_available_params</a> for a list of the available filter parameters for a given API endpoint and see the API documentation for their description</p></dd>
-
-
-<dt>cfg</dt>
-<dd><p>a config object describing the configuration of the APIs. Use the internal package configuration by default
-configuration</p></dd>
+<dd><p>a <a href="https://rdrr.io/r/base/list.html" class="external-link">list</a> the list of parameters of the queries and their values in the format <code>list(ParamName = "Param value", ...)</code>, use the function <a href="lists.html">list_params</a> for a list of the available filter parameters for a given API endpoint and see the API documentation for their description</p></dd>
 
 </dl></div>
     <div id="value">
@@ -96,17 +86,16 @@ configuration</p></dd>
     <div id="ref-examples">
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># To get the available APIs in the package</span></span></span>
-<span class="r-in"><span><span class="va">cfg</span> <span class="op">&lt;-</span> <span class="fu">config</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/config/man/get.html" class="external-link">get</a></span><span class="op">(</span>file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"config.yml"</span>, package <span class="op">=</span> <span class="st">"hubeau"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">cfg</span><span class="op">$</span><span class="va">apis</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="lists.html">list_apis</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "prelevements"         "indicateurs_services" "hydrometrie"         </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [4] "niveaux_nappes"       "poisson"              "ecoulement"          </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># To get the available endpoints in an API</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">cfg</span><span class="op">$</span><span class="va">apis</span><span class="op">[[</span><span class="st">"prelevements"</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">endpoints</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="lists.html">list_endpoints</a></span><span class="op">(</span><span class="st">"prelevements"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "points_prelevement" "chroniques"         "ouvrages"          </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># To get available parameters in endpoint "chroniques" of the API "prelevements"</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="get_available_params.html">get_available_params</a></span><span class="op">(</span>api <span class="op">=</span> <span class="st">"prelevements"</span>, endpoint <span class="op">=</span> <span class="st">"chroniques"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="lists.html">list_params</a></span><span class="op">(</span>api <span class="op">=</span> <span class="st">"prelevements"</span>, endpoint <span class="op">=</span> <span class="st">"chroniques"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "annee"                      "bbox"                      </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [3] "code_commune_insee"         "code_departement"          </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [5] "code_mode_obtention_volume" "code_ouvrage"              </span>
