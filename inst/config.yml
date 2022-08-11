@@ -349,6 +349,9 @@ default:
             - date_maj_station
             - latitude
             - longitude
+            - distance
+            - bbox
+            - fields
         observations:
           path: observations
           fields:
