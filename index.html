@@ -78,110 +78,99 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
+
 <div class="section level1">
 <div class="page-header"><h1 id="hubeau-an-r-package-for-the-hubeau-apis">hubeau an R package for the Hub’eau APIs<a class="anchor" aria-label="anchor" href="#hubeau-an-r-package-for-the-hubeau-apis"></a>
 </h1></div>
 <p><img src="reference/figures/logo.svg" align="right" height="120px"></p>
 <!-- badges: start -->
 <p>‘hubeau’ is an R-package proposing a collection of function to help retrieve data from the French national databases on water: <a href="https://hubeau.eaufrance.fr" class="external-link uri">https://hubeau.eaufrance.fr</a></p>
-<div class="section level2">
-<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
-</h2>
+</div>
+<div class="section level1">
+<h1 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h1>
 <p>You can install the ‘hubeau’ R-package from it’s development repository with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span></span>
 <span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"inrae/hubeau"</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div class="section level2">
-<h2 id="loading-library">Loading library<a class="anchor" aria-label="anchor" href="#loading-library"></a>
-</h2>
+<div class="section level1">
+<h1 id="loading-library">Loading library<a class="anchor" aria-label="anchor" href="#loading-library"></a>
+</h1>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://inrae.github.io/hubeau">hubeau</a></span><span class="op">)</span></span></code></pre></div>
 </div>
+<div class="section level1">
+<h1 id="get-started">Get started<a class="anchor" aria-label="anchor" href="#get-started"></a>
+</h1>
+<p>The ‘hubeau’ package provides functions for “Hub’eau” APIs and their related endpoints. These functions are named as follow: <code>hubeau::get_[API]_[endpoint]</code>.</p>
+<p>Currently available APIs and related endpoints are listed below.</p>
 <div class="section level2">
-<h2 id="get-started">Get started<a class="anchor" aria-label="anchor" href="#get-started"></a>
+<h2 id="api-hydrométrie">API “Hydrométrie”<a class="anchor" aria-label="anchor" href="#api-hydrom%C3%A9trie"></a>
 </h2>
-<p>See the package documentation by typing:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="op">?</span><span class="va">hubeau</span></span></code></pre></div>
-<p>Each function is documented with at least one example:</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/example.html" class="external-link">example</a></span><span class="op">(</span><span class="st">"get_prelevements_chroniques"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; gt_pr_&gt; # Retrieve the withdrawal points located in Romilly-sur-Seine</span></span>
-<span><span class="co">#&gt; gt_pr_&gt; get_prelevements_points_prelevement(list(code_commune_insee = "10323"))</span></span>
-<span><span class="co">#&gt; # A tibble: 9 x 28</span></span>
-<span><span class="co">#&gt;   code_point_prelevement nom_point_prelevem~ date_exploitatio~ date_exploitatio~</span></span>
-<span><span class="co">#&gt;   &lt;chr&gt;                  &lt;chr&gt;               &lt;chr&gt;             &lt;lgl&gt;            </span></span>
-<span><span class="co">#&gt; 1 PTP000000000047369     &lt;NA&gt;                1987-01-01        NA               </span></span>
-<span><span class="co">#&gt; 2 PTP000000000047370     &lt;NA&gt;                1987-01-01        NA               </span></span>
-<span><span class="co">#&gt; 3 PTP000000000053334     SCEA FERME DES HAU~ 1992-01-01        NA               </span></span>
-<span><span class="co">#&gt; 4 PTP000000000054886     &lt;NA&gt;                2018-03-16        NA               </span></span>
-<span><span class="co">#&gt; 5 PTP000000000054887     &lt;NA&gt;                2006-09-28        NA               </span></span>
-<span><span class="co">#&gt; 6 PTP000000000233572     &lt;NA&gt;                1987-01-01        NA               </span></span>
-<span><span class="co">#&gt; 7 PTP000000000434018     &lt;NA&gt;                2016-06-24        NA               </span></span>
-<span><span class="co">#&gt; 8 PTP000000000762434     &lt;NA&gt;                2012-12-31        NA               </span></span>
-<span><span class="co">#&gt; 9 PTP000000000788799     &lt;NA&gt;                1900-01-01        NA               </span></span>
-<span><span class="co">#&gt; # ... with 24 more variables: code_type_milieu &lt;chr&gt;,</span></span>
-<span><span class="co">#&gt; #   libelle_type_milieu &lt;chr&gt;, code_nature &lt;chr&gt;, libelle_nature &lt;chr&gt;,</span></span>
-<span><span class="co">#&gt; #   lieu_dit &lt;lgl&gt;, commentaire &lt;lgl&gt;, code_commune_insee &lt;chr&gt;,</span></span>
-<span><span class="co">#&gt; #   nom_commune &lt;chr&gt;, code_departement &lt;chr&gt;, libelle_departement &lt;chr&gt;,</span></span>
-<span><span class="co">#&gt; #   code_entite_hydro_cours_eau &lt;lgl&gt;, uri_entite_hydro_cours_eau &lt;lgl&gt;,</span></span>
-<span><span class="co">#&gt; #   code_entite_hydro_plan_eau &lt;lgl&gt;, uri_entite_hydro_plan_eau &lt;lgl&gt;,</span></span>
-<span><span class="co">#&gt; #   code_zone_hydro &lt;chr&gt;, uri_zone_hydro &lt;chr&gt;, code_mer_ocean &lt;lgl&gt;, ...</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; gt_pr_&gt; # Retrieve the withdrawal devices located in Romilly-sur-Seine</span></span>
-<span><span class="co">#&gt; gt_pr_&gt; get_prelevements_ouvrages(list(code_commune_insee = "10323"))</span></span>
-<span><span class="co">#&gt; # A tibble: 9 x 27</span></span>
-<span><span class="co">#&gt;   code_ouvrage  nom_ouvrage   id_local_ouvrage date_exploitati~ date_exploitati~</span></span>
-<span><span class="co">#&gt;   &lt;chr&gt;         &lt;chr&gt;         &lt;chr&gt;            &lt;chr&gt;            &lt;lgl&gt;           </span></span>
-<span><span class="co">#&gt; 1 OPR0000032603 ROMILLY SUR ~ 02612X1004/PAEP~ 1987-01-01       NA              </span></span>
-<span><span class="co">#&gt; 2 OPR0000032604 ROMILLY SUR ~ 02612X1011/FAEP~ 1987-01-01       NA              </span></span>
-<span><span class="co">#&gt; 3 OPR0000038567 SCEA FERME D~ BSS95456G_018    1992-01-01       NA              </span></span>
-<span><span class="co">#&gt; 4 OPR0000040119 S.N.C.F       BSS00593V_018    2018-03-16       NA              </span></span>
-<span><span class="co">#&gt; 5 OPR0000040120 S.N.C.F       BSS00594W_018    2006-09-28       NA              </span></span>
-<span><span class="co">#&gt; 6 OPR0000199638 SCEA FERME D~ BSS95455F_018    1987-01-01       NA              </span></span>
-<span><span class="co">#&gt; 7 OPR0000333915 Soc des Carr~ 32055_017        2016-06-24       NA              </span></span>
-<span><span class="co">#&gt; 8 OPR0000586224 SCEA DU MERI~ BSS95299L_018    2012-12-31       NA              </span></span>
-<span><span class="co">#&gt; 9 OPR0000608675 CRBPE ROMILL~ 31132_018        1900-01-01       NA              </span></span>
-<span><span class="co">#&gt; # ... with 22 more variables: code_precision_coord &lt;chr&gt;,</span></span>
-<span><span class="co">#&gt; #   libelle_precision_coord &lt;chr&gt;, commentaire &lt;lgl&gt;, code_commune_insee &lt;chr&gt;,</span></span>
-<span><span class="co">#&gt; #   nom_commune &lt;chr&gt;, code_departement &lt;chr&gt;, libelle_departement &lt;chr&gt;,</span></span>
-<span><span class="co">#&gt; #   code_type_milieu &lt;chr&gt;, libelle_type_milieu &lt;chr&gt;,</span></span>
-<span><span class="co">#&gt; #   code_entite_hydro_cours_eau &lt;chr&gt;, uri_entite_hydro_cours_eau &lt;chr&gt;,</span></span>
-<span><span class="co">#&gt; #   code_entite_hydro_plan_eau &lt;lgl&gt;, uri_entite_hydro_plan_eau &lt;lgl&gt;,</span></span>
-<span><span class="co">#&gt; #   code_mer_ocean &lt;lgl&gt;, ressource_cont_non_referencee &lt;lgl&gt;, ...</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; gt_pr_&gt; # Retrieve the withdrawal time series of the devices located in Romilly-sur-Seine</span></span>
-<span><span class="co">#&gt; gt_pr_&gt; get_prelevements_chroniques(list(code_commune_insee = "10323"))</span></span>
-<span><span class="co">#&gt; # A tibble: 41 x 23</span></span>
-<span><span class="co">#&gt;    code_ouvrage  annee volume code_usage libelle_usage code_statut_volume</span></span>
-<span><span class="co">#&gt;    &lt;chr&gt;         &lt;int&gt;  &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;         &lt;chr&gt;             </span></span>
-<span><span class="co">#&gt;  1 OPR0000032603  2012 617624 AEP        EAU POTABLE   1                 </span></span>
-<span><span class="co">#&gt;  2 OPR0000032603  2013 463545 AEP        EAU POTABLE   1                 </span></span>
-<span><span class="co">#&gt;  3 OPR0000032603  2014 535557 AEP        EAU POTABLE   1                 </span></span>
-<span><span class="co">#&gt;  4 OPR0000032603  2015 541785 AEP        EAU POTABLE   1                 </span></span>
-<span><span class="co">#&gt;  5 OPR0000032603  2016 478938 AEP        EAU POTABLE   1                 </span></span>
-<span><span class="co">#&gt;  6 OPR0000032603  2017 402363 AEP        EAU POTABLE   1                 </span></span>
-<span><span class="co">#&gt;  7 OPR0000032603  2018 402383 AEP        EAU POTABLE   1                 </span></span>
-<span><span class="co">#&gt;  8 OPR0000032604  2012 617624 AEP        EAU POTABLE   1                 </span></span>
-<span><span class="co">#&gt;  9 OPR0000032604  2013 463545 AEP        EAU POTABLE   1                 </span></span>
-<span><span class="co">#&gt; 10 OPR0000032604  2014 535557 AEP        EAU POTABLE   1                 </span></span>
-<span><span class="co">#&gt; # ... with 31 more rows, and 17 more variables: libelle_statut_volume &lt;chr&gt;,</span></span>
-<span><span class="co">#&gt; #   code_qualification_volume &lt;chr&gt;, libelle_qualification_volume &lt;chr&gt;,</span></span>
-<span><span class="co">#&gt; #   code_statut_instruction &lt;chr&gt;, libelle_statut_instruction &lt;chr&gt;,</span></span>
-<span><span class="co">#&gt; #   code_mode_obtention_volume &lt;chr&gt;, libelle_mode_obtention_volume &lt;chr&gt;,</span></span>
-<span><span class="co">#&gt; #   prelevement_ecrasant &lt;lgl&gt;, producteur_donnee &lt;chr&gt;, longitude &lt;dbl&gt;,</span></span>
-<span><span class="co">#&gt; #   latitude &lt;dbl&gt;, code_commune_insee &lt;chr&gt;, nom_commune &lt;chr&gt;,</span></span>
-<span><span class="co">#&gt; #   code_departement &lt;chr&gt;, libelle_departement &lt;chr&gt;, nom_ouvrage &lt;chr&gt;, ...</span></span></code></pre></div>
+<p>API documentation:</p>
+<p>Available functions:</p>
+<ul>
+<li>
+<a href="https://inrae.github.io/hubeau/reference/get_hydrometrie.html"><code>get_hydrometrie_sites</code></a>: hydrometry sites (can contain several stations)</li>
+<li>
+<a href="https://inrae.github.io/hubeau/reference/get_hydrometrie.html"><code>get_hydrometrie_stations</code></a>: hydrometry stations</li>
+<li>
+<a href="https://inrae.github.io/hubeau/reference/get_hydrometrie.html"><code>get_hydrometrie_observations_tr</code></a>: hydrometry water level and discharge time series</li>
+<li>
+<a href="https://inrae.github.io/hubeau/reference/get_hydrometrie.html"><code>get_hydrometrie_obs_elab</code></a>: hydrometric elaborate observations (daily/monthly mean flow)</li>
+</ul>
 </div>
 <div class="section level2">
-<h2 id="acknowledgement">Acknowledgement<a class="anchor" aria-label="anchor" href="#acknowledgement"></a>
+<h2 id="api-indicateurs-des-services">API “Indicateurs des services”<a class="anchor" aria-label="anchor" href="#api-indicateurs-des-services"></a>
 </h2>
+<p>API documentation:</p>
+<p>Available functions:</p>
+<ul>
+<li>
+<a href="https://inrae.github.io/hubeau/reference/get_indicateurs_services.html"><code>get_indicateurs_services_communes</code></a>: performance indicators by commune</li>
+<li>
+<a href="https://inrae.github.io/hubeau/reference/get_indicateurs_services.html"><code>get_indicateurs_services_indicateurs</code></a>: performance indicators by indicator</li>
+<li>
+<a href="https://inrae.github.io/hubeau/reference/get_indicateurs_services.html"><code>get_indicateurs_services_services</code></a>: performance indicators by commune for each service</li>
+</ul>
+</div>
+<div class="section level2">
+<h2 id="api-piézométrie">API “Piézométrie”<a class="anchor" aria-label="anchor" href="#api-pi%C3%A9zom%C3%A9trie"></a>
+</h2>
+<p>API documentation:</p>
+<p>Available functions:</p>
+<ul>
+<li>
+<a href="https://inrae.github.io/hubeau/reference/get_niveaux_nappes.html"><code>get_niveaux_nappes_chroniques</code></a>: archived time series of piezometric stations</li>
+<li>
+<a href="https://inrae.github.io/hubeau/reference/get_niveaux_nappes.html"><code>get_niveaux_nappes_chroniques_tr</code></a>: real-time time series of piezometric stations</li>
+<li>
+<a href="https://inrae.github.io/hubeau/reference/get_niveaux_nappes.html"><code>get_niveaux_nappes_stations</code></a>: piezometric stations</li>
+</ul>
+</div>
+<div class="section level2">
+<h2 id="api-prélèvements-en-eau">API “Prélèvements en eau”<a class="anchor" aria-label="anchor" href="#api-pr%C3%A9l%C3%A8vements-en-eau"></a>
+</h2>
+<p>API documentation:</p>
+<p>Available functions:</p>
+<ul>
+<li>
+<a href="https://inrae.github.io/hubeau/reference/get_prelevements.html"><code>get_prelevements_chroniques</code></a>: time series of annual withdrawn volumes by device</li>
+<li>
+<a href="https://inrae.github.io/hubeau/reference/get_prelevements.html"><code>get_prelevements_ouvrages</code></a>: withdrawal devices (can contain several withdrawal points)</li>
+<li>
+<a href="https://inrae.github.io/hubeau/reference/get_prelevements.html"><code>get_prelevements_points_prelevement</code></a>: withdrawal points</li>
+</ul>
+</div>
+</div>
+<div class="section level1">
+<h1 id="acknowledgement">Acknowledgement<a class="anchor" aria-label="anchor" href="#acknowledgement"></a>
+</h1>
 <p>The authors would like to thank the European Commission and the French National Research Agency (ANR) for funding in the frame of the collaborative international consortium <a href="http://www.waterjpi.eu/joint-calls/joint-call-2018-waterworks-2017/booklet/in-wop" class="external-link">IN-WOP</a> financed under the 2018 Joint call of the WaterWorks2017 ERA-NET Cofund. This ERA-NET is an integral part of the activities developed by the Water JPI.</p>
 <div style="display: flex; justify-content: space-between;"><p><img src="reference/figures/logo_water_jpi.png" alt="Water JPI"><img src="reference/figures/logo_water_works_2017.png" alt="Water Works 2017"><img src="reference/figures/logo_european_commission.jpg" alt="European Commission"><img src="reference/figures/logo_2018_joint_call.png" alt="2018 Joint call"></p></div>
 </div>
-</div>
+
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -235,7 +224,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer>
