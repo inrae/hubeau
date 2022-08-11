@@ -6,29 +6,14 @@
 \alias{get_niveaux_nappes_chroniques_tr}
 \title{Retrieve data from API "Piézométrie"}
 \usage{
-get_niveaux_nappes_stations(
-  params,
-  cfg = config::get(file = system.file("config.yml", package = "hubeau"))
-)
+get_niveaux_nappes_stations(params)
 
-get_niveaux_nappes_chroniques(
-  params,
-  cfg = config::get(file = system.file("config.yml", package = "hubeau"))
-)
+get_niveaux_nappes_chroniques(params)
 
-get_niveaux_nappes_chroniques_tr(
-  params,
-  cfg = config::get(file = system.file("config.yml", package = "hubeau"))
-)
+get_niveaux_nappes_chroniques_tr(params)
 }
 \arguments{
-\item{params}{a \link{list} the list of parameters of the queries and their values in the format \code{list(ParamName = "Param value", ...)}, use the function \link{get_available_params} for a list of the available query parameters for a given API endpoint and see the API documentation for their descriptions}
-
-\item{cfg}{a \link{config} object describing the configuration of the APIs. Use the internal package configuration by default
-configuration}
-}
-\value{
-a \link[tibble:tibble]{tibble::tibble} with all available parameters in columns.
+\item{params}{a \link{list} the list of parameters of the queries and their values in the format \code{list(ParamName = "Param value", ...)}, use the function \link{list_params} for a list of the available filter parameters for a given API endpoint and see the API documentation for their description}
 }
 \description{
 The available endpoints are:
@@ -60,7 +45,4 @@ df <- get_niveaux_nappes_chroniques_tr(list(bss_id = "BSS001VZGZ"))
 # Plot the water elevation (NGF)
 plot(as.POSIXct(df$date_mesure), df$niveau_eau_ngf, type = "l")
 
-}
-\seealso{
-\link{doApiQuery} for more details on the API querying process.
 }

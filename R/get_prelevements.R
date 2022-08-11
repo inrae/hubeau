@@ -9,7 +9,7 @@
 #'
 #' See the API documentation for available filter parameters: \url{https://hubeau.eaufrance.fr/page/api-prelevements-eau}
 #'
-#' @template param_get_common
+#' @inheritParams doApiQuery
 #'
 #' @rdname get_prelevements
 #' @export
@@ -24,24 +24,20 @@
 #' # Retrieve the withdrawal time series of the devices located in Romilly-sur-Seine
 #' get_prelevements_chroniques(list(code_commune_insee = "10323"))
 #'
-get_prelevements_points_prelevement <- function(params, cfg = config::get(file = system.file("config.yml",
-                                                                        package = "hubeau"))) {
+get_prelevements_points_prelevement <- function(params) {
   l <- doApiQuery(api = "prelevements",
                   endpoint = "points_prelevement",
-                  params = params,
-                  cfg = cfg)
+                  params = params)
 
   convert_list_to_tibble(l)
 }
 
 #' @rdname get_prelevements
 #' @export
-get_prelevements_ouvrages <- function(params, cfg = config::get(file = system.file("config.yml",
-                                                                                             package = "hubeau"))) {
+get_prelevements_ouvrages <- function(params) {
   l <- doApiQuery(api = "prelevements",
                   endpoint = "ouvrages",
-                  params = params,
-                  cfg = cfg)
+                  params = params)
   l <- lapply(l, function(x) {
     x$geometry <- NULL
     x$codes_points_prelevements <- NULL
@@ -53,12 +49,10 @@ get_prelevements_ouvrages <- function(params, cfg = config::get(file = system.fi
 
 #' @rdname get_prelevements
 #' @export
-get_prelevements_chroniques <- function(params, cfg = config::get(file = system.file("config.yml",
-                                                                       package = "hubeau"))) {
+get_prelevements_chroniques <- function(params) {
   l <- doApiQuery(api = "prelevements",
                   endpoint = "chroniques",
-                  params = params,
-                  cfg = cfg)
+                  params = params)
   l <- lapply(l, function(x) {
     x$geometry <- NULL
     x

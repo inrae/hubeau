@@ -4,9 +4,9 @@
 #'
 #' Retrieve performance indicators collected in drinking water and sanitation services in France.
 #'
-#' See [get_available_params] and the API documentation for available filter parameters: \url{https://hubeau.eaufrance.fr/page/api-indicateurs-services}
+#' See [list_params] and the API documentation for available filter parameters: \url{https://hubeau.eaufrance.fr/page/api-indicateurs-services}
 #'
-#' @template param_get_common
+#' @inheritParams doApiQuery
 #'
 #' @details
 #' `get_indicateurs_services_communes` returns a [tibble::tibble] with one row by commune, by service and by year and the following columns:
@@ -61,14 +61,11 @@
 #' # Retrieve performance indicator time series of Romilly-sur-Seine with service details
 #' get_indicateurs_services_services(list(code_commune = "10323"))
 #'
-get_indicateurs_services_communes <- function(params,
-                                              cfg = config::get(file = system.file("config.yml",
-                                                                                   package = "hubeau"))) {
+get_indicateurs_services_communes <- function(params) {
 
   l <- doApiQuery(api = "indicateurs_services",
                   endpoint = "communes",
-                  params = params,
-                  cfg = cfg)
+                  params = params)
 
   l <- lapply(l, function(x) {
     x <- c(x, x$indicateurs)
@@ -80,13 +77,10 @@ get_indicateurs_services_communes <- function(params,
 
 #' @export
 #' @rdname get_indicateurs_services
-get_indicateurs_services_indicateurs <- function(params,
-                                                cfg = config::get(file = system.file("config.yml",
-                                                                                     package = "hubeau"))) {
+get_indicateurs_services_indicateurs <- function(params) {
   l <- doApiQuery(api = "indicateurs_services",
                   endpoint = "indicateurs",
-                  params = params,
-                  cfg = cfg)
+                  params = params)
 
   l <- lapply(l, function(x) {
     x$codes_commune <- NULL
@@ -98,14 +92,11 @@ get_indicateurs_services_indicateurs <- function(params,
 
 #' @export
 #' @rdname get_indicateurs_services
-get_indicateurs_services_services <- function(params,
-                                              cfg = config::get(file = system.file("config.yml",
-                                                                                   package = "hubeau"))) {
+get_indicateurs_services_services <- function(params) {
 
   l <- doApiQuery(api = "indicateurs_services",
                   endpoint = "services",
-                  params = params,
-                  cfg = cfg)
+                  params = params)
 
   l <- lapply(l, function(x) {
     x <- c(x, x$indicateurs)

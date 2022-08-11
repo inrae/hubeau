@@ -10,7 +10,7 @@
 #'
 #' See the API documentation for available filter parameters: \url{https://hubeau.eaufrance.fr/page/api-ecoulement}
 #'
-#' @template param_get_common
+#' @inheritParams doApiQuery
 #'
 #' @export
 #' @rdname get_ecoulement
@@ -30,7 +30,7 @@
 #' stations_39
 #'
 #' # Get the query parameters for the requested API/endpoint
-#' get_available_params(api = "ecoulement",
+#' list_params(api = "ecoulement",
 #'                      endpoint = "observations")
 #'
 #' # Retrieve the river flow data in the Jura departement in 2022 with
@@ -43,15 +43,12 @@
 #' )
 #' onde_39
 #'
-get_ecoulement_stations <- function(params,
-                                    cfg = config::get(file = system.file("config.yml",
-                                                                         package = "hubeau")))
+get_ecoulement_stations <- function(params)
 {
   l <- doApiQuery(
     api = "ecoulement",
     endpoint = "stations",
-    params = params,
-    cfg = cfg
+    params = params
   )
 
   convert_list_to_tibble(l)
@@ -60,15 +57,12 @@ get_ecoulement_stations <- function(params,
 
 #' @rdname get_ecoulement
 #' @export
-get_ecoulement_observations <- function(params,
-                                        cfg = config::get(file = system.file("config.yml",
-                                                                             package = "hubeau")))
+get_ecoulement_observations <- function(params)
 {
   l <- doApiQuery(
     api = "ecoulement",
     endpoint = "observations",
-    params = params,
-    cfg = cfg
+    params = params
   )
 
   convert_list_to_tibble(l)
@@ -77,15 +71,12 @@ get_ecoulement_observations <- function(params,
 
 #' @rdname get_ecoulement
 #' @export
-get_ecoulement_campagnes <- function(params,
-                                     cfg = config::get(file = system.file("config.yml",
-                                                                          package = "hubeau")))
+get_ecoulement_campagnes <- function(params)
 {
   l <- doApiQuery(
     api = "ecoulement",
     endpoint = "campagnes",
-    params = params,
-    cfg = cfg
+    params = params
   )
 
   convert_list_to_tibble(l)

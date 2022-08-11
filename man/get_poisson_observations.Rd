@@ -4,19 +4,10 @@
 \alias{get_poisson_observations}
 \title{Retrieve data from API "Poisson"}
 \usage{
-get_poisson_observations(
-  params,
-  cfg = config::get(file = system.file("config.yml", package = "hubeau"))
-)
+get_poisson_observations(params)
 }
 \arguments{
-\item{params}{a \link{list} the list of parameters of the queries and their values in the format \code{list(ParamName = "Param value", ...)}, use the function \link{get_available_params} for a list of the available query parameters for a given API endpoint and see the API documentation for their descriptions}
-
-\item{cfg}{a \link{config} object describing the configuration of the APIs. Use the internal package configuration by default
-configuration}
-}
-\value{
-a \link[tibble:tibble]{tibble::tibble} with all available parameters in columns.
+\item{params}{a \link{list} the list of parameters of the queries and their values in the format \code{list(ParamName = "Param value", ...)}, use the function \link{list_params} for a list of the available filter parameters for a given API endpoint and see the API documentation for their description}
 }
 \description{
 Available endpoint:
@@ -28,7 +19,7 @@ See the API documentation for available filter parameters: \url{https://hubeau.e
 }
 \examples{
 # Get the query parameters for the requested API/endpoint
-get_available_params(api = "poisson",
+list_params(api = "poisson",
                      endpoint = "observations")
 
 # Retrieve selected fields on a river fish sampled in Brest
@@ -50,7 +41,4 @@ brest_fishes <- get_poisson_observations(
 
 brest_fishes
 
-}
-\seealso{
-\link{doApiQuery} for more details on the API querying process.
 }

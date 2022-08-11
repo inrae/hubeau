@@ -7,43 +7,22 @@
 \alias{get_hydrometrie_stations}
 \title{Retrieve data from API "Hydrométrie"}
 \usage{
-get_hydrometrie_obs_elab(
-  params,
-  cfg = config::get(file = system.file("config.yml", package = "hubeau"))
-)
+get_hydrometrie_obs_elab(params)
 
-get_hydrometrie_observations_tr(
-  params,
-  entities = "station",
-  cfg = config::get(file = system.file("config.yml", package = "hubeau"))
-)
+get_hydrometrie_observations_tr(params, entities = "station")
 
-get_hydrometrie_sites(
-  params,
-  unique_site = TRUE,
-  cfg = config::get(file = system.file("config.yml", package = "hubeau"))
-)
+get_hydrometrie_sites(params, unique_site = TRUE)
 
-get_hydrometrie_stations(
-  params,
-  code_sandre_reseau_station = FALSE,
-  cfg = config::get(file = system.file("config.yml", package = "hubeau"))
-)
+get_hydrometrie_stations(params, code_sandre_reseau_station = FALSE)
 }
 \arguments{
-\item{params}{a \link{list} the list of parameters of the queries and their values in the format \code{list(ParamName = "Param value", ...)}, use the function \link{get_available_params} for a list of the available query parameters for a given API endpoint and see the API documentation for their descriptions}
-
-\item{cfg}{a \link{config} object describing the configuration of the APIs. Use the internal package configuration by default
-configuration}
+\item{params}{a \link{list} the list of parameters of the queries and their values in the format \code{list(ParamName = "Param value", ...)}, use the function \link{list_params} for a list of the available filter parameters for a given API endpoint and see the API documentation for their description}
 
 \item{entities}{1-length \link{character} string filtering the rows of the returned value, possible values are: "station" for filtering on station rows, "site" for filtering on site rows, "both" for keeping all the rows}
 
 \item{unique_site}{optional \link{logical}, if set to \code{FALSE} sites with several different locations produce one row by different location otherwise the first location found is used for fields \code{code_commune_site}, \code{libelle_commune}, \code{code_departement}, \code{code_region}, \code{libelle_region}, \code{libelle_departement}}
 
 \item{code_sandre_reseau_station}{optional \link{logical} indicating if \code{code_sandre_reseau_station} field is included in the result; if so, one line is added by item and other fields are repeated}
-}
-\value{
-a \link[tibble:tibble]{tibble::tibble} with all available parameters in columns.
 }
 \description{
 Available endpoints are:
@@ -72,7 +51,7 @@ get_hydrometrie_stations(list(code_departement = "10"))
 }
 
 # Which parameters are available for endpoint "obs_elab" of API "hydrometrie"?
-get_available_params("hydrometrie", "obs_elab")
+list_params("hydrometrie", "obs_elab")
 
 # Retrieve the hydrometric monthly mean flow at site 'H0203020'
 get_hydrometrie_obs_elab(list(code_entite = "H0203020", grandeur_hydro_elab = "QmM"))
@@ -83,7 +62,4 @@ get_hydrometrie_obs_elab(
   date_debut_obs_elab = format(Sys.Date() -30, "\%Y-\%m-\%d"),
   grandeur_hydro_elab = "QmJ"))
 
-}
-\seealso{
-\link{doApiQuery} for more details on the API querying process.
 }

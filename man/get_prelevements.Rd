@@ -6,29 +6,14 @@
 \alias{get_prelevements_chroniques}
 \title{Retrieve data from API "Prélèvements en eau"}
 \usage{
-get_prelevements_points_prelevement(
-  params,
-  cfg = config::get(file = system.file("config.yml", package = "hubeau"))
-)
+get_prelevements_points_prelevement(params)
 
-get_prelevements_ouvrages(
-  params,
-  cfg = config::get(file = system.file("config.yml", package = "hubeau"))
-)
+get_prelevements_ouvrages(params)
 
-get_prelevements_chroniques(
-  params,
-  cfg = config::get(file = system.file("config.yml", package = "hubeau"))
-)
+get_prelevements_chroniques(params)
 }
 \arguments{
-\item{params}{a \link{list} the list of parameters of the queries and their values in the format \code{list(ParamName = "Param value", ...)}, use the function \link{get_available_params} for a list of the available query parameters for a given API endpoint and see the API documentation for their descriptions}
-
-\item{cfg}{a \link{config} object describing the configuration of the APIs. Use the internal package configuration by default
-configuration}
-}
-\value{
-a \link[tibble:tibble]{tibble::tibble} with all available parameters in columns.
+\item{params}{a \link{list} the list of parameters of the queries and their values in the format \code{list(ParamName = "Param value", ...)}, use the function \link{list_params} for a list of the available filter parameters for a given API endpoint and see the API documentation for their description}
 }
 \description{
 Available endpoints are:
@@ -50,7 +35,4 @@ get_prelevements_ouvrages(list(code_commune_insee = "10323"))
 # Retrieve the withdrawal time series of the devices located in Romilly-sur-Seine
 get_prelevements_chroniques(list(code_commune_insee = "10323"))
 
-}
-\seealso{
-\link{doApiQuery} for more details on the API querying process.
 }

@@ -42,9 +42,6 @@ library(hubeau)
 # Get started
 
 ```{r import_documentationchild, results='asis', echo=FALSE}
-cfg <- config::get(file = system.file("config.yml", package = "hubeau"))
-apis <- names(cfg$apis)
-
 convert_link <- function(s) {
   m <- gregexpr("\\[.*\\(\\)\\]", s)
   if (m[[1]][1] == -1) return(s)
@@ -52,6 +49,7 @@ convert_link <- function(s) {
   x <- gsub("\\[|\\(|\\)|\\]", "", x)
   x2 <- strsplit(x, "_", fixed = TRUE)[[1]]
   x2 <- paste(x2[-length(x2)], collapse = "_")
+  apis <- list_apis()
   x2 <- paste0("get_", apis[sapply(apis, grepl, x = x2, fixed = TRUE)])
   x <- sprintf("[`%s`](https://inrae.github.io/hubeau/reference/%s.html)", x, x2)
   regmatches(s, m) <- x

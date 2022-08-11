@@ -12,7 +12,7 @@
 #' See the API documentation of each endpoint for available filter parameters:
 #' \url{https://hubeau.eaufrance.fr/page/api-hydrometrie}
 #'
-#' @template param_get_common
+#' @inheritParams doApiQuery
 #'
 #' @export
 #' @rdname get_hydrometrie
@@ -31,7 +31,7 @@
 #' }
 #'
 #' # Which parameters are available for endpoint "obs_elab" of API "hydrometrie"?
-#' get_available_params("hydrometrie", "obs_elab")
+#' list_params("hydrometrie", "obs_elab")
 #'
 #' # Retrieve the hydrometric monthly mean flow at site 'H0203020'
 #' get_hydrometrie_obs_elab(list(code_entite = "H0203020", grandeur_hydro_elab = "QmM"))
@@ -42,14 +42,11 @@
 #'   date_debut_obs_elab = format(Sys.Date() -30, "%Y-%m-%d"),
 #'   grandeur_hydro_elab = "QmJ"))
 #'
-get_hydrometrie_obs_elab <- function(params,
-                                     cfg = config::get(file = system.file("config.yml",
-                                                                          package = "hubeau"))) {
+get_hydrometrie_obs_elab <- function(params) {
   l <- doApiQuery(
     api = "hydrometrie",
     endpoint = "obs_elab",
-    params = params,
-    cfg = cfg
+    params = params
   )
   convert_list_to_tibble(l)
 }
@@ -58,9 +55,7 @@ get_hydrometrie_obs_elab <- function(params,
 #' @rdname get_hydrometrie
 #' @export
 get_hydrometrie_observations_tr  <- function(params,
-                                             entities = "station",
-                                             cfg = config::get(file = system.file("config.yml",
-                                                        package = "hubeau"))) {
+                                             entities = "station") {
   # Checks
   if(!entities %in% c("station", "site", "both")) {
     stop("Argument 'entities' must be one of these values: 'station', 'site', 'both'")
@@ -69,8 +64,7 @@ get_hydrometrie_observations_tr  <- function(params,
   l <- doApiQuery(
     api = "hydrometrie",
     endpoint = "observations_tr",
-    params = params,
-    cfg = cfg
+    params = params
   )
   if(!is.null(l)) {
     l <- lapply(l, function(x) {
@@ -96,14 +90,11 @@ get_hydrometrie_observations_tr  <- function(params,
 #' @rdname get_hydrometrie
 #' @export
 get_hydrometrie_sites  <- function(params,
-                                   unique_site = TRUE,
-                                   cfg = config::get(file = system.file("config.yml",
-                                                        package = "hubeau"))) {
+                                   unique_site = TRUE) {
   l <- doApiQuery(
     api = "hydrometrie",
     endpoint = "sites",
-    params = params,
-    cfg = cfg
+    params = params
   )
   l <- lapply(l, function(x) {
     fields <-
@@ -145,12 +136,10 @@ get_hydrometrie_sites  <- function(params,
 #' @param code_sandre_reseau_station optional [logical] indicating if `code_sandre_reseau_station` field is included in the result; if so, one line is added by item and other fields are repeated
 #' @rdname get_hydrometrie
 #' @export
-get_hydrometrie_stations  <- function(params, code_sandre_reseau_station = FALSE, cfg = config::get(file = system.file("config.yml",
-                                                                                      package = "hubeau"))) {
+get_hydrometrie_stations  <- function(params, code_sandre_reseau_station = FALSE) {
   l <- doApiQuery(api = "hydrometrie",
                   endpoint = "stations",
-                  params = params,
-                  cfg = cfg)
+                  params = params)
   l <- lapply(l, function(x) {
     if (!code_sandre_reseau_station) {
       x$code_sandre_reseau_station <- NULL

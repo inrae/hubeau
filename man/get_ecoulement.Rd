@@ -6,29 +6,14 @@
 \alias{get_ecoulement_campagnes}
 \title{Retrieve data from API "Ecoulement des cours d'eau"}
 \usage{
-get_ecoulement_stations(
-  params,
-  cfg = config::get(file = system.file("config.yml", package = "hubeau"))
-)
+get_ecoulement_stations(params)
 
-get_ecoulement_observations(
-  params,
-  cfg = config::get(file = system.file("config.yml", package = "hubeau"))
-)
+get_ecoulement_observations(params)
 
-get_ecoulement_campagnes(
-  params,
-  cfg = config::get(file = system.file("config.yml", package = "hubeau"))
-)
+get_ecoulement_campagnes(params)
 }
 \arguments{
-\item{params}{a \link{list} the list of parameters of the queries and their values in the format \code{list(ParamName = "Param value", ...)}, use the function \link{get_available_params} for a list of the available query parameters for a given API endpoint and see the API documentation for their descriptions}
-
-\item{cfg}{a \link{config} object describing the configuration of the APIs. Use the internal package configuration by default
-configuration}
-}
-\value{
-a \link[tibble:tibble]{tibble::tibble} with all available parameters in columns.
+\item{params}{a \link{list} the list of parameters of the queries and their values in the format \code{list(ParamName = "Param value", ...)}, use the function \link{list_params} for a list of the available filter parameters for a given API endpoint and see the API documentation for their description}
 }
 \description{
 The data originate from the "ONDE" river low waters monitoring network.
@@ -57,7 +42,7 @@ stations_39 <- get_ecoulement_stations(
 stations_39
 
 # Get the query parameters for the requested API/endpoint
-get_available_params(api = "ecoulement",
+list_params(api = "ecoulement",
                      endpoint = "observations")
 
 # Retrieve the river flow data in the Jura departement in 2022 with
@@ -70,7 +55,4 @@ onde_39 <- get_ecoulement_observations(
 )
 onde_39
 
-}
-\seealso{
-\link{doApiQuery} for more details on the API querying process.
 }
