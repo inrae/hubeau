@@ -46,9 +46,15 @@ See the API documentation for available filter parameters: \url{https://hubeau.e
 get_available_params(api = "ecoulement",
                      endpoint = "observations")
 
-# Retrieve the river flow data in the Jura since 2021
-onde_39 <- get_ecoulement_observations(list(code_departement = "39",
-                                            date_observation_min = "2021-01-01"))
+# Retrieve the river flow data in the Jura departement since 2022-01-01 with
+# a selection of the fields
+onde_39 <- get_ecoulement_observations(
+  list(
+     code_departement = "39",
+     date_observation_min = "2022-01-01",
+     fields = "code_station,libelle_station,date_observation,libelle_ecoulement"
+      )
+ )
 
 }
 \seealso{

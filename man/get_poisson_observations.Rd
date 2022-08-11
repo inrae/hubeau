@@ -28,11 +28,21 @@ See the API documentation for available filter parameters: \url{https://hubeau.e
 }
 \examples{
 # Get the query parameters for the requested API/endpoint
-get_available_params(api = "etat_piscicole",
+get_available_params(api = "poisson",
                      endpoint = "observations")
 
 # Retrieve the river fish sampled in Brest
-get_poisson_observations(list(libelle_commune = "Brest"))
+library(dplyr)
+brest_fishes <- get_poisson_observations(
+  list(
+    libelle_commune = "Brest",
+    fields = "code_operation,date_operation,libelle_point_prelevement_aspe,effectif_lot,code_alternatif_taxon"
+    )
+ ) \%>\%
+ group_by_at(vars(-effectif_lot)) \%>\%
+   summarise(nb_individals = sum(effectif_lot))
+
+View(brest_fishes)
 
 }
 \seealso{

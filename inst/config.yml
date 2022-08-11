@@ -201,7 +201,7 @@ default:
             - date_recherche
             - fields
             - srid
-    etat_piscicole:
+    poisson:
       path: v1/etat_piscicole
       endpoints:
         observations:

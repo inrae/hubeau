@@ -1,10 +1,9 @@
 #' Retrieve data from API "Poisson"
 #'
 #' @description
-#' Available endpoints are:
+#' Available endpoint:
 #'
-#' - `get_poisson_observations` retrieves operation
-#' - other endpoints should soon be added
+#' - `get_poisson_observations` retrieves data of scientific fishery operations
 #'
 #' See the API documentation for available filter parameters: \url{https://hubeau.eaufrance.fr/page/api-poisson}
 #'
@@ -14,11 +13,11 @@
 #'
 #' @examples
 #' # Get the query parameters for the requested API/endpoint
-#' get_available_params(api = "etat_piscicole",
+#' get_available_params(api = "poisson",
 #'                      endpoint = "observations")
 #'
 #' # Retrieve the river fish sampled in Brest
-#' library(tidyverse)
+#' library(dplyr)
 #' brest_fishes <- get_poisson_observations(
 #'   list(
 #'     libelle_commune = "Brest",
@@ -34,15 +33,12 @@ get_poisson_observations <- function(params,
                                      cfg = config::get(file = system.file("config.yml",
                                                                           package = "hubeau")))
 
-{
-  l <- doApiQuery(
-    api = "etat_piscicole",
-    endpoint = "observations",
-    params = params,
-    cfg = cfg
-  )
+  {
+
+  l <- doApiQuery(api = "poisson",
+                  endpoint = "observations",
+                  params = params,
+                  cfg = cfg)
 
   convert_list_to_tibble(l)
 }
-
-
