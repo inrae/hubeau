@@ -6,53 +6,55 @@
 \title{hubeau: A package for retrieving data on the French databases on water "Hub'eau"}
 \description{
 The 'hubeau' package provides functions for "Hub'eau" APIs and their related endpoints.
-These functions are named as follow: \verb{hubeau::get_[API]_[endpoint]}.
-}
-\details{
-Currently available APIs and related endpoints are listed below.
+These functions are named as follow: \verb{hubeau::get_[API()]_[endpoint()]}.
 
-\strong{API "Hydrométrie"}
+Currently available APIs and related endpoints are listed below.
+\subsection{API "Hydrométrie"}{
 
 API documentation: \url{https://hubeau.eaufrance.fr/page/api-hydrometrie}
 
 Available functions:
 \itemize{
-\item \link{get_hydrometrie_sites}: hydrometry sites (can contain several stations)
-\item \link{get_hydrometrie_stations}: hydrometry stations
-\item \link{get_hydrometrie_observations_tr}: hydrometry water level and discharge time series
-\item \link{get_hydrometrie_obs_elab}: hydrometric elaborate observations (daily/monthly mean flow)
+\item \code{\link[=get_hydrometrie_sites]{get_hydrometrie_sites()}}: hydrometry sites (can contain several stations)
+\item \code{\link[=get_hydrometrie_stations]{get_hydrometrie_stations()}}: hydrometry stations
+\item \code{\link[=get_hydrometrie_observations_tr]{get_hydrometrie_observations_tr()}}: hydrometry water level and discharge time series
+\item \code{\link[=get_hydrometrie_obs_elab]{get_hydrometrie_obs_elab()}}: hydrometric elaborate observations (daily/monthly mean flow)
+}
 }
 
-\strong{API "Indicateurs des services"}
+\subsection{API "Indicateurs des services"}{
 
 API documentation: \url{https://hubeau.eaufrance.fr/page/api-indicateurs-services}
 
 Available functions:
 \itemize{
-\item \link{get_indicateurs_services_communes}: performance indicators by commune
-\item \link{get_indicateurs_services_indicateurs}: performance indicators by indicator
-\item \link{get_indicateurs_services_services}: performance indicators by commune for each service
+\item \code{\link[=get_indicateurs_services_communes]{get_indicateurs_services_communes()}}: performance indicators by commune
+\item \code{\link[=get_indicateurs_services_indicateurs]{get_indicateurs_services_indicateurs()}}: performance indicators by indicator
+\item \code{\link[=get_indicateurs_services_services]{get_indicateurs_services_services()}}: performance indicators by commune for each service
+}
 }
 
-\strong{API "Piézométrie"}
+\subsection{API "Piézométrie"}{
 
 API documentation: \url{https://hubeau.eaufrance.fr/page/api-piezometrie}
 
 Available functions:
 \itemize{
-\item \link{get_niveaux_nappes_chroniques}: archived time series of piezometric stations
-\item \link{get_niveaux_nappes_chroniques_tr}: real-time time series of piezometric stations
-\item \link{get_niveaux_nappes_stations}: piezometric stations
+\item \code{\link[=get_niveaux_nappes_chroniques]{get_niveaux_nappes_chroniques()}}: archived time series of piezometric stations
+\item \code{\link[=get_niveaux_nappes_chroniques_tr]{get_niveaux_nappes_chroniques_tr()}}: real-time time series of piezometric stations
+\item \code{\link[=get_niveaux_nappes_stations]{get_niveaux_nappes_stations()}}: piezometric stations
+}
 }
 
-\strong{API "Prélèvements en eau"}
+\subsection{API "Prélèvements en eau"}{
 
 API documentation: \url{https://hubeau.eaufrance.fr/page/api-prelevements-eau}
 
 Available functions:
 \itemize{
-\item \link{get_prelevements_chroniques}: time series of annual withdrawn volumes by device
-\item \link{get_prelevements_ouvrages}: withdrawal devices (can contain several withdrawal points)
-\item \link{get_prelevements_points_prelevement}: withdrawal points
+\item \code{\link[=get_prelevements_chroniques]{get_prelevements_chroniques()}}: time series of annual withdrawn volumes by device
+\item \code{\link[=get_prelevements_ouvrages]{get_prelevements_ouvrages()}}: withdrawal devices (can contain several withdrawal points)
+\item \code{\link[=get_prelevements_points_prelevement]{get_prelevements_points_prelevement()}}: withdrawal points
+}
 }
 }

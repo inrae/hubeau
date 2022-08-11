@@ -24,7 +24,7 @@ knitr::opts_chunk$set(
 
 'hubeau' is an R-package proposing a collection of function to help retrieve data from the French national databases on water: https://hubeau.eaufrance.fr
 
-## Installation
+# Installation
 
 You can install the 'hubeau' R-package from it's development repository with:
 
@@ -33,27 +33,37 @@ install.packages("remotes")
 remotes::install_github("inrae/hubeau")
 ```
 
-## Loading library
+# Loading library
 
 ```{r library}
 library(hubeau)
 ```
 
-## Get started
+# Get started
 
-See the package documentation by typing:
+```{r import_documentationchild, results='asis', echo=FALSE}
+cfg <- config::get(file = system.file("config.yml", package = "hubeau"))
+apis <- names(cfg$apis)
 
-```r
-?hubeau
+convert_link <- function(s) {
+  m <- gregexpr("\\[.*\\(\\)\\]", s)
+  if (m[[1]][1] == -1) return(s)
+  x <- regmatches(s, m)
+  x <- gsub("\\[|\\(|\\)|\\]", "", x)
+  x2 <- strsplit(x, "_", fixed = TRUE)[[1]]
+  x2 <- paste(x2[-length(x2)], collapse = "_")
+  x2 <- paste0("get_", apis[sapply(apis, grepl, x = x2, fixed = TRUE)])
+  x <- sprintf("[`%s`](https://inrae.github.io/hubeau/reference/%s.html)", x, x2)
+  regmatches(s, m) <- x
+  s
+}
+
+s <- readLines("man-roxygen/hubeau.md")
+s2 <- lapply(s, convert_link)
+cat(paste(s2, collapse = "\n"))
 ```
 
-Each function is documented with at least one example:
-
-```{r}
-example("get_prelevements_chroniques")
-```
-
-## Acknowledgement
+# Acknowledgement
 
 The authors would like to thank the European Commission and the French National Research Agency (ANR) for funding in the frame of the collaborative  international consortium [IN-WOP](http://www.waterjpi.eu/joint-calls/joint-call-2018-waterworks-2017/booklet/in-wop) financed under the 2018 Joint call of the WaterWorks2017 ERA-NET Cofund. This ERA-NET is an integral part of the activities developed by the Water JPI.
 
