@@ -8,11 +8,7 @@ template:
 
 navbar:
   structure:
-    right: [github, gitlab]
-  components:
-    gitlab:
-      icon: fab fa-gitlab fa-lg
-      href: https://gitlab.irstea.fr/in-wop/hubeau
+    right: [github]
 
 repo:
   url:
