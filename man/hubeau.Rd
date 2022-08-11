@@ -6,7 +6,7 @@
 \title{hubeau: A package for retrieving data on the French databases on water "Hub'eau"}
 \description{
 The 'hubeau' package provides functions for "Hub'eau" APIs and their related endpoints.
-These functions are named as follow: \verb{hubeau::get_[API()]_[endpoint()]}.
+These functions are named as follow: \verb{hubeau::get_[API]_[endpoint]}.
 
 Currently available APIs and related endpoints are listed below.
 \subsection{API "Hydrométrie"}{
