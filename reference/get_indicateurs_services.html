@@ -72,16 +72,7 @@ See list_params and the API documentation for available filter parameters: https
     <h2>Value</h2>
     
 
-<p>A <a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble::tibble</a> with one row by record and one column by field.</p>
-    </div>
-    <div id="details">
-    <h2>Details</h2>
-    <p><code>get_indicateurs_services_communes</code> returns a <a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble::tibble</a> with one row by commune, by service and by year and the following columns:</p><ul><li><p>"code_commune_insee": <a href="https://rdrr.io/r/base/character.html" class="external-link">character</a> identifier of the commune</p></li>
-<li><p>"nom_commune": <a href="https://rdrr.io/r/base/character.html" class="external-link">character</a> name of the commune</p></li>
-<li><p>"codes_service": <a href="https://rdrr.io/r/base/integer.html" class="external-link">integer</a> identifier of the drinking water supply and/or sanitation service</p></li>
-<li><p>"annee": <a href="https://rdrr.io/r/base/integer.html" class="external-link">integer</a> year of the data</p></li>
-<li><p>The following columns are the performance indicators flagged by their respective codes. The documentation of these codes can be found at this URL: <a href="https://www.services.eaufrance.fr/indicateurs/indicateurs" class="external-link">https://www.services.eaufrance.fr/indicateurs/indicateurs</a>.</p></li>
-</ul><p>a <a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble::tibble</a> with one row by commune, by service and by year and the following columns:</p><ul><li><p>"code_commune_insee": <a href="https://rdrr.io/r/base/character.html" class="external-link">character</a> identifier of the commune</p></li>
+<p><code>get_indicateurs_services_communes</code> returns a <a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble::tibble</a> with one row by commune, by service and by year and the following columns:</p><ul><li><p>"code_commune_insee": <a href="https://rdrr.io/r/base/character.html" class="external-link">character</a> identifier of the commune</p></li>
 <li><p>"nom_commune": <a href="https://rdrr.io/r/base/character.html" class="external-link">character</a> name of the commune</p></li>
 <li><p>"codes_service": <a href="https://rdrr.io/r/base/integer.html" class="external-link">integer</a> identifier of the drinking water supply and/or sanitation service</p></li>
 <li><p>"annee": <a href="https://rdrr.io/r/base/integer.html" class="external-link">integer</a> year of the data</p></li>
@@ -89,7 +80,7 @@ See list_params and the API documentation for available filter parameters: https
 </ul><p><code>get_indicateurs_services_indicateurs</code> returns a <a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble::tibble</a> with one row by service and by year and the following columns:</p><ul><li><p>"code_service": <a href="https://rdrr.io/r/base/character.html" class="external-link">character</a> identifier of the service</p></li>
 <li><p>"nom_service": <a href="https://rdrr.io/r/base/character.html" class="external-link">character</a> name of the service</p></li>
 <li><p>"numero_siren ": <a href="https://rdrr.io/r/base/character.html" class="external-link">character</a> SIREN identifier of the service</p></li>
-<li><p>"type_collectivite": <a href="https://rdrr.io/r/base/character.html" class="external-link">character</a> kind of collectivity</p></li>
+<li><p>"type_collectivite": <a href="https://rdrr.io/r/base/character.html" class="external-link">character</a> kind of community</p></li>
 <li><p>"mode_gestion": <a href="https://rdrr.io/r/base/character.html" class="external-link">character</a> management mechanism of the service</p></li>
 <li><p>"annee": <a href="https://rdrr.io/r/base/integer.html" class="external-link">integer</a> year of the data</p></li>
 <li><p>"indicateur": value of the indicator</p></li>
@@ -99,7 +90,7 @@ See list_params and the API documentation for available filter parameters: https
 <li><p>"code_commune_insee": <a href="https://rdrr.io/r/base/character.html" class="external-link">character</a> identifier of the commune</p></li>
 <li><p>"nom_commune": <a href="https://rdrr.io/r/base/character.html" class="external-link">character</a> name of the commune</p></li>
 <li><p>"numero_siren ": <a href="https://rdrr.io/r/base/character.html" class="external-link">character</a> SIREN identifier of the service</p></li>
-<li><p>"type_collectivite": <a href="https://rdrr.io/r/base/character.html" class="external-link">character</a> kind of collectivity</p></li>
+<li><p>"type_collectivite": <a href="https://rdrr.io/r/base/character.html" class="external-link">character</a> kind of community</p></li>
 <li><p>"mode_gestion": <a href="https://rdrr.io/r/base/character.html" class="external-link">character</a> management mechanism of the service</p></li>
 <li><p>"annee": <a href="https://rdrr.io/r/base/integer.html" class="external-link">integer</a> year of the data</p></li>
 <li><p>The following columns are the performance indicators flagged by their respective codes. The documentation of these codes can be found at this URL: <a href="https://www.services.eaufrance.fr/indicateurs/indicateurs" class="external-link">https://www.services.eaufrance.fr/indicateurs/indicateurs</a>.</p></li>
