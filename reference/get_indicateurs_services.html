@@ -68,6 +68,12 @@ See list_params and the API documentation for available filter parameters: https
 <dd><p>a <a href="https://rdrr.io/r/base/list.html" class="external-link">list</a> the list of parameters of the queries and their values in the format <code>list(ParamName = "Param value", ...)</code>, use the function <a href="lists.html">list_params</a> for a list of the available filter parameters for a given API endpoint and see the API documentation for their description</p></dd>
 
 </dl></div>
+    <div id="value">
+    <h2>Value</h2>
+    
+
+<p>A <a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble::tibble</a> with one row by record and one column by field.</p>
+    </div>
     <div id="details">
     <h2>Details</h2>
     <p><code>get_indicateurs_services_communes</code> returns a <a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble::tibble</a> with one row by commune, by service and by year and the following columns:</p><ul><li><p>"code_commune_insee": <a href="https://rdrr.io/r/base/character.html" class="external-link">character</a> identifier of the commune</p></li>
