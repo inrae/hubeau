@@ -129,7 +129,7 @@ doApiQuery <- function(api,
 #' This function is used internally by all the retrieving data functions for
 #' converting data after the call to [doApiQuery].
 #'
-#' @return a [tibble::tibble] with one row by list item and one column by list sub-item
+#' @return A [tibble::tibble] with one row by record and one column by field.
 #'
 #' @export
 #'

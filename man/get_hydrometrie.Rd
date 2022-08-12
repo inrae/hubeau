@@ -24,6 +24,9 @@ get_hydrometrie_stations(params, code_sandre_reseau_station = FALSE)
 
 \item{code_sandre_reseau_station}{optional \link{logical} indicating if \code{code_sandre_reseau_station} field is included in the result; if so, one line is added by item and other fields are repeated}
 }
+\value{
+A \link[tibble:tibble]{tibble::tibble} with one row by record and one column by field.
+}
 \description{
 Available endpoints are:
 \itemize{

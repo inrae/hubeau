@@ -11,6 +11,7 @@
 #' See the API documentation for available filter parameters: \url{https://hubeau.eaufrance.fr/page/api-ecoulement}
 #'
 #' @inheritParams doApiQuery
+#' @inherit convert_list_to_tibble return return
 #'
 #' @export
 #' @rdname get_ecoulement

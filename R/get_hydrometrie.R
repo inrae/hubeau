@@ -13,6 +13,7 @@
 #' \url{https://hubeau.eaufrance.fr/page/api-hydrometrie}
 #'
 #' @inheritParams doApiQuery
+#' @inherit convert_list_to_tibble return return
 #'
 #' @export
 #' @rdname get_hydrometrie

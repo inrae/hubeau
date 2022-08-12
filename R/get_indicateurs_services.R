@@ -7,6 +7,7 @@
 #' See [list_params] and the API documentation for available filter parameters: \url{https://hubeau.eaufrance.fr/page/api-indicateurs-services}
 #'
 #' @inheritParams doApiQuery
+#' @inherit convert_list_to_tibble return return
 #'
 #' @details
 #' `get_indicateurs_services_communes` returns a [tibble::tibble] with one row by commune, by service and by year and the following columns:

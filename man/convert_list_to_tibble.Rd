@@ -10,7 +10,7 @@ convert_list_to_tibble(l)
 \item{l}{a \link{list} provided by the API (See \link{doApiQuery})}
 }
 \value{
-a \link[tibble:tibble]{tibble::tibble} with one row by list item and one column by list sub-item
+A \link[tibble:tibble]{tibble::tibble} with one row by record and one column by field.
 }
 \description{
 Convert list provided by the APIs into a tibble
