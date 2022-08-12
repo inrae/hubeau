@@ -1,27 +1,30 @@
-Package: hubeau
 Type: Package
-Title: Functions for the French API on water data "Hub'eau"
+Package: hubeau
+Title: Get Data from the French National Database on Water "Hub'Eau"
 Version: 0.2.0.9000
 Authors@R: c(
-    person("David", "Dorchies", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-6595-7984"), email = "david.dorchies@inrae.fr"),
-    person("Pascal", "Irz", role = "ctb", email = "pascal.irz@ofb.gouv.fr")
-    )
-Description: Collection of functions to help retrieve the French national data bank on water <https://hubeau.eaufrance.fr/>.
+    person("David", "Dorchies", , "david.dorchies@inrae.fr", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-6595-7984")),
+    person("Pascal", "Irz", , "pascal.irz@ofb.gouv.fr", role = "ctb")
+  )
+Description: Collection of functions to help retrieving data from "Hub'Eau" the 
+    free and public French National APIs on water <https://hubeau.eaufrance.fr/>.
 License: MIT + file LICENSE
-URL: https://inrae.github.io/hubeau, https://github.com/inrae/hubeau#readme
+URL: https://inrae.github.io/hubeau,
+    https://github.com/inrae/hubeau#readme
 BugReports: https://github.com/inrae/hubeau/issues
-Encoding: UTF-8
-LazyData: true
+Depends:
+    R (>= 2.10)
 Imports:
     httr,
     purrr,
     tibble,
     urltools
-RoxygenNote: 7.2.0
-Roxygen: list(markdown = TRUE)
 Suggests:
     dplyr,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
-Depends: 
-    R (>= 2.10)
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.0
