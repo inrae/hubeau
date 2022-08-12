@@ -78,29 +78,9 @@ See the API documentation for available filter parameters: https://hubeau.eaufra
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Retrieve the hydrometric stations in the department of Aube</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="co"># Retrieve the hydrometric stations in the department of Aube</span></span></span>
 <span class="r-in"><span><span class="fu">get_niveaux_nappes_stations</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>code_departement <span class="op">=</span> <span class="st">"10"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 757 × 21</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    code_bss  urn_bss date_…¹ date_…² code_…³ nom_c…⁴     x     y codes…⁵ urns_…⁶</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 03001X01… http:/… 1986-0… 1986-1… 10411   La Vil…  4.68  48.4 <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 03001X01… http:/… 1986-0… 1986-1… 10411   La Vil…  4.68  48.4 <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 02994X01… http:/… 1985-0… 1986-1… 10372   Soulai…  4.67  48.4 <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 02994X02… http:/… 1986-0… 1986-1… 10139   Épothé…  4.66  48.4 <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 03001X01… http:/… 1986-0… 1986-1… 10372   Soulai…  4.68  48.4 <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 02994X03… http:/… 1986-0… 1986-1… 10372   Soulai…  4.67  48.4 <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 03001X00… http:/… 1985-0… 1986-0… 10372   Soulai…  4.72  48.4 <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 02623X00… http:/… 1977-1… 1991-1… 10354   Saint-…  4.22  48.5 121AO30 http:/…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 02623X00… http:/… 1977-1… 1991-1… 10354   Saint-…  4.22  48.5 928AG01 http:/…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 03001X01… http:/… 1985-0… 1986-1… 10411   La Vil…  4.68  48.4 <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 747 more rows, 11 more variables: bss_id &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   altitude_station &lt;chr&gt;, nb_mesures_piezo &lt;int&gt;, code_departement &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   nom_departement &lt;chr&gt;, libelle_pe &lt;chr&gt;, profondeur_investigation &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   codes_masse_eau_edl &lt;chr&gt;, noms_masse_eau_edl &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   urns_masse_eau_edl &lt;chr&gt;, date_maj &lt;chr&gt;, and abbreviated variable names</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ¹​date_debut_mesure, ²​date_fin_mesure, ³​code_commune_insee, ⁴​nom_commune,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ⁵​codes_bdlisa, ⁶​urns_bdlisa</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Retrieve the archived observed piezometric level at station '07548X0009/F' (old BSS identifier)</span></span></span>
 <span class="r-in"><span><span class="co"># for the year 2020</span></span></span>
@@ -110,7 +90,6 @@ See the API documentation for available filter parameters: https://hubeau.eaufra
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Plot the water elevation (NGF)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/as.POSIXlt.html" class="external-link">as.POSIXct</a></span><span class="op">(</span><span class="va">df</span><span class="op">$</span><span class="va">date_mesure</span><span class="op">)</span>, <span class="va">df</span><span class="op">$</span><span class="va">niveau_nappe_eau</span>, type <span class="op">=</span> <span class="st">"l"</span><span class="op">)</span></span></span>
-<span class="r-plt img"><img src="get_niveaux_nappes-1.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># For retrieving the last real time observed piezometric level</span></span></span>
 <span class="r-in"><span><span class="co"># at station 'BSS001VZGZ' (new BSS identifier)</span></span></span>
@@ -118,8 +97,7 @@ See the API documentation for available filter parameters: https://hubeau.eaufra
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Plot the water elevation (NGF)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/as.POSIXlt.html" class="external-link">as.POSIXct</a></span><span class="op">(</span><span class="va">df</span><span class="op">$</span><span class="va">date_mesure</span><span class="op">)</span>, <span class="va">df</span><span class="op">$</span><span class="va">niveau_eau_ngf</span>, type <span class="op">=</span> <span class="st">"l"</span><span class="op">)</span></span></span>
-<span class="r-plt img"><img src="get_niveaux_nappes-2.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
   </div>

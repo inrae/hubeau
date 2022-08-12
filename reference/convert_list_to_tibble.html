@@ -74,6 +74,40 @@
 converting data after the call to <a href="doApiQuery.html">doApiQuery</a>.</p>
     </div>
 
+    <div id="ref-examples">
+    <h2>Examples</h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># To get the available APIs in the package</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="lists.html">list_apis</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "prelevements"         "indicateurs_services" "hydrometrie"         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [4] "niveaux_nappes"       "poisson"              "ecoulement"          </span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># To get the available endpoints in an API</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="lists.html">list_endpoints</a></span><span class="op">(</span><span class="st">"prelevements"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "points_prelevement" "chroniques"         "ouvrages"          </span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># To get available parameters in endpoint "chroniques" of the API "prelevements"</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="lists.html">list_params</a></span><span class="op">(</span>api <span class="op">=</span> <span class="st">"prelevements"</span>, endpoint <span class="op">=</span> <span class="st">"chroniques"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "annee"                      "bbox"                      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [3] "code_commune_insee"         "code_departement"          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [5] "code_mode_obtention_volume" "code_ouvrage"              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] "code_qualification_volume"  "code_statut_instruction"   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] "code_statut_volume"         "code_usage"                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [11] "distance"                   "fields"                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [13] "latitude"                   "libelle_departement"       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [15] "longitude"                  "nom_commune"               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [17] "prelevement_ecrasant"       "producteur_donnee"         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "volume_max"                 "volume_min"                </span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># To query the endpoint "chroniques" of the API "prelevements"</span></span></span>
+<span class="r-in"><span><span class="co"># on all devices in the commune of Romilly-sur-Seine in 2018</span></span></span>
+<span class="r-in"><span><span class="kw">if</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="va">resp</span> <span class="op">&lt;-</span> <span class="fu"><a href="doApiQuery.html">doApiQuery</a></span><span class="op">(</span>api <span class="op">=</span> <span class="st">"prelevements"</span>,</span></span>
+<span class="r-in"><span>                   endpoint <span class="op">=</span> <span class="st">"chroniques"</span>,</span></span>
+<span class="r-in"><span>                   params <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>code_commune_insee <span class="op">=</span> <span class="st">"10323"</span>, annee <span class="op">=</span> <span class="st">"2018"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">convert_list_to_tibble</span><span class="op">(</span><span class="va">resp</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+</code></pre></div>
+    </div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top"><h2 data-toc-skip>Contents</h2>
