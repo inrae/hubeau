@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# hubeau an R package for the Hub'Eau APIs
+# hubeau an R package for the Hub’Eau APIs
 
 <img src="man/figures/logo.png" style="float: right; height: 220px;"/>
 
@@ -34,7 +34,7 @@ library(hubeau)
 
 # Get started
 
-The ‘hubeau’ package provides functions for “Hub'Eau” APIs and their
+The ‘hubeau’ package provides functions for “Hub’Eau” APIs and their
 related endpoints. These functions are named as follow:
 `hubeau::get_[API]_[endpoint]`.
 
@@ -121,7 +121,7 @@ Available functions:
 A complete documentation is available on the package website:
 <https://inrae.github.io/hubeau/>
 
-# Acknowledgement
+# Acknowledgements
 
 The authors would like to thank the European Commission and the French
 National Research Agency (ANR) for funding in the frame of the
