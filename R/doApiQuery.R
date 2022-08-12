@@ -1,9 +1,17 @@
 #' Main internal functions for querying the Hub'eau API endpoints
 #'
-#' The function `doQueryApi` is called by all the function querying the API endpoints and return the raw data sent by the endpoint.
-#' Pagination of the queries is handled automatically and the returned [list] is the concatenation of all the results sent by the API.
+#' The function `doQueryApi` is called by all the function querying the API
+#' endpoints and return the raw data sent by the endpoint.
 #'
-#' @details The functions `get_[api]_[endpoint]` call the function `doQueryApi` and convert the response in a convenient format for the user ([data.frame] or [tibble::tibble])
+#' Pagination of the queries is handled automatically and the returned [list] is
+#' the concatenation of all the results sent by the API.
+#'
+#' @details The functions `get_[api]_[endpoint]` call the function `doQueryApi`
+#' and convert the response in a convenient format for the user ([data.frame] or [tibble::tibble])
+#'
+#' By default the user agent used for the query is `r .cfg$user_agent`.
+#' You can redefined the user agent by defining the global option
+#' "hubeau.user_agent": `options(hubeau.user_agent = "My user agent")`.
 #'
 #' @param api a [character] name of the API (e.g.: "indicateurs_services", "prelevements"...), see example for available APIs
 #' @param endpoint a [character] name of the endpoint, see example for available endpoints in an API
@@ -56,10 +64,14 @@ doApiQuery <- function(api,
                                    value = params[[paramName]])
     }
   }
+  user_agent <- options("hubeau.user_agent")[[1]]
+  if(is.null(user_agent)) user_agent <- .cfg$user_agent
+  user_agent <- httr::user_agent(user_agent)
+
   data <- list()
 
   repeat {
-    resp <- httr::GET(query)
+    resp <- httr::GET(query, user_agent)
     if (resp$status_code >= 400) {
       l <- NULL
       try(l <- httr::content(resp, "parsed"), TRUE)

@@ -17,11 +17,19 @@ doApiQuery(api, endpoint, params)
 A \link{list} with the concatenated results returned by the API.
 }
 \description{
-The function \code{doQueryApi} is called by all the function querying the API endpoints and return the raw data sent by the endpoint.
-Pagination of the queries is handled automatically and the returned \link{list} is the concatenation of all the results sent by the API.
+The function \code{doQueryApi} is called by all the function querying the API
+endpoints and return the raw data sent by the endpoint.
 }
 \details{
-The functions \verb{get_[api]_[endpoint]} call the function \code{doQueryApi} and convert the response in a convenient format for the user (\link{data.frame} or \link[tibble:tibble]{tibble::tibble})
+Pagination of the queries is handled automatically and the returned \link{list} is
+the concatenation of all the results sent by the API.
+
+The functions \verb{get_[api]_[endpoint]} call the function \code{doQueryApi}
+and convert the response in a convenient format for the user (\link{data.frame} or \link[tibble:tibble]{tibble::tibble})
+
+By default the user agent used for the query is https://github.com/inrae/hubeau.
+You can redefined the user agent by defining the global option
+"hubeau.user_agent": \code{options(hubeau.user_agent = "My user agent")}.
 }
 \examples{
 # To get the available APIs in the package

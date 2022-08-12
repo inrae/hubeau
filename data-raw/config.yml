@@ -1,5 +1,6 @@
 default:
   api_url: https://hubeau.eaufrance.fr/api
+  user_agent: https://github.com/inrae/hubeau
   apis:
     prelevements:
       path: v1/prelevements
