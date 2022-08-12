@@ -3,7 +3,7 @@
 
 # hubeau an R package for the Hub’Eau APIs
 
-<img src="man/figures/logo.png" style="float: right; height: 220px;"/>
+<img src="man/figures/logo.png" style="float: right; height: 220px; margin: 15px;"/>
 
 <!-- badges: start -->
 
