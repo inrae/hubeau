@@ -10,6 +10,7 @@
 #' @inheritParams doApiQuery
 #'
 #' @export
+#' @rdname get_poisson
 #'
 #' @examples
 #' # Get the query parameters for the requested API/endpoint
