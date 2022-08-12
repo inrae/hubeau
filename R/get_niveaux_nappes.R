@@ -15,6 +15,7 @@
 #' @export
 #'
 #' @examples
+#' if(interactive()) {
 #' # Retrieve the hydrometric stations in the department of Aube
 #' get_niveaux_nappes_stations(list(code_departement = "10"))
 #'
@@ -33,7 +34,7 @@
 #'
 #' # Plot the water elevation (NGF)
 #' plot(as.POSIXct(df$date_mesure), df$niveau_eau_ngf, type = "l")
-#'
+#' }
 get_niveaux_nappes_stations  <- function(params) {
   l <- doApiQuery(api = "niveaux_nappes",
                   endpoint = "stations",

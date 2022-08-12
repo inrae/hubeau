@@ -15,6 +15,7 @@
 #' @export
 #' @rdname get_ecoulement
 #' @examples
+#' if(interactive()) {
 #' # Retrieve 2022 observation campaigns in the Jura French department
 #' get_ecoulement_campagnes(
 #'   list(code_departement = "39",
@@ -42,7 +43,7 @@
 #'        fields = "code_station,libelle_station,date_observation,libelle_ecoulement")
 #' )
 #' onde_39
-#'
+#'}
 get_ecoulement_stations <- function(params)
 {
   l <- doApiQuery(

@@ -18,6 +18,7 @@ Available endpoint:
 See the API documentation for available filter parameters: \url{https://hubeau.eaufrance.fr/page/api-poisson}
 }
 \examples{
+if(interactive()) {
 # Get the query parameters for the requested API/endpoint
 list_params(api = "poisson",
                      endpoint = "observations")
@@ -40,5 +41,5 @@ brest_fishes <- get_poisson_observations(
    summarise(nb_individals = sum(effectif_lot))
 
 brest_fishes
-
+}
 }

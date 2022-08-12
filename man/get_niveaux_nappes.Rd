@@ -26,6 +26,7 @@ The available endpoints are:
 See the API documentation for available filter parameters: \url{https://hubeau.eaufrance.fr/page/api-piezometrie}
 }
 \examples{
+if(interactive()) {
 # Retrieve the hydrometric stations in the department of Aube
 get_niveaux_nappes_stations(list(code_departement = "10"))
 
@@ -44,5 +45,5 @@ df <- get_niveaux_nappes_chroniques_tr(list(bss_id = "BSS001VZGZ"))
 
 # Plot the water elevation (NGF)
 plot(as.POSIXct(df$date_mesure), df$niveau_eau_ngf, type = "l")
-
+}
 }

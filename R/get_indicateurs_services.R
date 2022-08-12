@@ -52,6 +52,7 @@
 #' @rdname get_indicateurs_services
 #'
 #' @examples
+#' if(interactive()) {
 #' # Retrieve performance indicator time series in the commune of Romilly-sur-Seine
 #' get_indicateurs_services_communes(list(code_commune = "10323"))
 #'
@@ -60,7 +61,7 @@
 #'
 #' # Retrieve performance indicator time series of Romilly-sur-Seine with service details
 #' get_indicateurs_services_services(list(code_commune = "10323"))
-#'
+#' }
 get_indicateurs_services_communes <- function(params) {
 
   l <- doApiQuery(api = "indicateurs_services",

@@ -15,6 +15,7 @@
 #' @export
 #'
 #' @examples
+#' if(interactive()) {
 #' # Retrieve the withdrawal points located in Romilly-sur-Seine
 #' get_prelevements_points_prelevement(list(code_commune_insee = "10323"))
 #'
@@ -23,7 +24,7 @@
 #'
 #' # Retrieve the withdrawal time series of the devices located in Romilly-sur-Seine
 #' get_prelevements_chroniques(list(code_commune_insee = "10323"))
-#'
+#' }
 get_prelevements_points_prelevement <- function(params) {
   l <- doApiQuery(api = "prelevements",
                   endpoint = "points_prelevement",

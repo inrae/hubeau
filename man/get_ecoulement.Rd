@@ -27,6 +27,7 @@ Available endpoints are:
 See the API documentation for available filter parameters: \url{https://hubeau.eaufrance.fr/page/api-ecoulement}
 }
 \examples{
+if(interactive()) {
 # Retrieve 2022 observation campaigns in the Jura French department
 get_ecoulement_campagnes(
   list(code_departement = "39",
@@ -54,5 +55,5 @@ onde_39 <- get_ecoulement_observations(
        fields = "code_station,libelle_station,date_observation,libelle_ecoulement")
 )
 onde_39
-
+}
 }

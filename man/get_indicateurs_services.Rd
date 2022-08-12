@@ -65,6 +65,7 @@ a \link[tibble:tibble]{tibble::tibble} with one row by commune, by service and b
 }
 }
 \examples{
+if(interactive()) {
 # Retrieve performance indicator time series in the commune of Romilly-sur-Seine
 get_indicateurs_services_communes(list(code_commune = "10323"))
 
@@ -73,5 +74,5 @@ get_indicateurs_services_indicateurs(list(code_indicateur = "D102.0", annee = "2
 
 # Retrieve performance indicator time series of Romilly-sur-Seine with service details
 get_indicateurs_services_services(list(code_commune = "10323"))
-
+}
 }

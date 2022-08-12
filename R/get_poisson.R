@@ -13,6 +13,7 @@
 #' @rdname get_poisson
 #'
 #' @examples
+#' if(interactive()) {
 #' # Get the query parameters for the requested API/endpoint
 #' list_params(api = "poisson",
 #'                      endpoint = "observations")
@@ -35,7 +36,7 @@
 #'    summarise(nb_individals = sum(effectif_lot))
 #'
 #' brest_fishes
-#'
+#' }
 get_poisson_observations <- function(params)
 
   {

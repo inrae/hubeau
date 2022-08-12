@@ -26,6 +26,7 @@ Available endpoints are:
 See the API documentation for available filter parameters: \url{https://hubeau.eaufrance.fr/page/api-prelevements-eau}
 }
 \examples{
+if(interactive()) {
 # Retrieve the withdrawal points located in Romilly-sur-Seine
 get_prelevements_points_prelevement(list(code_commune_insee = "10323"))
 
@@ -34,5 +35,5 @@ get_prelevements_ouvrages(list(code_commune_insee = "10323"))
 
 # Retrieve the withdrawal time series of the devices located in Romilly-sur-Seine
 get_prelevements_chroniques(list(code_commune_insee = "10323"))
-
+}
 }

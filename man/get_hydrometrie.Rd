@@ -37,18 +37,15 @@ See the API documentation of each endpoint for available filter parameters:
 \url{https://hubeau.eaufrance.fr/page/api-hydrometrie}
 }
 \examples{
+if(interactive()) {
 # Retrieve the hydrometric sites in the department of Aube
 get_hydrometrie_sites(list(code_departement = "10"))
 
 # The same operation returning 2 rows for the site 'H0203020' which has 2 different locations
 get_hydrometrie_sites(list(code_departement = "10"), unique_site = FALSE)
 
-\dontrun{
-# This function is currently (2021-12-23) unstable and can be unavailable
-# (See https://github.com/BRGM/hubeau/issues/85)
 # Retrieve the hydrometric stations in the department of Aube
 get_hydrometrie_stations(list(code_departement = "10"))
-}
 
 # Which parameters are available for endpoint "obs_elab" of API "hydrometrie"?
 list_params("hydrometrie", "obs_elab")
@@ -61,5 +58,5 @@ get_hydrometrie_obs_elab(
   list(code_entite = "H0203020",
   date_debut_obs_elab = format(Sys.Date() -30, "\%Y-\%m-\%d"),
   grandeur_hydro_elab = "QmJ"))
-
+}
 }
