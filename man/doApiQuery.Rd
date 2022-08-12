@@ -2,7 +2,7 @@
 % Please edit documentation in R/doApiQuery.R
 \name{doApiQuery}
 \alias{doApiQuery}
-\title{Main internal functions for querying the Hub'eau API endpoints}
+\title{Main internal functions for querying the Hub'Eau API endpoints}
 \usage{
 doApiQuery(api, endpoint, params)
 }

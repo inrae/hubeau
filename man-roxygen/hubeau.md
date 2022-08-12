@@ -1,4 +1,4 @@
-The 'hubeau' package provides functions for "Hub'eau" APIs and their related endpoints.
+The 'hubeau' package provides functions for "Hub'Eau" APIs and their related endpoints.
 These functions are named as follow: `hubeau::get_[API]_[endpoint]`.
 
 Currently available APIs and related endpoints are listed below.
@@ -7,7 +7,7 @@ Currently available APIs and related endpoints are listed below.
 
 API documentation: <https://hubeau.eaufrance.fr/page/api-ecoulement>
 
-Available functions: 
+Available functions:
 
 - [get_ecoulement_stations()]: site data and locations
 - [get_ecoulement_observations()]: flow observations collected during campaigns

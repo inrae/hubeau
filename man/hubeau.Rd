@@ -3,9 +3,9 @@
 \docType{package}
 \name{hubeau}
 \alias{hubeau}
-\title{hubeau: A package for retrieving data on the French databases on water "Hub'eau"}
+\title{hubeau: A package for retrieving data on the French databases on water "Hub'Eau"}
 \description{
-The 'hubeau' package provides functions for "Hub'eau" APIs and their related endpoints.
+The 'hubeau' package provides functions for "Hub'Eau" APIs and their related endpoints.
 These functions are named as follow: \verb{hubeau::get_[API]_[endpoint]}.
 
 Currently available APIs and related endpoints are listed below.

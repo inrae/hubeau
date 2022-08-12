@@ -7,18 +7,9 @@
 #' See [list_params] and the API documentation for available filter parameters: \url{https://hubeau.eaufrance.fr/page/api-indicateurs-services}
 #'
 #' @inheritParams doApiQuery
-#' @inherit convert_list_to_tibble return return
 #'
-#' @details
+#' @return
 #' `get_indicateurs_services_communes` returns a [tibble::tibble] with one row by commune, by service and by year and the following columns:
-#'
-#' - "code_commune_insee": [character] identifier of the commune
-#' - "nom_commune": [character] name of the commune
-#' - "codes_service": [integer] identifier of the drinking water supply and/or sanitation service
-#' - "annee": [integer] year of the data
-#' - The following columns are the performance indicators flagged by their respective codes. The documentation of these codes can be found at this URL: \url{https://www.services.eaufrance.fr/indicateurs/indicateurs}.
-#'
-#' a [tibble::tibble] with one row by commune, by service and by year and the following columns:
 #'
 #' - "code_commune_insee": [character] identifier of the commune
 #' - "nom_commune": [character] name of the commune
@@ -31,7 +22,7 @@
 #' - "code_service": [character] identifier of the service
 #' - "nom_service": [character] name of the service
 #' - "numero_siren ": [character] SIREN identifier of the service
-#' - "type_collectivite": [character] kind of collectivity
+#' - "type_collectivite": [character] kind of community
 #' - "mode_gestion": [character] management mechanism of the service
 #' - "annee": [integer] year of the data
 #' - "indicateur": value of the indicator
@@ -44,7 +35,7 @@
 #' - "code_commune_insee": [character] identifier of the commune
 #' - "nom_commune": [character] name of the commune
 #' - "numero_siren ": [character] SIREN identifier of the service
-#' - "type_collectivite": [character] kind of collectivity
+#' - "type_collectivite": [character] kind of community
 #' - "mode_gestion": [character] management mechanism of the service
 #' - "annee": [integer] year of the data
 #' - The following columns are the performance indicators flagged by their respective codes. The documentation of these codes can be found at this URL: \url{https://www.services.eaufrance.fr/indicateurs/indicateurs}.

@@ -13,7 +13,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# hubeau an R package for the Hub'eau APIs
+# hubeau an R package for the Hub'Eau APIs
 
 <img src="man/figures/logo.png" style="float: right; height: 220px;"/>
 

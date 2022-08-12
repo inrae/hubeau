@@ -16,24 +16,7 @@ get_indicateurs_services_services(params)
 \item{params}{a \link{list} the list of parameters of the queries and their values in the format \code{list(ParamName = "Param value", ...)}, use the function \link{list_params} for a list of the available filter parameters for a given API endpoint and see the API documentation for their description}
 }
 \value{
-A \link[tibble:tibble]{tibble::tibble} with one row by record and one column by field.
-}
-\description{
-Retrieve performance indicators collected in drinking water and sanitation services in France.
-
-See \link{list_params} and the API documentation for available filter parameters: \url{https://hubeau.eaufrance.fr/page/api-indicateurs-services}
-}
-\details{
 \code{get_indicateurs_services_communes} returns a \link[tibble:tibble]{tibble::tibble} with one row by commune, by service and by year and the following columns:
-\itemize{
-\item "code_commune_insee": \link{character} identifier of the commune
-\item "nom_commune": \link{character} name of the commune
-\item "codes_service": \link{integer} identifier of the drinking water supply and/or sanitation service
-\item "annee": \link{integer} year of the data
-\item The following columns are the performance indicators flagged by their respective codes. The documentation of these codes can be found at this URL: \url{https://www.services.eaufrance.fr/indicateurs/indicateurs}.
-}
-
-a \link[tibble:tibble]{tibble::tibble} with one row by commune, by service and by year and the following columns:
 \itemize{
 \item "code_commune_insee": \link{character} identifier of the commune
 \item "nom_commune": \link{character} name of the commune
@@ -47,7 +30,7 @@ a \link[tibble:tibble]{tibble::tibble} with one row by commune, by service and b
 \item "code_service": \link{character} identifier of the service
 \item "nom_service": \link{character} name of the service
 \item "numero_siren ": \link{character} SIREN identifier of the service
-\item "type_collectivite": \link{character} kind of collectivity
+\item "type_collectivite": \link{character} kind of community
 \item "mode_gestion": \link{character} management mechanism of the service
 \item "annee": \link{integer} year of the data
 \item "indicateur": value of the indicator
@@ -61,11 +44,16 @@ a \link[tibble:tibble]{tibble::tibble} with one row by commune, by service and b
 \item "code_commune_insee": \link{character} identifier of the commune
 \item "nom_commune": \link{character} name of the commune
 \item "numero_siren ": \link{character} SIREN identifier of the service
-\item "type_collectivite": \link{character} kind of collectivity
+\item "type_collectivite": \link{character} kind of community
 \item "mode_gestion": \link{character} management mechanism of the service
 \item "annee": \link{integer} year of the data
 \item The following columns are the performance indicators flagged by their respective codes. The documentation of these codes can be found at this URL: \url{https://www.services.eaufrance.fr/indicateurs/indicateurs}.
 }
+}
+\description{
+Retrieve performance indicators collected in drinking water and sanitation services in France.
+
+See \link{list_params} and the API documentation for available filter parameters: \url{https://hubeau.eaufrance.fr/page/api-indicateurs-services}
 }
 \examples{
 if(interactive()) {

@@ -1,4 +1,4 @@
-#' Main internal functions for querying the Hub'eau API endpoints
+#' Main internal functions for querying the Hub'Eau API endpoints
 #'
 #' The function `doQueryApi` is called by all the function querying the API
 #' endpoints and return the raw data sent by the endpoint.
