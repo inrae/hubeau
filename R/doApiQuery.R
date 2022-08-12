@@ -7,10 +7,10 @@
 #' the concatenation of all the results sent by the API.
 #'
 #' @details The functions `get_[api]_[endpoint]` call the function `doQueryApi`
-#' and convert the response in a convenient format for the user ([data.frame] or [tibble::tibble])
+#' and parse the response in a [tibble::tibble] format for the user (See [convert_list_to_tibble]).
 #'
-#' By default the user agent used for the query is `r .cfg$user_agent`.
-#' You can redefined the user agent by defining the global option
+#' By default the user agent used for the query is "`r .cfg$user_agent`".
+#' You can redefined the user agent with the global option
 #' "hubeau.user_agent": `options(hubeau.user_agent = "My user agent")`.
 #'
 #' @param api a [character] name of the API (e.g.: "indicateurs_services", "prelevements"...), see example for available APIs
@@ -34,9 +34,10 @@
 #' # To query the endpoint "chroniques" of the API "prelevements"
 #' # on all devices in the commune of Romilly-sur-Seine in 2018
 #' if(interactive()) {
-#' doApiQuery(api = "prelevements",
-#'            endpoint = "chroniques",
-#'            params = list(code_commune_insee = "10323", annee = "2018"))
+#' resp <- doApiQuery(api = "prelevements",
+#'                    endpoint = "chroniques",
+#'                    params = list(code_commune_insee = "10323", annee = "2018"))
+#' convert_list_to_tibble(resp)
 #' }
 doApiQuery <- function(api,
                        endpoint,
@@ -131,6 +132,8 @@ doApiQuery <- function(api,
 #' @return a [tibble::tibble] with one row by list item and one column by list sub-item
 #'
 #' @export
+#'
+#' @inherit doApiQuery return examples
 #'
 convert_list_to_tibble <- function(l) {
   l <-

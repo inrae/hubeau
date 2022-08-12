@@ -19,3 +19,22 @@ Convert list provided by the APIs into a tibble
 This function is used internally by all the retrieving data functions for
 converting data after the call to \link{doApiQuery}.
 }
+\examples{
+# To get the available APIs in the package
+list_apis()
+
+# To get the available endpoints in an API
+list_endpoints("prelevements")
+
+# To get available parameters in endpoint "chroniques" of the API "prelevements"
+list_params(api = "prelevements", endpoint = "chroniques")
+
+# To query the endpoint "chroniques" of the API "prelevements"
+# on all devices in the commune of Romilly-sur-Seine in 2018
+if(interactive()) {
+resp <- doApiQuery(api = "prelevements",
+                   endpoint = "chroniques",
+                   params = list(code_commune_insee = "10323", annee = "2018"))
+convert_list_to_tibble(resp)
+}
+}

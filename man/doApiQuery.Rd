@@ -25,10 +25,10 @@ Pagination of the queries is handled automatically and the returned \link{list} 
 the concatenation of all the results sent by the API.
 
 The functions \verb{get_[api]_[endpoint]} call the function \code{doQueryApi}
-and convert the response in a convenient format for the user (\link{data.frame} or \link[tibble:tibble]{tibble::tibble})
+and parse the response in a \link[tibble:tibble]{tibble::tibble} format for the user (See \link{convert_list_to_tibble}).
 
-By default the user agent used for the query is https://github.com/inrae/hubeau.
-You can redefined the user agent by defining the global option
+By default the user agent used for the query is "https://github.com/inrae/hubeau".
+You can redefined the user agent with the global option
 "hubeau.user_agent": \code{options(hubeau.user_agent = "My user agent")}.
 }
 \examples{
@@ -44,8 +44,9 @@ list_params(api = "prelevements", endpoint = "chroniques")
 # To query the endpoint "chroniques" of the API "prelevements"
 # on all devices in the commune of Romilly-sur-Seine in 2018
 if(interactive()) {
-doApiQuery(api = "prelevements",
-           endpoint = "chroniques",
-           params = list(code_commune_insee = "10323", annee = "2018"))
+resp <- doApiQuery(api = "prelevements",
+                   endpoint = "chroniques",
+                   params = list(code_commune_insee = "10323", annee = "2018"))
+convert_list_to_tibble(resp)
 }
 }
