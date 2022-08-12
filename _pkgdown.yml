@@ -14,4 +14,4 @@ repo:
   url:
     home: https://github.com/inrae/hubeau
     source: https://github.com/inrae/hubeau/blob/master/
-    issue: https://gitlab.irstea.fr/in-wop/hubeau/-/issues/
+    issue: https://github.com/inrae/hubeau/issues
