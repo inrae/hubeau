@@ -1,1 +1,1 @@
-pkgdown::build_site()
+pkgdown::build_site("..")
