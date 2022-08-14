@@ -1,4 +1,4 @@
-# hubeau 0.3.0
+# hubeau 0.3.1
 
 New features
 ------------
