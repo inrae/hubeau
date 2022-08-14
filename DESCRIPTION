@@ -1,6 +1,6 @@
 Type: Package
 Package: hubeau
-Title: Get Data from the French National Database on Water "Hub'Eau"
+Title: Get Data from the French National Database on Water 'Hub'Eau'
 Version: 0.3.0
 Date: 2022-08-12
 Authors@R: c(
@@ -8,7 +8,7 @@ Authors@R: c(
            comment = c(ORCID = "0000-0002-6595-7984")),
     person("Pascal", "Irz", , "pascal.irz@ofb.gouv.fr", role = "ctb")
   )
-Description: Collection of functions to help retrieving data from "Hub'Eau" the 
+Description: Collection of functions to help retrieving data from 'Hub'Eau' the
     free and public French National APIs on water <https://hubeau.eaufrance.fr/>.
 License: MIT + file LICENSE
 URL: https://inrae.github.io/hubeau/,
