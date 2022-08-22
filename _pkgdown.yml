@@ -1,6 +1,6 @@
 url: https://inrae.github.io/hubeau/
 development:
-  mode: unreleased
+  mode: auto
 
 template:
   params:
