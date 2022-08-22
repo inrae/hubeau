@@ -41,7 +41,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">hubeau</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.1</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Unreleased version">0.3.1</span>
       </span>
     </div>
 
@@ -84,12 +84,9 @@
 <div class="section level1">
 <h1 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h1>
+<p>You can install the ‘hubeau’ R-package from it’s development repository with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Install released version from CRAN</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"hubeau"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Install development version from GitHub:</span></span>
-<span><span class="co"># install.packages("remotes")</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span></span>
 <span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"inrae/hubeau"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level1">
@@ -101,7 +98,7 @@
 <div class="section level1">
 <h1 id="get-started">Get started<a class="anchor" aria-label="anchor" href="#get-started"></a>
 </h1>
-<p>The ‘hubeau’ package provides functions for ‘Hub’Eau’ APIs and their related endpoints. These functions are named as follow: <code>hubeau::get_[API]_[endpoint]</code>.</p>
+<p>The ‘hubeau’ package provides functions for “Hub’Eau” APIs and their related endpoints. These functions are named as follow: <code>hubeau::get_[API]_[endpoint]</code>.</p>
 <p>Currently available APIs and related endpoints are listed below.</p>
 <div class="section level2">
 <h2 id="api-ecoulement-des-cours-deau">API “Ecoulement des cours d’eau”<a class="anchor" aria-label="anchor" href="#api-ecoulement-des-cours-deau"></a>
@@ -234,7 +231,13 @@
 </ul>
 </div>
 
-
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://cran.r-project.org/web/licenses/MIT" class="external-link"><img src="https://img.shields.io/badge/license-MIT-orange.svg" alt="License: MIT"></a></li>
+<li><a href="https://lifecycle.r-lib.org/articles/stages.html#experimental" class="external-link"><img src="https://img.shields.io/badge/lifecycle-experimental-blue.svg"></a></li>
+</ul>
+</div>
 
   </div>
 </div>
