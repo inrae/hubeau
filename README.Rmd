@@ -18,18 +18,22 @@ knitr::opts_chunk$set(
 <img src="man/figures/logo.png" align="right" style="float: right; height: 220px; margin: 15px;"/>
 
 <!-- badges: start -->
+[![CRAN status](https://www.r-pkg.org/badges/version/hubeau)](https://CRAN.R-project.org/package=hubeau)
 `r badger::badge_license(color = "orange")`
-`r badger::badge_lifecycle("experimental", color = "blue")`
+`r badger::badge_lifecycle("stable", color = "blue")`
+[![R-CMD-check](https://github.com/inrae/hubeau/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/inrae/hubeau/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 'hubeau' is an R-package proposing a collection of function to help retrieve data from the French national databases on water: https://hubeau.eaufrance.fr
 
 # Installation
 
-You can install the 'hubeau' R-package from it's development repository with:
-
 ``` r
-install.packages("remotes")
+# Install released version from CRAN
+install.packages("hubeau")
+
+# Install development version from GitHub:
+# install.packages("remotes")
 remotes::install_github("inrae/hubeau")
 ```
 

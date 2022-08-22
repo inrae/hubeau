@@ -7,9 +7,12 @@
 
 <!-- badges: start -->
 
+[![CRAN
+status](https://www.r-pkg.org/badges/version/hubeau)](https://CRAN.R-project.org/package=hubeau)
 [![License:
 MIT](https://img.shields.io/badge/license-MIT-orange.svg)](https://cran.r-project.org/web/licenses/MIT)
-[![](https://img.shields.io/badge/lifecycle-experimental-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![](https://img.shields.io/badge/lifecycle-stable-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
+[![R-CMD-check](https://github.com/inrae/hubeau/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/inrae/hubeau/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 ‘hubeau’ is an R-package proposing a collection of function to help
@@ -18,11 +21,12 @@ retrieve data from the French national databases on water:
 
 # Installation
 
-You can install the ‘hubeau’ R-package from it’s development repository
-with:
-
 ``` r
-install.packages("remotes")
+# Install released version from CRAN
+install.packages("hubeau")
+
+# Install development version from GitHub:
+# install.packages("remotes")
 remotes::install_github("inrae/hubeau")
 ```
 
@@ -34,7 +38,7 @@ library(hubeau)
 
 # Get started
 
-The ‘hubeau’ package provides functions for “Hub’Eau” APIs and their
+The ‘hubeau’ package provides functions for ‘Hub’Eau’ APIs and their
 related endpoints. These functions are named as follow:
 `hubeau::get_[API]_[endpoint]`.
 
