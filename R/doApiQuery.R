@@ -132,6 +132,7 @@ doApiQuery <- function(api,
 #' @return A [tibble::tibble] with one row by record and one column by field.
 #'
 #' @export
+#' @import dplyr
 #'
 #' @inherit doApiQuery return examples
 #'

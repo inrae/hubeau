@@ -17,12 +17,12 @@ BugReports: https://github.com/inrae/hubeau/issues
 Depends:
     R (>= 2.10)
 Imports:
+    dplyr,
     httr,
     purrr,
     tibble,
     urltools
 Suggests:
-    dplyr,
     spelling,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
