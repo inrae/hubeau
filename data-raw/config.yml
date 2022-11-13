@@ -403,7 +403,7 @@ default:
     hydrobiologie:
       path: v1/hydrobio
       endpoints:
-        stations:
+        stations_hydrobio:
           path: stations_hydrobio
           fields:
             - code_bassin
