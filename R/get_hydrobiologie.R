@@ -22,24 +22,54 @@
 #' list_params(api = "hydrobiologie",
 #'                      endpoint = "taxons")
 #'
-#' # Retrieve selected fields on a river fish sampled in Brest
-#' library(dplyr)
-#' fields <- paste("code_operation",
-#'                 "date_operation",
-#'                 "libelle_point_prelevement_aspe",
-#'                 "effectif_lot",
-#'                 "code_alternatif_taxon",
+#' # Retrieve hyrdrobiological stations with selected fields in the region Pays
+#' de la Loire
+#'
+#' fields <- paste("code_station_hydrobio",
+#'                 "coordonnee_x",
+#'                 "coordonnee_y",
+#'                 "libelle_cours_eau",
 #'                 sep = ",")
-#' brest_fishes <- get_poisson_observations(
+#' stations_pdl <- get_poisson_observations(
 #'   list(
-#'     libelle_commune = "Brest",
+#'     code_region = 52,
 #'     fields = fields
 #'     )
-#'  ) %>%
-#'  group_by_at(vars(-effectif_lot)) %>%
-#'    summarise(nb_individals = sum(effectif_lot))
+#'  )
 #'
-#' brest_fishes
+#' stations_pdl
+#'
+#' # Retrive hydrobiological indexes with selected fields in Nantes
+#'
+#' fields <- paste("code_indice",
+#'                 "libelle_indice",
+#'                 "date_prelevement",
+#'                 "resultat_indice",
+#'                 sep = ",")
+#'
+#'  nantes_indices <- get_hydrobiologie_indices(
+#'  list(
+#'    code_commune = "44109",
+#'    fields = fields
+#'    )
+#'  )
+#'
+#' # Retrieve taxons collected in Nantes with selected fields
+#'
+#' fields <- paste("code_station_hydrobio",
+#'                 "date_prelevement",
+#'                 "libelle_appel_taxon",
+#'                 "libelle_type_resultat",
+#'                 "resultat_taxon",
+#'                 sep = ",")
+#'
+#' nantes_taxons <- get_hydrobiologie_taxons(
+#' list(
+#'  code_commune = "44109",
+#'  fields = fields
+#' )
+#' )
+#'
 #' }
 get_hydrobiologie_stations_hydrobio <- function(params)
 
