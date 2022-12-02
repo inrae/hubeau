@@ -400,4 +400,89 @@ default:
             - size
             - fields
             - accept
-
+    hydrobio:
+      path: v1/hydrobio
+      endpoints:
+        stations:
+          path: stations_hydrobio
+          fields:
+            - bbox
+            - code_bassin
+            - code_commune
+            - code_cours_eau
+            - code_departement
+            - code_masse_eau
+            - code_region
+            - code_sous_bassin
+            - code_station_hydrobio
+            - codes_appel_taxons
+            - codes_indices
+            - codes_reseaux
+            - codes_supports
+            - date_service
+            - distance
+            - fields
+            - format
+            - latitude
+            - libelle_station_hydrobio
+            - longitude
+            - page
+            - size
+        indices:
+          path: indices
+          fields:
+            - bbox
+            - code_banque_reference
+            - code_bassin
+            - code_commune
+            - code_cours_eau
+            - code_departement
+            - code_indice
+            - code_masse_eau
+            - code_prelevement
+            - code_qualification
+            - code_region
+            - code_sous_bassin
+            - code_station_hydrobio
+            - code_support
+            - date_debut_prelevement
+            - date_fin_prelevement
+            - distance
+            - fields
+            - format
+            - latitude
+            - libelle_indice
+            - longitude
+            - page
+            - resultat_indice_max
+            - resultat_indice_min
+            - size
+        taxons:
+          path: taxons
+          fields:
+            - bbox
+            - code_appel_taxon
+            - code_banque_reference
+            - code_bassin
+            - code_commune
+            - code_cours_eau
+            - code_departement
+            - code_indice
+            - code_masse_eau
+            - code_prelevement
+            - code_qualification
+            - code_region
+            - code_sous_bassin
+            - code_station_hydrobio
+            - code_support
+            - code_type_resultat
+            - codes_indices_operation
+            - date_debut_prelevement
+            - date_fin_prelevement
+            - distance
+            - fields
+            - format
+            - latitude
+            - longitude
+            - page
+            - size
