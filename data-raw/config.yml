@@ -486,3 +486,80 @@ default:
             - longitude
             - page
             - size
+    temperature:
+      path: v1/temperature
+      endpoints:
+        station:
+          path: station
+          fields:
+            - bbox
+            - code_banque_reference
+            - code_bassin
+            - code_commune
+            - code_cours_eau
+            - code_departement
+            - code_eu_masse_eau
+            - code_masse_eau
+            - code_region
+            - code_sous_bassin
+            - code_station
+            - code_troncon_hydro
+            - date_debut_maj
+            - date_debut_mesure
+            - date_fin_maj
+            - date_fin_mesure
+            - distance
+            - exact_count
+            - fields
+            - latitude
+            - libelle_bassin
+            - libelle_commune
+            - libelle_cours_eau
+            - libelle_departement
+            - libelle_masse_eau
+            - libelle_region
+            - libelle_sous_bassin
+            - libelle_station
+            - longitude
+            - size
+            - type_entite_hydro
+        chronique:
+          path: chronique
+          fields:
+            - bbox
+            - code_banque_reference
+            - code_bassin
+            - code_commune
+            - code_cours_eau
+            - code_departement
+            - code_eu_masse_eau
+            - code_masse_eau
+            - code_qualification
+            - code_region
+            - code_sous_bassin
+            - code_station
+            - code_statut
+            - code_troncon_hydro
+            - date_debut_maj
+            - date_debut_mesure
+            - date_fin_maj
+            - date_fin_mesure
+            - distance
+            - fields
+            - format
+            - latitude
+            - libelle_bassin
+            - libelle_commune
+            - libelle_cours_eau
+            - libelle_departement
+            - libelle_masse_eau
+            - libelle_qualification
+            - libelle_region
+            - libelle_sous_bassin
+            - libelle_station
+            - libelle_statut
+            - longitude
+            - resultat_max
+            - resultat_min
+            - size
+            - type_entite_hydro
