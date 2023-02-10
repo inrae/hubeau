@@ -1,0 +1,27 @@
+#' Selected the non-list elements in a nested list
+#'
+#' @param my_list A nested list
+#'
+#' @return The initial nested list omitting its list-class slots
+#' @export
+#' @importFrom purrr map map_df
+#' @rdname utils
+#'
+#' @examples
+#' \dontrun{
+#' my_flat_list <- select_non_nested(my_nested_list)
+#' }
+select_non_nested <- function(my_list)
+
+{
+  lists <- my_list[[1]] %>%
+    map(.f = is.list) %>%
+    unlist()
+
+  my_vars <- my_list[[1]][!lists] %>%
+    names()
+
+  map_df(.x = my_list,
+         .f = function(liste) liste[my_vars])
+
+}
