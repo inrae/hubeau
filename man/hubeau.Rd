@@ -79,4 +79,15 @@ Available functions:
 \item \code{\link[=get_prelevements_points_prelevement]{get_prelevements_points_prelevement()}}: withdrawal points
 }
 }
+
+\subsection{API "Température des cours d'eau"}{
+
+API Documentation \url{https://hubeau.eaufrance.fr/page/api-temperature-continu}
+
+Available functions:
+\itemize{
+\item \code{\link[=get_temperature_stations]{get_temperature_stations()}}: temperature stations in French rivers
+\item \code{\link[=get_temperature_chronique]{get_temperature_chronique()}}: river temperature time series
+}
+}
 }
