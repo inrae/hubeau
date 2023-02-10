@@ -50,12 +50,12 @@ API documentation: <https://hubeau.eaufrance.fr/page/api-ecoulement>
 
 Available functions:
 
--   [`get_ecoulement_stations`](https://inrae.github.io/hubeau/reference/get_ecoulement.html):
-    site data and locations
--   [`get_ecoulement_observations`](https://inrae.github.io/hubeau/reference/get_ecoulement.html):
-    flow observations collected during campaigns
--   [`get_ecoulement_campagnes`](https://inrae.github.io/hubeau/reference/get_ecoulement.html):
-    observation campaign information
+- [`get_ecoulement_stations`](https://inrae.github.io/hubeau/reference/get_ecoulement.html):
+  site data and locations
+- [`get_ecoulement_observations`](https://inrae.github.io/hubeau/reference/get_ecoulement.html):
+  flow observations collected during campaigns
+- [`get_ecoulement_campagnes`](https://inrae.github.io/hubeau/reference/get_ecoulement.html):
+  observation campaign information
 
 ## API “Hydrométrie”
 
@@ -63,14 +63,14 @@ API documentation: <https://hubeau.eaufrance.fr/page/api-hydrometrie>
 
 Available functions:
 
--   [`get_hydrometrie_sites`](https://inrae.github.io/hubeau/reference/get_hydrometrie.html):
-    hydrometry sites (can contain several stations)
--   [`get_hydrometrie_stations`](https://inrae.github.io/hubeau/reference/get_hydrometrie.html):
-    hydrometry stations
--   [`get_hydrometrie_observations_tr`](https://inrae.github.io/hubeau/reference/get_hydrometrie.html):
-    hydrometry water level and discharge time series
--   [`get_hydrometrie_obs_elab`](https://inrae.github.io/hubeau/reference/get_hydrometrie.html):
-    hydrometric elaborate observations (daily/monthly mean flow)
+- [`get_hydrometrie_sites`](https://inrae.github.io/hubeau/reference/get_hydrometrie.html):
+  hydrometry sites (can contain several stations)
+- [`get_hydrometrie_stations`](https://inrae.github.io/hubeau/reference/get_hydrometrie.html):
+  hydrometry stations
+- [`get_hydrometrie_observations_tr`](https://inrae.github.io/hubeau/reference/get_hydrometrie.html):
+  hydrometry water level and discharge time series
+- [`get_hydrometrie_obs_elab`](https://inrae.github.io/hubeau/reference/get_hydrometrie.html):
+  hydrometric elaborate observations (daily/monthly mean flow)
 
 ## API “Indicateurs des services”
 
@@ -79,12 +79,12 @@ API documentation:
 
 Available functions:
 
--   [`get_indicateurs_services_communes`](https://inrae.github.io/hubeau/reference/get_indicateurs_services.html):
-    performance indicators by commune
--   [`get_indicateurs_services_indicateurs`](https://inrae.github.io/hubeau/reference/get_indicateurs_services.html):
-    performance indicators by indicator
--   [`get_indicateurs_services_services`](https://inrae.github.io/hubeau/reference/get_indicateurs_services.html):
-    performance indicators by commune for each service
+- [`get_indicateurs_services_communes`](https://inrae.github.io/hubeau/reference/get_indicateurs_services.html):
+  performance indicators by commune
+- [`get_indicateurs_services_indicateurs`](https://inrae.github.io/hubeau/reference/get_indicateurs_services.html):
+  performance indicators by indicator
+- [`get_indicateurs_services_services`](https://inrae.github.io/hubeau/reference/get_indicateurs_services.html):
+  performance indicators by commune for each service
 
 ## API “Piézométrie”
 
@@ -92,12 +92,12 @@ API documentation: <https://hubeau.eaufrance.fr/page/api-piezometrie>
 
 Available functions:
 
--   [`get_niveaux_nappes_chroniques`](https://inrae.github.io/hubeau/reference/get_niveaux_nappes.html):
-    archived time series of piezometric stations
--   [`get_niveaux_nappes_chroniques_tr`](https://inrae.github.io/hubeau/reference/get_niveaux_nappes.html):
-    real-time time series of piezometric stations
--   [`get_niveaux_nappes_stations`](https://inrae.github.io/hubeau/reference/get_niveaux_nappes.html):
-    piezometric stations
+- [`get_niveaux_nappes_chroniques`](https://inrae.github.io/hubeau/reference/get_niveaux_nappes.html):
+  archived time series of piezometric stations
+- [`get_niveaux_nappes_chroniques_tr`](https://inrae.github.io/hubeau/reference/get_niveaux_nappes.html):
+  real-time time series of piezometric stations
+- [`get_niveaux_nappes_stations`](https://inrae.github.io/hubeau/reference/get_niveaux_nappes.html):
+  piezometric stations
 
 ## API “Poisson”
 
@@ -105,8 +105,8 @@ API documentation: <https://hubeau.eaufrance.fr/page/api-poisson>
 
 Available function:
 
--   [`get_poisson_observations`](https://inrae.github.io/hubeau/reference/get_poisson.html):
-    scientific fishery observations
+- [`get_poisson_observations`](https://inrae.github.io/hubeau/reference/get_poisson.html):
+  scientific fishery observations
 
 ## API “Prélèvements en eau”
 
@@ -115,12 +115,24 @@ API documentation:
 
 Available functions:
 
--   [`get_prelevements_chroniques`](https://inrae.github.io/hubeau/reference/get_prelevements.html):
-    time series of annual withdrawn volumes by device
--   [`get_prelevements_ouvrages`](https://inrae.github.io/hubeau/reference/get_prelevements.html):
-    withdrawal devices (can contain several withdrawal points)
--   [`get_prelevements_points_prelevement`](https://inrae.github.io/hubeau/reference/get_prelevements.html):
-    withdrawal points
+- [`get_prelevements_chroniques`](https://inrae.github.io/hubeau/reference/get_prelevements.html):
+  time series of annual withdrawn volumes by device
+- [`get_prelevements_ouvrages`](https://inrae.github.io/hubeau/reference/get_prelevements.html):
+  withdrawal devices (can contain several withdrawal points)
+- [`get_prelevements_points_prelevement`](https://inrae.github.io/hubeau/reference/get_prelevements.html):
+  withdrawal points
+
+## API “Température des cours d’eau”
+
+API Documentation
+<https://hubeau.eaufrance.fr/page/api-temperature-continu>
+
+Available functions:
+
+- [`get_temperature_stations`](https://inrae.github.io/hubeau/reference/get_temperature.html):
+  temperature stations in French rivers
+- [`get_temperature_chronique`](https://inrae.github.io/hubeau/reference/get_temperature.html):
+  river temperature time series
 
 A complete documentation is available on the package website:
 <https://inrae.github.io/hubeau/>

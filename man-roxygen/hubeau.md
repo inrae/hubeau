@@ -61,3 +61,12 @@ Available functions:
 - [get_prelevements_chroniques()]: time series of annual withdrawn volumes by device
 - [get_prelevements_ouvrages()]: withdrawal devices (can contain several withdrawal points)
 - [get_prelevements_points_prelevement()]: withdrawal points
+
+## API "Température des cours d'eau"
+
+API Documentation <https://hubeau.eaufrance.fr/page/api-temperature-continu>
+
+Available functions:
+
+- [get_temperature_stations()]: temperature stations in French rivers
+- [get_temperature_chronique()]: river temperature time series
