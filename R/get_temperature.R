@@ -22,11 +22,13 @@
 #'
 #' # Retrieve the temperature from 2012-01-01 to 2012-01-05 at site 04051125
 #'
-#' get_temperature_chronique(
-#'list(code_station = "04051125",
-#'     date_debut_mesure = "2012-01-01",
-#'     date_fin_mesure="2012-01-05",
-#'     fields = paste("code_station,date_mesure_temp,heure_mesure_temp,resultat,symbole_unite")))
+#' get_temperature_chronique(list(
+#'   code_station = "04051125",
+#'   date_debut_mesure = "2012-01-01",
+#'   date_fin_mesure="2012-01-05",
+#'   fields = paste("code_station,date_mesure_temp,heure_mesure_temp,resultat,symbole_unite")
+#' ))
+#'
 #' }
 #'
 get_temperature_stations  <- function(params)
