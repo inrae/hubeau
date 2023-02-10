@@ -1,0 +1,23 @@
+year    <- sub("-.*", "", meta$Date)
+version <- meta$Version
+note    <- sprintf("R package version %s", version)
+
+citHeader("To cite hubeau in publications use:")
+
+citEntry(
+  entry    = "Manual",
+  title    = "hubeau: an R package for the Hub'Eau APIs",
+  author   = personList(as.person("D. Dorchies"), as.person("P. Irz"), as.person("S. Grall")),
+  journal  = "R news",
+  year     = year,
+  volume   = note,
+  doi      = "10.57745/XKN6NC",
+  url      = "https://cran.r-project.org/package=hubeau",
+  textVersion = paste0("Dorchies, D., Irz, P. and Grall, S. (",
+                       year,
+                       "). hubeau: an R package for the Hub'Eau APIs. ",
+                       note, ", ",
+                       "doi: 10.57745/XKN6NC, ",
+                       "URL: https://cran.r-project.org/package=hubeau"
+                       )
+)

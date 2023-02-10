@@ -18,9 +18,12 @@ knitr::opts_chunk$set(
 <img src="man/figures/logo.png" align="right" style="float: right; height: 220px; margin: 15px;"/>
 
 <!-- badges: start -->
-[![CRAN status](https://www.r-pkg.org/badges/version/hubeau)](https://CRAN.R-project.org/package=hubeau)
+[![CRAN](https://www.r-pkg.org/badges/version-ago/hubeau)](https://cran.r-project.org/package=hubeau)
+[![Total downloads](https://cranlogs.r-pkg.org/badges/grand-total/hubeau)](https://cran.r-project.org/package=hubeau)
+[![DOI: 10.57745/XKN6NC](https://img.shields.io/badge/doi-10.57745%2FXKN6NC-purple)](https://doi.org/10.57745/XKN6NC)
 `r badger::badge_license(color = "orange")`
 `r badger::badge_lifecycle("stable", color = "blue")`
+
 [![R-CMD-check](https://github.com/inrae/hubeau/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/inrae/hubeau/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 

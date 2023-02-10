@@ -7,11 +7,15 @@
 
 <!-- badges: start -->
 
-[![CRAN
-status](https://www.r-pkg.org/badges/version/hubeau)](https://CRAN.R-project.org/package=hubeau)
+[![CRAN](https://www.r-pkg.org/badges/version-ago/hubeau)](https://cran.r-project.org/package=hubeau)
+[![Total
+downloads](https://cranlogs.r-pkg.org/badges/grand-total/hubeau)](https://cran.r-project.org/package=hubeau)
+[![DOI:
+10.57745/XKN6NC](https://img.shields.io/badge/doi-10.57745%2FXKN6NC-purple)](https://doi.org/10.57745/XKN6NC)
 [![License:
 MIT](https://img.shields.io/badge/license-MIT-orange.svg)](https://cran.r-project.org/web/licenses/MIT)
 [![](https://img.shields.io/badge/lifecycle-stable-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
+
 [![R-CMD-check](https://github.com/inrae/hubeau/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/inrae/hubeau/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
