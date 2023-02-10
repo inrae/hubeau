@@ -5,7 +5,7 @@
 #' Available endpoints are:
 #'
 #' - `get_temperature_stations` retrieves temperature stations
-#' - `get_temperature_chronique` retrieves temperature chronique
+#' - `get_temperature_chronique` retrieves temperature time series
 #'
 #' See the API documentation of each endpoint for available filter parameters:
 #' \url{https://hubeau.eaufrance.fr/page/api-temperature-continu}

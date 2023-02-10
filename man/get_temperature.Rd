@@ -19,7 +19,7 @@ A \link[tibble:tibble]{tibble::tibble} with one row by record and one column by 
 Available endpoints are:
 \itemize{
 \item \code{get_temperature_stations} retrieves temperature stations
-\item \code{get_temperature_chronique} retrieves temperature chronique
+\item \code{get_temperature_chronique} retrieves temperature time series
 }
 
 See the API documentation of each endpoint for available filter parameters:
