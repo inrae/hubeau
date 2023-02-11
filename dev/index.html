@@ -80,6 +80,8 @@
 </h1></div>
 <p><img src="reference/figures/logo.png" align="right" style="float: right; height: 220px; margin: 15px;"></p>
 <!-- badges: start -->
+
+<p><a href="https://github.com/inrae/hubeau/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/inrae/hubeau/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a> <!-- badges: end --></p>
 <p>‘hubeau’ is an R-package proposing a collection of function to help retrieve data from the French national databases on water: <a href="https://hubeau.eaufrance.fr" class="external-link uri">https://hubeau.eaufrance.fr</a></p>
 </div>
 <div class="section level1">
@@ -167,8 +169,10 @@
 </h2>
 <p>API documentation: <a href="https://hubeau.eaufrance.fr/page/api-poisson" class="external-link uri">https://hubeau.eaufrance.fr/page/api-poisson</a></p>
 <p>Available function:</p>
-<ul><li>
-<a href="https://inrae.github.io/hubeau/reference/get_poisson.html"><code>get_poisson_observations</code></a>: scientific fishery observations</li></ul>
+<ul>
+<li>
+<a href="https://inrae.github.io/hubeau/reference/get_poisson.html"><code>get_poisson_observations</code></a>: scientific fishery observations</li>
+</ul>
 </div>
 <div class="section level2">
 <h2 id="api-prélèvements-en-eau">API “Prélèvements en eau”<a class="anchor" aria-label="anchor" href="#api-pr%C3%A9l%C3%A8vements-en-eau"></a>
@@ -183,6 +187,18 @@
 <li>
 <a href="https://inrae.github.io/hubeau/reference/get_prelevements.html"><code>get_prelevements_points_prelevement</code></a>: withdrawal points</li>
 </ul>
+</div>
+<div class="section level2">
+<h2 id="api-température-des-cours-deau">API “Température des cours d’eau”<a class="anchor" aria-label="anchor" href="#api-temp%C3%A9rature-des-cours-deau"></a>
+</h2>
+<p>API Documentation <a href="https://hubeau.eaufrance.fr/page/api-temperature-continu" class="external-link uri">https://hubeau.eaufrance.fr/page/api-temperature-continu</a></p>
+<p>Available functions:</p>
+<ul>
+<li>
+<a href="https://inrae.github.io/hubeau/reference/get_temperature.html"><code>get_temperature_stations</code></a>: temperature stations in French rivers</li>
+<li>
+<a href="https://inrae.github.io/hubeau/reference/get_temperature.html"><code>get_temperature_chronique</code></a>: river temperature time series</li>
+</ul>
 <p>A complete documentation is available on the package website: <a href="https://inrae.github.io/hubeau/" class="uri">https://inrae.github.io/hubeau/</a></p>
 </div>
 </div>
@@ -190,7 +206,9 @@
 <h1 id="acknowledgements">Acknowledgements<a class="anchor" aria-label="anchor" href="#acknowledgements"></a>
 </h1>
 <p>The authors would like to thank the European Commission and the French National Research Agency (ANR) for funding in the frame of the collaborative international consortium <a href="http://www.waterjpi.eu/joint-calls/joint-call-2018-waterworks-2017/booklet/in-wop" class="external-link">IN-WOP</a> financed under the 2018 Joint call of the WaterWorks2017 ERA-NET Cofund. This ERA-NET is an integral part of the activities developed by the Water JPI.</p>
-<div style="display: flex; justify-content: space-between;"><p><img src="reference/figures/logo_water_jpi.png" alt="Water JPI"><img src="reference/figures/logo_water_works_2017.png" alt="Water Works 2017"><img src="reference/figures/logo_european_commission.jpg" alt="European Commission"><img src="reference/figures/logo_2018_joint_call.png" alt="2018 Joint call"></p></div>
+<div style="display: flex; justify-content: space-between;">
+<p><img src="reference/figures/logo_water_jpi.png" alt="Water JPI"><img src="reference/figures/logo_water_works_2017.png" alt="Water Works 2017"><img src="reference/figures/logo_european_commission.jpg" alt="European Commission"><img src="reference/figures/logo_2018_joint_call.png" alt="2018 Joint call"></p>
+</div>
 </div>
 
   </div>
@@ -238,10 +256,11 @@
 <div class="dev-status">
 <h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://CRAN.R-project.org/package=hubeau" class="external-link"><img src="https://www.r-pkg.org/badges/version/hubeau" alt="CRAN status"></a></li>
+<li><a href="https://cran.r-project.org/package=hubeau" class="external-link"><img src="https://www.r-pkg.org/badges/version-ago/hubeau" alt="CRAN"></a></li>
+<li><a href="https://cran.r-project.org/package=hubeau" class="external-link"><img src="https://cranlogs.r-pkg.org/badges/grand-total/hubeau" alt="Total downloads"></a></li>
+<li><a href="https://doi.org/10.57745/XKN6NC" class="external-link"><img src="https://img.shields.io/badge/doi-10.57745%2FXKN6NC-purple" alt="DOI: 10.57745/XKN6NC"></a></li>
 <li><a href="https://cran.r-project.org/web/licenses/MIT" class="external-link"><img src="https://img.shields.io/badge/license-MIT-orange.svg" alt="License: MIT"></a></li>
 <li><a href="https://lifecycle.r-lib.org/articles/stages.html#stable" class="external-link"><img src="https://img.shields.io/badge/lifecycle-stable-blue.svg"></a></li>
-<li><a href="https://github.com/inrae/hubeau/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/inrae/hubeau/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
 </ul>
 </div>
 
@@ -256,7 +275,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer>
