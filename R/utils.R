@@ -9,7 +9,15 @@
 #'
 #' @examples
 #' \dontrun{
-#' my_flat_list <- select_non_nested(my_nested_list)
+#' l <- doApiQuery(api = "hydrobio",
+#'                 endpoint = "stations_hydrobio",
+#'                 params = list(code_region = 52))
+#'
+#' select_non_nested(l) %>%
+#'   select(-code_commune,
+#'          -libelle_departement,
+#'          -(libelle_region:longitude)) %>%
+#'   distinct()
 #' }
 select_non_nested <- function(my_list)
 
