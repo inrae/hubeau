@@ -4,7 +4,7 @@
 #' The data originate from the "NAIADES" database.
 #' Available endpoints are:
 #'
-#' - `get_hydrobio_stations` retrieves site data and locations
+#' - `get_hydrobio_stations_hydrobio` retrieves site data and locations
 #' - `get_hydrobio_indices` retrieves bioassessment indices values
 #' - `get_hydrobio_taxons` retrieves taxa data
 #'
@@ -21,9 +21,9 @@
 #' if(interactive()) {
 #' # Retrieve the hydrobiology monitoring sites in the Pays-de-Loire region
 #' list_params(api = "hydrobio",
-#'             endpoint = "stations")
+#'             endpoint = "stations_hydrobio")
 #'
-#' stations_pdl <- get_hydrobio_stations(
+#' stations_pdl <- get_hydrobio_stations_hydrobio(
 #'  list(code_region = 52))
 #'
 #' # Retrieve the hydrobiological bioassessment indices in the city of Rennes
@@ -40,10 +40,10 @@
 #' taxons_rennes <- hubeau::get_hydrobio_taxons(
 #'  list(code_commune = 35051))
 #' }
-get_hydrobio_stations <- function(params)
+get_hydrobio_stations_hydrobio <- function(params)
 {
   l <- doApiQuery(api = "hydrobio",
-                  endpoint = "stations",
+                  endpoint = "stations_hydrobio",
                   params = params)
 
   select_non_nested(l) %>%
