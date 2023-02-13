@@ -18,7 +18,7 @@
 #' @export
 #' @rdname get_hydrobio
 #' @examples
-#' if(interactive()) {
+#' \dontrun{
 #' # Retrieve the hydrobiology monitoring sites in the Pays-de-Loire region
 #' list_params(api = "hydrobio",
 #'             endpoint = "stations_hydrobio")
@@ -28,7 +28,7 @@
 #'
 #' # Retrieve the hydrobiological bioassessment indices in the city of Rennes
 #' list_params(api = "hydrobio",
-#' endpoint = "indices")
+#'             endpoint = "indices")
 #'
 #' indices_rennes <- get_hydrobio_indices(
 #'  list(code_commune = 35051))

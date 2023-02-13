@@ -33,7 +33,7 @@
 #'
 #' # To query the endpoint "chroniques" of the API "prelevements"
 #' # on all devices in the commune of Romilly-sur-Seine in 2018
-#' if(interactive()) {
+#' \dontrun{
 #' resp <- doApiQuery(api = "prelevements",
 #'                    endpoint = "chroniques",
 #'                    params = list(code_commune_insee = "10323", annee = "2018"))

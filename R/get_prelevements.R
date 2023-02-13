@@ -16,7 +16,7 @@
 #' @export
 #'
 #' @examples
-#' if(interactive()) {
+#' \dontrun{
 #' # Retrieve the withdrawal points located in Romilly-sur-Seine
 #' get_prelevements_points_prelevement(list(code_commune_insee = "10323"))
 #'

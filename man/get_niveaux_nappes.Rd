@@ -29,7 +29,7 @@ The available endpoints are:
 See the API documentation for available filter parameters: \url{https://hubeau.eaufrance.fr/page/api-piezometrie}
 }
 \examples{
-if(interactive()) {
+\dontrun{
 # Retrieve the hydrometric stations in the department of Aube
 get_niveaux_nappes_stations(list(code_departement = "10"))
 

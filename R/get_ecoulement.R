@@ -16,7 +16,7 @@
 #' @export
 #' @rdname get_ecoulement
 #' @examples
-#' if(interactive()) {
+#' \dontrun{
 #' # Retrieve 2022 observation campaigns in the Jura French department
 #' get_ecoulement_campagnes(
 #'   list(code_departement = "39",

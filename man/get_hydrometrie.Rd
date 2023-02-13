@@ -40,7 +40,7 @@ See the API documentation of each endpoint for available filter parameters:
 \url{https://hubeau.eaufrance.fr/page/api-hydrometrie}
 }
 \examples{
-if(interactive()) {
+\dontrun{
 # Retrieve the hydrometric sites in the department of Aube
 get_hydrometrie_sites(list(code_departement = "10"))
 

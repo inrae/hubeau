@@ -21,7 +21,7 @@ Available endpoint:
 See the API documentation for available filter parameters: \url{https://hubeau.eaufrance.fr/page/api-poisson}
 }
 \examples{
-if(interactive()) {
+\dontrun{
 # Get the query parameters for the requested API/endpoint
 list_params(api = "poisson",
                      endpoint = "observations")

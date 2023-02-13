@@ -56,7 +56,7 @@ Retrieve performance indicators collected in drinking water and sanitation servi
 See \link{list_params} and the API documentation for available filter parameters: \url{https://hubeau.eaufrance.fr/page/api-indicateurs-services}
 }
 \examples{
-if(interactive()) {
+\dontrun{
 # Retrieve performance indicator time series in the commune of Romilly-sur-Seine
 get_indicateurs_services_communes(list(code_commune = "10323"))
 
