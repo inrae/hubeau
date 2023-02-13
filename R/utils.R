@@ -3,7 +3,7 @@
 #' @param my_list A nested list
 #'
 #' @return The initial nested list omitting its list-class slots
-#' @export
+#' @noRd
 #' @importFrom purrr map map_df
 #' @rdname utils
 #'
