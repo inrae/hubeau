@@ -16,7 +16,7 @@
 #' @export
 #'
 #' @examples
-#' if(interactive()) {
+#' \dontrun{
 #' # Retrieve the hydrometric stations in the department of Aube
 #' get_niveaux_nappes_stations(list(code_departement = "10"))
 #'

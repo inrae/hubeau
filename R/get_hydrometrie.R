@@ -18,7 +18,7 @@
 #' @export
 #' @rdname get_hydrometrie
 #' @examples
-#' if(interactive()) {
+#' \dontrun{
 #' # Retrieve the hydrometric sites in the department of Aube
 #' get_hydrometrie_sites(list(code_departement = "10"))
 #'

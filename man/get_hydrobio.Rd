@@ -30,7 +30,7 @@ Available endpoints are:
 See the API documentation for available filter parameters: \url{https://hubeau.eaufrance.fr/page/api-hydrobiologie}
 }
 \examples{
-if(interactive()) {
+\dontrun{
 # Retrieve the hydrobiology monitoring sites in the Pays-de-Loire region
 list_params(api = "hydrobio",
             endpoint = "stations_hydrobio")
@@ -40,7 +40,7 @@ stations_pdl <- get_hydrobio_stations_hydrobio(
 
 # Retrieve the hydrobiological bioassessment indices in the city of Rennes
 list_params(api = "hydrobio",
-endpoint = "indices")
+            endpoint = "indices")
 
 indices_rennes <- get_hydrobio_indices(
  list(code_commune = 35051))

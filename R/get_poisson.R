@@ -14,7 +14,7 @@
 #' @rdname get_poisson
 #'
 #' @examples
-#' if(interactive()) {
+#' \dontrun{
 #' # Get the query parameters for the requested API/endpoint
 #' list_params(api = "poisson",
 #'                      endpoint = "observations")

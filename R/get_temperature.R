@@ -16,7 +16,7 @@
 #' @export
 #' @rdname get_temperature
 #' @examples
-#' if(interactive()) {
+#' \dontrun{
 #' # Retrieve the temperature stations in the department of Loiret
 #' get_temperature_stations(list(code_departement = "45"))
 #'

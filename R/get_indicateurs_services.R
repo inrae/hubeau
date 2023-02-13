@@ -44,7 +44,7 @@
 #' @rdname get_indicateurs_services
 #'
 #' @examples
-#' if(interactive()) {
+#' \dontrun{
 #' # Retrieve performance indicator time series in the commune of Romilly-sur-Seine
 #' get_indicateurs_services_communes(list(code_commune = "10323"))
 #'
