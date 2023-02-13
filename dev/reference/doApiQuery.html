@@ -99,7 +99,7 @@ You can redefined the user agent with the global option
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># To get the available endpoints in an API</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="lists.html">list_endpoints</a></span><span class="op">(</span><span class="st">"prelevements"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "points_prelevement" "chroniques"         "ouvrages"          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "chroniques"         "ouvrages"           "points_prelevement"</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># To get available parameters in endpoint "chroniques" of the API "prelevements"</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="lists.html">list_params</a></span><span class="op">(</span>api <span class="op">=</span> <span class="st">"prelevements"</span>, endpoint <span class="op">=</span> <span class="st">"chroniques"</span><span class="op">)</span></span></span>
@@ -109,10 +109,12 @@ You can redefined the user agent with the global option
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [7] "code_qualification_volume"  "code_statut_instruction"   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [9] "code_statut_volume"         "code_usage"                </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [11] "distance"                   "fields"                    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [13] "latitude"                   "libelle_departement"       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [15] "longitude"                  "nom_commune"               </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [17] "prelevement_ecrasant"       "producteur_donnee"         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "volume_max"                 "volume_min"                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [13] "format"                     "latitude"                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [15] "libelle_departement"        "longitude"                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [17] "nom_commune"                "page"                      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "prelevement_ecrasant"       "producteur_donnee"         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [21] "size"                       "sort"                      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [23] "volume_max"                 "volume_min"                </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># To query the endpoint "chroniques" of the API "prelevements"</span></span></span>
 <span class="r-in"><span><span class="co"># on all devices in the commune of Romilly-sur-Seine in 2018</span></span></span>
