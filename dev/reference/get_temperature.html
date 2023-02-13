@@ -82,9 +82,29 @@ https://hubeau.eaufrance.fr/page/api-temperature-continu"><meta property="og:ima
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \dontrun{</span></span></span>
 <span class="r-in"><span><span class="co"># Retrieve the temperature stations in the department of Loiret</span></span></span>
 <span class="r-in"><span><span class="fu">get_temperature_stations</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>code_departement <span class="op">=</span> <span class="st">"45"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 25 × 43</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    code_station libell…¹ uri_s…² local…³ coord…⁴ coord…⁵ code_…⁶ longi…⁷ latit…⁸</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 04051650     ARDOUX … https:… LIEU-D… <span style="text-decoration: underline;">608</span>980. 6<span style="text-decoration: underline;">746</span>966      26    1.78    47.8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 04051650     ARDOUX … https:… LIEU-D… <span style="text-decoration: underline;">608</span>980. 6<span style="text-decoration: underline;">746</span>966      26    1.78    47.8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 04051650     ARDOUX … https:… LIEU-D… <span style="text-decoration: underline;">608</span>980. 6<span style="text-decoration: underline;">746</span>966      26    1.78    47.8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 04051650     ARDOUX … https:… LIEU-D… <span style="text-decoration: underline;">608</span>980. 6<span style="text-decoration: underline;">746</span>966      26    1.78    47.8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 04051650     ARDOUX … https:… LIEU-D… <span style="text-decoration: underline;">608</span>980. 6<span style="text-decoration: underline;">746</span>966      26    1.78    47.8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 04051125     DHUY à … https:… PONT D… <span style="text-decoration: underline;">628</span>798. 6<span style="text-decoration: underline;">746</span>262      26    2.05    47.8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 04051125     DHUY à … https:… PONT D… <span style="text-decoration: underline;">628</span>798. 6<span style="text-decoration: underline;">746</span>262      26    2.05    47.8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 04051125     DHUY à … https:… PONT D… <span style="text-decoration: underline;">628</span>798. 6<span style="text-decoration: underline;">746</span>262      26    2.05    47.8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 04051125     DHUY à … https:… PONT D… <span style="text-decoration: underline;">628</span>798. 6<span style="text-decoration: underline;">746</span>262      26    2.05    47.8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 04051125     DHUY à … https:… PONT D… <span style="text-decoration: underline;">628</span>798. 6<span style="text-decoration: underline;">746</span>262      26    2.05    47.8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 15 more rows, 34 more variables: code_commune &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   libelle_commune &lt;chr&gt;, code_departement &lt;chr&gt;, libelle_departement &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   code_region &lt;chr&gt;, libelle_region &lt;chr&gt;, code_troncon_hydro &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   code_cours_eau &lt;chr&gt;, libelle_cours_eau &lt;lgl&gt;, uri_cours_eau &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   code_masse_eau &lt;chr&gt;, libelle_masse_eau &lt;lgl&gt;, uri_masse_eau &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   code_sous_bassin &lt;lgl&gt;, libelle_sous_bassin &lt;lgl&gt;, code_bassin &lt;lgl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   libelle_bassin &lt;lgl&gt;, uri_bassin &lt;lgl&gt;, pk &lt;dbl&gt;, altitude &lt;dbl&gt;, …</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Retrieve the temperature from 2012-01-01 to 2012-01-05 at site 04051125</span></span></span>
 <span class="r-in"><span></span></span>
@@ -94,8 +114,22 @@ https://hubeau.eaufrance.fr/page/api-temperature-continu"><meta property="og:ima
 <span class="r-in"><span>  date_fin_mesure<span class="op">=</span><span class="st">"2012-01-05"</span>,</span></span>
 <span class="r-in"><span>  fields <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="st">"code_station,date_mesure_temp,heure_mesure_temp,resultat,symbole_unite"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 120 × 5</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    code_station date_mesure_temp heure_mesure_temp resultat symbole_unite</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 04051125     2012-01-01       00:00:00              8.67 °C           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 04051125     2012-01-01       01:00:00              8.72 °C           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 04051125     2012-01-01       02:00:00              8.77 °C           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 04051125     2012-01-01       03:00:00              8.84 °C           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 04051125     2012-01-01       04:00:00              8.84 °C           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 04051125     2012-01-01       05:00:00              8.79 °C           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 04051125     2012-01-01       06:00:00              8.77 °C           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 04051125     2012-01-01       07:00:00              8.77 °C           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 04051125     2012-01-01       08:00:00              8.74 °C           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 04051125     2012-01-01       09:00:00              8.79 °C           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 110 more rows</span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

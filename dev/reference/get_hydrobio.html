@@ -86,17 +86,37 @@ Available endpoints are:</p><ul><li><p><code>get_hydrobio_stations_hydrobio</cod
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \dontrun{</span></span></span>
 <span class="r-in"><span><span class="co"># Retrieve the hydrobiology monitoring sites in the Pays-de-Loire region</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="lists.html">list_params</a></span><span class="op">(</span>api <span class="op">=</span> <span class="st">"hydrobio"</span>,</span></span>
 <span class="r-in"><span>            endpoint <span class="op">=</span> <span class="st">"stations_hydrobio"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "bbox"                     "code_bassin"             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [3] "code_commune"             "code_cours_eau"          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [5] "code_departement"         "code_masse_eau"          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] "code_region"              "code_sous_bassin"        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] "code_station_hydrobio"    "codes_appel_taxons"      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [11] "codes_indices"            "codes_reseaux"           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [13] "codes_supports"           "date_service"            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [15] "distance"                 "fields"                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [17] "format"                   "latitude"                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "libelle_station_hydrobio" "longitude"               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [21] "page"                     "size"                    </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">stations_pdl</span> <span class="op">&lt;-</span> <span class="fu">get_hydrobio_stations_hydrobio</span><span class="op">(</span></span></span>
 <span class="r-in"><span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>code_region <span class="op">=</span> <span class="fl">52</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Retrieve the hydrobiological bioassessment indices in the city of Rennes</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="lists.html">list_params</a></span><span class="op">(</span>api <span class="op">=</span> <span class="st">"hydrobio"</span>,</span></span>
-<span class="r-in"><span>endpoint <span class="op">=</span> <span class="st">"indices"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>            endpoint <span class="op">=</span> <span class="st">"indices"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "bbox"                   "code_banque_reference"  "code_bassin"           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [4] "code_commune"           "code_cours_eau"         "code_departement"      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] "code_indice"            "code_masse_eau"         "code_prelevement"      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "code_qualification"     "code_region"            "code_sous_bassin"      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [13] "code_station_hydrobio"  "code_support"           "date_debut_prelevement"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [16] "date_fin_prelevement"   "distance"               "fields"                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "format"                 "latitude"               "libelle_indice"        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [22] "longitude"              "page"                   "resultat_indice_max"   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [25] "resultat_indice_min"    "size"                  </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">indices_rennes</span> <span class="op">&lt;-</span> <span class="fu">get_hydrobio_indices</span><span class="op">(</span></span></span>
 <span class="r-in"><span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>code_commune <span class="op">=</span> <span class="fl">35051</span><span class="op">)</span><span class="op">)</span></span></span>
@@ -104,10 +124,23 @@ Available endpoints are:</p><ul><li><p><code>get_hydrobio_stations_hydrobio</cod
 <span class="r-in"><span><span class="co"># species records in the city of Rennes</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="lists.html">list_params</a></span><span class="op">(</span>api <span class="op">=</span> <span class="st">"hydrobio"</span>,</span></span>
 <span class="r-in"><span>            endpoint <span class="op">=</span> <span class="st">"taxons"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "bbox"                    "code_appel_taxon"       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [3] "code_banque_reference"   "code_bassin"            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [5] "code_commune"            "code_cours_eau"         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] "code_departement"        "code_masse_eau"         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] "code_prelevement"        "code_qualification"     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [11] "code_region"             "code_sous_bassin"       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [13] "code_station_hydrobio"   "code_support"           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [15] "code_type_resultat"      "codes_indices_operation"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [17] "date_debut_prelevement"  "date_fin_prelevement"   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "distance"                "fields"                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [21] "format"                  "latitude"               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [23] "longitude"               "page"                   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [25] "size"                   </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">taxons_rennes</span> <span class="op">&lt;-</span> <span class="fu">hubeau</span><span class="fu">::</span><span class="fu">get_hydrobio_taxons</span><span class="op">(</span></span></span>
 <span class="r-in"><span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>code_commune <span class="op">=</span> <span class="fl">35051</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </div>

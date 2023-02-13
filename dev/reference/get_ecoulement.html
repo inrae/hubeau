@@ -86,13 +86,28 @@ Available endpoints are:</p><ul><li><p><code>get_ecoulement_stations</code> retr
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \dontrun{</span></span></span>
 <span class="r-in"><span><span class="co"># Retrieve 2022 observation campaigns in the Jura French department</span></span></span>
 <span class="r-in"><span><span class="fu">get_ecoulement_campagnes</span><span class="op">(</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>code_departement <span class="op">=</span> <span class="st">"39"</span>,</span></span>
 <span class="r-in"><span>       date_campagne_min <span class="op">=</span> <span class="st">"2022-01-01"</span>,</span></span>
 <span class="r-in"><span>       date_campagne_max <span class="op">=</span> <span class="st">"2022-12-31"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 8 × 10</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   code_campagne date_c…¹ nombr…² code_…³ libel…⁴ code_…⁵ libel…⁶ uri_r…⁷ code_…⁸</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>         <span style="text-decoration: underline;">96</span>881 2022-10…       5       2 complé… 000000… Onde O… http:/… 39     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>         <span style="text-decoration: underline;">96</span>802 2022-09…       5       1 usuelle 000000… Onde O… http:/… 39     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>         <span style="text-decoration: underline;">96</span>730 2022-09…       5       2 complé… 000000… Onde O… http:/… 39     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span>         <span style="text-decoration: underline;">96</span>655 2022-08…       5       1 usuelle 000000… Onde O… http:/… 39     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span>         <span style="text-decoration: underline;">96</span>594 2022-08…       5       2 complé… 000000… Onde O… http:/… 39     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span>         <span style="text-decoration: underline;">96</span>509 2022-07…       5       1 usuelle 000000… Onde O… http:/… 39     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">7</span>         <span style="text-decoration: underline;">96</span>335 2022-06…       5       1 usuelle 000000… Onde O… http:/… 39     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">8</span>         <span style="text-decoration: underline;">96</span>137 2022-05…       5       1 usuelle 000000… Onde O… http:/… 39     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 1 more variable: libelle_departement &lt;chr&gt;, and abbreviated variable</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   names ¹​date_campagne, ²​nombre_modalite_ecoulement, ³​code_type_campagne,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ⁴​libelle_type_campagne, ⁵​code_reseau, ⁶​libelle_reseau, ⁷​uri_reseau,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ⁸​code_departement</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Retrieve river stations</span></span></span>
 <span class="r-in"><span><span class="va">stations_39</span> <span class="op">&lt;-</span> <span class="fu">get_ecoulement_stations</span><span class="op">(</span></span></span>
@@ -100,10 +115,34 @@ Available endpoints are:</p><ul><li><p><code>get_ecoulement_stations</code> retr
 <span class="r-in"><span>       fields <span class="op">=</span> <span class="st">"code_station,libelle_cours_eau,libelle_commune"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">stations_39</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 43 × 3</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    code_station libelle_commune libelle_cours_eau    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> U1084011     OFFLANGES       Ruisseau de la Vèze  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> U1084012     SALIGNEY        <span style="color: #BB0000;">NA</span>                   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> U1120011     MENOTEY         Ruisseau de Borne    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> U2530001     EVANS           La Grabusse          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> U2530002     FRAISANS        La Morte             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> U2542011     AMANGE          Ruisseau Vèze        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> U2542012     CHATENOIS       Ruisseau des Vaux    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> U2542013     LOUVATANGE      L'Arne               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> U2639011     CHAMBLAY        La Larine            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> U2640002     CHAMBLAY        Ruisseau de Clairvent</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 33 more rows</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Get the query parameters for the requested API/endpoint</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="lists.html">list_params</a></span><span class="op">(</span>api <span class="op">=</span> <span class="st">"ecoulement"</span>,</span></span>
 <span class="r-in"><span>                     endpoint <span class="op">=</span> <span class="st">"observations"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "format"               "code_station"         "libelle_station"     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [4] "code_departement"     "libelle_departement"  "code_commune"        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] "libelle_commune"      "code_region"          "libelle_region"      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "code_bassin"          "libelle_bassin"       "code_cours_eau"      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [13] "libelle_cours_eau"    "code_campagne"        "code_reseau"         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [16] "libelle_reseau"       "date_observation_min" "date_observation_max"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "code_ecoulement"      "libelle_ecoulement"   "longitude"           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [22] "latitude"             "distance"             "bbox"                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [25] "Numéro de la page"    "size"                 "fields"              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [28] "Accept"              </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Retrieve the river flow data in the Jura departement in 2022 with</span></span></span>
 <span class="r-in"><span><span class="co"># a selection of the fields</span></span></span>
@@ -114,7 +153,21 @@ Available endpoints are:</p><ul><li><p><code>get_ecoulement_stations</code> retr
 <span class="r-in"><span>       fields <span class="op">=</span> <span class="st">"code_station,libelle_station,date_observation,libelle_ecoulement"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">onde_39</span></span></span>
-<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 336 × 4</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    code_station libelle_station                   date_observation libelle_eco…¹</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> U2640003     Pont D7 à GERMIGNEY               2022-10-24       Ecoulement n…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> U2655034     ruisseau de la verine à Vaudrey   2022-10-24       Ecoulement v…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> U2640002     ruisseau de clairvent à Chamblay  2022-10-24       Ecoulement v…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> U1084012     Ruisseau de la Serre à Saligney   2022-10-24       Ecoulement v…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> U1120011     ruisseau de la foret à Menotey    2022-10-24       Ecoulement v…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> U2722011     Rivière la Sablonne à Bousselange 2022-10-24       Ecoulement v…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> U2530001     La grabusse à Dampierre           2022-10-24       Ecoulement v…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> U2542013     Ruisseau l'Arne à Louvatange      2022-10-24       Ecoulement v…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> U2542012     Ruisseau des Vaux à Chatenois     2022-10-24       Ecoulement v…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> U2542011     Ruisseau Du Moulinot à Amange     2022-10-24       Ecoulement v…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 326 more rows, and abbreviated variable name ¹​libelle_ecoulement</span></span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </div>

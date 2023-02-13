@@ -103,12 +103,14 @@ converting data after the call to <a href="doApiQuery.html">doApiQuery</a>.</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># To query the endpoint "chroniques" of the API "prelevements"</span></span></span>
 <span class="r-in"><span><span class="co"># on all devices in the commune of Romilly-sur-Seine in 2018</span></span></span>
-<span class="r-in"><span><span class="kw">if</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="co"># \dontrun{</span></span></span>
 <span class="r-in"><span><span class="va">resp</span> <span class="op">&lt;-</span> <span class="fu"><a href="doApiQuery.html">doApiQuery</a></span><span class="op">(</span>api <span class="op">=</span> <span class="st">"prelevements"</span>,</span></span>
 <span class="r-in"><span>                   endpoint <span class="op">=</span> <span class="st">"chroniques"</span>,</span></span>
 <span class="r-in"><span>                   params <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>code_commune_insee <span class="op">=</span> <span class="st">"10323"</span>, annee <span class="op">=</span> <span class="st">"2018"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in doApiQuery(api = "prelevements", endpoint = "chroniques", params = list(code_commune_insee = "10323",     annee = "2018")):</span> Error 503 on query: https://hubeau.eaufrance.fr/api/v1/prelevements/chroniques?code_commune_insee=10323&amp;annee=2018</span>
 <span class="r-in"><span><span class="fu">convert_list_to_tibble</span><span class="op">(</span><span class="va">resp</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in lapply(l, function(row) {    lapply(row, function(cell) {        if (is.null(unlist(cell)))             NA        else unlist(cell)    })}):</span> object 'resp' not found</span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </div>
