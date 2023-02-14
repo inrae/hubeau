@@ -40,12 +40,6 @@ get_prelevements_ouvrages <- function(params) {
   l <- doApiQuery(api = "prelevements",
                   endpoint = "ouvrages",
                   params = params)
-  l <- lapply(l, function(x) {
-    x$geometry <- NULL
-    x$codes_points_prelevements <- NULL
-    x
-  })
-
   convert_list_to_tibble(l)
 }
 
@@ -55,9 +49,5 @@ get_prelevements_chroniques <- function(params) {
   l <- doApiQuery(api = "prelevements",
                   endpoint = "chroniques",
                   params = params)
-  l <- lapply(l, function(x) {
-    x$geometry <- NULL
-    x
-  })
   convert_list_to_tibble(l)
 }

@@ -40,10 +40,6 @@ get_niveaux_nappes_stations  <- function(params) {
   l <- doApiQuery(api = "niveaux_nappes",
                   endpoint = "stations",
                   params = params)
-  l <- lapply(l, function(x) {
-    x$geometry <- NULL
-    x
-  })
   convert_list_to_tibble(l)
 }
 
