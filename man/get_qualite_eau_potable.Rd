@@ -36,6 +36,7 @@ commune by commune
 See the API documentation for available filter parameters: \url{https://hubeau.eaufrance.fr/page/api-qualite-eau-potable}
 }
 \examples{
+\dontrun{
 # List of available filter parameters on 'get_qualite_eau_potable_communes_udi'
 list_params("qualite_eau_potable", "communes_udi")
 
@@ -51,5 +52,5 @@ get_qualite_eau_potable_resultats_dis(
        date_min_prelevement = "2000-01-01",
        date_max_prelevement = "2022-12-31")
 )
-
+}
 }
