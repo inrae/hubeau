@@ -30,10 +30,8 @@ See the API documentation for available filter parameters: \url{https://hubeau.e
 # List of available filter parameters on 'get_qualite_nappe_stations'
 list_params("qualite_nappes", "stations")
 
-# List of stations available in 2019 in Hérault department
-get_qualite_nappes_stations(list(num_departement = 34,
-                                 date_min_maj = "2019-01-01",
-                                 date_max_maj = "2019-12-31"))
+# List of stations available in Hérault department
+get_qualite_nappes_stations(list(code_commune = 34116))
 
 # List of available filter parameters on 'get_qualite_eau_potable_resultats_dis'
 list_params("qualite_nappes", "analyses")
