@@ -16,12 +16,19 @@ get_qualite_eau_potable_resultats_dis(params)
 A \link[tibble:tibble]{tibble::tibble} with one row by record and one column by field.
 }
 \description{
-The data originate from the "NAIADES" database.
+Results of the sanitary control of the distributed water commune by commune:
+samples and results of the analyses carried out within the framework of the
+regulatory sanitary control on the distribution units or the installations
+directly upstream, and links between communes and distribution units.
+The elements made available in this dataset correspond to a compilation of
+analysis bulletins published online, commune by commune, on the website of
+the Ministry of Health: \url{http://eaupotable.sante.gouv.fr/}
+
 Available endpoints are:
 \itemize{
 \item \code{get_qualite_eau_potable_communes_udi} retrieves links between "UDI"
 (Distribution units or networks) and communes
-\item \code{get_qualite_eau_potable_resultats_dis} retrieves Samples, analysis results
+\item \code{get_qualite_eau_potable_resultats_dis} retrieves samples, analysis results
 and sanitary conclusions from the sanitary control of the distributed water
 commune by commune
 }
