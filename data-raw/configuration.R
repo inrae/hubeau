@@ -37,10 +37,10 @@ defineApis <- function(api, cfg) {
 # Fix issue https://github.com/BRGM/hubeau/issues/127
 ecoulement_ep <- names(.cfg$apis$ecoulement$endpoints)
 for (ep in ecoulement_ep) {
-  which_fields <- which(grepl("fields", .cfg$apis$ecoulement$endpoints[[ep]]$fields))
-  .cfg$apis$ecoulement$endpoints[[ep]]$fields[which_fields] <- "fields"
+  for (f in c("page", "fields")) {
+    which_fields <- which(grepl(f, .cfg$apis$ecoulement$endpoints[[ep]]$fields))
+    .cfg$apis$ecoulement$endpoints[[ep]]$fields[which_fields] <- f
+  }
 }
-
-
 
 usethis::use_data(.cfg, overwrite = TRUE, internal = TRUE)
