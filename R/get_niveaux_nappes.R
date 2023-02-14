@@ -36,31 +36,31 @@
 #' # Plot the water elevation (NGF)
 #' plot(as.POSIXct(df$date_mesure), df$niveau_eau_ngf, type = "l")
 #' }
-get_niveaux_nappes_stations  <- function(params) {
+get_niveaux_nappes_stations  <- function(...) {
   l <- doApiQuery(api = "niveaux_nappes",
                   endpoint = "stations",
-                  params = params)
+                  ...)
   convert_list_to_tibble(l)
 }
 
 #' @rdname get_niveaux_nappes
 #' @export
-get_niveaux_nappes_chroniques  <- function(params) {
+get_niveaux_nappes_chroniques  <- function(...) {
   l <- doApiQuery(
     api = "niveaux_nappes",
     endpoint = "chroniques",
-    params = params
+    ...
   )
   convert_list_to_tibble(l)
 }
 
 #' @rdname get_niveaux_nappes
 #' @export
-get_niveaux_nappes_chroniques_tr  <- function(params) {
+get_niveaux_nappes_chroniques_tr  <- function(...) {
   l <- doApiQuery(
     api = "niveaux_nappes",
     endpoint = "chroniques_tr",
-    params = params
+    ...
   )
   convert_list_to_tibble(l)
 }

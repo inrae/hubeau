@@ -6,14 +6,17 @@
 \alias{get_indicateurs_services_services}
 \title{Retrieve data from API "Indicateurs des services"}
 \usage{
-get_indicateurs_services_communes(params)
+get_indicateurs_services_communes(...)
 
-get_indicateurs_services_indicateurs(params)
+get_indicateurs_services_indicateurs(...)
 
-get_indicateurs_services_services(params)
+get_indicateurs_services_services(...)
 }
 \arguments{
-\item{params}{a \link{list} the list of parameters of the queries and their values in the format \code{list(ParamName = "Param value", ...)}, use the function \link{list_params} for a list of the available filter parameters for a given API endpoint and see the API documentation for their description}
+\item{...}{parameters of the queries and their values in the format
+\verb{Param1_Name = "Param1 value", Param2_Name = "Param2 value"}, use the
+function \link{list_params} for a list of the available filter parameters
+for a given API endpoint and see the API documentation for their description}
 }
 \value{
 \code{get_indicateurs_services_communes} returns a \link[tibble:tibble]{tibble::tibble} with one row by commune, by service and by year and the following columns:

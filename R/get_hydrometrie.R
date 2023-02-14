@@ -40,11 +40,11 @@
 #'   date_debut_obs_elab = format(Sys.Date() -30, "%Y-%m-%d"),
 #'   grandeur_hydro_elab = "QmJ"))
 #' }
-get_hydrometrie_obs_elab <- function(params) {
+get_hydrometrie_obs_elab <- function(...) {
   l <- doApiQuery(
     api = "hydrometrie",
     endpoint = "obs_elab",
-    params = params
+    ...
   )
   convert_list_to_tibble(l)
 }
@@ -52,7 +52,7 @@ get_hydrometrie_obs_elab <- function(params) {
 #' @param entities 1-length [character] string filtering the rows of the returned value, possible values are: "station" for filtering on station rows, "site" for filtering on site rows, "both" for keeping all the rows
 #' @rdname get_hydrometrie
 #' @export
-get_hydrometrie_observations_tr  <- function(params,
+get_hydrometrie_observations_tr  <- function(...,
                                              entities = "station") {
   # Checks
   if(!entities %in% c("station", "site", "both")) {
@@ -62,7 +62,7 @@ get_hydrometrie_observations_tr  <- function(params,
   l <- doApiQuery(
     api = "hydrometrie",
     endpoint = "observations_tr",
-    params = params
+    ...
   )
   if(!is.null(l)) {
     l <- lapply(l, function(x) {
@@ -86,12 +86,12 @@ get_hydrometrie_observations_tr  <- function(params,
 #' @param unique_site optional [logical], if set to `FALSE` sites with several different locations produce one row by different location otherwise the first location found is used for fields `code_commune_site`, `libelle_commune`, `code_departement`, `code_region`, `libelle_region`, `libelle_departement`
 #' @rdname get_hydrometrie
 #' @export
-get_hydrometrie_sites  <- function(params,
+get_hydrometrie_sites  <- function(...,
                                    unique_site = TRUE) {
   l <- doApiQuery(
     api = "hydrometrie",
     endpoint = "sites",
-    params = params
+    ...
   )
   l <- lapply(l, function(x) {
     fields <-

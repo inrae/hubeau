@@ -40,11 +40,11 @@
 #' hubeau::get_hydrobio_taxons(
 #'  list(code_commune = 35051))
 #' }
-get_hydrobio_stations_hydrobio <- function(params)
+get_hydrobio_stations_hydrobio <- function(...)
 {
   l <- doApiQuery(api = "hydrobio",
                   endpoint = "stations_hydrobio",
-                  params = params)
+                  ...)
 
   convert_list_to_tibble(l)
 }
@@ -52,23 +52,21 @@ get_hydrobio_stations_hydrobio <- function(params)
 
 #' @rdname get_hydrobio
 #' @export
-get_hydrobio_indices <- function(params)
+get_hydrobio_indices <- function(...)
 {
   l <- doApiQuery(api = "hydrobio",
                   endpoint = "indices",
-                  params = params)
-
+                  ...)
   convert_list_to_tibble(l)
 }
 
 
 #' @rdname get_hydrobio
 #' @export
-get_hydrobio_taxons <- function(params)
+get_hydrobio_taxons <- function(...)
 {
   l <- doApiQuery(api = "hydrobio",
                   endpoint = "taxons",
-                  params = params)
-
+                  ...)
   convert_list_to_tibble(l)
 }

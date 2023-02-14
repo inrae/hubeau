@@ -43,10 +43,10 @@
 #'        date_max_prelevement = "2022-12-31")
 #' )
 #' }
-get_qualite_eau_potable_communes_udi <- function(params) {
+get_qualite_eau_potable_communes_udi <- function(...) {
   l <- doApiQuery(api = "qualite_eau_potable",
                   endpoint = "communes_udi",
-                  params = params)
+                  ...)
 
   convert_list_to_tibble(l)
 }
@@ -54,10 +54,10 @@ get_qualite_eau_potable_communes_udi <- function(params) {
 
 #' @export
 #' @rdname get_qualite_eau_potable
-get_qualite_eau_potable_resultats_dis <- function(params) {
+get_qualite_eau_potable_resultats_dis <- function(...) {
   l <- doApiQuery(api = "qualite_eau_potable",
                   endpoint = "resultats_dis",
-                  params = params)
+                  ...)
 
   convert_list_to_tibble(l)
 }

@@ -4,14 +4,21 @@
 \alias{doApiQuery}
 \title{Main internal functions for querying the Hub'Eau API endpoints}
 \usage{
-doApiQuery(api, endpoint, params)
+doApiQuery(api, endpoint, ..., params)
 }
 \arguments{
 \item{api}{a \link{character} name of the API (e.g.: "indicateurs_services", "prelevements"...), see example for available APIs}
 
 \item{endpoint}{a \link{character} name of the endpoint, see example for available endpoints in an API}
 
-\item{params}{a \link{list} the list of parameters of the queries and their values in the format \code{list(ParamName = "Param value", ...)}, use the function \link{list_params} for a list of the available filter parameters for a given API endpoint and see the API documentation for their description}
+\item{...}{parameters of the queries and their values in the format
+\verb{Param1_Name = "Param1 value", Param2_Name = "Param2 value"}, use the
+function \link{list_params} for a list of the available filter parameters
+for a given API endpoint and see the API documentation for their description}
+
+\item{params}{(deprecated) a \link{list} the list of parameters of the queries and their
+values in the format \code{list(ParamName = "Param value", ...)}. This parameter
+is replaced by the parameter \code{...}}
 }
 \value{
 A \link{list} with the concatenated results returned by the API.
@@ -46,7 +53,8 @@ list_params(api = "prelevements", endpoint = "chroniques")
 \dontrun{
 resp <- doApiQuery(api = "prelevements",
                    endpoint = "chroniques",
-                   params = list(code_commune_insee = "10323", annee = "2018"))
+                   code_commune_insee = "10323",
+                   annee = "2018")
 convert_list_to_tibble(resp)
 }
 }

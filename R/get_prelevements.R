@@ -26,28 +26,28 @@
 #' # Retrieve the withdrawal time series of the devices located in Romilly-sur-Seine
 #' get_prelevements_chroniques(list(code_commune_insee = "10323"))
 #' }
-get_prelevements_points_prelevement <- function(params) {
+get_prelevements_points_prelevement <- function(...) {
   l <- doApiQuery(api = "prelevements",
                   endpoint = "points_prelevement",
-                  params = params)
+                  ...)
 
   convert_list_to_tibble(l)
 }
 
 #' @rdname get_prelevements
 #' @export
-get_prelevements_ouvrages <- function(params) {
+get_prelevements_ouvrages <- function(...) {
   l <- doApiQuery(api = "prelevements",
                   endpoint = "ouvrages",
-                  params = params)
+                  ...)
   convert_list_to_tibble(l)
 }
 
 #' @rdname get_prelevements
 #' @export
-get_prelevements_chroniques <- function(params) {
+get_prelevements_chroniques <- function(...) {
   l <- doApiQuery(api = "prelevements",
                   endpoint = "chroniques",
-                  params = params)
+                  ...)
   convert_list_to_tibble(l)
 }

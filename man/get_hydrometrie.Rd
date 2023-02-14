@@ -7,20 +7,27 @@
 \alias{get_hydrometrie_stations}
 \title{Retrieve data from API "Hydrométrie"}
 \usage{
-get_hydrometrie_obs_elab(params)
+get_hydrometrie_obs_elab(...)
 
-get_hydrometrie_observations_tr(params, entities = "station")
+get_hydrometrie_observations_tr(..., entities = "station")
 
-get_hydrometrie_sites(params, unique_site = TRUE)
+get_hydrometrie_sites(..., unique_site = TRUE)
 
 get_hydrometrie_stations(params, code_sandre_reseau_station = FALSE)
 }
 \arguments{
-\item{params}{a \link{list} the list of parameters of the queries and their values in the format \code{list(ParamName = "Param value", ...)}, use the function \link{list_params} for a list of the available filter parameters for a given API endpoint and see the API documentation for their description}
+\item{...}{parameters of the queries and their values in the format
+\verb{Param1_Name = "Param1 value", Param2_Name = "Param2 value"}, use the
+function \link{list_params} for a list of the available filter parameters
+for a given API endpoint and see the API documentation for their description}
 
 \item{entities}{1-length \link{character} string filtering the rows of the returned value, possible values are: "station" for filtering on station rows, "site" for filtering on site rows, "both" for keeping all the rows}
 
 \item{unique_site}{optional \link{logical}, if set to \code{FALSE} sites with several different locations produce one row by different location otherwise the first location found is used for fields \code{code_commune_site}, \code{libelle_commune}, \code{code_departement}, \code{code_region}, \code{libelle_region}, \code{libelle_departement}}
+
+\item{params}{(deprecated) a \link{list} the list of parameters of the queries and their
+values in the format \code{list(ParamName = "Param value", ...)}. This parameter
+is replaced by the parameter \code{...}}
 
 \item{code_sandre_reseau_station}{optional \link{logical} indicating if \code{code_sandre_reseau_station} field is included in the result; if so, one line is added by item and other fields are repeated}
 }

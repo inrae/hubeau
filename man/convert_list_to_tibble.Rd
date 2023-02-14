@@ -34,7 +34,8 @@ list_params(api = "prelevements", endpoint = "chroniques")
 \dontrun{
 resp <- doApiQuery(api = "prelevements",
                    endpoint = "chroniques",
-                   params = list(code_commune_insee = "10323", annee = "2018"))
+                   code_commune_insee = "10323",
+                   annee = "2018")
 convert_list_to_tibble(resp)
 }
 }

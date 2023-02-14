@@ -32,10 +32,10 @@
 #'        date_debut_prelevement = "2019-11-12")
 #' )
 #' }
-get_qualite_nappes_analyses <- function(params) {
+get_qualite_nappes_analyses <- function(...) {
   l <- doApiQuery(api = "qualite_nappes",
                   endpoint = "analyses",
-                  params = params)
+                  ...)
 
   convert_list_to_tibble(l)
 }
@@ -43,10 +43,10 @@ get_qualite_nappes_analyses <- function(params) {
 
 #' @export
 #' @rdname get_qualite_nappe
-get_qualite_nappes_stations <- function(params) {
+get_qualite_nappes_stations <- function(...) {
   l <- doApiQuery(api = "qualite_nappes",
                   endpoint = "stations",
-                  params = params)
+                  ...)
   convert_list_to_tibble(l)
 }
 

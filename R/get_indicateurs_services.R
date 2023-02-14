@@ -54,11 +54,11 @@
 #' # Retrieve performance indicator time series of Romilly-sur-Seine with service details
 #' get_indicateurs_services_services(list(code_commune = "10323"))
 #' }
-get_indicateurs_services_communes <- function(params) {
+get_indicateurs_services_communes <- function(...) {
 
   l <- doApiQuery(api = "indicateurs_services",
                   endpoint = "communes",
-                  params = params)
+                  ...)
 
   l <- lapply(l, function(x) {
     x <- c(x, x$indicateurs)
@@ -70,10 +70,10 @@ get_indicateurs_services_communes <- function(params) {
 
 #' @export
 #' @rdname get_indicateurs_services
-get_indicateurs_services_indicateurs <- function(params) {
+get_indicateurs_services_indicateurs <- function(...) {
   l <- doApiQuery(api = "indicateurs_services",
                   endpoint = "indicateurs",
-                  params = params)
+                  ...)
 
   l <- lapply(l, function(x) {
     x$codes_commune <- NULL
@@ -85,11 +85,11 @@ get_indicateurs_services_indicateurs <- function(params) {
 
 #' @export
 #' @rdname get_indicateurs_services
-get_indicateurs_services_services <- function(params) {
+get_indicateurs_services_services <- function(...) {
 
   l <- doApiQuery(api = "indicateurs_services",
                   endpoint = "services",
-                  params = params)
+                  ...)
 
   l <- lapply(l, function(x) {
     x <- c(x, x$indicateurs)

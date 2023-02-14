@@ -5,12 +5,15 @@
 \alias{get_qualite_nappes_stations}
 \title{Retrieve data from API "Qualité des nappes d'eau souterraines"}
 \usage{
-get_qualite_nappes_analyses(params)
+get_qualite_nappes_analyses(...)
 
-get_qualite_nappes_stations(params)
+get_qualite_nappes_stations(...)
 }
 \arguments{
-\item{params}{a \link{list} the list of parameters of the queries and their values in the format \code{list(ParamName = "Param value", ...)}, use the function \link{list_params} for a list of the available filter parameters for a given API endpoint and see the API documentation for their description}
+\item{...}{parameters of the queries and their values in the format
+\verb{Param1_Name = "Param1 value", Param2_Name = "Param2 value"}, use the
+function \link{list_params} for a list of the available filter parameters
+for a given API endpoint and see the API documentation for their description}
 }
 \value{
 A \link[tibble:tibble]{tibble::tibble} with one row by record and one column by field.

@@ -31,20 +31,20 @@
 #'
 #' }
 #'
-get_temperature_stations  <- function(params)
+get_temperature_stations  <- function(...)
   {
   l <- doApiQuery(api = "temperature",
                   endpoint = "station",
-                  params = params)
+                  ...)
 
     convert_list_to_tibble(l)
 }
 
 #' @rdname get_temperature
 #' @export
-get_temperature_chronique <- function(params) {
+get_temperature_chronique <- function(...) {
   l <- doApiQuery(api = "temperature",
                   endpoint = "chronique",
-                  params = params)
+                  ...)
   convert_list_to_tibble(l)
 }

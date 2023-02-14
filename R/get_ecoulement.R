@@ -45,12 +45,12 @@
 #' )
 #' onde_39
 #'}
-get_ecoulement_stations <- function(params)
+get_ecoulement_stations <- function(...)
 {
   l <- doApiQuery(
     api = "ecoulement",
     endpoint = "stations",
-    params = params
+    ...
   )
 
   convert_list_to_tibble(l)
@@ -59,12 +59,12 @@ get_ecoulement_stations <- function(params)
 
 #' @rdname get_ecoulement
 #' @export
-get_ecoulement_observations <- function(params)
+get_ecoulement_observations <- function(...)
 {
   l <- doApiQuery(
     api = "ecoulement",
     endpoint = "observations",
-    params = params
+    ...
   )
 
   convert_list_to_tibble(l)
@@ -73,12 +73,12 @@ get_ecoulement_observations <- function(params)
 
 #' @rdname get_ecoulement
 #' @export
-get_ecoulement_campagnes <- function(params)
+get_ecoulement_campagnes <- function(...)
 {
   l <- doApiQuery(
     api = "ecoulement",
     endpoint = "campagnes",
-    params = params
+    ...
   )
 
   convert_list_to_tibble(l)
