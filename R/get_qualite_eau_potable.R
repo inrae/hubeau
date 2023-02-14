@@ -1,12 +1,19 @@
 #' Retrieve data from API "Qualité de l'eau potable"
 #'
 #' @description
-#' The data originate from the "NAIADES" database.
+#' Results of the sanitary control of the distributed water commune by commune:
+#' samples and results of the analyses carried out within the framework of the
+#' regulatory sanitary control on the distribution units or the installations
+#' directly upstream, and links between communes and distribution units.
+#' The elements made available in this dataset correspond to a compilation of
+#' analysis bulletins published online, commune by commune, on the website of
+#' the Ministry of Health: \url{http://eaupotable.sante.gouv.fr/}
+#'
 #' Available endpoints are:
 #'
 #' - `get_qualite_eau_potable_communes_udi` retrieves links between "UDI"
 #'   (Distribution units or networks) and communes
-#' - `get_qualite_eau_potable_resultats_dis` retrieves Samples, analysis results
+#' - `get_qualite_eau_potable_resultats_dis` retrieves samples, analysis results
 #'   and sanitary conclusions from the sanitary control of the distributed water
 #'   commune by commune
 #'
@@ -19,6 +26,7 @@
 #' @rdname get_qualite_eau_potable
 #'
 #' @examples
+#' \dontrun{
 #' # List of available filter parameters on 'get_qualite_eau_potable_communes_udi'
 #' list_params("qualite_eau_potable", "communes_udi")
 #'
@@ -34,7 +42,7 @@
 #'        date_min_prelevement = "2000-01-01",
 #'        date_max_prelevement = "2022-12-31")
 #' )
-#'
+#' }
 get_qualite_eau_potable_communes_udi <- function(params) {
   l <- doApiQuery(api = "qualite_eau_potable",
                   endpoint = "communes_udi",
