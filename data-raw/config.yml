@@ -19,3 +19,5 @@ default:
       path: v1/hydrobio
     temperature:
       path: v1/temperature
+    qualite_eau_potable:
+      path: /v1/qualite_eau_potable

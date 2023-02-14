@@ -27,6 +27,7 @@
 #'                 "effectif_lot",
 #'                 "code_alternatif_taxon",
 #'                 sep = ",")
+#'
 #' brest_fishes <- get_poisson_observations(
 #'   list(
 #'     libelle_commune = "Brest",
@@ -38,9 +39,7 @@
 #'
 #' brest_fishes
 #' }
-get_poisson_observations <- function(params)
-
-  {
+get_poisson_observations <- function(params) {
 
   l <- doApiQuery(api = "poisson",
                   endpoint = "observations",
