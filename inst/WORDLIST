@@ -1,3 +1,4 @@
+ADES
 ANR
 Acknowledgements
 BNPE
@@ -15,7 +16,9 @@ NAIADES
 ONDE
 Piézométrie
 Prélèvements
+Qualité
 Température
+UDI
 WaterWorks
 XKN
 annee
@@ -27,6 +30,7 @@ cours
 customizable
 d'assainissement
 d'eau
+de
 des
 doApiQuery
 d’eau
@@ -46,6 +50,8 @@ indicateurs
 inrae
 insee
 io
+l'eau
+nappes
 nom
 numero
 ouvrage
@@ -54,5 +60,6 @@ piezometrie
 pkgdown
 poisson
 prelevements
+souterraines
 tibble
 uri
