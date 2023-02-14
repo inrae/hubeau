@@ -20,4 +20,6 @@ default:
     temperature:
       path: v1/temperature
     qualite_eau_potable:
-      path: /v1/qualite_eau_potable
+      path: v1/qualite_eau_potable
+    qualite_nappes:
+      path: v1/qualite_nappes
