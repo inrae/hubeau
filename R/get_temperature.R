@@ -46,9 +46,5 @@ get_temperature_chronique <- function(params) {
   l <- doApiQuery(api = "temperature",
                   endpoint = "chronique",
                   params = params)
-  l <- lapply(l, function(x) {
-    x$geometry <- NULL
-    x
-  })
   convert_list_to_tibble(l)
 }

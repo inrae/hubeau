@@ -66,7 +66,6 @@ get_hydrometrie_observations_tr  <- function(params,
   )
   if(!is.null(l)) {
     l <- lapply(l, function(x) {
-      x$geometry <- NULL
       if (entities == "station") {
         if (is.null(x$code_station)) {
           return(NULL)
@@ -125,7 +124,6 @@ get_hydrometrie_sites  <- function(params,
         x[[field]] <- fieldValue
       }
     }
-    x$geometry <- NULL
     x
   })
   convert_list_to_tibble(l)
@@ -142,7 +140,6 @@ get_hydrometrie_stations  <- function(params, code_sandre_reseau_station = FALSE
     if (!code_sandre_reseau_station) {
       x$code_sandre_reseau_station <- NULL
     }
-    x$geometry <- NULL
     x
   })
   convert_list_to_tibble(l)
