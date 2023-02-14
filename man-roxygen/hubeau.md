@@ -62,6 +62,26 @@ Available functions:
 - [get_prelevements_ouvrages()]: withdrawal devices (can contain several withdrawal points)
 - [get_prelevements_points_prelevement()]: withdrawal points
 
+## API "Qualité de l'eau potable"
+
+API documentation: <https://hubeau.eaufrance.fr/page/api-qualite-eau-potable>
+
+Available functions:
+
+- [get_qualite_eau_potable_communes_udi()]: links between "UDI" (Distribution units 
+  or networks) and communes
+- [get_qualite_eau_potable_resultats_dis()]: samples, analysis results and sanitary 
+  conclusions from the sanitary control of the distributed water commune by commune
+  
+## API "Qualité des nappes d'eau souterraines"
+
+API documentation: <https://hubeau.eaufrance.fr/page/api-qualite-nappes>
+
+Available functions:
+
+- [get_qualite_nappes_stations()]: measuring stations for groundwater quality
+- [get_qualite_nappes_analyses()]: analysis results of quality measurement
+
 ## API "Température des cours d'eau"
 
 API Documentation <https://hubeau.eaufrance.fr/page/api-temperature-continu>

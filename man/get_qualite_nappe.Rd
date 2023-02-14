@@ -19,8 +19,8 @@ A \link[tibble:tibble]{tibble::tibble} with one row by record and one column by 
 The data originate from the "ADES" database (\url{https://ades.eaufrance.fr/}).
 Available endpoints are:
 \itemize{
+\item \code{get_qualite_nappes_stations} retrieves measuring stations for groundwater quality
 \item \code{get_qualite_nappes_analyses} retrieves the result analysis of quality measurement
-\item \code{get_qualite_eau_potable_resultats_dis} retrieves measuring stations for groundwater quality
 }
 
 See the API documentation for available filter parameters: \url{https://hubeau.eaufrance.fr/page/api-qualite-nappes}

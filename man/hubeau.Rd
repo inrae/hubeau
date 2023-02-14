@@ -80,6 +80,30 @@ Available functions:
 }
 }
 
+\subsection{API "Qualité de l'eau potable"}{
+
+API documentation: \url{https://hubeau.eaufrance.fr/page/api-qualite-eau-potable}
+
+Available functions:
+\itemize{
+\item \code{\link[=get_qualite_eau_potable_communes_udi]{get_qualite_eau_potable_communes_udi()}}: links between "UDI" (Distribution units
+or networks) and communes
+\item \code{\link[=get_qualite_eau_potable_resultats_dis]{get_qualite_eau_potable_resultats_dis()}}: samples, analysis results and sanitary
+conclusions from the sanitary control of the distributed water commune by commune
+}
+}
+
+\subsection{API "Qualité des nappes d'eau souterraines"}{
+
+API documentation: \url{https://hubeau.eaufrance.fr/page/api-qualite-nappes}
+
+Available functions:
+\itemize{
+\item \code{\link[=get_qualite_nappes_stations]{get_qualite_nappes_stations()}}: measuring stations for groundwater quality
+\item \code{\link[=get_qualite_nappes_analyses]{get_qualite_nappes_analyses()}}: analysis results of quality measurement
+}
+}
+
 \subsection{API "Température des cours d'eau"}{
 
 API Documentation \url{https://hubeau.eaufrance.fr/page/api-temperature-continu}

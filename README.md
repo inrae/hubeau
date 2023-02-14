@@ -126,6 +126,30 @@ Available functions:
 - [`get_prelevements_points_prelevement`](https://inrae.github.io/hubeau/reference/get_prelevements.html):
   withdrawal points
 
+## API “Qualité de l’eau potable”
+
+API documentation:
+<https://hubeau.eaufrance.fr/page/api-qualite-eau-potable>
+
+Available functions:
+
+- [`get_qualite_eau_potable_communes_udi`](https://inrae.github.io/hubeau/reference/get_qualite_eau_potable.html):
+  links between “UDI” (Distribution units or networks) and communes
+- [`get_qualite_eau_potable_resultats_dis`](https://inrae.github.io/hubeau/reference/get_qualite_eau_potable.html):
+  samples, analysis results and sanitary conclusions from the sanitary
+  control of the distributed water commune by commune
+
+## API “Qualité des nappes d’eau souterraines”
+
+API documentation: <https://hubeau.eaufrance.fr/page/api-qualite-nappes>
+
+Available functions:
+
+- [`get_qualite_nappes_stations`](https://inrae.github.io/hubeau/reference/get_qualite_nappes.html):
+  measuring stations for groundwater quality
+- [`get_qualite_nappes_analyses`](https://inrae.github.io/hubeau/reference/get_qualite_nappes.html):
+  analysis results of quality measurement
+
 ## API “Température des cours d’eau”
 
 API Documentation
