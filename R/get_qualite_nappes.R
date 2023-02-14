@@ -47,6 +47,6 @@ get_qualite_nappes_stations <- function(params) {
   l <- doApiQuery(api = "qualite_nappes",
                   endpoint = "stations",
                   params = params)
-  select_non_nested(l)
+  convert_list_to_tibble(l)
 }
 

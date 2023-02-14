@@ -46,11 +46,7 @@ get_hydrobio_stations_hydrobio <- function(params)
                   endpoint = "stations_hydrobio",
                   params = params)
 
-  select_non_nested(l) %>%
-    select(-code_commune,
-           -libelle_departement,
-           -(libelle_region:longitude)) %>%
-    distinct()
+  convert_list_to_tibble(l)
 }
 
 
@@ -74,5 +70,5 @@ get_hydrobio_taxons <- function(params)
                   endpoint = "taxons",
                   params = params)
 
-  select_non_nested(l)
+  convert_list_to_tibble(l)
 }
