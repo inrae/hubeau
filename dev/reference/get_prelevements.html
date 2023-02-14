@@ -109,7 +109,7 @@ See the API documentation for available filter parameters: https://hubeau.eaufra
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Retrieve the withdrawal devices located in Romilly-sur-Seine</span></span></span>
 <span class="r-in"><span><span class="fu">get_prelevements_ouvrages</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>code_commune_insee <span class="op">=</span> <span class="st">"10323"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 9 × 27</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 9 × 33</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   code_ouvrage  nom_ou…¹ id_lo…² date_…³ date_…⁴ code_…⁵ libel…⁶ comme…⁷ code_…⁸</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> OPR0000032603 ROMILLY… 02612X… 1987-0… <span style="color: #BB0000;">NA</span>      5       Coordo… <span style="color: #BB0000;">NA</span>      10323  </span>
@@ -121,7 +121,7 @@ See the API documentation for available filter parameters: https://hubeau.eaufra
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">7</span> OPR0000333915 Soc des… 32055_… 2016-0… <span style="color: #BB0000;">NA</span>      0       Précis… <span style="color: #BB0000;">NA</span>      10323  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">8</span> OPR0000586224 SCEA DU… BSS952… 1900-0… <span style="color: #BB0000;">NA</span>      0       Précis… <span style="color: #BB0000;">NA</span>      10323  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">9</span> OPR0000608675 CRBPE R… 31132_… 1900-0… <span style="color: #BB0000;">NA</span>      0       Précis… <span style="color: #BB0000;">NA</span>      10323  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 18 more variables: nom_commune &lt;chr&gt;, code_departement &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 24 more variables: nom_commune &lt;chr&gt;, code_departement &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   libelle_departement &lt;chr&gt;, code_type_milieu &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   libelle_type_milieu &lt;chr&gt;, code_entite_hydro_cours_eau &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   uri_entite_hydro_cours_eau &lt;chr&gt;, code_entite_hydro_plan_eau &lt;lgl&gt;,</span></span>
@@ -131,7 +131,7 @@ See the API documentation for available filter parameters: https://hubeau.eaufra
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Retrieve the withdrawal time series of the devices located in Romilly-sur-Seine</span></span></span>
 <span class="r-in"><span><span class="fu">get_prelevements_chroniques</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>code_commune_insee <span class="op">=</span> <span class="st">"10323"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 45 × 23</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 45 × 28</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    code_o…¹ annee volume code_…² libel…³ code_…⁴ libel…⁵ code_…⁶ libel…⁷ code_…⁸</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> OPR0000…  <span style="text-decoration: underline;">2</span>012 <span style="text-decoration: underline;">617</span>624 AEP     EAU PO… 1       Contrô… 1       Correc… REA    </span>
@@ -144,13 +144,13 @@ See the API documentation for available filter parameters: https://hubeau.eaufra
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> OPR0000…  <span style="text-decoration: underline;">2</span>012 <span style="text-decoration: underline;">617</span>624 AEP     EAU PO… 1       Contrô… 1       Correc… REA    </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> OPR0000…  <span style="text-decoration: underline;">2</span>013 <span style="text-decoration: underline;">463</span>545 AEP     EAU PO… 1       Contrô… 1       Correc… REA    </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> OPR0000…  <span style="text-decoration: underline;">2</span>014 <span style="text-decoration: underline;">535</span>557 AEP     EAU PO… 1       Contrô… 1       Correc… REA    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 35 more rows, 13 more variables: libelle_statut_instruction &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 35 more rows, 18 more variables: libelle_statut_instruction &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   code_mode_obtention_volume &lt;chr&gt;, libelle_mode_obtention_volume &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   prelevement_ecrasant &lt;lgl&gt;, producteur_donnee &lt;chr&gt;, longitude &lt;dbl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   latitude &lt;dbl&gt;, code_commune_insee &lt;chr&gt;, nom_commune &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   code_departement &lt;chr&gt;, libelle_departement &lt;chr&gt;, nom_ouvrage &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   uri_ouvrage &lt;chr&gt;, and abbreviated variable names ¹​code_ouvrage,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ²​code_usage, ³​libelle_usage, ⁴​code_statut_volume, ⁵​libelle_statut_volume, …</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   geometry.type &lt;chr&gt;, geometry.crs.type &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   geometry.crs.properties.name &lt;chr&gt;, geometry.coordinates1 &lt;dbl&gt;, …</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
