@@ -46,19 +46,19 @@
 #' @examples
 #' \dontrun{
 #' # Retrieve performance indicator time series in the commune of Romilly-sur-Seine
-#' get_indicateurs_services_communes(list(code_commune = "10323"))
+#' get_indicateurs_services_communes(code_commune = "10323")
 #'
 #' # Retrieve the drinking water withdrawal indicators of the year 2012 for all services
-#' get_indicateurs_services_indicateurs(list(code_indicateur = "D102.0", annee = "2012"))
+#' get_indicateurs_services_indicateurs(code_indicateur = "D102.0", annee = "2012")
 #'
 #' # Retrieve performance indicator time series of Romilly-sur-Seine with service details
-#' get_indicateurs_services_services(list(code_commune = "10323"))
+#' get_indicateurs_services_services(code_commune = "10323")
 #' }
-get_indicateurs_services_communes <- function(params) {
+get_indicateurs_services_communes <- function(...) {
 
   l <- doApiQuery(api = "indicateurs_services",
                   endpoint = "communes",
-                  params = params)
+                  ...)
 
   l <- lapply(l, function(x) {
     x <- c(x, x$indicateurs)
@@ -70,10 +70,10 @@ get_indicateurs_services_communes <- function(params) {
 
 #' @export
 #' @rdname get_indicateurs_services
-get_indicateurs_services_indicateurs <- function(params) {
+get_indicateurs_services_indicateurs <- function(...) {
   l <- doApiQuery(api = "indicateurs_services",
                   endpoint = "indicateurs",
-                  params = params)
+                  ...)
 
   l <- lapply(l, function(x) {
     x$codes_commune <- NULL
@@ -85,11 +85,11 @@ get_indicateurs_services_indicateurs <- function(params) {
 
 #' @export
 #' @rdname get_indicateurs_services
-get_indicateurs_services_services <- function(params) {
+get_indicateurs_services_services <- function(...) {
 
   l <- doApiQuery(api = "indicateurs_services",
                   endpoint = "services",
-                  params = params)
+                  ...)
 
   l <- lapply(l, function(x) {
     x <- c(x, x$indicateurs)

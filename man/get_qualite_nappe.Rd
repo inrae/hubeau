@@ -5,12 +5,15 @@
 \alias{get_qualite_nappes_stations}
 \title{Retrieve data from API "Qualité des nappes d'eau souterraines"}
 \usage{
-get_qualite_nappes_analyses(params)
+get_qualite_nappes_analyses(...)
 
-get_qualite_nappes_stations(params)
+get_qualite_nappes_stations(...)
 }
 \arguments{
-\item{params}{a \link{list} the list of parameters of the queries and their values in the format \code{list(ParamName = "Param value", ...)}, use the function \link{list_params} for a list of the available filter parameters for a given API endpoint and see the API documentation for their description}
+\item{...}{parameters of the queries and their values in the format
+\verb{Param1_Name = "Param1 value", Param2_Name = "Param2 value"}, use the
+function \link{list_params} for a list of the available filter parameters
+for a given API endpoint and see the API documentation for their description}
 }
 \value{
 A \link[tibble:tibble]{tibble::tibble} with one row by record and one column by field.
@@ -31,15 +34,13 @@ See the API documentation for available filter parameters: \url{https://hubeau.e
 list_params("qualite_nappes", "stations")
 
 # List of stations available in Hérault department
-get_qualite_nappes_stations(list(code_commune = 34116))
+get_qualite_nappes_stations(code_commune = 34116)
 
 # List of available filter parameters on 'get_qualite_eau_potable_resultats_dis'
 list_params("qualite_nappes", "analyses")
 
 # Get results of analysis realised at Grabels in 2019
-get_qualite_nappes_analyses(
-  list(bss_id = "BSS002GNSA",
-       date_debut_prelevement = "2019-11-12")
-)
+get_qualite_nappes_analyses(bss_id = "BSS002GNSA",
+                            date_debut_prelevement = "2019-11-12")
 }
 }

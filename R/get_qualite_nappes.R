@@ -21,21 +21,19 @@
 #' list_params("qualite_nappes", "stations")
 #'
 #' # List of stations available in Hérault department
-#' get_qualite_nappes_stations(list(code_commune = 34116))
+#' get_qualite_nappes_stations(code_commune = 34116)
 #'
 #' # List of available filter parameters on 'get_qualite_eau_potable_resultats_dis'
 #' list_params("qualite_nappes", "analyses")
 #'
 #' # Get results of analysis realised at Grabels in 2019
-#' get_qualite_nappes_analyses(
-#'   list(bss_id = "BSS002GNSA",
-#'        date_debut_prelevement = "2019-11-12")
-#' )
+#' get_qualite_nappes_analyses(bss_id = "BSS002GNSA",
+#'                             date_debut_prelevement = "2019-11-12")
 #' }
-get_qualite_nappes_analyses <- function(params) {
+get_qualite_nappes_analyses <- function(...) {
   l <- doApiQuery(api = "qualite_nappes",
                   endpoint = "analyses",
-                  params = params)
+                  ...)
 
   convert_list_to_tibble(l)
 }
@@ -43,10 +41,10 @@ get_qualite_nappes_analyses <- function(params) {
 
 #' @export
 #' @rdname get_qualite_nappe
-get_qualite_nappes_stations <- function(params) {
+get_qualite_nappes_stations <- function(...) {
   l <- doApiQuery(api = "qualite_nappes",
                   endpoint = "stations",
-                  params = params)
+                  ...)
   convert_list_to_tibble(l)
 }
 

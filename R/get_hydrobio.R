@@ -23,28 +23,25 @@
 #' list_params(api = "hydrobio",
 #'             endpoint = "stations_hydrobio")
 #'
-#' get_hydrobio_stations_hydrobio(
-#'  list(code_region = 52))
+#' get_hydrobio_stations_hydrobio(code_region = 52)
 #'
 #' # Retrieve the hydrobiological bioassessment indices in the city of Rennes
 #' list_params(api = "hydrobio",
 #'             endpoint = "indices")
 #'
-#' get_hydrobio_indices(
-#'  list(code_commune = 35051))
+#' get_hydrobio_indices(code_commune = 35051)
 #'
 #' # species records in the city of Rennes
 #' list_params(api = "hydrobio",
 #'             endpoint = "taxons")
 #'
-#' hubeau::get_hydrobio_taxons(
-#'  list(code_commune = 35051))
+#' get_hydrobio_taxons(code_commune = 35051)
 #' }
-get_hydrobio_stations_hydrobio <- function(params)
+get_hydrobio_stations_hydrobio <- function(...)
 {
   l <- doApiQuery(api = "hydrobio",
                   endpoint = "stations_hydrobio",
-                  params = params)
+                  ...)
 
   convert_list_to_tibble(l)
 }
@@ -52,23 +49,21 @@ get_hydrobio_stations_hydrobio <- function(params)
 
 #' @rdname get_hydrobio
 #' @export
-get_hydrobio_indices <- function(params)
+get_hydrobio_indices <- function(...)
 {
   l <- doApiQuery(api = "hydrobio",
                   endpoint = "indices",
-                  params = params)
-
+                  ...)
   convert_list_to_tibble(l)
 }
 
 
 #' @rdname get_hydrobio
 #' @export
-get_hydrobio_taxons <- function(params)
+get_hydrobio_taxons <- function(...)
 {
   l <- doApiQuery(api = "hydrobio",
                   endpoint = "taxons",
-                  params = params)
-
+                  ...)
   convert_list_to_tibble(l)
 }

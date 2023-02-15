@@ -15,7 +15,13 @@
 #'
 #' @param api a [character] name of the API (e.g.: "indicateurs_services", "prelevements"...), see example for available APIs
 #' @param endpoint a [character] name of the endpoint, see example for available endpoints in an API
-#' @param params a [list] the list of parameters of the queries and their values in the format `list(ParamName = "Param value", ...)`, use the function [list_params] for a list of the available filter parameters for a given API endpoint and see the API documentation for their description
+#' @param ... parameters of the queries and their values in the format
+#'        `Param1_Name = "Param1 value", Param2_Name = "Param2 value"`, use the
+#'        function [list_params] for a list of the available filter parameters
+#'        for a given API endpoint and see the API documentation for their description
+#' @param params (deprecated) a [list] the list of parameters of the queries and their
+#'        values in the format `list(ParamName = "Param value", ...)`. This parameter
+#'        is replaced by the parameter `...`
 #'
 #' @return A [list] with the concatenated results returned by the API.
 #' @export
@@ -36,12 +42,27 @@
 #' \dontrun{
 #' resp <- doApiQuery(api = "prelevements",
 #'                    endpoint = "chroniques",
-#'                    params = list(code_commune_insee = "10323", annee = "2018"))
+#'                    code_commune_insee = "10323",
+#'                    annee = "2018")
 #' convert_list_to_tibble(resp)
 #' }
 doApiQuery <- function(api,
                        endpoint,
-                       params) {
+                       ..., params) {
+
+  if (!missing(...)) {
+    p_ellipsis <- convert_ellipsis_to_params(...)
+  }
+  if (!missing(params)) {
+    warning("The use of the parameter `params` is deprecated and can be removed ",
+            "in a future version. Please use the argument `...` instead.")
+    if (!missing(...)) {
+      stop("Parameters `...` and `params` can't be used together")
+    }
+  }
+  if (!missing(...)) params <- p_ellipsis
+  if (missing(params)) params <- list()
+
   availableParams <- list_params(api, endpoint)
 
   query <-
@@ -120,6 +141,20 @@ doApiQuery <- function(api,
   }
   attr(data, "query") <- query
   return(data)
+}
+
+convert_ellipsis_to_params <- function(...) {
+  params <- list(...)
+  if (length(params) == 1 && is.null(names(params))) {
+    params <- params[[1]]
+  }
+  if (any(names(params) == "")) {
+    stop("All filter parameters have to be named.\n",
+         "For example:\n",
+         "`get_qualite_nappes_stations(code_commune = 34116)` is correct\n",
+         "`get_qualite_nappes_stations(34116)` is wrong\n")
+  }
+  return(params)
 }
 
 

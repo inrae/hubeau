@@ -6,14 +6,17 @@
 \alias{get_prelevements_chroniques}
 \title{Retrieve data from API "Prélèvements en eau"}
 \usage{
-get_prelevements_points_prelevement(params)
+get_prelevements_points_prelevement(...)
 
-get_prelevements_ouvrages(params)
+get_prelevements_ouvrages(...)
 
-get_prelevements_chroniques(params)
+get_prelevements_chroniques(...)
 }
 \arguments{
-\item{params}{a \link{list} the list of parameters of the queries and their values in the format \code{list(ParamName = "Param value", ...)}, use the function \link{list_params} for a list of the available filter parameters for a given API endpoint and see the API documentation for their description}
+\item{...}{parameters of the queries and their values in the format
+\verb{Param1_Name = "Param1 value", Param2_Name = "Param2 value"}, use the
+function \link{list_params} for a list of the available filter parameters
+for a given API endpoint and see the API documentation for their description}
 }
 \value{
 A \link[tibble:tibble]{tibble::tibble} with one row by record and one column by field.
@@ -31,12 +34,12 @@ See the API documentation for available filter parameters: \url{https://hubeau.e
 \examples{
 \dontrun{
 # Retrieve the withdrawal points located in Romilly-sur-Seine
-get_prelevements_points_prelevement(list(code_commune_insee = "10323"))
+get_prelevements_points_prelevement(code_commune_insee = "10323")
 
 # Retrieve the withdrawal devices located in Romilly-sur-Seine
-get_prelevements_ouvrages(list(code_commune_insee = "10323"))
+get_prelevements_ouvrages(code_commune_insee = "10323")
 
 # Retrieve the withdrawal time series of the devices located in Romilly-sur-Seine
-get_prelevements_chroniques(list(code_commune_insee = "10323"))
+get_prelevements_chroniques(code_commune_insee = "10323")
 }
 }

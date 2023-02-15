@@ -6,14 +6,17 @@
 \alias{get_niveaux_nappes_chroniques_tr}
 \title{Retrieve data from API "Piézométrie"}
 \usage{
-get_niveaux_nappes_stations(params)
+get_niveaux_nappes_stations(...)
 
-get_niveaux_nappes_chroniques(params)
+get_niveaux_nappes_chroniques(...)
 
-get_niveaux_nappes_chroniques_tr(params)
+get_niveaux_nappes_chroniques_tr(...)
 }
 \arguments{
-\item{params}{a \link{list} the list of parameters of the queries and their values in the format \code{list(ParamName = "Param value", ...)}, use the function \link{list_params} for a list of the available filter parameters for a given API endpoint and see the API documentation for their description}
+\item{...}{parameters of the queries and their values in the format
+\verb{Param1_Name = "Param1 value", Param2_Name = "Param2 value"}, use the
+function \link{list_params} for a list of the available filter parameters
+for a given API endpoint and see the API documentation for their description}
 }
 \value{
 A \link[tibble:tibble]{tibble::tibble} with one row by record and one column by field.
@@ -31,20 +34,20 @@ See the API documentation for available filter parameters: \url{https://hubeau.e
 \examples{
 \dontrun{
 # Retrieve the hydrometric stations in the department of Aube
-get_niveaux_nappes_stations(list(code_departement = "10"))
+get_niveaux_nappes_stations(code_departement = "10")
 
 # Retrieve the archived observed piezometric level at station '07548X0009/F' (old BSS identifier)
 # for the year 2020
-df <- get_niveaux_nappes_chroniques(list(code_bss = "07548X0009/F",
+df <- get_niveaux_nappes_chroniques(code_bss = "07548X0009/F",
                                       date_debut_mesure = "2020-01-01",
-                                      date_fin_mesure = "2020-12-31"))
+                                      date_fin_mesure = "2020-12-31")
 
 # Plot the water elevation (NGF)
 plot(as.POSIXct(df$date_mesure), df$niveau_nappe_eau, type = "l")
 
 # For retrieving the last real time observed piezometric level
 # at station 'BSS001VZGZ' (new BSS identifier)
-df <- get_niveaux_nappes_chroniques_tr(list(bss_id = "BSS001VZGZ"))
+df <- get_niveaux_nappes_chroniques_tr(bss_id = "BSS001VZGZ")
 
 # Plot the water elevation (NGF)
 plot(as.POSIXct(df$date_mesure), df$niveau_eau_ngf, type = "l")

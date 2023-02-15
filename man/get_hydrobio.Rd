@@ -6,14 +6,17 @@
 \alias{get_hydrobio_taxons}
 \title{Retrieve data from API "Hydrobiologie"}
 \usage{
-get_hydrobio_stations_hydrobio(params)
+get_hydrobio_stations_hydrobio(...)
 
-get_hydrobio_indices(params)
+get_hydrobio_indices(...)
 
-get_hydrobio_taxons(params)
+get_hydrobio_taxons(...)
 }
 \arguments{
-\item{params}{a \link{list} the list of parameters of the queries and their values in the format \code{list(ParamName = "Param value", ...)}, use the function \link{list_params} for a list of the available filter parameters for a given API endpoint and see the API documentation for their description}
+\item{...}{parameters of the queries and their values in the format
+\verb{Param1_Name = "Param1 value", Param2_Name = "Param2 value"}, use the
+function \link{list_params} for a list of the available filter parameters
+for a given API endpoint and see the API documentation for their description}
 }
 \value{
 A \link[tibble:tibble]{tibble::tibble} with one row by record and one column by field.
@@ -35,21 +38,18 @@ See the API documentation for available filter parameters: \url{https://hubeau.e
 list_params(api = "hydrobio",
             endpoint = "stations_hydrobio")
 
-get_hydrobio_stations_hydrobio(
- list(code_region = 52))
+get_hydrobio_stations_hydrobio(code_region = 52)
 
 # Retrieve the hydrobiological bioassessment indices in the city of Rennes
 list_params(api = "hydrobio",
             endpoint = "indices")
 
-get_hydrobio_indices(
- list(code_commune = 35051))
+get_hydrobio_indices(code_commune = 35051)
 
 # species records in the city of Rennes
 list_params(api = "hydrobio",
             endpoint = "taxons")
 
-hubeau::get_hydrobio_taxons(
- list(code_commune = 35051))
+get_hydrobio_taxons(code_commune = 35051)
 }
 }

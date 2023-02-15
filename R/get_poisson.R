@@ -39,11 +39,11 @@
 #'
 #' brest_fishes
 #' }
-get_poisson_observations <- function(params) {
+get_poisson_observations <- function(...) {
 
   l <- doApiQuery(api = "poisson",
                   endpoint = "observations",
-                  params = params)
+                  ...)
 
   convert_list_to_tibble(l)
 }
