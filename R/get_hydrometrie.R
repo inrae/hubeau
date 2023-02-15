@@ -132,10 +132,10 @@ get_hydrometrie_sites  <- function(...,
 #' @param code_sandre_reseau_station optional [logical] indicating if `code_sandre_reseau_station` field is included in the result; if so, one line is added by item and other fields are repeated
 #' @rdname get_hydrometrie
 #' @export
-get_hydrometrie_stations  <- function(params, code_sandre_reseau_station = FALSE) {
+get_hydrometrie_stations  <- function(..., code_sandre_reseau_station = FALSE) {
   l <- doApiQuery(api = "hydrometrie",
                   endpoint = "stations",
-                  params = params)
+                  ...)
   l <- lapply(l, function(x) {
     if (!code_sandre_reseau_station) {
       x$code_sandre_reseau_station <- NULL
