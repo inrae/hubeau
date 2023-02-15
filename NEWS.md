@@ -1,5 +1,23 @@
 # hubeau (development version)
 
+New features
+------------
+
+* Add API "Hydrobiologie" (#7, #18, 28)
+* Add API "Température des cours d'eau" (#8)
+* Add API "Qualité des nappes d'eau souterraine" (#10)
+* Add API "Qualité de l'eau potable" (#5)
+
+Bug fixes
+---------
+
+* Crash when dplyr is not installed (#16)
+
+Internal changes
+----------------
+
+* Use swagger and openapi files to automatically check query fields (#14)
+
 # hubeau 0.3.1
 
 New features
