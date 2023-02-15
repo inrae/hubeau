@@ -61,12 +61,12 @@ See \link{list_params} and the API documentation for available filter parameters
 \examples{
 \dontrun{
 # Retrieve performance indicator time series in the commune of Romilly-sur-Seine
-get_indicateurs_services_communes(list(code_commune = "10323"))
+get_indicateurs_services_communes(code_commune = "10323")
 
 # Retrieve the drinking water withdrawal indicators of the year 2012 for all services
-get_indicateurs_services_indicateurs(list(code_indicateur = "D102.0", annee = "2012"))
+get_indicateurs_services_indicateurs(code_indicateur = "D102.0", annee = "2012")
 
 # Retrieve performance indicator time series of Romilly-sur-Seine with service details
-get_indicateurs_services_services(list(code_commune = "10323"))
+get_indicateurs_services_services(code_commune = "10323")
 }
 }

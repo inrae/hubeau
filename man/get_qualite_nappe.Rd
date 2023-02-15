@@ -34,15 +34,13 @@ See the API documentation for available filter parameters: \url{https://hubeau.e
 list_params("qualite_nappes", "stations")
 
 # List of stations available in Hérault department
-get_qualite_nappes_stations(list(code_commune = 34116))
+get_qualite_nappes_stations(code_commune = 34116)
 
 # List of available filter parameters on 'get_qualite_eau_potable_resultats_dis'
 list_params("qualite_nappes", "analyses")
 
 # Get results of analysis realised at Grabels in 2019
-get_qualite_nappes_analyses(
-  list(bss_id = "BSS002GNSA",
-       date_debut_prelevement = "2019-11-12")
-)
+get_qualite_nappes_analyses(bss_id = "BSS002GNSA",
+                            date_debut_prelevement = "2019-11-12")
 }
 }

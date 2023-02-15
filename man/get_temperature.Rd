@@ -31,16 +31,16 @@ See the API documentation of each endpoint for available filter parameters:
 \examples{
 \dontrun{
 # Retrieve the temperature stations in the department of Loiret
-get_temperature_stations(list(code_departement = "45"))
+get_temperature_stations(code_departement = "45")
 
 # Retrieve the temperature from 2012-01-01 to 2012-01-05 at site 04051125
 
-get_temperature_chronique(list(
+get_temperature_chronique(
   code_station = "04051125",
   date_debut_mesure = "2012-01-01",
   date_fin_mesure="2012-01-05",
   fields = paste("code_station,date_mesure_temp,heure_mesure_temp,resultat,symbole_unite")
-))
+)
 
 }
 

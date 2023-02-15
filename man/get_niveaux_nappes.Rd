@@ -34,20 +34,20 @@ See the API documentation for available filter parameters: \url{https://hubeau.e
 \examples{
 \dontrun{
 # Retrieve the hydrometric stations in the department of Aube
-get_niveaux_nappes_stations(list(code_departement = "10"))
+get_niveaux_nappes_stations(code_departement = "10")
 
 # Retrieve the archived observed piezometric level at station '07548X0009/F' (old BSS identifier)
 # for the year 2020
-df <- get_niveaux_nappes_chroniques(list(code_bss = "07548X0009/F",
+df <- get_niveaux_nappes_chroniques(code_bss = "07548X0009/F",
                                       date_debut_mesure = "2020-01-01",
-                                      date_fin_mesure = "2020-12-31"))
+                                      date_fin_mesure = "2020-12-31")
 
 # Plot the water elevation (NGF)
 plot(as.POSIXct(df$date_mesure), df$niveau_nappe_eau, type = "l")
 
 # For retrieving the last real time observed piezometric level
 # at station 'BSS001VZGZ' (new BSS identifier)
-df <- get_niveaux_nappes_chroniques_tr(list(bss_id = "BSS001VZGZ"))
+df <- get_niveaux_nappes_chroniques_tr(bss_id = "BSS001VZGZ")
 
 # Plot the water elevation (NGF)
 plot(as.POSIXct(df$date_mesure), df$niveau_eau_ngf, type = "l")

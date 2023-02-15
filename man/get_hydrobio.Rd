@@ -38,21 +38,18 @@ See the API documentation for available filter parameters: \url{https://hubeau.e
 list_params(api = "hydrobio",
             endpoint = "stations_hydrobio")
 
-get_hydrobio_stations_hydrobio(
- list(code_region = 52))
+get_hydrobio_stations_hydrobio(code_region = 52)
 
 # Retrieve the hydrobiological bioassessment indices in the city of Rennes
 list_params(api = "hydrobio",
             endpoint = "indices")
 
-get_hydrobio_indices(
- list(code_commune = 35051))
+get_hydrobio_indices(code_commune = 35051)
 
 # species records in the city of Rennes
 list_params(api = "hydrobio",
             endpoint = "taxons")
 
-hubeau::get_hydrobio_taxons(
- list(code_commune = 35051))
+get_hydrobio_taxons(code_commune = 35051)
 }
 }

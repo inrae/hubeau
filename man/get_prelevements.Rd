@@ -34,12 +34,12 @@ See the API documentation for available filter parameters: \url{https://hubeau.e
 \examples{
 \dontrun{
 # Retrieve the withdrawal points located in Romilly-sur-Seine
-get_prelevements_points_prelevement(list(code_commune_insee = "10323"))
+get_prelevements_points_prelevement(code_commune_insee = "10323")
 
 # Retrieve the withdrawal devices located in Romilly-sur-Seine
-get_prelevements_ouvrages(list(code_commune_insee = "10323"))
+get_prelevements_ouvrages(code_commune_insee = "10323")
 
 # Retrieve the withdrawal time series of the devices located in Romilly-sur-Seine
-get_prelevements_chroniques(list(code_commune_insee = "10323"))
+get_prelevements_chroniques(code_commune_insee = "10323")
 }
 }
