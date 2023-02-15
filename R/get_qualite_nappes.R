@@ -17,13 +17,13 @@
 #'
 #' @examples
 #' \dontrun{
-#' # List of available filter parameters on 'get_qualite_nappe_stations'
+#' # List of available filter parameters on 'get_qualite_nappes_stations'
 #' list_params("qualite_nappes", "stations")
 #'
 #' # List of stations available in Hérault department
 #' get_qualite_nappes_stations(code_commune = 34116)
 #'
-#' # List of available filter parameters on 'get_qualite_eau_potable_resultats_dis'
+#' # List of available filter parameters on 'get_qualite_nappes_analyses'
 #' list_params("qualite_nappes", "analyses")
 #'
 #' # Get results of analysis realised at Grabels in 2019
