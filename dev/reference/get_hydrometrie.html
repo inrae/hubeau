@@ -66,19 +66,22 @@ https://hubeau.eaufrance.fr/page/api-hydrometrie'><meta property="og:image" cont
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">get_hydrometrie_obs_elab</span><span class="op">(</span><span class="va">params</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">get_hydrometrie_obs_elab</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">get_hydrometrie_observations_tr</span><span class="op">(</span><span class="va">params</span>, entities <span class="op">=</span> <span class="st">"station"</span><span class="op">)</span></span>
+<span><span class="fu">get_hydrometrie_observations_tr</span><span class="op">(</span><span class="va">...</span>, entities <span class="op">=</span> <span class="st">"station"</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">get_hydrometrie_sites</span><span class="op">(</span><span class="va">params</span>, unique_site <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="fu">get_hydrometrie_sites</span><span class="op">(</span><span class="va">...</span>, unique_site <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">get_hydrometrie_stations</span><span class="op">(</span><span class="va">params</span>, code_sandre_reseau_station <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">get_hydrometrie_stations</span><span class="op">(</span><span class="va">...</span>, code_sandre_reseau_station <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
-    <dl><dt>params</dt>
-<dd><p>a <a href="https://rdrr.io/r/base/list.html" class="external-link">list</a> the list of parameters of the queries and their values in the format <code>list(ParamName = "Param value", ...)</code>, use the function <a href="lists.html">list_params</a> for a list of the available filter parameters for a given API endpoint and see the API documentation for their description</p></dd>
+    <dl><dt>...</dt>
+<dd><p>parameters of the queries and their values in the format
+<code>Param1_Name = "Param1 value", Param2_Name = "Param2 value"</code>, use the
+function <a href="lists.html">list_params</a> for a list of the available filter parameters
+for a given API endpoint and see the API documentation for their description</p></dd>
 
 
 <dt>entities</dt>
@@ -90,7 +93,9 @@ https://hubeau.eaufrance.fr/page/api-hydrometrie'><meta property="og:image" cont
 
 
 <dt>code_sandre_reseau_station</dt>
-<dd><p>optional <a href="https://rdrr.io/r/base/logical.html" class="external-link">logical</a> indicating if <code>code_sandre_reseau_station</code> field is included in the result; if so, one line is added by item and other fields are repeated</p></dd>
+<dd><p>optional <a href="https://rdrr.io/r/base/logical.html" class="external-link">logical</a> indicating
+if <code>code_sandre_reseau_station</code> field is included in the result;
+if so, one line is added by item and other fields are repeated</p></dd>
 
 </dl></div>
     <div id="value">
@@ -104,7 +109,7 @@ https://hubeau.eaufrance.fr/page/api-hydrometrie'><meta property="og:image" cont
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \dontrun{</span></span></span>
 <span class="r-in"><span><span class="co"># Retrieve the hydrometric sites in the department of Aube</span></span></span>
-<span class="r-in"><span><span class="fu">get_hydrometrie_sites</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>code_departement <span class="op">=</span> <span class="st">"10"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">get_hydrometrie_sites</span><span class="op">(</span>code_departement <span class="op">=</span> <span class="st">"10"</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>The site 'H0203020' has 2 different locations, only the first one is returned</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 27 × 39</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    code_site libelle_s…¹ type_…² coord…³ coord…⁴ code_…⁵ longi…⁶ latit…⁷ altit…⁸</span>
@@ -128,7 +133,7 @@ https://hubeau.eaufrance.fr/page/api-hydrometrie'><meta property="og:image" cont
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   code_cours_eau &lt;chr&gt;, libelle_cours_eau &lt;chr&gt;, uri_cours_eau &lt;chr&gt;, …</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># The same operation returning 2 rows for the site 'H0203020' which has 2 different locations</span></span></span>
-<span class="r-in"><span><span class="fu">get_hydrometrie_sites</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>code_departement <span class="op">=</span> <span class="st">"10"</span><span class="op">)</span>, unique_site <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">get_hydrometrie_sites</span><span class="op">(</span>code_departement <span class="op">=</span> <span class="st">"10"</span>, unique_site <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 28 × 39</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    code_site libelle_s…¹ type_…² coord…³ coord…⁴ code_…⁵ longi…⁶ latit…⁷ altit…⁸</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
@@ -151,7 +156,7 @@ https://hubeau.eaufrance.fr/page/api-hydrometrie'><meta property="og:image" cont
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   code_cours_eau &lt;chr&gt;, libelle_cours_eau &lt;chr&gt;, uri_cours_eau &lt;chr&gt;, …</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Retrieve the hydrometric stations in the department of Aube</span></span></span>
-<span class="r-in"><span><span class="fu">get_hydrometrie_stations</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>code_departement <span class="op">=</span> <span class="st">"10"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">get_hydrometrie_stations</span><span class="op">(</span>code_departement <span class="op">=</span> <span class="st">"10"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 33 × 42</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    code_site libelle_s…¹ code_…² libel…³ type_…⁴ coord…⁵ coord…⁶ code_…⁷ longi…⁸</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
@@ -182,7 +187,7 @@ https://hubeau.eaufrance.fr/page/api-hydrometrie'><meta property="og:image" cont
 <span class="r-out co"><span class="r-pr">#&gt;</span> [13] "size"               </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Retrieve the hydrometric monthly mean flow at site 'H0203020'</span></span></span>
-<span class="r-in"><span><span class="fu">get_hydrometrie_obs_elab</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>code_entite <span class="op">=</span> <span class="st">"H0203020"</span>, grandeur_hydro_elab <span class="op">=</span> <span class="st">"QmM"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">get_hydrometrie_obs_elab</span><span class="op">(</span>code_entite <span class="op">=</span> <span class="st">"H0203020"</span>, grandeur_hydro_elab <span class="op">=</span> <span class="st">"QmM"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 658 × 14</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    code_site code_stat…¹ date_…² resul…³ date_…⁴ code_…⁵ libel…⁶ code_…⁷ libel…⁸</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
@@ -203,23 +208,22 @@ https://hubeau.eaufrance.fr/page/api-hydrometrie'><meta property="og:image" cont
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ⁶​libelle_statut, ⁷​code_methode, ⁸​libelle_methode</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Retrieve the hydrometric daily mean flow at site 'H0203020' of the last 30 days</span></span></span>
-<span class="r-in"><span><span class="fu">get_hydrometrie_obs_elab</span><span class="op">(</span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>code_entite <span class="op">=</span> <span class="st">"H0203020"</span>,</span></span>
-<span class="r-in"><span>  date_debut_obs_elab <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/format.html" class="external-link">format</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html" class="external-link">Sys.Date</a></span><span class="op">(</span><span class="op">)</span> <span class="op">-</span><span class="fl">30</span>, <span class="st">"%Y-%m-%d"</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>  grandeur_hydro_elab <span class="op">=</span> <span class="st">"QmJ"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">get_hydrometrie_obs_elab</span><span class="op">(</span>code_entite <span class="op">=</span> <span class="st">"H0203020"</span>,</span></span>
+<span class="r-in"><span>                         date_debut_obs_elab <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/format.html" class="external-link">format</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html" class="external-link">Sys.Date</a></span><span class="op">(</span><span class="op">)</span> <span class="op">-</span><span class="fl">30</span>, <span class="st">"%Y-%m-%d"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>                         grandeur_hydro_elab <span class="op">=</span> <span class="st">"QmJ"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 23 × 14</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    code_site code_stat…¹ date_…² resul…³ date_…⁴ code_…⁵ libel…⁶ code_…⁷ libel…⁸</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> H0203020  H020302002  2023-0…    <span style="text-decoration: underline;">6</span>442 2023-0…       4 Donnée…      12 Interp…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> H0203020  H020302002  2023-0…    <span style="text-decoration: underline;">7</span>080 2023-0…       4 Donnée…      12 Interp…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> H0203020  H020302002  2023-0…    <span style="text-decoration: underline;">7</span>982 2023-0…       4 Donnée…      12 Interp…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> H0203020  H020302002  2023-0…    <span style="text-decoration: underline;">8</span>569 2023-0…       4 Donnée…      12 Interp…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> H0203020  H020302002  2023-0…    <span style="text-decoration: underline;">8</span>458 2023-0…       4 Donnée…      12 Interp…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> H0203020  H020302002  2023-0…    <span style="text-decoration: underline;">8</span>135 2023-0…       4 Donnée…      12 Interp…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> H0203020  H020302002  2023-0…    <span style="text-decoration: underline;">7</span>848 2023-0…       4 Donnée…      12 Interp…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> H0203020  H020302002  2023-0…    <span style="text-decoration: underline;">7</span>390 2023-0…       4 Donnée…      12 Interp…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> H0203020  H020302002  2023-0…    <span style="text-decoration: underline;">4</span>860 2023-0…       4 Donnée…      12 Interp…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> H0203020  H020302002  2023-0…    <span style="text-decoration: underline;">4</span>563 2023-0…       4 Donnée…      12 Interp…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> H0203020  H020302002  2023-0…    <span style="text-decoration: underline;">7</span>080 2023-0…       4 Donnée…      12 Interp…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> H0203020  H020302002  2023-0…    <span style="text-decoration: underline;">7</span>982 2023-0…       4 Donnée…      12 Interp…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> H0203020  H020302002  2023-0…    <span style="text-decoration: underline;">8</span>569 2023-0…       4 Donnée…      12 Interp…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> H0203020  H020302002  2023-0…    <span style="text-decoration: underline;">8</span>458 2023-0…       4 Donnée…      12 Interp…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> H0203020  H020302002  2023-0…    <span style="text-decoration: underline;">8</span>135 2023-0…       4 Donnée…      12 Interp…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> H0203020  H020302002  2023-0…    <span style="text-decoration: underline;">7</span>848 2023-0…       4 Donnée…      12 Interp…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> H0203020  H020302002  2023-0…    <span style="text-decoration: underline;">7</span>390 2023-0…       4 Donnée…      12 Interp…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> H0203020  H020302002  2023-0…    <span style="text-decoration: underline;">4</span>860 2023-0…       4 Donnée…      12 Interp…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> H0203020  H020302002  2023-0…    <span style="text-decoration: underline;">4</span>563 2023-0…       4 Donnée…      12 Interp…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> H0203020  H020302002  2023-0…    <span style="text-decoration: underline;">4</span>278 2023-0…       4 Donnée…      12 Interp…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 13 more rows, 5 more variables: code_qualification &lt;int&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   libelle_qualification &lt;chr&gt;, longitude &lt;dbl&gt;, latitude &lt;dbl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   grandeur_hydro_elab &lt;chr&gt;, and abbreviated variable names ¹​code_station,</span></span>

@@ -80,15 +80,18 @@ commune by commune</p></li>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">get_qualite_eau_potable_communes_udi</span><span class="op">(</span><span class="va">params</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">get_qualite_eau_potable_communes_udi</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">get_qualite_eau_potable_resultats_dis</span><span class="op">(</span><span class="va">params</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">get_qualite_eau_potable_resultats_dis</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
-    <dl><dt>params</dt>
-<dd><p>a <a href="https://rdrr.io/r/base/list.html" class="external-link">list</a> the list of parameters of the queries and their values in the format <code>list(ParamName = "Param value", ...)</code>, use the function <a href="lists.html">list_params</a> for a list of the available filter parameters for a given API endpoint and see the API documentation for their description</p></dd>
+    <dl><dt>...</dt>
+<dd><p>parameters of the queries and their values in the format
+<code>Param1_Name = "Param1 value", Param2_Name = "Param2 value"</code>, use the
+function <a href="lists.html">list_params</a> for a list of the available filter parameters
+for a given API endpoint and see the API documentation for their description</p></dd>
 
 </dl></div>
     <div id="value">
@@ -107,7 +110,7 @@ commune by commune</p></li>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [6] "nom_reseau"   "page"         "size"         "sort"        </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># List of UDIs available in 2022 at Grabels (INSEE code 34116)</span></span></span>
-<span class="r-in"><span><span class="fu">get_qualite_eau_potable_communes_udi</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>annee <span class="op">=</span> <span class="fl">2022</span>, code_commune <span class="op">=</span> <span class="fl">34116</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">get_qualite_eau_potable_communes_udi</span><span class="op">(</span>annee <span class="op">=</span> <span class="fl">2022</span>, code_commune <span class="op">=</span> <span class="fl">34116</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 3 × 7</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   code_commune nom_commune nom_quartier   code_reseau nom_reseau   debut…¹ annee</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
@@ -145,11 +148,9 @@ commune by commune</p></li>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [25] "sort"                                  </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Get results of analysis realised at Grabels in 2022</span></span></span>
-<span class="r-in"><span><span class="fu">get_qualite_eau_potable_resultats_dis</span><span class="op">(</span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>code_commune <span class="op">=</span> <span class="fl">34116</span>,</span></span>
-<span class="r-in"><span>       date_min_prelevement <span class="op">=</span> <span class="st">"2000-01-01"</span>,</span></span>
-<span class="r-in"><span>       date_max_prelevement <span class="op">=</span> <span class="st">"2022-12-31"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">get_qualite_eau_potable_resultats_dis</span><span class="op">(</span>code_commune <span class="op">=</span> <span class="fl">34116</span>,</span></span>
+<span class="r-in"><span>                                      date_min_prelevement <span class="op">=</span> <span class="st">"2000-01-01"</span>,</span></span>
+<span class="r-in"><span>                                      date_max_prelevement <span class="op">=</span> <span class="st">"2022-12-31"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 8,205 × 34</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    code_depart…¹ nom_d…² code_…³ code_…⁴ code_…⁵ code_…⁶ libel…⁷ libel…⁸ libel…⁹</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>  </span>

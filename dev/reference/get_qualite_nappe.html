@@ -62,15 +62,18 @@ Available endpoints are:</p><ul><li><p><code>get_qualite_nappes_stations</code> 
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">get_qualite_nappes_analyses</span><span class="op">(</span><span class="va">params</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">get_qualite_nappes_analyses</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">get_qualite_nappes_stations</span><span class="op">(</span><span class="va">params</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">get_qualite_nappes_stations</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
-    <dl><dt>params</dt>
-<dd><p>a <a href="https://rdrr.io/r/base/list.html" class="external-link">list</a> the list of parameters of the queries and their values in the format <code>list(ParamName = "Param value", ...)</code>, use the function <a href="lists.html">list_params</a> for a list of the available filter parameters for a given API endpoint and see the API documentation for their description</p></dd>
+    <dl><dt>...</dt>
+<dd><p>parameters of the queries and their values in the format
+<code>Param1_Name = "Param1 value", Param2_Name = "Param2 value"</code>, use the
+function <a href="lists.html">list_params</a> for a list of the available filter parameters
+for a given API endpoint and see the API documentation for their description</p></dd>
 
 </dl></div>
     <div id="value">
@@ -110,7 +113,7 @@ Available endpoints are:</p><ul><li><p><code>get_qualite_nappes_stations</code> 
 <span class="r-out co"><span class="r-pr">#&gt;</span> [23] "srid"                                 </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># List of stations available in Hérault department</span></span></span>
-<span class="r-in"><span><span class="fu">get_qualite_nappes_stations</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>code_commune <span class="op">=</span> <span class="fl">34116</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">get_qualite_nappes_stations</span><span class="op">(</span>code_commune <span class="op">=</span> <span class="fl">34116</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6 × 58</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   bss_id code_…¹ urn_bss date_…² date_…³ preci…⁴ longi…⁵ latit…⁶ altit…⁷ code_…⁸</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
@@ -184,10 +187,8 @@ Available endpoints are:</p><ul><li><p><code>get_qualite_nappes_stations</code> 
 <span class="r-out co"><span class="r-pr">#&gt;</span> [52] "sort"                                      </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Get results of analysis realised at Grabels in 2019</span></span></span>
-<span class="r-in"><span><span class="fu">get_qualite_nappes_analyses</span><span class="op">(</span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>bss_id <span class="op">=</span> <span class="st">"BSS002GNSA"</span>,</span></span>
-<span class="r-in"><span>       date_debut_prelevement <span class="op">=</span> <span class="st">"2019-11-12"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">get_qualite_nappes_analyses</span><span class="op">(</span>bss_id <span class="op">=</span> <span class="st">"BSS002GNSA"</span>,</span></span>
+<span class="r-in"><span>                            date_debut_prelevement <span class="op">=</span> <span class="st">"2019-11-12"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 180 × 168</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    bss_id     code_bss   urn_bss preci…¹ longi…² latit…³ altit…⁴ code_…⁵ nom_c…⁶</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>

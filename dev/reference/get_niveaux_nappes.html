@@ -62,17 +62,20 @@ See the API documentation for available filter parameters: https://hubeau.eaufra
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">get_niveaux_nappes_stations</span><span class="op">(</span><span class="va">params</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">get_niveaux_nappes_stations</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">get_niveaux_nappes_chroniques</span><span class="op">(</span><span class="va">params</span><span class="op">)</span></span>
+<span><span class="fu">get_niveaux_nappes_chroniques</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">get_niveaux_nappes_chroniques_tr</span><span class="op">(</span><span class="va">params</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">get_niveaux_nappes_chroniques_tr</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
-    <dl><dt>params</dt>
-<dd><p>a <a href="https://rdrr.io/r/base/list.html" class="external-link">list</a> the list of parameters of the queries and their values in the format <code>list(ParamName = "Param value", ...)</code>, use the function <a href="lists.html">list_params</a> for a list of the available filter parameters for a given API endpoint and see the API documentation for their description</p></dd>
+    <dl><dt>...</dt>
+<dd><p>parameters of the queries and their values in the format
+<code>Param1_Name = "Param1 value", Param2_Name = "Param2 value"</code>, use the
+function <a href="lists.html">list_params</a> for a list of the available filter parameters
+for a given API endpoint and see the API documentation for their description</p></dd>
 
 </dl></div>
     <div id="value">
@@ -86,7 +89,7 @@ See the API documentation for available filter parameters: https://hubeau.eaufra
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \dontrun{</span></span></span>
 <span class="r-in"><span><span class="co"># Retrieve the hydrometric stations in the department of Aube</span></span></span>
-<span class="r-in"><span><span class="fu">get_niveaux_nappes_stations</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>code_departement <span class="op">=</span> <span class="st">"10"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">get_niveaux_nappes_stations</span><span class="op">(</span>code_departement <span class="op">=</span> <span class="st">"10"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 728 × 36</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    code_bss  urn_bss date_…¹ date_…² code_…³ nom_c…⁴     x     y codes…⁵ urns_…⁶</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
@@ -110,9 +113,9 @@ See the API documentation for available filter parameters: https://hubeau.eaufra
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Retrieve the archived observed piezometric level at station '07548X0009/F' (old BSS identifier)</span></span></span>
 <span class="r-in"><span><span class="co"># for the year 2020</span></span></span>
-<span class="r-in"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu">get_niveaux_nappes_chroniques</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>code_bss <span class="op">=</span> <span class="st">"07548X0009/F"</span>,</span></span>
+<span class="r-in"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu">get_niveaux_nappes_chroniques</span><span class="op">(</span>code_bss <span class="op">=</span> <span class="st">"07548X0009/F"</span>,</span></span>
 <span class="r-in"><span>                                      date_debut_mesure <span class="op">=</span> <span class="st">"2020-01-01"</span>,</span></span>
-<span class="r-in"><span>                                      date_fin_mesure <span class="op">=</span> <span class="st">"2020-12-31"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span>                                      date_fin_mesure <span class="op">=</span> <span class="st">"2020-12-31"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Plot the water elevation (NGF)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/as.POSIXlt.html" class="external-link">as.POSIXct</a></span><span class="op">(</span><span class="va">df</span><span class="op">$</span><span class="va">date_mesure</span><span class="op">)</span>, <span class="va">df</span><span class="op">$</span><span class="va">niveau_nappe_eau</span>, type <span class="op">=</span> <span class="st">"l"</span><span class="op">)</span></span></span>
@@ -120,7 +123,7 @@ See the API documentation for available filter parameters: https://hubeau.eaufra
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># For retrieving the last real time observed piezometric level</span></span></span>
 <span class="r-in"><span><span class="co"># at station 'BSS001VZGZ' (new BSS identifier)</span></span></span>
-<span class="r-in"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu">get_niveaux_nappes_chroniques_tr</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>bss_id <span class="op">=</span> <span class="st">"BSS001VZGZ"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu">get_niveaux_nappes_chroniques_tr</span><span class="op">(</span>bss_id <span class="op">=</span> <span class="st">"BSS001VZGZ"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Plot the water elevation (NGF)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/as.POSIXlt.html" class="external-link">as.POSIXct</a></span><span class="op">(</span><span class="va">df</span><span class="op">$</span><span class="va">date_mesure</span><span class="op">)</span>, <span class="va">df</span><span class="op">$</span><span class="va">niveau_eau_ngf</span>, type <span class="op">=</span> <span class="st">"l"</span><span class="op">)</span></span></span>

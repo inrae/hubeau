@@ -64,17 +64,20 @@ Available endpoints are:</p><ul><li><p><code>get_hydrobio_stations_hydrobio</cod
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">get_hydrobio_stations_hydrobio</span><span class="op">(</span><span class="va">params</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">get_hydrobio_stations_hydrobio</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">get_hydrobio_indices</span><span class="op">(</span><span class="va">params</span><span class="op">)</span></span>
+<span><span class="fu">get_hydrobio_indices</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">get_hydrobio_taxons</span><span class="op">(</span><span class="va">params</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">get_hydrobio_taxons</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
-    <dl><dt>params</dt>
-<dd><p>a <a href="https://rdrr.io/r/base/list.html" class="external-link">list</a> the list of parameters of the queries and their values in the format <code>list(ParamName = "Param value", ...)</code>, use the function <a href="lists.html">list_params</a> for a list of the available filter parameters for a given API endpoint and see the API documentation for their description</p></dd>
+    <dl><dt>...</dt>
+<dd><p>parameters of the queries and their values in the format
+<code>Param1_Name = "Param1 value", Param2_Name = "Param2 value"</code>, use the
+function <a href="lists.html">list_params</a> for a list of the available filter parameters
+for a given API endpoint and see the API documentation for their description</p></dd>
 
 </dl></div>
     <div id="value">
@@ -102,8 +105,7 @@ Available endpoints are:</p><ul><li><p><code>get_hydrobio_stations_hydrobio</cod
 <span class="r-out co"><span class="r-pr">#&gt;</span> [19] "libelle_station_hydrobio" "longitude"               </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [21] "page"                     "size"                    </span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu">get_hydrobio_stations_hydrobio</span><span class="op">(</span></span></span>
-<span class="r-in"><span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>code_region <span class="op">=</span> <span class="fl">52</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">get_hydrobio_stations_hydrobio</span><span class="op">(</span>code_region <span class="op">=</span> <span class="fl">52</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 941 × 1,799</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    code_statio…¹ libel…² uri_s…³ coord…⁴ coord…⁵ code_…⁶ code_…⁷ libel…⁸ uri_c…⁹</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>  </span>
@@ -138,8 +140,7 @@ Available endpoints are:</p><ul><li><p><code>get_hydrobio_stations_hydrobio</cod
 <span class="r-out co"><span class="r-pr">#&gt;</span> [22] "longitude"              "page"                   "resultat_indice_max"   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [25] "resultat_indice_min"    "size"                  </span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu">get_hydrobio_indices</span><span class="op">(</span></span></span>
-<span class="r-in"><span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>code_commune <span class="op">=</span> <span class="fl">35051</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">get_hydrobio_indices</span><span class="op">(</span>code_commune <span class="op">=</span> <span class="fl">35051</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 242 × 43</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    code_indice libelle…¹ code_…² libel…³ uri_s…⁴ date_…⁵ resul…⁶ unite…⁷ coord…⁸</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
@@ -178,21 +179,20 @@ Available endpoints are:</p><ul><li><p><code>get_hydrobio_stations_hydrobio</cod
 <span class="r-out co"><span class="r-pr">#&gt;</span> [23] "longitude"               "page"                   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [25] "size"                   </span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu">hubeau</span><span class="fu">::</span><span class="fu">get_hydrobio_taxons</span><span class="op">(</span></span></span>
-<span class="r-in"><span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>code_commune <span class="op">=</span> <span class="fl">35051</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">get_hydrobio_taxons</span><span class="op">(</span>code_commune <span class="op">=</span> <span class="fl">35051</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 12,331 × 89</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    code_statio…¹ libel…² uri_s…³ date_…⁴ code_…⁵ libel…⁶ code_…⁷ libel…⁸ codes…⁹</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 04204300      VILAIN… <span style="color: #BB0000;">NA</span>      2007-0… 4       Poisso… 2038    Anguil… 2038   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 04204300      VILAIN… <span style="color: #BB0000;">NA</span>      2007-0… 4       Poisso… 2038    Anguil… 2038   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 04204300      VILAIN… <span style="color: #BB0000;">NA</span>      2007-0… 4       Poisso… 2071    Barbat… 2071   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 04204300      VILAIN… <span style="color: #BB0000;">NA</span>      2007-0… 4       Poisso… 68137   Faxoni… 68137  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 04204300      VILAIN… <span style="color: #BB0000;">NA</span>      2007-0… 4       Poisso… 2050    Lepomi… 2050   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 04204300      VILAIN… <span style="color: #BB0000;">NA</span>      2007-0… 4       Poisso… 31041   Squali… 31041  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 04204300      VILAIN… <span style="color: #BB0000;">NA</span>      2007-0… 4       Poisso… 2086    Abrami… 2086   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 04204300      VILAIN… <span style="color: #BB0000;">NA</span>      2007-0… 4       Poisso… 2090    Alburn… 2090   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 04204300      VILAIN… <span style="color: #BB0000;">NA</span>      2007-0… 4       Poisso… 2099    Blicca… 2099   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 04204300      VILAIN… <span style="color: #BB0000;">NA</span>      2007-0… 4       Poisso… 2099    Blicca… 2099   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 04204300      VILAIN… <span style="color: #BB0000;">NA</span>      2007-0… 4       Poisso… 2086    Abrami… 2086   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 04204300      VILAIN… <span style="color: #BB0000;">NA</span>      2007-0… 4       Poisso… 2090    Alburn… 2090   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 04204300      VILAIN… <span style="color: #BB0000;">NA</span>      2007-0… 4       Poisso… 2099    Blicca… 2099   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 04204300      VILAIN… <span style="color: #BB0000;">NA</span>      2007-0… 4       Poisso… 2099    Blicca… 2099   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 04204300      VILAIN… <span style="color: #BB0000;">NA</span>      2007-0… 4       Poisso… 2050    Lepomi… 2050   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 04204300      VILAIN… <span style="color: #BB0000;">NA</span>      2007-0… 4       Poisso… 31041   Squali… 31041  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 04204300      VILAIN… <span style="color: #BB0000;">NA</span>      2007-0… 4       Poisso… 2071    Barbat… 2071   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 04204300      VILAIN… <span style="color: #BB0000;">NA</span>      2007-0… 4       Poisso… 68137   Faxoni… 68137  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 12,321 more rows, 80 more variables: codes_taxons_parents2 &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   codes_taxons_parents3 &lt;chr&gt;, codes_taxons_parents4 &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   codes_taxons_parents5 &lt;chr&gt;, codes_taxons_parents6 &lt;chr&gt;,</span></span>

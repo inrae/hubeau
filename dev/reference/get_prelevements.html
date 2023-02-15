@@ -62,17 +62,20 @@ See the API documentation for available filter parameters: https://hubeau.eaufra
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">get_prelevements_points_prelevement</span><span class="op">(</span><span class="va">params</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">get_prelevements_points_prelevement</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">get_prelevements_ouvrages</span><span class="op">(</span><span class="va">params</span><span class="op">)</span></span>
+<span><span class="fu">get_prelevements_ouvrages</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">get_prelevements_chroniques</span><span class="op">(</span><span class="va">params</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">get_prelevements_chroniques</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
-    <dl><dt>params</dt>
-<dd><p>a <a href="https://rdrr.io/r/base/list.html" class="external-link">list</a> the list of parameters of the queries and their values in the format <code>list(ParamName = "Param value", ...)</code>, use the function <a href="lists.html">list_params</a> for a list of the available filter parameters for a given API endpoint and see the API documentation for their description</p></dd>
+    <dl><dt>...</dt>
+<dd><p>parameters of the queries and their values in the format
+<code>Param1_Name = "Param1 value", Param2_Name = "Param2 value"</code>, use the
+function <a href="lists.html">list_params</a> for a list of the available filter parameters
+for a given API endpoint and see the API documentation for their description</p></dd>
 
 </dl></div>
     <div id="value">
@@ -86,7 +89,7 @@ See the API documentation for available filter parameters: https://hubeau.eaufra
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \dontrun{</span></span></span>
 <span class="r-in"><span><span class="co"># Retrieve the withdrawal points located in Romilly-sur-Seine</span></span></span>
-<span class="r-in"><span><span class="fu">get_prelevements_points_prelevement</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>code_commune_insee <span class="op">=</span> <span class="st">"10323"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">get_prelevements_points_prelevement</span><span class="op">(</span>code_commune_insee <span class="op">=</span> <span class="st">"10323"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 9 × 28</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   code_point_p…¹ nom_p…² date_…³ date_…⁴ code_…⁵ libel…⁶ code_…⁷ libel…⁸ lieu_…⁹</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>  </span>
@@ -108,7 +111,7 @@ See the API documentation for available filter parameters: https://hubeau.eaufra
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   uri_ouvrage &lt;chr&gt;, code_bdlisa &lt;lgl&gt;, uri_bdlisa &lt;lgl&gt;, …</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Retrieve the withdrawal devices located in Romilly-sur-Seine</span></span></span>
-<span class="r-in"><span><span class="fu">get_prelevements_ouvrages</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>code_commune_insee <span class="op">=</span> <span class="st">"10323"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">get_prelevements_ouvrages</span><span class="op">(</span>code_commune_insee <span class="op">=</span> <span class="st">"10323"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 9 × 33</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   code_ouvrage  nom_ou…¹ id_lo…² date_…³ date_…⁴ code_…⁵ libel…⁶ comme…⁷ code_…⁸</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
@@ -130,7 +133,7 @@ See the API documentation for available filter parameters: https://hubeau.eaufra
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ressource_cont_non_referencee_info &lt;lgl&gt;, code_point_referent &lt;chr&gt;, …</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Retrieve the withdrawal time series of the devices located in Romilly-sur-Seine</span></span></span>
-<span class="r-in"><span><span class="fu">get_prelevements_chroniques</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>code_commune_insee <span class="op">=</span> <span class="st">"10323"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">get_prelevements_chroniques</span><span class="op">(</span>code_commune_insee <span class="op">=</span> <span class="st">"10323"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 45 × 28</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    code_o…¹ annee volume code_…² libel…³ code_…⁴ libel…⁵ code_…⁶ libel…⁷ code_…⁸</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
