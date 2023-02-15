@@ -6,8 +6,8 @@ Date: 2022-08-12
 Authors@R: c(
     person("David", "Dorchies", , "david.dorchies@inrae.fr", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-6595-7984")),
-    person("Pascal", "Irz", , "pascal.irz@ofb.gouv.fr", role = "ctb"), 
-    person("Sébastien", "Grall", , role = "ctb")
+    person("Pascal", "Irz", , "pascal.irz@ofb.gouv.fr", role = "ctb"),
+    person("Sébastien", "Grall", , "seinormigr.grall@gmail.com", role = "ctb")
   )
 Description: Collection of functions to help retrieving data from 'Hub'Eau' the
     free and public French National APIs on water <https://hubeau.eaufrance.fr/>.
