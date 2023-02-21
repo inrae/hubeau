@@ -1,0 +1,142 @@
+---
+title: "Querying the API 'Ecoulement'"
+author: "Pascal Irz, David Dorchies"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{ecoulement_cours_deau}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(hubeau)
+library(tidyverse)
+library(sf)
+library(mapview)
+# library(leaflet)
+# library(leaflet.extras)
+# library(ggrepel)
+# library(glue)
+# library(forcats)
+# library(scales)
+# library(data.table)
+```
+
+# Aim
+
+This vignette shows how to retrieve data from the French drought monitoring network ([Observatoire National Des Etiage, ONDE](https://onde.eaufrance.fr/)) from the [API "Ecoulement des cours d'eau"](https://hubeau.eaufrance.fr/page/api-ecoulement) of the [Hub'eau](https://hubeau.eaufrance.fr/) portal. The exemple is given for the departement of Ille-et-Vilaine (Id: 35).
+
+```{r}
+my_dept <- "35"
+```
+
+
+# Getting started
+
+"Ecoulement" is one of the `r length(hubeau::list_apis())` APIs that can be queried with the `{hubeau}` R package, that can be listed using the `list_apis()` function.
+
+```{r}
+hubeau::list_apis()
+```
+
+To know the possible endpoints of the API, use the `list_endpoints` function.
+
+```{r}
+hubeau::list_endpoints(api = "ecoulement")
+```
+
+- *stations* lists the monitoring stations
+- *campagnes* lists the surveys
+- *observations* is the data itself, indicating if, at the date of the survey, the river flows or if it is dry (which is assessed visually in the field).
+
+For each endpoint, the function `list_params()` gives the different parameters that can be retrieved. 
+
+```{r}
+hubeau::list_params(api = "ecoulement",
+                    endpoint = "observations")
+```
+
+# Retrieving the data
+
+## The surveys
+
+A survey encompasses a series of visual observations carried out at on stations at the "departement" grain. It is tagged as "usuelle" if it is a routine (i.e. around the 24th of the month from May to September), as "complémentaire" if not (e.g. during very dry periods).  
+
+
+```{r}
+#### surveys
+surveys <- get_ecoulement_campagnes(
+  code_departement = my_dept, # department id
+  date_campagne_min = "2012-01-01" # start date
+  ) %>%
+  mutate(code_campagne = as.character(code_campagne)) %>%
+    select(code_campagne,
+           date_campagne,
+           libelle_type_campagne)
+  
+surveys %>%
+  head() %>% 
+  knitr::kable()
+```
+
+
+
+
+```{r}
+#### observation stations
+param_stations <- 
+  list_params(api = "ecoulement",
+              endpoint = "stations") %>% 
+  toString() %>% 
+  gsub(pattern = " ",replacement = "")
+
+stations <-
+  get_ecoulement_stations(
+    code_departement = my_dept,
+    fields = param_stations)
+
+stations_geo <- sf::st_as_sf(x = stations,
+                             coords = c("longitude", "latitude"),
+                             crs = 4326)
+
+mapview::mapview(stations_geo)
+```
+
+
+
+```{r}
+#### Observations
+param_obs <- 
+  list_params(api = "ecoulement", endpoint = "observations") %>% 
+  toString() %>% 
+  gsub(pattern = " ",replacement = "")
+
+observations <- get_ecoulement_observations(
+                         code_departement = my_dept,
+                              date_observation_min = "2012-01-01",
+                              fields = param_obs
+                       ) %>%
+  mutate(code_campagne = as.character(code_campagne))
+```
+
+
+```{r}
+### Assembly in a single dataframe
+onde_df <- observations %>% 
+  left_join(campagnes) %>%
+  left_join(stations) %>%
+  mutate(date_campagne = as.Date(date_campagne),
+         Annee = lubridate::year(date_campagne)) %>%
+  arrange(code_station,code_departement,desc(Annee))
+                
+
+```
+
