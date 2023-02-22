@@ -20,14 +20,14 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 library(hubeau)
-library(tidyverse)
+library(dplyr)
 library(sf)
 library(mapview)
-# library(leaflet)
+library(ggplot2)
 # library(leaflet.extras)
 # library(ggrepel)
 # library(glue)
-# library(forcats)
+library(forcats)
 # library(scales)
 # library(data.table)
 ```
@@ -35,6 +35,8 @@ library(mapview)
 # Aim
 
 This vignette shows how to retrieve data from the French drought monitoring network ([Observatoire National Des Etiage, ONDE](https://onde.eaufrance.fr/)) from the [API "Ecoulement des cours d'eau"](https://hubeau.eaufrance.fr/page/api-ecoulement) of the [Hub'eau](https://hubeau.eaufrance.fr/) portal. The exemple is given for the departement of Ille-et-Vilaine (Id: 35).
+
+This network encompasses 3000+ observation sites, throughtou mainland France, that are streams selected to reflect the severity of drought events, i.e. that flow in "normal" conditions but dry out in case of drought. Being upstream the river basins, these sites are expected to act as 'sentinels' and sel_dataide early warning of the necessity of restricting water withdrawal in rivers and associated water tables. 
 
 ```{r}
 my_dept <- "35"
@@ -55,11 +57,12 @@ To know the possible endpoints of the API, use the `list_endpoints` function.
 hubeau::list_endpoints(api = "ecoulement")
 ```
 
-- *stations* lists the monitoring stations
-- *campagnes* lists the surveys
-- *observations* is the data itself, indicating if, at the date of the survey, the river flows or if it is dry (which is assessed visually in the field).
+- `stations` lists the monitoring stations
+- `campagnes` lists the surveys
+- `observations` is the data itself, indicating if, at the date of the survey, the river flows or if it is dry (which is assessed visually in the field).
 
-These 3 elements can be joined 
+`station` and `observations` can be joined *at least* by the field `code_station`.
+`observations` and `campagne` can be joined by the field `code_campagne`.
 
 For each endpoint, the function `list_params()` gives the different parameters that can be retrieved. 
 
@@ -72,18 +75,29 @@ hubeau::list_params(api = "ecoulement",
 
 ## Sites
 
+Retrieve the available fields.
+
 ```{r}
 param_stations <- 
   list_params(api = "ecoulement",
               endpoint = "stations") %>% 
   toString() %>% 
-  gsub(pattern = " ",replacement = "")
+  gsub(pattern = " ",
+       replacement = "")
+```
 
+Download the data.
+
+```{r}
 stations <-
   get_ecoulement_stations(
     code_departement = my_dept,
     fields = param_stations)
+```
 
+The `stations` dataframe is transformed into a `sf` geographical object, then mapped. 
+
+```{r}
 stations_geo <- sf::st_as_sf(x = stations,
                              coords = c("longitude", "latitude"),
                              crs = 4326)
@@ -94,7 +108,9 @@ mapview::mapview(stations_geo)
 
 ## Surveys
 
-A survey encompasses a series of visual observations carried out at on stations at the "departement" grain. It is tagged as "usuelle" if it is a routine (i.e. around the 24th of the month from May to September), as "complémentaire" if not (e.g. during very dry periods).  
+A survey encompasses a series of visual observations carried out at on stations at the "departement" grain. It is tagged as "usuelle" if it is a routine (i.e. around the 24th of the month from May to September), as "complémentaire" if not (e.g. during very dry periods).
+
+Download the `surveys` dataframe.
 
 ```{r}
 surveys <- get_ecoulement_campagnes(
@@ -105,41 +121,161 @@ surveys <- get_ecoulement_campagnes(
     select(code_campagne,
            date_campagne,
            libelle_type_campagne)
-  
+```
+
+Visualise a few rows.
+
+```{r}
 surveys %>%
   head() %>% 
   knitr::kable()
 ```
 
+## Observations
 
-
-
+Retrieve the available fields.
 
 ```{r}
-#### Observations
 param_obs <- 
-  list_params(api = "ecoulement", endpoint = "observations") %>% 
+  list_params(api = "ecoulement",
+              endpoint = "observations") %>% 
   toString() %>% 
-  gsub(pattern = " ",replacement = "")
+  gsub(pattern = " ",
+       replacement = "")
+```
 
-observations <- get_ecoulement_observations(
-                         code_departement = my_dept,
-                              date_observation_min = "2012-01-01",
-                              fields = param_obs
+Download the data.
+
+```{r}
+observations <- 
+  get_ecoulement_observations(
+    code_departement = my_dept,
+    date_observation_min = "2012-01-01",
+    fields = param_obs
                        ) %>%
   mutate(code_campagne = as.character(code_campagne))
 ```
 
+The flow observations are codes into discrete levels:
 
 ```{r}
-### Assembly in a single dataframe
-onde_df <- observations %>% 
+observation_levels <- observations %>%
+  select(code_ecoulement,
+         libelle_ecoulement) %>%
+  distinct() %>%
+  arrange(code_ecoulement)
+
+english_labs <- data.frame(
+  ENG_lab = c(
+    "Visible flow",
+    "Decent visible flow",
+    "Weak visible flow",
+    "No visible flow",
+    "Dry"
+  )
+)
+
+englishisized_labs <- observation_levels %>%
+  bind_cols(english_labs)
+
+flextable::flextable(englishisized_labs)
+```
+
+# Assembly in a single dataframe
+
+
+```{r}
+data <- observations %>% 
   left_join(surveys) %>%
   left_join(stations) %>%
+  left_join(y = englishisized_labs) %>% 
   mutate(date_campagne = as.Date(date_campagne),
-         Annee = lubridate::year(date_campagne)) %>%
-  arrange(code_station,code_departement,desc(Annee))
-                
+         year = lubridate::year(date_campagne),
+         month = lubridate::month(date_campagne),
+         ENG_lab = as.factor(ENG_lab),
+         ENG_lab = fct_relevel(ENG_lab,
+                                "Visible flow",
+                                "Decent visible flow",
+                                "Weak visible flow",
+                                "No visible flow",
+                                "Dry",
+                                NA))
 
+data2 <- data %>% 
+  select(code_station, year, month, libelle_station, ENG_lab) %>% 
+  tidyr::complete(year, month, fill = list(ENG_lab = NA))
+```
+
+# Graphical output
+
+Custom plot function.
+
+```{r}
+gg_stream_flow <-
+  function(data, sel_station) {
+    # selected data
+    sel_data <- data %>%
+      filter(code_station == sel_station)
+    
+    # station name for plot title
+    station_lab <- unique(sel_data$libelle_station)
+    
+    # year range
+    year_range <-
+      min(sel_data$year, na.rm = T):max(sel_data$year, na.rm = T)
+    
+    # complete df with the months without data
+    dates <- data.frame(year = rep(year_range, 12) %>% sort(),
+                        month = rep(1:12, length(year_range)))
+    
+    sel_data <- dates %>%
+      left_join(sel_data)
+    
+    # color palette
+    colors <- c(
+      "Visible flow" = "blue",
+      "Weak visible flow" = "lightblue",
+      "No visible flow" = "orange",
+      "Dry" = "red"
+    )
+    
+    # plot
+    sel_data %>%
+      ggplot(aes(x = year,
+                 y = month,
+                 color = ENG_lab)) +
+      geom_point(shape = 15, size = 7) +
+      coord_flip() +
+      scale_color_manual(name = "",
+                         values = colors,
+                         na.value = "grey80") +
+      scale_y_continuous(breaks = 1:12,
+                         labels = 1:12,
+                         limits = c(1, 12)) +
+      scale_x_continuous(breaks = year_range,
+                         labels = year_range) +
+      labs(x = "",
+           y = "Month",
+           title = station_lab) +
+      theme(
+        axis.line = element_line(color = 'black'),
+        plot.background = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.grid.major.x = element_line(linewidth = 0.5,
+                                          colour = "black"),
+        panel.border = element_blank()
+      )
+    
+  }
+
+```
+
+Display plot for a station.
+
+```{r, fig.width = 4.5, fig.height = 4}
+my_station <- "J7364221"
+
+gg_stream_flow(data = data2,
+               sel_station = my_station)
 ```
 
