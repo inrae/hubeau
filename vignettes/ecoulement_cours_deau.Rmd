@@ -18,34 +18,45 @@ knitr::opts_chunk$set(
 )
 ```
 
+
+# Aim
+
+This vignette shows how to use the [`hubeau` R package](https://github.com/inrae/hubeau) in order to retrieve data from the French streams drought monitoring network ([Observatoire National Des Etiage, ONDE](https://onde.eaufrance.fr/)) from the [API "Ecoulement des cours d'eau"](https://hubeau.eaufrance.fr/page/api-ecoulement) of the [Hub'eau](https://hubeau.eaufrance.fr/) portal. This is illustrated for the departement of Ille-et-Vilaine (Id: 35).
+
+Nationwide, this network encompasses 3000+ observation sites, that are streams stretches selected to reflect the severity of drought events, i.e. that flow in "normal" conditions but dry out in case of drought. Being upstream in the river basins, these sites are expected to act as 'sentinels' and to provide early warning of the necessity of restricting water withdrawal in rivers and associated water tables. 
+
+```{r}
+my_dept <- "35"
+```
+
+# Setup
+
+Install package `hubeau`.
+
+```{r, eval = FALSE}
+# Install released version from CRAN
+install.packages("hubeau")
+
+# Install development version from GitHub:
+# install.packages("remotes")
+remotes::install_github("inrae/hubeau")
+```
+
+Load packages.
+
 ```{r setup}
 library(hubeau)
 library(dplyr)
 library(sf)
 library(mapview)
 library(ggplot2)
-# library(leaflet.extras)
-# library(ggrepel)
-# library(glue)
 library(forcats)
-# library(scales)
-# library(data.table)
-```
-
-# Aim
-
-This vignette shows how to retrieve data from the French drought monitoring network ([Observatoire National Des Etiage, ONDE](https://onde.eaufrance.fr/)) from the [API "Ecoulement des cours d'eau"](https://hubeau.eaufrance.fr/page/api-ecoulement) of the [Hub'eau](https://hubeau.eaufrance.fr/) portal. The exemple is given for the departement of Ille-et-Vilaine (Id: 35).
-
-This network encompasses 3000+ observation sites, throughtou mainland France, that are streams selected to reflect the severity of drought events, i.e. that flow in "normal" conditions but dry out in case of drought. Being upstream the river basins, these sites are expected to act as 'sentinels' and sel_dataide early warning of the necessity of restricting water withdrawal in rivers and associated water tables. 
-
-```{r}
-my_dept <- "35"
 ```
 
 
 # Getting started
 
-"Ecoulement" is one of the `r length(hubeau::list_apis())` APIs that can be queried with the `{hubeau}` R package, that can be listed using the `list_apis()` function.
+"Ecoulement" is one of the `r length(hubeau::list_apis())` APIs that can be queried with the `{hubeau}` R package. These APIs can be listed using the `list_apis()` function.
 
 ```{r}
 hubeau::list_apis()
@@ -62,6 +73,7 @@ hubeau::list_endpoints(api = "ecoulement")
 - `observations` is the data itself, indicating if, at the date of the survey, the river flows or if it is dry (which is assessed visually in the field).
 
 `station` and `observations` can be joined *at least* by the field `code_station`.
+
 `observations` and `campagne` can be joined by the field `code_campagne`.
 
 For each endpoint, the function `list_params()` gives the different parameters that can be retrieved. 
@@ -81,6 +93,7 @@ Retrieve the available fields.
 param_stations <- 
   list_params(api = "ecoulement",
               endpoint = "stations") %>% 
+  # needs a bit of cleaning
   toString() %>% 
   gsub(pattern = " ",
        replacement = "")
@@ -97,12 +110,20 @@ stations <-
 
 The `stations` dataframe is transformed into a `sf` geographical object, then mapped. 
 
-```{r}
-stations_geo <- sf::st_as_sf(x = stations,
-                             coords = c("longitude", "latitude"),
-                             crs = 4326)
+```{r, fig.height = 5, fig.width = 6}
+stations_geo <- stations %>% 
+  select(code_station,
+         libelle_station,
+         longitude,
+         latitude) %>% 
+  sf::st_as_sf(coords = c("longitude", "latitude"),
+               crs = 4326)
 
-mapview::mapview(stations_geo)
+mapview::mapview(stations_geo,
+                 popup = leafpop::popupTable(stations_geo,
+                                    zcol = c("code_station", "libelle_station"),
+                                    feature.id = FALSE,
+                                    row.numbers = FALSE))
 ```
 
 
@@ -208,6 +229,8 @@ data2 <- data %>%
 
 # Graphical output
 
+## For a station
+
 Custom plot function.
 
 ```{r}
@@ -278,4 +301,3 @@ my_station <- "J7364221"
 gg_stream_flow(data = data2,
                sel_station = my_station)
 ```
-
