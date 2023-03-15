@@ -1,8 +1,8 @@
 Type: Package
 Package: hubeau
 Title: Get Data from the French National Database on Water 'Hub'Eau'
-Version: 0.3.1.9000
-Date: 2022-08-12
+Version: 0.3.1.9001
+Date: 2023-03-08
 Authors@R: c(
     person("David", "Dorchies", , "david.dorchies@inrae.fr", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-6595-7984")),
@@ -25,11 +25,22 @@ Imports:
     tibble,
     urltools
 Suggests:
+    flextable,
+    forcats,
+    ggplot2,
+    knitr,
+    leafpop,
+    lubridate,
+    mapview,
+    rmarkdown,
+    sf,
     spelling,
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    tidyr
 Config/testthat/edition: 3
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
 Language: en-US
+VignetteBuilder: knitr
