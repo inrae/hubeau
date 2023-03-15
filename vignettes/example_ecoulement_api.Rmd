@@ -12,7 +12,11 @@ vignette: >
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  fig.width = 6,
+  fig.asp = 0.618,
+  out.width = "70%",
+  fig.align = "center"
 )
 load(system.file("vignettes/example_ecoulement_api.RData", package = "hubeau"))
 ```
@@ -93,7 +97,7 @@ stations <- get_ecoulement_stations(
 
 The `stations` dataframe is transformed into a `sf` geographical object, then mapped. 
 
-```{r, fig.height = 5, fig.width = 6}
+```{r}
 stations_geo <- stations %>% 
   select(code_station,
          libelle_station,
@@ -108,7 +112,9 @@ mapview::mapview(
     zcol = c("code_station", "libelle_station"),
     feature.id = FALSE,
     row.numbers = FALSE
-  )
+  ),
+  label = "libelle_station", 
+  legend = FALSE
 )
 ```
 
@@ -168,7 +174,27 @@ observations <-
 ```
 ```{r}
 observations <- observations %>%
+  filter(!is.na(code_ecoulement)) %>%
   mutate(code_campagne = as.factor(code_campagne))
+```
+
+# Graphical output of monthly indicator
+
+We first need to join survey and observation data:
+
+```{r}
+obs_and_surv <- observations %>% 
+  left_join(surveys, by = join_by(code_campagne)) %>% 
+  select(code_station, libelle_station, year, month, code_ecoulement)
+```
+
+And, in case of several observations during the same month, we keep the driest status:
+
+```{r}
+obs_and_surv <- obs_and_surv %>% 
+  arrange(code_ecoulement) %>%
+  group_by(code_station, libelle_station, year, month) %>%
+  summarise(code_ecoulement = last(code_ecoulement), .groups = 'drop')
 ```
 
 The flow observations codes are translated in English:
@@ -181,26 +207,14 @@ flow_labels <- c(
   "2"  = "No visible flow",
   "3"  = "Dry"
 )
-observations$flow_label <- flow_labels[observations$code_ecoulement]
+obs_and_surv$flow_label <- flow_labels[obs_and_surv$code_ecoulement]
 ```
-
-# Graphical output
-
-We first need to join survey and observation data:
-
-```{r}
-obs_and_surv <- observations %>% 
-  left_join(surveys, by = join_by(code_campagne)) %>% 
-  select(code_station, libelle_station, year, month, flow_label)
-```
-
-## For a station
 
 Custom plot function.
 
 ```{r}
 gg_stream_flow <-
-  function(data, sel_station) {
+  function(sel_station, data) {
     
     # selected data
     sel_data <- data %>%
@@ -225,7 +239,9 @@ gg_stream_flow <-
                                     "deepskyblue", 
                                     "lightblue", 
                                     "orange", 
-                                    "red")) +
+                                    "red"), 
+                         labels = flow_labels, 
+                         drop = FALSE) +
       scale_x_continuous(breaks = 1:12,
                          labels = 1:12,
                          limits = c(1, 12)) +
@@ -242,16 +258,16 @@ gg_stream_flow <-
                                           colour = "black"),
         panel.border = element_blank()
       )
-    
   }
 
 ```
 
-Display plot for a station.
+Display plot for all stations that contain at least one observation with "Dry" status.
 
-```{r, fig.width=6, fig.height=4}
-my_station <- "J7364221"
+```{r,results='hide', fig.keep='all'}
+dry_stations <- obs_and_surv %>% 
+  filter(code_ecoulement == "3") %>% 
+  pull(code_station) %>% unique
 
-gg_stream_flow(data = obs_and_surv,
-               sel_station = my_station)
+lapply(dry_stations, gg_stream_flow, data = obs_and_surv)
 ```
