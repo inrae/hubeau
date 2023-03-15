@@ -1,8 +1,8 @@
 Type: Package
 Package: hubeau
 Title: Get Data from the French National Database on Water 'Hub'Eau'
-Version: 0.3.1.9001
-Date: 2023-03-08
+Version: 0.4.0
+Date: 2023-03-15
 Authors@R: c(
     person("David", "Dorchies", , "david.dorchies@inrae.fr", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-6595-7984")),
