@@ -32,7 +32,7 @@ See the API documentation for available filter parameters: https://hubeau.eaufra
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">hubeau</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.3.1.9000</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.3.1.9001</span>
       </span>
     </div>
 
@@ -40,6 +40,16 @@ See the API documentation for available filter parameters: https://hubeau.eaufra
       <ul class="nav navbar-nav"><li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu"><li>
+      <a href="../articles/example_ecoulement_api.html">Performing queries on the 'Ecoulement' API</a>
+    </li>
+  </ul></li>
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
@@ -151,20 +161,20 @@ for a given API endpoint and see the API documentation for their description</p>
 <span class="r-in"><span><span class="fu">get_qualite_eau_potable_resultats_dis</span><span class="op">(</span>code_commune <span class="op">=</span> <span class="fl">34116</span>,</span></span>
 <span class="r-in"><span>                                      date_min_prelevement <span class="op">=</span> <span class="st">"2000-01-01"</span>,</span></span>
 <span class="r-in"><span>                                      date_max_prelevement <span class="op">=</span> <span class="st">"2022-12-31"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 8,205 × 34</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 8,246 × 34</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    code_depart…¹ nom_d…² code_…³ code_…⁴ code_…⁵ code_…⁶ libel…⁷ libel…⁸ libel…⁹</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 34            Hérault 034002… 1295    TURBNFU <span style="color: #BB0000;">NA</span>      Turbid… <span style="color: #949494;">"</span>TURBI… <span style="color: #BB0000;">NA</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 34            Hérault 034002… 5441    GT36_44 <span style="color: #BB0000;">NA</span>      Bact. … <span style="color: #949494;">"</span>BACT.… <span style="color: #BB0000;">NA</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 34            Hérault 034002… 1754    CLO2    10049-… Bioxyd… <span style="color: #949494;">"</span>BIOXY… <span style="color: #BB0000;">NA</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 34            Hérault 034002… 6455    STRF    <span style="color: #BB0000;">NA</span>      Entéro… <span style="color: #949494;">"</span>ENTÉR… <span style="color: #BB0000;">NA</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 34            Hérault 034002… 1302    PH      <span style="color: #BB0000;">NA</span>      pH      <span style="color: #949494;">"</span>PH <span style="color: #949494;">"</span>   <span style="color: #BB0000;">NA</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 34            Hérault 034002… 6489    ASP     <span style="color: #BB0000;">NA</span>      Aspect… <span style="color: #949494;">"</span>ASPEC… <span style="color: #BB0000;">NA</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 34            Hérault 034002… 1042    BSIR    <span style="color: #BB0000;">NA</span>      Bact. … <span style="color: #949494;">"</span>BACT.… <span style="color: #BB0000;">NA</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 34            Hérault 034002… 5902    SAVQ    <span style="color: #BB0000;">NA</span>      Saveur… <span style="color: #949494;">"</span>SAVEU… <span style="color: #BB0000;">NA</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 34            Hérault 034002… 1447    CTF     <span style="color: #BB0000;">NA</span>      Bactér… <span style="color: #949494;">"</span>BACTÉ… <span style="color: #BB0000;">NA</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 34            Hérault 034002… 5900    COULQ   <span style="color: #BB0000;">NA</span>      Couleu… <span style="color: #949494;">"</span>COULE… <span style="color: #BB0000;">NA</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 8,195 more rows, 25 more variables: code_type_parametre &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 34            Hérault 034002… 5440    GT22_68 <span style="color: #BB0000;">NA</span>      Bact. … BACT. … <span style="color: #BB0000;">NA</span>     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 34            Hérault 034002… 1301    TEAU    <span style="color: #BB0000;">NA</span>      Tempér… TEMPÉR… <span style="color: #BB0000;">NA</span>     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 34            Hérault 034002… <span style="color: #BB0000;">NA</span>      CLO2RES 10049-… Résidu… RÉSIDU… <span style="color: #BB0000;">NA</span>     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 34            Hérault 034002… 5901    ODQ     <span style="color: #BB0000;">NA</span>      Odeur … ODEUR … <span style="color: #BB0000;">NA</span>     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 34            Hérault 034002… 1370    ALTMICR 7429-9… Alumin… ALUMIN… <span style="color: #BB0000;">NA</span>     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 34            Hérault 034002… 1447    CTF     <span style="color: #BB0000;">NA</span>      Bactér… BACTÉR… <span style="color: #BB0000;">NA</span>     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 34            Hérault 034002… 1303    CDT25   <span style="color: #BB0000;">NA</span>      Conduc… CONDUC… <span style="color: #BB0000;">NA</span>     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 34            Hérault 034002… 1335    NH4     14798-… Ammoni… AMMONI… <span style="color: #BB0000;">NA</span>     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 34            Hérault 034002… 5900    COULQ   <span style="color: #BB0000;">NA</span>      Couleu… COULEU… <span style="color: #BB0000;">NA</span>     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 34            Hérault 034002… 5902    SAVQ    <span style="color: #BB0000;">NA</span>      Saveur… SAVEUR… <span style="color: #BB0000;">NA</span>     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 8,236 more rows, 25 more variables: code_type_parametre &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   code_lieu_analyse &lt;chr&gt;, resultat_alphanumerique &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   resultat_numerique &lt;dbl&gt;, libelle_unite &lt;chr&gt;, code_unite &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   limite_qualite_parametre &lt;chr&gt;, reference_qualite_parametre &lt;chr&gt;,</span></span>

@@ -24,7 +24,7 @@ See the API documentation for available filter parameters: https://hubeau.eaufra
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">hubeau</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.3.1.9000</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.3.1.9001</span>
       </span>
     </div>
 
@@ -32,6 +32,16 @@ See the API documentation for available filter parameters: https://hubeau.eaufra
       <ul class="nav navbar-nav"><li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu"><li>
+      <a href="../articles/example_ecoulement_api.html">Performing queries on the 'Ecoulement' API</a>
+    </li>
+  </ul></li>
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
@@ -183,14 +193,14 @@ for a given API endpoint and see the API documentation for their description</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 12,331 × 89</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    code_statio…¹ libel…² uri_s…³ date_…⁴ code_…⁵ libel…⁶ code_…⁷ libel…⁸ codes…⁹</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 04204300      VILAIN… <span style="color: #BB0000;">NA</span>      2007-0… 4       Poisso… 2038    Anguil… 2038   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 04204300      VILAIN… <span style="color: #BB0000;">NA</span>      2007-0… 4       Poisso… 2038    Anguil… 2038   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 04204300      VILAIN… <span style="color: #BB0000;">NA</span>      2007-0… 4       Poisso… 2086    Abrami… 2086   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 04204300      VILAIN… <span style="color: #BB0000;">NA</span>      2007-0… 4       Poisso… 2090    Alburn… 2090   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 04204300      VILAIN… <span style="color: #BB0000;">NA</span>      2007-0… 4       Poisso… 2086    Abrami… 2086   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 04204300      VILAIN… <span style="color: #BB0000;">NA</span>      2007-0… 4       Poisso… 2090    Alburn… 2090   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 04204300      VILAIN… <span style="color: #BB0000;">NA</span>      2007-0… 4       Poisso… 2038    Anguil… 2038   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 04204300      VILAIN… <span style="color: #BB0000;">NA</span>      2007-0… 4       Poisso… 2099    Blicca… 2099   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 04204300      VILAIN… <span style="color: #BB0000;">NA</span>      2007-0… 4       Poisso… 2099    Blicca… 2099   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 04204300      VILAIN… <span style="color: #BB0000;">NA</span>      2007-0… 4       Poisso… 2099    Blicca… 2099   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 04204300      VILAIN… <span style="color: #BB0000;">NA</span>      2007-0… 4       Poisso… 2050    Lepomi… 2050   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 04204300      VILAIN… <span style="color: #BB0000;">NA</span>      2007-0… 4       Poisso… 31041   Squali… 31041  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 04204300      VILAIN… <span style="color: #BB0000;">NA</span>      2007-0… 4       Poisso… 2050    Lepomi… 2050   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 04204300      VILAIN… <span style="color: #BB0000;">NA</span>      2007-0… 4       Poisso… 31041   Squali… 31041  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 04204300      VILAIN… <span style="color: #BB0000;">NA</span>      2007-0… 4       Poisso… 2038    Anguil… 2038   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 04204300      VILAIN… <span style="color: #BB0000;">NA</span>      2007-0… 4       Poisso… 2071    Barbat… 2071   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 04204300      VILAIN… <span style="color: #BB0000;">NA</span>      2007-0… 4       Poisso… 68137   Faxoni… 68137  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 12,321 more rows, 80 more variables: codes_taxons_parents2 &lt;chr&gt;,</span></span>

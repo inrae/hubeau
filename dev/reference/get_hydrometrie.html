@@ -25,7 +25,7 @@ https://hubeau.eaufrance.fr/page/api-hydrometrie'><meta property="og:image" cont
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">hubeau</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.3.1.9000</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.3.1.9001</span>
       </span>
     </div>
 
@@ -33,6 +33,16 @@ https://hubeau.eaufrance.fr/page/api-hydrometrie'><meta property="og:image" cont
       <ul class="nav navbar-nav"><li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu"><li>
+      <a href="../articles/example_ecoulement_api.html">Performing queries on the 'Ecoulement' API</a>
+    </li>
+  </ul></li>
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
@@ -188,7 +198,7 @@ if so, one line is added by item and other fields are repeated</p></dd>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Retrieve the hydrometric monthly mean flow at site 'H0203020'</span></span></span>
 <span class="r-in"><span><span class="fu">get_hydrometrie_obs_elab</span><span class="op">(</span>code_entite <span class="op">=</span> <span class="st">"H0203020"</span>, grandeur_hydro_elab <span class="op">=</span> <span class="st">"QmM"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 658 × 14</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 659 × 14</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    code_site code_stat…¹ date_…² resul…³ date_…⁴ code_…⁵ libel…⁶ code_…⁷ libel…⁸</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> H0203020  H020302001  1968-0…    <span style="text-decoration: underline;">6</span>246 2021-0…      16 Donnée…      12 Interp…</span>
@@ -201,7 +211,7 @@ if so, one line is added by item and other fields are repeated</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> H0203020  H020302001  1968-0…    <span style="text-decoration: underline;">3</span>451 2021-0…      16 Donnée…      12 Interp…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> H0203020  H020302001  1968-1…    <span style="text-decoration: underline;">4</span>242 2021-0…      16 Donnée…      12 Interp…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> H0203020  H020302001  1968-1…    <span style="text-decoration: underline;">2</span>675 2021-0…      16 Donnée…      12 Interp…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 648 more rows, 5 more variables: code_qualification &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 649 more rows, 5 more variables: code_qualification &lt;int&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   libelle_qualification &lt;chr&gt;, longitude &lt;dbl&gt;, latitude &lt;dbl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   grandeur_hydro_elab &lt;chr&gt;, and abbreviated variable names ¹​code_station,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ²​date_obs_elab, ³​resultat_obs_elab, ⁴​date_prod, ⁵​code_statut,</span></span>
@@ -211,20 +221,20 @@ if so, one line is added by item and other fields are repeated</p></dd>
 <span class="r-in"><span><span class="fu">get_hydrometrie_obs_elab</span><span class="op">(</span>code_entite <span class="op">=</span> <span class="st">"H0203020"</span>,</span></span>
 <span class="r-in"><span>                         date_debut_obs_elab <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/format.html" class="external-link">format</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html" class="external-link">Sys.Date</a></span><span class="op">(</span><span class="op">)</span> <span class="op">-</span><span class="fl">30</span>, <span class="st">"%Y-%m-%d"</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>                         grandeur_hydro_elab <span class="op">=</span> <span class="st">"QmJ"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 23 × 14</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 29 × 14</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    code_site code_stat…¹ date_…² resul…³ date_…⁴ code_…⁵ libel…⁶ code_…⁷ libel…⁸</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> H0203020  H020302002  2023-0…    <span style="text-decoration: underline;">7</span>080 2023-0…       4 Donnée…      12 Interp…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> H0203020  H020302002  2023-0…    <span style="text-decoration: underline;">7</span>982 2023-0…       4 Donnée…      12 Interp…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> H0203020  H020302002  2023-0…    <span style="text-decoration: underline;">8</span>569 2023-0…       4 Donnée…      12 Interp…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> H0203020  H020302002  2023-0…    <span style="text-decoration: underline;">8</span>458 2023-0…       4 Donnée…      12 Interp…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> H0203020  H020302002  2023-0…    <span style="text-decoration: underline;">8</span>135 2023-0…       4 Donnée…      12 Interp…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> H0203020  H020302002  2023-0…    <span style="text-decoration: underline;">7</span>848 2023-0…       4 Donnée…      12 Interp…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> H0203020  H020302002  2023-0…    <span style="text-decoration: underline;">7</span>390 2023-0…       4 Donnée…      12 Interp…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> H0203020  H020302002  2023-0…    <span style="text-decoration: underline;">4</span>860 2023-0…       4 Donnée…      12 Interp…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> H0203020  H020302002  2023-0…    <span style="text-decoration: underline;">4</span>563 2023-0…       4 Donnée…      12 Interp…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> H0203020  H020302002  2023-0…    <span style="text-decoration: underline;">4</span>278 2023-0…       4 Donnée…      12 Interp…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 13 more rows, 5 more variables: code_qualification &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> H0203020  H020302002  2023-0…    <span style="text-decoration: underline;">2</span>418 2023-0…       4 Donnée…      12 Interp…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> H0203020  H020302002  2023-0…    <span style="text-decoration: underline;">2</span>305 2023-0…       4 Donnée…      12 Interp…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> H0203020  H020302002  2023-0…    <span style="text-decoration: underline;">2</span>245 2023-0…       4 Donnée…      12 Interp…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> H0203020  H020302002  2023-0…    <span style="text-decoration: underline;">2</span>244 2023-0…       4 Donnée…      12 Interp…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> H0203020  H020302002  2023-0…    <span style="text-decoration: underline;">2</span>181 2023-0…       4 Donnée…      12 Interp…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> H0203020  H020302002  2023-0…    <span style="text-decoration: underline;">2</span>089 2023-0…       4 Donnée…      12 Interp…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> H0203020  H020302002  2023-0…    <span style="text-decoration: underline;">1</span>921 2023-0…       4 Donnée…      12 Interp…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> H0203020  H020302002  2023-0…    <span style="text-decoration: underline;">2</span>014 2023-0…       4 Donnée…      12 Interp…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> H0203020  H020302002  2023-0…    <span style="text-decoration: underline;">1</span>889 2023-0…       4 Donnée…      12 Interp…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> H0203020  H020302002  2023-0…    <span style="text-decoration: underline;">1</span>898 2023-0…       4 Donnée…      12 Interp…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 19 more rows, 5 more variables: code_qualification &lt;int&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   libelle_qualification &lt;chr&gt;, longitude &lt;dbl&gt;, latitude &lt;dbl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   grandeur_hydro_elab &lt;chr&gt;, and abbreviated variable names ¹​code_station,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ²​date_obs_elab, ³​resultat_obs_elab, ⁴​date_prod, ⁵​code_statut,</span></span>

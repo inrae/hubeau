@@ -24,7 +24,7 @@ See the API documentation for available filter parameters: https://hubeau.eaufra
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">hubeau</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.3.1.9000</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.3.1.9001</span>
       </span>
     </div>
 
@@ -32,6 +32,16 @@ See the API documentation for available filter parameters: https://hubeau.eaufra
       <ul class="nav navbar-nav"><li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu"><li>
+      <a href="../articles/example_ecoulement_api.html">Performing queries on the 'Ecoulement' API</a>
+    </li>
+  </ul></li>
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
@@ -157,19 +167,20 @@ for a given API endpoint and see the API documentation for their description</p>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">onde_39</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 336 × 4</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    code_station libelle_station                   date_observation libelle_eco…¹</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> U2640003     Pont D7 à GERMIGNEY               2022-10-24       Ecoulement n…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> U2655034     ruisseau de la verine à Vaudrey   2022-10-24       Ecoulement v…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> U2640002     ruisseau de clairvent à Chamblay  2022-10-24       Ecoulement v…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> U1084012     Ruisseau de la Serre à Saligney   2022-10-24       Ecoulement v…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> U1120011     ruisseau de la foret à Menotey    2022-10-24       Ecoulement v…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> U2722011     Rivière la Sablonne à Bousselange 2022-10-24       Ecoulement v…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> U2530001     La grabusse à Dampierre           2022-10-24       Ecoulement v…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> U2542013     Ruisseau l'Arne à Louvatange      2022-10-24       Ecoulement v…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> U2542012     Ruisseau des Vaux à Chatenois     2022-10-24       Ecoulement v…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> U2542011     Ruisseau Du Moulinot à Amange     2022-10-24       Ecoulement v…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 326 more rows, and abbreviated variable name ¹​libelle_ecoulement</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    code_station libelle_station                             date_obser…¹ libel…²</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> U2722012     Rivière la Sablonne à Saint-Aubin           2022-10-24   Assec  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> V2002010     Rivière l'Ain à Nozeroy                     2022-10-24   Ecoule…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> V2039111     Rivière la Lemme à Entre Deux Monts         2022-10-24   Ecoule…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> V2024012     Ruisseau le Galavo à lac-Des-Rouges-Truites 2022-10-24   Ecoule…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> V2024011     Rivière la Saine à Foncine-Le-Haut          2022-10-24   Ecoule…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> V2624011     Le valzin à Chatonnay                       2022-10-24   Ecoule…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> V2600001     Bief d'enfer à Ecrille                      2022-10-24   Ecoule…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> U2640005     La Réverotte à Santans aval                 2022-10-24   Ecoule…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> U3404035     Ruisseau de la Madeleine à Saint-Didier     2022-10-24   Ecoule…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> U3404034     Rivière la Seille à Villevieux              2022-10-24   Ecoule…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 326 more rows, and abbreviated variable names ¹​date_observation,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ²​libelle_ecoulement</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
