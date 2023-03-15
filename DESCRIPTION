@@ -9,8 +9,9 @@ Authors@R: c(
     person("Pascal", "Irz", , "pascal.irz@ofb.gouv.fr", role = "ctb"),
     person("Sébastien", "Grall", , "seinormigr.grall@gmail.com", role = "ctb")
   )
-Description: Collection of functions to help retrieving data from 'Hub'Eau' the
-    free and public French National APIs on water <https://hubeau.eaufrance.fr/>.
+Description: Collection of functions to help retrieving data from
+    'Hub'Eau' the free and public French National APIs on water
+    <https://hubeau.eaufrance.fr/>.
 License: MIT + file LICENSE
 URL: https://inrae.github.io/hubeau/,
     https://github.com/inrae/hubeau#readme
@@ -34,10 +35,11 @@ Suggests:
     sf,
     spelling,
     testthat (>= 3.0.0)
+VignetteBuilder: 
+    knitr
 Config/testthat/edition: 3
 Encoding: UTF-8
+Language: en-US
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
-Language: en-US
-VignetteBuilder: knitr

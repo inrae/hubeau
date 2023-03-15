@@ -121,8 +121,10 @@ mapview::mapview(
 
 ## Surveys
 
-A survey encompasses a series of visual observations carried out  on stations at the "departement" grain. 
-It is tagged as "usuelle" if it is a routine (i.e. around the 24th of the month from May to September), as "complémentaire" if not (e.g. during very dry periods).
+A survey encompasses a series of visual observations carried out on stations at 
+the "departement" grain. 
+It is tagged as "usuelle" if it is a routine (i.e. around the 24th of the month 
+from May to September), as "complémentaire" if not (e.g. during very dry periods).
 
 Download the `surveys` dataframe.
 

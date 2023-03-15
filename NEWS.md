@@ -1,4 +1,4 @@
-# hubeau (development version)
+# hubeau 0.4.0
 
 New features
 ------------
@@ -7,6 +7,7 @@ New features
 * Add API "Température des cours d'eau" (#8)
 * Add API "Qualité des nappes d'eau souterraine" (#10)
 * Add API "Qualité de l'eau potable" (#5)
+* Add vignettes with example of use of APIs (#21)
 
 Bug fixes
 ---------

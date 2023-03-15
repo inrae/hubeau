@@ -5,10 +5,11 @@ BNPE
 CMD
 Cofund
 DOI
+Des
 Ecoulement
 Etiage
 Hub'Eau
-Hub’Eau’
+Hub'Eau'
 Hub'eau
 Hydrobiologie
 Hydrométrie
@@ -16,8 +17,8 @@ Ille
 Indicateurs
 JPI
 NAIADES
-Observatoire
 ONDE
+Observatoire
 Piézométrie
 Prélèvements
 Qualité
@@ -41,6 +42,7 @@ de
 departement
 des
 doApiQuery
+dplyr
 d’eau
 eau
 eaufrance
@@ -59,9 +61,11 @@ inrae
 insee
 io
 l'eau
+l’eau
 nappes
 nom
 numero
+openapi
 ouvrage
 piezometric
 piezometrie
@@ -69,7 +73,9 @@ pkgdown
 poisson
 prelevements
 qualite
+souterraine
 souterraines
+th
 tibble
 uri
 usuelle

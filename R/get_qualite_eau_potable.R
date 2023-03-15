@@ -7,7 +7,7 @@
 #' directly upstream, and links between communes and distribution units.
 #' The elements made available in this dataset correspond to a compilation of
 #' analysis bulletins published online, commune by commune, on the website of
-#' the Ministry of Health: \url{http://eaupotable.sante.gouv.fr/}
+#' the Ministry of Health: \url{https://sante.gouv.fr/sante-et-environnement/eaux/eau}
 #'
 #' Available endpoints are:
 #'
