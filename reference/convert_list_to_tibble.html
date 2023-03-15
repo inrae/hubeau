@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">hubeau</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Unreleased version">0.3.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.0</span>
       </span>
     </div>
 
@@ -25,6 +25,16 @@
       <ul class="nav navbar-nav"><li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu"><li>
+      <a href="../articles/example_ecoulement_api.html">Performing queries on the 'Ecoulement' API</a>
+    </li>
+  </ul></li>
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
@@ -78,12 +88,14 @@ converting data after the call to <a href="doApiQuery.html">doApiQuery</a>.</p>
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># To get the available APIs in the package</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="lists.html">list_apis</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "prelevements"         "indicateurs_services" "hydrometrie"         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [4] "niveaux_nappes"       "poisson"              "ecoulement"          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "prelevements"         "indicateurs_services" "hydrometrie"         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [4] "niveaux_nappes"       "poisson"              "ecoulement"          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] "hydrobio"             "temperature"          "qualite_eau_potable" </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "qualite_nappes"      </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># To get the available endpoints in an API</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="lists.html">list_endpoints</a></span><span class="op">(</span><span class="st">"prelevements"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "points_prelevement" "chroniques"         "ouvrages"          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "chroniques"         "ouvrages"           "points_prelevement"</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># To get available parameters in endpoint "chroniques" of the API "prelevements"</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="lists.html">list_params</a></span><span class="op">(</span>api <span class="op">=</span> <span class="st">"prelevements"</span>, endpoint <span class="op">=</span> <span class="st">"chroniques"</span><span class="op">)</span></span></span>
@@ -93,19 +105,38 @@ converting data after the call to <a href="doApiQuery.html">doApiQuery</a>.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [7] "code_qualification_volume"  "code_statut_instruction"   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [9] "code_statut_volume"         "code_usage"                </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [11] "distance"                   "fields"                    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [13] "latitude"                   "libelle_departement"       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [15] "longitude"                  "nom_commune"               </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [17] "prelevement_ecrasant"       "producteur_donnee"         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "volume_max"                 "volume_min"                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [13] "format"                     "latitude"                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [15] "libelle_departement"        "longitude"                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [17] "nom_commune"                "page"                      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "prelevement_ecrasant"       "producteur_donnee"         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [21] "size"                       "sort"                      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [23] "volume_max"                 "volume_min"                </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># To query the endpoint "chroniques" of the API "prelevements"</span></span></span>
 <span class="r-in"><span><span class="co"># on all devices in the commune of Romilly-sur-Seine in 2018</span></span></span>
-<span class="r-in"><span><span class="kw">if</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="co"># \dontrun{</span></span></span>
 <span class="r-in"><span><span class="va">resp</span> <span class="op">&lt;-</span> <span class="fu"><a href="doApiQuery.html">doApiQuery</a></span><span class="op">(</span>api <span class="op">=</span> <span class="st">"prelevements"</span>,</span></span>
 <span class="r-in"><span>                   endpoint <span class="op">=</span> <span class="st">"chroniques"</span>,</span></span>
-<span class="r-in"><span>                   params <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>code_commune_insee <span class="op">=</span> <span class="st">"10323"</span>, annee <span class="op">=</span> <span class="st">"2018"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span>                   code_commune_insee <span class="op">=</span> <span class="st">"10323"</span>,</span></span>
+<span class="r-in"><span>                   annee <span class="op">=</span> <span class="st">"2018"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">convert_list_to_tibble</span><span class="op">(</span><span class="va">resp</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6 × 28</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   code_ou…¹ annee volume code_…² libel…³ code_…⁴ libel…⁵ code_…⁶ libel…⁷ code_…⁸</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> OPR00000…  <span style="text-decoration: underline;">2</span>018 <span style="text-decoration: underline;">402</span>383 AEP     EAU PO… 1       Contrô… 1       Correc… REA    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> OPR00000…  <span style="text-decoration: underline;">2</span>018 <span style="text-decoration: underline;">402</span>383 AEP     EAU PO… 1       Contrô… 1       Correc… REA    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> OPR00000…  <span style="text-decoration: underline;">2</span>018  <span style="text-decoration: underline;">25</span>174 IND     INDUST… 1       Contrô… 1       Correc… REA    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> OPR00000…  <span style="text-decoration: underline;">2</span>018  <span style="text-decoration: underline;">27</span>242 IND     INDUST… 1       Contrô… 1       Correc… REA    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> OPR00001…  <span style="text-decoration: underline;">2</span>018  <span style="text-decoration: underline;">30</span>588 IRR     IRRIGA… 1       Contrô… 1       Correc… REA    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span> OPR00003…  <span style="text-decoration: underline;">2</span>018 <span style="text-decoration: underline;">305</span>611 IND     INDUST… 1       Contrô… 1       Correc… REA    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 18 more variables: libelle_statut_instruction &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   code_mode_obtention_volume &lt;chr&gt;, libelle_mode_obtention_volume &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   prelevement_ecrasant &lt;lgl&gt;, producteur_donnee &lt;chr&gt;, longitude &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   latitude &lt;dbl&gt;, code_commune_insee &lt;chr&gt;, nom_commune &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   code_departement &lt;chr&gt;, libelle_departement &lt;chr&gt;, nom_ouvrage &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   geometry.type &lt;chr&gt;, geometry.crs.type &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   geometry.crs.properties.name &lt;chr&gt;, geometry.coordinates1 &lt;dbl&gt;, …</span></span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -120,7 +151,7 @@ converting data after the call to <a href="doApiQuery.html">doApiQuery</a>.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>

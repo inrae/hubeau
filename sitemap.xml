@@ -13,6 +13,12 @@
     <loc>https://inrae.github.io/hubeau/LICENSE.html</loc>
   </url>
   <url>
+    <loc>https://inrae.github.io/hubeau/articles/example_ecoulement_api.html</loc>
+  </url>
+  <url>
+    <loc>https://inrae.github.io/hubeau/articles/index.html</loc>
+  </url>
+  <url>
     <loc>https://inrae.github.io/hubeau/authors.html</loc>
   </url>
   <url>
@@ -31,6 +37,9 @@
     <loc>https://inrae.github.io/hubeau/reference/get_ecoulement.html</loc>
   </url>
   <url>
+    <loc>https://inrae.github.io/hubeau/reference/get_hydrobio.html</loc>
+  </url>
+  <url>
     <loc>https://inrae.github.io/hubeau/reference/get_hydrometrie.html</loc>
   </url>
   <url>
@@ -44,6 +53,15 @@
   </url>
   <url>
     <loc>https://inrae.github.io/hubeau/reference/get_prelevements.html</loc>
+  </url>
+  <url>
+    <loc>https://inrae.github.io/hubeau/reference/get_qualite_eau_potable.html</loc>
+  </url>
+  <url>
+    <loc>https://inrae.github.io/hubeau/reference/get_qualite_nappe.html</loc>
+  </url>
+  <url>
+    <loc>https://inrae.github.io/hubeau/reference/get_temperature.html</loc>
   </url>
   <url>
     <loc>https://inrae.github.io/hubeau/reference/hubeau.html</loc>

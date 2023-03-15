@@ -18,7 +18,7 @@ See list_params and the API documentation for available filter parameters: https
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">hubeau</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Unreleased version">0.3.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.0</span>
       </span>
     </div>
 
@@ -26,6 +26,16 @@ See list_params and the API documentation for available filter parameters: https
       <ul class="nav navbar-nav"><li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu"><li>
+      <a href="../articles/example_ecoulement_api.html">Performing queries on the 'Ecoulement' API</a>
+    </li>
+  </ul></li>
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
@@ -55,17 +65,20 @@ See list_params and the API documentation for available filter parameters: https
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">get_indicateurs_services_communes</span><span class="op">(</span><span class="va">params</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">get_indicateurs_services_communes</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">get_indicateurs_services_indicateurs</span><span class="op">(</span><span class="va">params</span><span class="op">)</span></span>
+<span><span class="fu">get_indicateurs_services_indicateurs</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">get_indicateurs_services_services</span><span class="op">(</span><span class="va">params</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">get_indicateurs_services_services</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
-    <dl><dt>params</dt>
-<dd><p>a <a href="https://rdrr.io/r/base/list.html" class="external-link">list</a> the list of parameters of the queries and their values in the format <code>list(ParamName = "Param value", ...)</code>, use the function <a href="lists.html">list_params</a> for a list of the available filter parameters for a given API endpoint and see the API documentation for their description</p></dd>
+    <dl><dt>...</dt>
+<dd><p>parameters of the queries and their values in the format
+<code>Param1_Name = "Param1 value", Param2_Name = "Param2 value"</code>, use the
+function <a href="lists.html">list_params</a> for a list of the available filter parameters
+for a given API endpoint and see the API documentation for their description</p></dd>
 
 </dl></div>
     <div id="value">
@@ -98,16 +111,70 @@ See list_params and the API documentation for available filter parameters: https
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \dontrun{</span></span></span>
 <span class="r-in"><span><span class="co"># Retrieve performance indicator time series in the commune of Romilly-sur-Seine</span></span></span>
-<span class="r-in"><span><span class="fu">get_indicateurs_services_communes</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>code_commune <span class="op">=</span> <span class="st">"10323"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">get_indicateurs_services_communes</span><span class="op">(</span>code_commune <span class="op">=</span> <span class="st">"10323"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 28 × 39</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    code_com…¹ nom_c…² codes…³ noms_…⁴ annee D102.0 D151.0 P101.1 P101.1a P101.1b</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 10323      Romill…  <span style="text-decoration: underline;">148</span>782 eau po…  <span style="text-decoration: underline;">2</span>018   1.91      1    100 <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 10323      Romill…  <span style="text-decoration: underline;">148</span>782 eau po…  <span style="text-decoration: underline;">2</span>017   2.07      1    100 <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 10323      <span style="color: #BB0000;">NA</span>       <span style="text-decoration: underline;">148</span>783 assain…  <span style="text-decoration: underline;">2</span>017  <span style="color: #BB0000;">NA</span>        <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 10323      Romill…  <span style="text-decoration: underline;">148</span>783 assain…  <span style="text-decoration: underline;">2</span>017  <span style="color: #BB0000;">NA</span>        <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 10323      Romill…  <span style="text-decoration: underline;">148</span>782 eau po…  <span style="text-decoration: underline;">2</span>016   2.18      1    100 <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 10323      Romill…  <span style="text-decoration: underline;">148</span>783 assain…  <span style="text-decoration: underline;">2</span>016  <span style="color: #BB0000;">NA</span>        <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 10323      <span style="color: #BB0000;">NA</span>       <span style="text-decoration: underline;">148</span>783 assain…  <span style="text-decoration: underline;">2</span>016  <span style="color: #BB0000;">NA</span>        <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 10323      Romill…  <span style="text-decoration: underline;">148</span>782 eau po…  <span style="text-decoration: underline;">2</span>015   2.2       1    100 <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 10323      <span style="color: #BB0000;">NA</span>       <span style="text-decoration: underline;">148</span>783 assain…  <span style="text-decoration: underline;">2</span>015  <span style="color: #BB0000;">NA</span>        <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 10323      Romill…  <span style="text-decoration: underline;">148</span>783 assain…  <span style="text-decoration: underline;">2</span>015  <span style="color: #BB0000;">NA</span>        <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 18 more rows, 29 more variables: P102.1 &lt;dbl&gt;, P102.1a &lt;lgl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   P102.1b &lt;lgl&gt;, P104.3 &lt;dbl&gt;, P106.3 &lt;dbl&gt;, P107.2 &lt;dbl&gt;, P108.3 &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   P151.1 &lt;dbl&gt;, P152.1 &lt;dbl&gt;, P155.1 &lt;dbl&gt;, VP.177 &lt;dbl&gt;, VP.190 &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   VP.178 &lt;dbl&gt;, VP.191 &lt;dbl&gt;, VP.179 &lt;dbl&gt;, VP.061 &lt;dbl&gt;, DC.192 &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   VP.228 &lt;dbl&gt;, VP.231 &lt;dbl&gt;, D204.0 &lt;dbl&gt;, P201.1 &lt;dbl&gt;, P203.3 &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   P204.3 &lt;dbl&gt;, P205.3 &lt;dbl&gt;, P258.1 &lt;dbl&gt;, VP.186 &lt;dbl&gt;, VP.176 &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   VP.023 &lt;dbl&gt;, VP.229 &lt;dbl&gt;, and abbreviated variable names …</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Retrieve the drinking water withdrawal indicators of the year 2012 for all services</span></span></span>
-<span class="r-in"><span><span class="fu">get_indicateurs_services_indicateurs</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>code_indicateur <span class="op">=</span> <span class="st">"D102.0"</span>, annee <span class="op">=</span> <span class="st">"2012"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">get_indicateurs_services_indicateurs</span><span class="op">(</span>code_indicateur <span class="op">=</span> <span class="st">"D102.0"</span>, annee <span class="op">=</span> <span class="st">"2012"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 5,471 × 8</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    code_service nom_service numero_siren type_co…¹ mode_…² annee indic…³ uri_i…⁴</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>        <span style="text-decoration: underline;">99</span>941 eau potable 258803303    Syndicat… Régie    <span style="text-decoration: underline;">2</span>012   <span style="color: #BB0000;">NA</span>    http:/…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>        <span style="text-decoration: underline;">99</span>919 eau potable <span style="color: #BB0000;">NA</span>           Syndicat… Régie    <span style="text-decoration: underline;">2</span>012   <span style="color: #BB0000;">NA</span>    http:/…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>        <span style="text-decoration: underline;">99</span>917 eau potable 258800838    Syndicat… Déléga…  <span style="text-decoration: underline;">2</span>012    2.72 http:/…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>        <span style="text-decoration: underline;">99</span>916 eau potable 258800028    Syndicat… Régie    <span style="text-decoration: underline;">2</span>012    1.44 http:/…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>        <span style="text-decoration: underline;">99</span>915 eau potable 258800275    Syndicat… Régie    <span style="text-decoration: underline;">2</span>012    1.59 http:/…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>        <span style="text-decoration: underline;">99</span>914 eau potable 248800237    Syndicat… Régie    <span style="text-decoration: underline;">2</span>012   <span style="color: #BB0000;">NA</span>    http:/…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>        <span style="text-decoration: underline;">99</span>913 eau potable 258800911    Syndicat… Régie    <span style="text-decoration: underline;">2</span>012    2.17 http:/…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>        <span style="text-decoration: underline;">99</span>911 eau potable 258803048    Syndicat… Régie    <span style="text-decoration: underline;">2</span>012    1.69 http:/…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>        <span style="text-decoration: underline;">99</span>910 eau potable 258800044    Syndicat… Régie    <span style="text-decoration: underline;">2</span>012    1.90 http:/…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>        <span style="text-decoration: underline;">99</span>909 eau potable 258800713    Syndicat… Régie    <span style="text-decoration: underline;">2</span>012    1.50 http:/…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 5,461 more rows, and abbreviated variable names ¹​type_collectivite,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ²​mode_gestion, ³​indicateur, ⁴​uri_indicateur</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Retrieve performance indicator time series of Romilly-sur-Seine with service details</span></span></span>
-<span class="r-in"><span><span class="fu">get_indicateurs_services_services</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>code_commune <span class="op">=</span> <span class="st">"10323"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span><span class="fu">get_indicateurs_services_services</span><span class="op">(</span>code_commune <span class="op">=</span> <span class="st">"10323"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 9 × 38</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   code_ser…¹ nom_s…² codes…³ noms_…⁴ numer…⁵ type_…⁶ mode_…⁷ annee D101.0 D102.0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>     <span style="text-decoration: underline;">148</span>782 eau po… 10323   Romill… 211003… Commune Déléga…  <span style="text-decoration: underline;">2</span>019 <span style="color: #BB0000;">NA</span>       1.72</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>     <span style="text-decoration: underline;">148</span>782 eau po… 10323   Romill… 211003… Commune Déléga…  <span style="text-decoration: underline;">2</span>018 <span style="color: #BB0000;">NA</span>       1.91</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>     <span style="text-decoration: underline;">148</span>782 eau po… 10323   Romill… 211003… Commune Déléga…  <span style="text-decoration: underline;">2</span>017 <span style="color: #BB0000;">NA</span>       2.07</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span>     <span style="text-decoration: underline;">148</span>782 eau po… 10323   Romill… 211003… Commune Déléga…  <span style="text-decoration: underline;">2</span>016 <span style="color: #BB0000;">NA</span>       2.18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span>     <span style="text-decoration: underline;">148</span>782 eau po… 10323   Romill… 211003… Commune Déléga…  <span style="text-decoration: underline;">2</span>015 <span style="color: #BB0000;">NA</span>       2.2 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span>     <span style="text-decoration: underline;">148</span>782 eau po… 10323   Romill… 211003… Commune Déléga…  <span style="text-decoration: underline;">2</span>014 <span style="color: #BB0000;">NA</span>       2.25</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">7</span>     <span style="text-decoration: underline;">148</span>782 eau po… 10323   Romill… 211003… Commune Déléga…  <span style="text-decoration: underline;">2</span>013 <span style="color: #BB0000;">NA</span>       1.98</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">8</span>     <span style="text-decoration: underline;">148</span>782 eau po… 10323   Romill… 211003… Commune Déléga…  <span style="text-decoration: underline;">2</span>010 <span style="color: #BB0000;">NA</span>       1.52</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">9</span>     <span style="text-decoration: underline;">148</span>782 eau po… 10323   Romill… 211003… Commune Déléga…  <span style="text-decoration: underline;">2</span>009 <span style="color: #BB0000;">NA</span>       1.50</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 28 more variables: D151.0 &lt;dbl&gt;, P101.1 &lt;dbl&gt;, P101.1a &lt;lgl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   P101.1b &lt;lgl&gt;, P102.1 &lt;dbl&gt;, P102.1a &lt;lgl&gt;, P102.1b &lt;lgl&gt;, P104.3 &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   P106.3 &lt;dbl&gt;, P107.2 &lt;dbl&gt;, P108.3 &lt;dbl&gt;, P151.1 &lt;dbl&gt;, P152.1 &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   P155.1 &lt;dbl&gt;, VP.056 &lt;lgl&gt;, VP.177 &lt;dbl&gt;, VP.190 &lt;dbl&gt;, VP.178 &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   VP.191 &lt;dbl&gt;, VP.179 &lt;dbl&gt;, VP.059 &lt;lgl&gt;, VP.060 &lt;lgl&gt;, VP.061 &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   VP.063 &lt;lgl&gt;, VP.201 &lt;lgl&gt;, DC.192 &lt;dbl&gt;, VP.228 &lt;dbl&gt;, VP.231 &lt;dbl&gt;, and</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   abbreviated variable names ¹​code_service, ²​nom_service, ³​codes_commune, …</span></span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -122,7 +189,7 @@ See list_params and the API documentation for available filter parameters: https
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>

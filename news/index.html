@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">hubeau</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Unreleased version">0.3.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.0</span>
       </span>
     </div>
 
@@ -25,6 +25,16 @@
       <ul class="nav navbar-nav"><li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu"><li>
+      <a href="../articles/example_ecoulement_api.html">Performing queries on the 'Ecoulement' API</a>
+    </li>
+  </ul></li>
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
@@ -48,6 +58,25 @@
     </div>
 
     <div class="section level2">
+<h2 class="page-header" data-toc-text="0.4.0" id="hubeau-040">hubeau 0.4.0<a class="anchor" aria-label="anchor" href="#hubeau-040"></a></h2>
+<div class="section level3">
+<h3 id="new-features-0-4-0">New features<a class="anchor" aria-label="anchor" href="#new-features-0-4-0"></a></h3>
+<ul><li>Add API “Hydrobiologie” (<a href="https://github.com/inrae/hubeau/issues7" class="external-link">#7</a>, <a href="https://github.com/inrae/hubeau/issues18" class="external-link">#18</a>, 28)</li>
+<li>Add API “Température des cours d’eau” (<a href="https://github.com/inrae/hubeau/issues8" class="external-link">#8</a>)</li>
+<li>Add API “Qualité des nappes d’eau souterraine” (<a href="https://github.com/inrae/hubeau/issues10" class="external-link">#10</a>)</li>
+<li>Add API “Qualité de l’eau potable” (<a href="https://github.com/inrae/hubeau/issues5" class="external-link">#5</a>)</li>
+<li>Add vignettes with example of use of APIs (<a href="https://github.com/inrae/hubeau/issues21" class="external-link">#21</a>)</li>
+</ul></div>
+<div class="section level3">
+<h3 id="bug-fixes-0-4-0">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-0-4-0"></a></h3>
+<ul><li>Crash when dplyr is not installed (<a href="https://github.com/inrae/hubeau/issues16" class="external-link">#16</a>)</li>
+</ul></div>
+<div class="section level3">
+<h3 id="internal-changes-0-4-0">Internal changes<a class="anchor" aria-label="anchor" href="#internal-changes-0-4-0"></a></h3>
+<ul><li>Use swagger and openapi files to automatically check query fields (<a href="https://github.com/inrae/hubeau/issues14" class="external-link">#14</a>)</li>
+</ul></div>
+</div>
+    <div class="section level2">
 <h2 class="page-header" data-toc-text="0.3.1" id="hubeau-031">hubeau 0.3.1<small>2022-08-16</small><a class="anchor" aria-label="anchor" href="#hubeau-031"></a></h2>
 <div class="section level3">
 <h3 id="new-features-0-3-1">New features<a class="anchor" aria-label="anchor" href="#new-features-0-3-1"></a></h3>
@@ -68,7 +97,8 @@
 </ul></div>
 <div class="section level3">
 <h3 id="bug-fixes-0-3-1">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-0-3-1"></a></h3>
-<ul><li>Crash in get_hydrometrie_observations_tr for empty response (<a href="https://gitlab.irstea.fr/in-wop/hubeau/-/issues/13" class="external-link">gitlab#13</a>)</li></ul></div>
+<ul><li>Crash in get_hydrometrie_observations_tr for empty response (<a href="https://gitlab.irstea.fr/in-wop/hubeau/-/issues/13" class="external-link">gitlab#13</a>)</li>
+</ul></div>
 <div class="section level3">
 <h3 id="internal-changes-0-3-1">Internal changes<a class="anchor" aria-label="anchor" href="#internal-changes-0-3-1"></a></h3>
 <ul><li>Save package configuration as a global package variable (<a href="https://github.com/inrae/hubeau/issues4" class="external-link">#4</a>)</li>
@@ -81,13 +111,15 @@
 <h2 class="page-header" data-toc-text="0.2.0" id="hubeau-020-2021-06-24">hubeau 0.2.0 (2021-06-24)<a class="anchor" aria-label="anchor" href="#hubeau-020-2021-06-24"></a></h2>
 <div class="section level3">
 <h3 id="new-features-0-2-0">New features<a class="anchor" aria-label="anchor" href="#new-features-0-2-0"></a></h3>
-<ul><li>BNPE: download metadata and annual withdrawal volumes at “ouvrage” scale (<a href="https://github.com/inrae/hubeau/issues1" class="external-link">#1</a>)</li></ul></div>
+<ul><li>BNPE: download metadata and annual withdrawal volumes at “ouvrage” scale (<a href="https://github.com/inrae/hubeau/issues1" class="external-link">#1</a>)</li>
+</ul></div>
 </div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.1.0" id="hubeau-010-2021-04-30">hubeau 0.1.0 (2021-04-30)<a class="anchor" aria-label="anchor" href="#hubeau-010-2021-04-30"></a></h2>
 <div class="section level3">
 <h3 id="new-features-0-1-0">New features<a class="anchor" aria-label="anchor" href="#new-features-0-1-0"></a></h3>
-<ul><li>BNPE: download annual withdrawal volumes at commune scale</li></ul></div>
+<ul><li>BNPE: download annual withdrawal volumes at commune scale</li>
+</ul></div>
 </div>
   </div>
 
@@ -103,7 +135,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>
