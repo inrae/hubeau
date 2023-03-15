@@ -40,7 +40,7 @@ get_qualite_nappes_analyses <- function(...) {
 
 
 #' @export
-#' @rdname get_qualite_nappe
+#' @rdname get_qualite_nappes
 get_qualite_nappes_stations <- function(...) {
   l <- doApiQuery(api = "qualite_nappes",
                   endpoint = "stations",

@@ -2,9 +2,12 @@
 % Please edit documentation in R/get_qualite_nappes.R
 \name{get_qualite_nappes_analyses}
 \alias{get_qualite_nappes_analyses}
+\alias{get_qualite_nappes_stations}
 \title{Retrieve data from API "Qualité des nappes d'eau souterraines"}
 \usage{
 get_qualite_nappes_analyses(...)
+
+get_qualite_nappes_stations(...)
 }
 \arguments{
 \item{...}{parameters of the queries and their values in the format
