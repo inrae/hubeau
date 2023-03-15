@@ -16,7 +16,7 @@ URL: https://inrae.github.io/hubeau/,
     https://github.com/inrae/hubeau#readme
 BugReports: https://github.com/inrae/hubeau/issues
 Depends:
-    R (>= 2.10)
+    R (>= 3.5.0)
 Imports:
     dplyr,
     httr,
@@ -25,8 +25,6 @@ Imports:
     tibble,
     urltools
 Suggests:
-    flextable,
-    forcats,
     ggplot2,
     knitr,
     leafpop,
@@ -35,8 +33,7 @@ Suggests:
     rmarkdown,
     sf,
     spelling,
-    testthat (>= 3.0.0),
-    tidyr
+    testthat (>= 3.0.0)
 Config/testthat/edition: 3
 Encoding: UTF-8
 LazyData: true
