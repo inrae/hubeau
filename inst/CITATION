@@ -4,10 +4,10 @@ note    <- sprintf("R package version %s", version)
 
 citHeader("To cite hubeau in publications use:")
 
-citEntry(
-  entry    = "Manual",
+bibentry(
+  bibtype  = "Manual",
   title    = "hubeau: an R package for the Hub'Eau APIs",
-  author   = personList(as.person("D. Dorchies"), as.person("P. Irz"), as.person("S. Grall")),
+  author   = c(as.person("D. Dorchies"), as.person("P. Irz"), as.person("S. Grall")),
   journal  = "R news",
   year     = year,
   volume   = note,
