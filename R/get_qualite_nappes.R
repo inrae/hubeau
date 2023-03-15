@@ -13,7 +13,7 @@
 #' @inherit convert_list_to_tibble return return
 #'
 #' @export
-#' @rdname get_qualite_nappe
+#' @rdname get_qualite_nappes
 #'
 #' @examples
 #' \dontrun{
