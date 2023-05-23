@@ -14,7 +14,7 @@ default:
     poisson:
       path: v1/etat_piscicole
     ecoulement:
-      path: vbeta/ecoulement
+      path: v1/ecoulement
     hydrobio:
       path: v1/hydrobio
     temperature:
