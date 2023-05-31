@@ -2,7 +2,7 @@ Type: Package
 Package: hubeau
 Title: Get Data from the French National Database on Water 'Hub'Eau'
 Version: 0.4.0
-Date: 2023-03-15
+Date: 2023-06-01
 Authors@R: c(
     person("David", "Dorchies", , "david.dorchies@inrae.fr", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-6595-7984")),
@@ -24,7 +24,8 @@ Imports:
     magrittr,
     purrr,
     tibble,
-    urltools
+    urltools,
+    utils
 Suggests:
     ggplot2,
     knitr,
@@ -34,7 +35,8 @@ Suggests:
     rmarkdown,
     sf,
     spelling,
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    tools
 VignetteBuilder: 
     knitr
 Config/testthat/edition: 3

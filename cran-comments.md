@@ -2,5 +2,4 @@
 
 0 errors | 0 warnings | 0 note
 
-* This is a new release with some general improvements, new implemented APIs, 
-and a vignette for an extended example of use
+* update due to a change in the version of an API (https://github.com/inrae/hubeau/issues/33)
