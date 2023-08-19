@@ -83,6 +83,9 @@ doApiQuery <- function(api,
       )
     }
     if (!is.null(params[[paramName]])) {
+      if (length(params[[paramName]]) > 1) {
+        params[[paramName]] <- paste(params[[paramName]], collapse = ",")
+      }
       query <- urltools::param_set(query,
                                    key = paramName,
                                    value = params[[paramName]])
