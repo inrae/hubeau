@@ -2,6 +2,7 @@
 % Please edit documentation in R/hubeau.R
 \docType{package}
 \name{hubeau}
+\alias{hubeau-package}
 \alias{hubeau}
 \title{hubeau: A package for retrieving data on the French databases on water 'Hub'Eau'}
 \description{
@@ -114,4 +115,24 @@ Available functions:
 \item \code{\link[=get_temperature_chronique]{get_temperature_chronique()}}: river temperature time series
 }
 }
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://inrae.github.io/hubeau/}
+  \item \url{https://github.com/inrae/hubeau#readme}
+  \item Report bugs at \url{https://github.com/inrae/hubeau/issues}
+}
+
+}
+\author{
+\strong{Maintainer}: David Dorchies \email{david.dorchies@inrae.fr} (\href{https://orcid.org/0000-0002-6595-7984}{ORCID})
+
+Other contributors:
+\itemize{
+  \item Pascal Irz \email{pascal.irz@ofb.gouv.fr} (\href{https://orcid.org/00000-0002-2066-8935}{ORCID}) [contributor]
+  \item Sébastien Grall \email{seinormigr.grall@gmail.com} [contributor]
+  \item Philippe Amiotte Suchet \email{philippe.amiotte-suchet@u-bourgogne.fr} (\href{https://orcid.org/0000-0003-3514-1447}{ORCID}) [contributor]
+}
+
 }

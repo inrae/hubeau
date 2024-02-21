@@ -1,0 +1,330 @@
+---
+title: "Data extraction using the The API \"qualité des cours d'eau\""
+author: "Philippe Amiotte Suchet, David Dorchies"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Data extraction using the The API \"qualité des cours d'eau\"}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.width = 8,
+  fig.asp = 0.618,
+  out.width = "90%",
+  fig.align = "center"
+)
+load(system.file("vignettes/data_extraction_naiades.RData", package = "hubeau"))
+```
+
+This script applies functions of the [R package Hubeau "Get Data from the French National Database on Water Hub'Eau"](https://cran.r-project.org/package=hubeau) to query the french Naiades database through the [API "qualité des cours d'eau"](https://hubeau.eaufrance.fr/page/api-qualite-cours-deau).
+
+The [Naiades database](https://naiades.eaufrance.fr/) gather hydrobiology, hydrogeomophomogy and physico-chemical informations for french river and lake water. The information is associated with a water quality station (location) , a date (the day of the sampling or of the observation) and a material (water, suspended matter, sediment, river bed, fish, ...). **The API "qualité des cours d'eau" focuses only on water physico-chemical properties.**
+
+This example shows how to extract physico-chemical (here nitrates concentration and total pesticides) informations from the Naiades database on water station belonging to an administrative entity (here the Cote d'Or department).
+
+```{r}
+library(hubeau)
+library(dplyr)
+library(lubridate)
+library(ggplot2)
+library(Hmisc)
+```
+
+# Get started
+
+## How it works
+
+The Hubeau package provides functions to query the databases of the french water information system using the Hub'eau API.
+
+The function names are wrtitten as follow: `hubeau::get_[API]_[endpoint](argument)` where:
+
+-   [API] is the name of the API (one API = one database)
+
+-   [endpoint] is the type of information which is queried in the database; the query is defined by a list of arguments.
+
+For example the function `get_qualite_rivieres_station()` uses the API "qualité des cours d'eau" to recover the water quality stations corresponding to requirements described in the station() function.
+
+See the [readme in the R package Hubeau](https://github.com/inrae/hubeau#api-hydrom%C3%A9trie)
+
+## Listing the available API in the R package
+
+The 0.4.1 version is able to query 10 different databases which can be listed as follow:
+
+```{r}
+list_apis()
+```
+
+The name of the API which will be used below is `"qualite_rivieres"` using the ["qualité des cours d'eau" Hub'eau API](https://hubeau.eaufrance.fr/page/api-qualite-cours-deau) allowing to query the [Naiades database](https://naiades.eaufrance.fr/bienvenue-naiades).
+
+## Available endpoints for the "qualite_rivieres" API
+
+The function `list_endpoints(api = "name of the api given by <list_apis>")` of the Hubeau R package lists the available endpoints. 
+For the `qualite_rivieres` API it gives:
+
+```{r}
+list_endpoints(api = "qualite_rivieres")
+```
+
+These 4 endpoints are described in the [Hub'eau web page of the API (see "opération" section)](https://hubeau.eaufrance.fr/page/api-qualite-cours-deau).
+
+-   [**station_pc**] lists the water stations with physico-chemical analysis;
+
+-   [**operation_pc**] lists the sampling operation occuring on each water station;
+
+-   [**condition_environnementale_pc**] lists the environmental conditions observed during water sampming (air temperature, presence of mosses, alguae, etc.);
+
+-   [**analyse_pc**] gives the results of the physico-chemical analysis made on water samples of a selected water station.
+
+Each endpoint is defined by a list of arguments to query the database.
+
+## List of arguments by endpoint
+
+The function `list_params(api = "name of the api", endpoint = "name of the endpoint")` gives the arguments which can be used in the query. These arguments correspond the parameters of the Hub'eau API and are described in the [Hub'eau web page of the API](https://hubeau.eaufrance.fr/page/api-qualite-cours-deau).
+
+For example, the following instruction lists the available arguments for the endpoint "condition_environnementale_pc":
+
+```{r}
+list_params(api = "qualite_rivieres", endpoint = "condition_environnementale_pc")
+```
+
+# Extracting physico-chemical data
+
+This example shows how to extract the nitrates concentration values in river water samples for station located in the Cote d'Or department from 2000 to 2022.
+
+## Availability of station in the Côte d'Or department
+
+The function `get_qualite_rivieres_station(…)` will be used to list the available stations. 
+Arguments for the function can be listed as follow:
+
+```{r}
+list_params(api = "qualite_rivieres", endpoint = "station_pc")
+```
+
+The argument "code_departement" will be used with the value "21" which is the french administrative code for Côte d'Or.
+
+```{r, eval = FALSE}
+station_21 <- get_qualite_rivieres_station(code_departement = "21")
+```
+
+```{r}
+station_21
+```
+
+The result of the query gives a tibble of 466 lines and 48 columns which means that the database comprises 466 water stations in the Côte d'Or department being described by 48 parameters.
+
+
+## Retrieving nitrates concentration in river water of the Côte d'or department
+
+The function `get_qualite_rivieres_analyse(…)` is used to get the physico-chemical analysis for selected stations. 
+Arguments for the function can be listed as follow:
+
+```{r}
+list_params(api = "qualite_rivieres", endpoint = "analyse_pc")
+```
+
+These arguments are described in the[Hub'eau API web page](https://hubeau.eaufrance.fr/page/api-qualite-cours-deau#/physicochimie/analyse_pc).
+
+Needed arguments in this example are:
+
+- `code_departement`: french administrative code for department ("21" for Côte d'Or)
+- `code_param`: Code of the physico-chemical parameter; if more than one parameter, codes must be separated by a commas; maximum number of code is 200. The code of a given parameter that can be found in the [french water reference system "Sandre](https://www.sandre.eaufrance.fr/Rechercher-une-donnee-d-un-jeu); For nitrates the code is "1340"
+- `date_debut_prelevement` et `date_fin_prelevement`: beginning and end dates of samples ("_yyyy-mm-dd_" format).
+
+The query can be written as follow:
+
+```{r, eval = FALSE}
+nitrates_21_raw <- get_qualite_rivieres_analyse(code_departement = "21", 
+                                            date_debut_prelevement = "2000-01-01", 
+                                            date_fin_prelevement = "2000-12-31", 
+                                            code_parametre = "1340")
+```
+
+```{r}
+dim(nitrates_21_raw)
+nitrates_21_raw
+```
+
+The query gives a tibble of more than 13000 lines and 134 columns. 
+Each line corresponds to a nitrate concentration value (`resultat`) in mg.L^-1^ 
+for a given station (`code_station`) and for a given date (`date_prelevement`).
+
+The argument `fields` of the function `get_qualite_rivieres_analyse()` allows to 
+specify which parameter (i.e. column) must be returned in the resulting tibble
+which is usefull for limiting the size of the tibble.
+
+```{r, eval = FALSE}
+nitrates_21 <- get_qualite_rivieres_analyse(
+  code_departement = "21", 
+  date_debut_prelevement = "2000-01-01", 
+  date_fin_prelevement = "2022-12-31", 
+  code_parametre = "1340", 
+  fields = c(
+    "code_station",
+    "libelle_station",
+    "libelle_fraction",
+    "date_prelevement",
+    "resultat",
+    "symbole_unite"
+  )
+)
+```
+
+```{r}
+dim(nitrates_21)
+nitrates_21
+```
+
+The query still gives a tibble of more than 13000 lines but with 6 columns only.
+
+# Extraction and analysis of data station by station
+
+## Objectives
+
+In the tibble created in the previous example, a lot of stations are not suitable 
+for computing basic statistical parameters (annual or interannual mean, median, 
+standard deviation, etc.) because they provide only few results each year and are 
+not representative of the seasonal cycle of nitrates. 
+This means that the tibble resulting from the query may include a lot of 
+unexploitable data and could be much smaller.
+
+The data can be computed directly from the database station by station by including 
+the query in a loop using a known list of stations. 
+For each station, the number of results (available nitrates data) is calculated 
+each year and compared to a threshold to determine if a statistical/graphical 
+analysis can be computed or not.
+
+## Selection of stations available for analysis
+
+In the following example, a list of the stations of the Côte d'Or department is 
+created (`get_qualite_rivieres_station(code_departement = "21"`) 
+
+```{r, eval = FALSE}
+#list of station to query 
+station_21 <- get_qualite_rivieres_station(code_departement = "21")
+```
+
+Total number of stations is:
+
+```{r}
+nrow(station_21)
+```
+
+We use the function `get_qualite_rivieres_analyse(code_station = "")` for retrieving 
+nitrate concentration values (`code_parametre = "1340")` from 2000 to 2022. 
+
+```{r, eval = FALSE}
+nitrates_21 <- get_qualite_rivieres_analyse(
+  code_departement = "21", 
+  date_debut_prelevement = "2000-01-01", 
+  date_fin_prelevement = "2022-12-31", 
+  code_parametre = "1340", 
+  fields = c(
+    "code_station",
+    "libelle_station",
+    "libelle_fraction",
+    "date_prelevement",
+    "resultat",
+    "symbole_unite"
+  )
+)
+```
+
+We compute some annual statistics for each station:
+
+```{r}
+nitrates_21$date_prelevement <- as.POSIXct(nitrates_21$date_prelevement)
+nitrates_21$year <- year(nitrates_21$date_prelevement)
+
+station_stats <- nitrates_21 %>% group_by(code_station, libelle_station, year) %>%
+  summarise(nb_analyses = n(), 
+            nitrate_mean = mean(resultat),
+            nitrate_p90 = quantile(resultat, probs = 0.9), 
+            .groups = 'drop')
+station_stats
+```
+
+The number of lines of the tibble `station_stats` corresponds to the number of
+stations with at least one sample.
+
+Stations with less than 10 values per year on average and less than 10 years of data 
+are excluded of the statistical analysis. 
+
+```{r}
+valid_stations <- station_stats %>% group_by(code_station, libelle_station) %>%
+  summarise(analyses_per_year = mean(nb_analyses), nb_years = n()) %>%
+  filter(analyses_per_year >= 10, nb_years >= 10)
+valid_stations
+```
+
+The number of lines of the tibble `valid_stations` corresponds to the number of 
+stations with at least 10 samples per year on average and 10 years of data.
+
+## Statistical analysis of samples
+
+Then, we plot the year distribution of nitrate levels with violin plots.
+
+```{r}
+plot_nitrates <- function(code) {
+  
+  station_details <- station_21[station_21$code_station == code, , drop = FALSE]
+  mean_samples <- valid_stations$analyses_per_year[valid_stations$code_station == code]
+  nitrates_station <- nitrates_21 %>% filter(code_station == code)
+  station_yearly_stats <- station_stats %>% filter(code_station == code)
+  
+  p  <-  ggplot(nitrates_station, aes(x = as.factor(year), y = resultat)) +
+    labs(
+      x = "year",
+      y = "nitrates (mg/l)",
+      title = paste(
+        "station: ",
+        station_details$code_station,
+        station_details$libelle_station
+      ),
+      subtitle = paste(round(mean_samples, 1), "samples per year on average"),
+      caption = "mean and sd in blue, median + 1rst and 3rd quartile represented by dashed lines,  percentile 90 in red"
+    ) +
+    scale_x_discrete(labels = paste0(station_yearly_stats$year, "\nn=", station_yearly_stats$nb_analyses))
+  p  <-
+    p +
+    geom_violin(
+      trim = TRUE,
+      scale = "width",
+      adjust = 0.5,
+      draw_quantiles = 0.9,
+      color = "red",
+      fill = "lightblue1"
+    ) + # draw the violin and adds an horizontal red line corresponding to the quantile 90
+    
+    geom_violin(
+      trim = TRUE,
+      scale = "width",
+      adjust = 0.5,
+      color = "black",
+      fill = "transparent"
+    ) + # draw the same violin but with black lines and no fill
+    
+    geom_violin(
+      trim = TRUE,
+      scale = "width",
+      adjust = 0.5,
+      draw_quantiles = c(0.25, 0.5, 0.75),
+      linetype = "dashed",
+      fill = "transparent"
+    ) + # adds the median, the 1st and 3rd quartiles in dashed line
+    stat_summary(
+      fun.data = mean_sdl,
+      fun.args = list(mult = 1),
+      geom = "pointrange",
+      color = "blue4",
+      fill = "transparent"
+    )  # adds the mean and the standard deviation in blue
+}
+```
+
+```{r}
+lapply(valid_stations$code_station, plot_nitrates)
+```
