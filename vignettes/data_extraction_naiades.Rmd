@@ -280,7 +280,7 @@ plot_nitrates <- function(code) {
       x = "year",
       y = "nitrates (mg/l)",
       title = paste(
-        "station: ",
+        "station:",
         station_details$code_station,
         station_details$libelle_station
       ),
