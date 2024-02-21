@@ -23,7 +23,7 @@ See the API documentation for available filter parameters: https://hubeau.eaufra
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">hubeau</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.3.1.9001</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.4.1.9000</span>
       </span>
     </div>
 
@@ -38,6 +38,9 @@ See the API documentation for available filter parameters: https://hubeau.eaufra
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu"><li>
+      <a href="../articles/data_extraction_naiades.html">Data extraction using the The API "qualité des cours d'eau"</a>
+    </li>
+    <li>
       <a href="../articles/example_ecoulement_api.html">Performing queries on the 'Ecoulement' API</a>
     </li>
   </ul></li>
@@ -101,25 +104,25 @@ for a given API endpoint and see the API documentation for their description</p>
 <span class="r-in"><span><span class="co"># Retrieve the hydrometric stations in the department of Aube</span></span></span>
 <span class="r-in"><span><span class="fu">get_niveaux_nappes_stations</span><span class="op">(</span>code_departement <span class="op">=</span> <span class="st">"10"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 724 × 36</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    code_bss  urn_bss date_…¹ date_…² code_…³ nom_c…⁴     x     y codes…⁵ urns_…⁶</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 03001X01… http:/… 1986-0… 1986-1… 10411   La Vil…  4.68  48.4 <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 03001X01… http:/… 1986-0… 1986-1… 10411   La Vil…  4.68  48.4 <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 02994X01… http:/… 1985-0… 1986-1… 10372   Soulai…  4.67  48.4 <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 02994X02… http:/… 1986-0… 1986-1… 10139   Épothé…  4.66  48.4 <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 03001X01… http:/… 1986-0… 1986-1… 10372   Soulai…  4.68  48.4 <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 02994X03… http:/… 1986-0… 1986-1… 10372   Soulai…  4.67  48.4 <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 03001X00… http:/… 1985-0… 1986-0… 10372   Soulai…  4.72  48.4 <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 02623X00… http:/… 1977-1… 1991-1… 10354   Saint-…  4.22  48.5 <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 03001X01… http:/… 1985-0… 1986-1… 10411   La Vil…  4.68  48.4 <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 02994X02… http:/… 1986-0… 1986-1… 10372   Soulai…  4.67  48.4 <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 714 more rows, 26 more variables: geometry.type &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   geometry.crs.type &lt;chr&gt;, geometry.crs.properties.name &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   geometry.coordinates1 &lt;dbl&gt;, geometry.coordinates2 &lt;dbl&gt;, bss_id &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   altitude_station &lt;chr&gt;, nb_mesures_piezo &lt;int&gt;, code_departement &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   nom_departement &lt;chr&gt;, libelle_pe &lt;chr&gt;, profondeur_investigation &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   codes_masse_eau_edl &lt;chr&gt;, noms_masse_eau_edl &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   urns_masse_eau_edl &lt;chr&gt;, date_maj &lt;chr&gt;, codes_bdlisa1 &lt;chr&gt;, …</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    code_bss        urn_bss  date_debut_mesure date_fin_mesure code_commune_insee</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 03001X0160/T200 http://… 1986-01-30        1986-12-03      10411             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 03001X0183/T300 http://… 1986-03-18        1986-12-03      10411             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 02994X0141/T110 http://… 1985-07-31        1986-12-22      10372             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 02994X0209/T210 http://… 1986-01-08        1986-12-16      10139             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 03001X0188/T310 http://… 1986-03-19        1986-12-22      10372             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 02994X0325/D410 http://… 1986-03-03        1986-12-22      10372             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 03001X0073/D10  http://… 1985-04-12        1986-04-16      10372             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 02623X0022/S10  http://… 1977-12-12        1991-12-30      10354             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 03001X0137/T120 http://… 1985-07-31        1986-11-14      10411             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 02994X0219/T220 http://… 1986-01-09        1986-12-22      10372             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 714 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 31 more variables: nom_commune &lt;chr&gt;, x &lt;dbl&gt;, y &lt;dbl&gt;, codes_bdlisa &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   urns_bdlisa &lt;chr&gt;, geometry.type &lt;chr&gt;, geometry.crs.type &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   geometry.crs.properties.name &lt;chr&gt;, geometry.coordinates1 &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   geometry.coordinates2 &lt;dbl&gt;, bss_id &lt;chr&gt;, altitude_station &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   nb_mesures_piezo &lt;int&gt;, code_departement &lt;chr&gt;, nom_departement &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   libelle_pe &lt;chr&gt;, profondeur_investigation &lt;dbl&gt;, …</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Retrieve the archived observed piezometric level at station '07548X0009/F' (old BSS identifier)</span></span></span>
 <span class="r-in"><span><span class="co"># for the year 2020</span></span></span>

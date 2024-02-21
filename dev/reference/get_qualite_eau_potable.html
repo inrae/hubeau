@@ -5,7 +5,7 @@ regulatory sanitary control on the distribution units or the installations
 directly upstream, and links between communes and distribution units.
 The elements made available in this dataset correspond to a compilation of
 analysis bulletins published online, commune by commune, on the website of
-the Ministry of Health: http://eaupotable.sante.gouv.fr/
+the Ministry of Health: https://sante.gouv.fr/sante-et-environnement/eaux/eau
 Available endpoints are:
 get_qualite_eau_potable_communes_udi retrieves links between "UDI"
 (Distribution units or networks) and communes
@@ -32,7 +32,7 @@ See the API documentation for available filter parameters: https://hubeau.eaufra
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">hubeau</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.3.1.9001</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.4.1.9000</span>
       </span>
     </div>
 
@@ -47,6 +47,9 @@ See the API documentation for available filter parameters: https://hubeau.eaufra
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu"><li>
+      <a href="../articles/data_extraction_naiades.html">Data extraction using the The API "qualité des cours d'eau"</a>
+    </li>
+    <li>
       <a href="../articles/example_ecoulement_api.html">Performing queries on the 'Ecoulement' API</a>
     </li>
   </ul></li>
@@ -80,7 +83,7 @@ regulatory sanitary control on the distribution units or the installations
 directly upstream, and links between communes and distribution units.
 The elements made available in this dataset correspond to a compilation of
 analysis bulletins published online, commune by commune, on the website of
-the Ministry of Health: <a href="http://eaupotable.sante.gouv.fr/" class="external-link">http://eaupotable.sante.gouv.fr/</a></p>
+the Ministry of Health: <a href="https://sante.gouv.fr/sante-et-environnement/eaux/eau" class="external-link">https://sante.gouv.fr/sante-et-environnement/eaux/eau</a></p>
 <p>Available endpoints are:</p><ul><li><p><code>get_qualite_eau_potable_communes_udi</code> retrieves links between "UDI"
 (Distribution units or networks) and communes</p></li>
 <li><p><code>get_qualite_eau_potable_resultats_dis</code> retrieves samples, analysis results
@@ -122,12 +125,11 @@ for a given API endpoint and see the API documentation for their description</p>
 <span class="r-in"><span><span class="co"># List of UDIs available in 2022 at Grabels (INSEE code 34116)</span></span></span>
 <span class="r-in"><span><span class="fu">get_qualite_eau_potable_communes_udi</span><span class="op">(</span>annee <span class="op">=</span> <span class="fl">2022</span>, code_commune <span class="op">=</span> <span class="fl">34116</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 3 × 7</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   code_commune nom_commune nom_quartier   code_reseau nom_reseau   debut…¹ annee</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> 34116        GRABELS     village        034000205   MMM-GRABELS… 2010-1… 2022 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> 34116        GRABELS     -              034001317   MMM-MONTP-J… 2016-0… 2022 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> 34116        GRABELS     Goule de Laval 034001349   MMM-GRABELS… 2010-1… 2022 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with abbreviated variable name ¹​debut_alim</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   code_commune nom_commune nom_quartier  code_reseau nom_reseau debut_alim annee</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> 34116        GRABELS     village       034000205   MMM-GRABE… 2010-11-06 2022 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> 34116        GRABELS     -             034001317   MMM-MONTP… 2016-06-15 2022 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> 34116        GRABELS     Goule de Lav… 034001349   MMM-GRABE… 2010-11-06 2022 </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># List of available filter parameters on 'get_qualite_eau_potable_resultats_dis'</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="lists.html">list_params</a></span><span class="op">(</span><span class="st">"qualite_eau_potable"</span>, <span class="st">"resultats_dis"</span><span class="op">)</span></span></span>
@@ -162,25 +164,25 @@ for a given API endpoint and see the API documentation for their description</p>
 <span class="r-in"><span>                                      date_min_prelevement <span class="op">=</span> <span class="st">"2000-01-01"</span>,</span></span>
 <span class="r-in"><span>                                      date_max_prelevement <span class="op">=</span> <span class="st">"2022-12-31"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 8,246 × 34</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    code_depart…¹ nom_d…² code_…³ code_…⁴ code_…⁵ code_…⁶ libel…⁷ libel…⁸ libel…⁹</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 34            Hérault 034002… 5440    GT22_68 <span style="color: #BB0000;">NA</span>      Bact. … BACT. … <span style="color: #BB0000;">NA</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 34            Hérault 034002… 1301    TEAU    <span style="color: #BB0000;">NA</span>      Tempér… TEMPÉR… <span style="color: #BB0000;">NA</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 34            Hérault 034002… <span style="color: #BB0000;">NA</span>      CLO2RES 10049-… Résidu… RÉSIDU… <span style="color: #BB0000;">NA</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 34            Hérault 034002… 5901    ODQ     <span style="color: #BB0000;">NA</span>      Odeur … ODEUR … <span style="color: #BB0000;">NA</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 34            Hérault 034002… 1370    ALTMICR 7429-9… Alumin… ALUMIN… <span style="color: #BB0000;">NA</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 34            Hérault 034002… 1447    CTF     <span style="color: #BB0000;">NA</span>      Bactér… BACTÉR… <span style="color: #BB0000;">NA</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 34            Hérault 034002… 1303    CDT25   <span style="color: #BB0000;">NA</span>      Conduc… CONDUC… <span style="color: #BB0000;">NA</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 34            Hérault 034002… 1335    NH4     14798-… Ammoni… AMMONI… <span style="color: #BB0000;">NA</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 34            Hérault 034002… 5900    COULQ   <span style="color: #BB0000;">NA</span>      Couleu… COULEU… <span style="color: #BB0000;">NA</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 34            Hérault 034002… 5902    SAVQ    <span style="color: #BB0000;">NA</span>      Saveur… SAVEUR… <span style="color: #BB0000;">NA</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 8,236 more rows, 25 more variables: code_type_parametre &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    code_departement nom_departement code_prelevement code_parametre</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 34               Hérault         03400287942      1301          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 34               Hérault         03400287942      5440          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 34               Hérault         03400287942      <span style="color: #BB0000;">NA</span>            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 34               Hérault         03400287942      5901          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 34               Hérault         03400287942      1303          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 34               Hérault         03400287942      1370          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 34               Hérault         03400287942      1447          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 34               Hérault         03400287942      1335          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 34               Hérault         03400287942      1042          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 34               Hérault         03400287942      5900          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 8,236 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 30 more variables: code_parametre_se &lt;chr&gt;, code_parametre_cas &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   libelle_parametre &lt;chr&gt;, libelle_parametre_maj &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   libelle_parametre_web &lt;lgl&gt;, code_type_parametre &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   code_lieu_analyse &lt;chr&gt;, resultat_alphanumerique &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   resultat_numerique &lt;dbl&gt;, libelle_unite &lt;chr&gt;, code_unite &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   limite_qualite_parametre &lt;chr&gt;, reference_qualite_parametre &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   code_commune &lt;chr&gt;, nom_commune &lt;chr&gt;, nom_uge &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   nom_distributeur &lt;chr&gt;, nom_moa &lt;chr&gt;, date_prelevement &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   conclusion_conformite_prelevement &lt;chr&gt;, …</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   limite_qualite_parametre &lt;chr&gt;, reference_qualite_parametre &lt;chr&gt;, …</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
