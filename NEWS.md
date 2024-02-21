@@ -1,3 +1,5 @@
+# hubeau (development version)
+
 # hubeau 0.4.1
 
 New features

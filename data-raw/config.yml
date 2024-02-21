@@ -23,3 +23,5 @@ default:
       path: v1/qualite_eau_potable
     qualite_nappes:
       path: v1/qualite_nappes
+    qualite_rivieres:
+      path: v2/qualite_rivieres
