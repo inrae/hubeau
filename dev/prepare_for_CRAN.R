@@ -62,3 +62,8 @@ usethis::use_version(which = c("patch", "minor", "major", "dev")[1])
 
 # Verify you're ready for release, and release
 devtools::release()
+
+# After the acceptation on CRAN
+# * Create the release on github
+# * Upgrade version to dev x.y.z.9000
+usethis::use_version(which = c("patch", "minor", "major", "dev")[4])

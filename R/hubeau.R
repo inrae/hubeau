@@ -5,6 +5,7 @@
 #' ```
 #'
 #' @docType package
+#' @import utils
 #' @name hubeau
 #'
 NULL

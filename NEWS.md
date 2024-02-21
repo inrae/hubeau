@@ -1,3 +1,12 @@
+# hubeau (development version)
+
+# hubeau 0.4.1
+
+New features
+------------
+
+* update API "ecoulement" from version beta to v1 (#33, contributor @OFB-IdF)
+
 # hubeau 0.4.0
 
 New features
