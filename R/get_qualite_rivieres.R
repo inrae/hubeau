@@ -116,7 +116,7 @@ get_qualite_rivieres_analyse <- function(...) {
   l <- doApiQuery(api = "qualite_rivieres",
                   endpoint = "analyse_pc",
                   ...)
-  convert_list_to_tibble(l)
+  convert_list_to_tibble(l) %>% fix_encoding_libelle_station
 }
 
 #' @export
@@ -125,7 +125,7 @@ get_qualite_rivieres_condition_environnementale <- function(...) {
   l <- doApiQuery(api = "qualite_rivieres",
                   endpoint = "condition_environnementale_pc",
                   ...)
-  convert_list_to_tibble(l)
+  convert_list_to_tibble(l) %>% fix_encoding_libelle_station
 }
 
 #' @export
@@ -134,7 +134,7 @@ get_qualite_rivieres_operation <- function(...) {
   l <- doApiQuery(api = "qualite_rivieres",
                   endpoint = "operation_pc",
                   ...)
-  convert_list_to_tibble(l)
+  convert_list_to_tibble(l) %>% fix_encoding_libelle_station
 }
 
 #' @export
@@ -143,5 +143,12 @@ get_qualite_rivieres_station <- function(...) {
   l <- doApiQuery(api = "qualite_rivieres",
                   endpoint = "station_pc",
                   ...)
-  convert_list_to_tibble(l)
+  convert_list_to_tibble(l) %>% fix_encoding_libelle_station
+}
+
+fix_encoding_libelle_station <- function(df) {
+  if ("libelle_station" %in% names(df)) {
+    return(df %>% mutate(libelle_station = iconv(libelle_station, to = "iso8859-1", from = "utf8")))
+  }
+  return(df)
 }
