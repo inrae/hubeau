@@ -1,5 +1,5 @@
 ---
-title: "Data extraction using the The API \"qualité des cours d'eau\""
+title: "Getting data from the API \"qualité des cours d'eau\""
 author: "Philippe Amiotte Suchet, David Dorchies"
 output: rmarkdown::html_vignette
 vignette: >
@@ -15,16 +15,18 @@ knitr::opts_chunk$set(
   fig.width = 8,
   fig.asp = 0.618,
   out.width = "90%",
-  fig.align = "center"
+  fig.align = "center",
+  warning = FALSE,
+  message = FALSE
 )
 load(system.file("vignettes/data_extraction_naiades.RData", package = "hubeau"))
 ```
 
-This script applies functions of the [R package Hubeau "Get Data from the French National Database on Water Hub'Eau"](https://cran.r-project.org/package=hubeau) to query the french Naiades database through the [API "qualité des cours d'eau"](https://hubeau.eaufrance.fr/page/api-qualite-cours-deau).
+This vignette describes how to use functions of the [R package *hubeau*](https://cran.r-project.org/package=hubeau) to query the French Naiades database through the [API "qualité des cours d'eau"](https://hubeau.eaufrance.fr/page/api-qualite-cours-deau).
 
-The [Naiades database](https://naiades.eaufrance.fr/) gather hydrobiology, hydrogeomophomogy and physico-chemical informations for french river and lake water. The information is associated with a water quality station (location) , a date (the day of the sampling or of the observation) and a material (water, suspended matter, sediment, river bed, fish, ...). **The API "qualité des cours d'eau" focuses only on water physico-chemical properties.**
+The [Naiades database](https://naiades.eaufrance.fr/) gathers hydrobiology, hydrogeomophomogy and physico-chemical information for French river and lake water. The information is associated with a water quality station (location), a date (the day of the sampling or of the observation) and a material (water, suspended matter, sediment, river bed, fish, etc.). **The API "qualité des cours d'eau" focuses only on water physico-chemical properties.**
 
-This example shows how to extract physico-chemical (here nitrates concentration and total pesticides) informations from the Naiades database on water station belonging to an administrative entity (here the Cote d'Or department).
+This example shows how to get physico-chemical information (here nitrates concentration) from the Naiades database on water monitoring sites belonging to an administrative entity (here the Cote d'Or department).
 
 ```{r}
 library(hubeau)
@@ -38,21 +40,21 @@ library(Hmisc)
 
 ## How it works
 
-The Hubeau package provides functions to query the databases of the french water information system using the Hub'eau API.
+The *hubeau* package provides functions to query the databases of the French water information system using the Hub'eau API.
 
-The function names are wrtitten as follow: `hubeau::get_[API]_[endpoint](argument)` where:
+The functions are named as follows: `hubeau::get_[API]_[endpoint](argument)` where:
 
 -   [API] is the name of the API (one API = one database)
 
 -   [endpoint] is the type of information which is queried in the database; the query is defined by a list of arguments.
 
-For example the function `get_qualite_rivieres_station()` uses the API "qualité des cours d'eau" to recover the water quality stations corresponding to requirements described in the station() function.
+For example the function `get_qualite_rivieres_station()` uses the API "qualité des cours d'eau" to get the water quality stations corresponding to requirements described in the `station()` function.
 
-See the [readme in the R package Hubeau](https://github.com/inrae/hubeau#api-hydrom%C3%A9trie)
+See the [readme in the R package *hubeau*](https://github.com/inrae/hubeau#api-hydrom%C3%A9trie).
 
-## Listing the available API in the R package
+## Listing the APIs searchable with the *hubeau* R package
 
-The 0.4.1 version is able to query 10 different databases which can be listed as follow:
+The *hubeau* R package allows to query 11 databases which can be listed as follow:
 
 ```{r}
 list_apis()
@@ -62,7 +64,7 @@ The name of the API which will be used below is `"qualite_rivieres"` using the [
 
 ## Available endpoints for the "qualite_rivieres" API
 
-The function `list_endpoints(api = "name of the api given by <list_apis>")` of the Hubeau R package lists the available endpoints. 
+The function `list_endpoints(api = "name of the api given by <list_apis>")` of the *hubeau* R package lists the available endpoints. 
 For the `qualite_rivieres` API it gives:
 
 ```{r}
@@ -75,7 +77,7 @@ These 4 endpoints are described in the [Hub'eau web page of the API (see "opéra
 
 -   [**operation_pc**] lists the sampling operation occuring on each water station;
 
--   [**condition_environnementale_pc**] lists the environmental conditions observed during water sampming (air temperature, presence of mosses, alguae, etc.);
+-   [**condition_environnementale_pc**] lists the environmental conditions observed during water sampling (air temperature, presence of mosses, alguae, etc.);
 
 -   [**analyse_pc**] gives the results of the physico-chemical analysis made on water samples of a selected water station.
 
@@ -83,7 +85,7 @@ Each endpoint is defined by a list of arguments to query the database.
 
 ## List of arguments by endpoint
 
-The function `list_params(api = "name of the api", endpoint = "name of the endpoint")` gives the arguments which can be used in the query. These arguments correspond the parameters of the Hub'eau API and are described in the [Hub'eau web page of the API](https://hubeau.eaufrance.fr/page/api-qualite-cours-deau).
+The function `list_params(api = "name of the api", endpoint = "name of the endpoint")` gives the arguments which can be used in the query. These arguments correspond to the parameters of the Hub'eau API and are described in the [Hub'eau web page of the API](https://hubeau.eaufrance.fr/page/api-qualite-cours-deau).
 
 For example, the following instruction lists the available arguments for the endpoint "condition_environnementale_pc":
 
@@ -93,9 +95,9 @@ list_params(api = "qualite_rivieres", endpoint = "condition_environnementale_pc"
 
 # Extracting physico-chemical data
 
-This example shows how to extract the nitrates concentration values in river water samples for station located in the Cote d'Or department from 2000 to 2022.
+This example shows how to extract the nitrates concentration values in river water samples for stations located in the Cote d'Or department from 2000 to 2022.
 
-## Availability of station in the Côte d'Or department
+## Availability of stations in the Côte d'Or department
 
 The function `get_qualite_rivieres_station(…)` will be used to list the available stations. 
 Arguments for the function can be listed as follow:
@@ -104,7 +106,7 @@ Arguments for the function can be listed as follow:
 list_params(api = "qualite_rivieres", endpoint = "station_pc")
 ```
 
-The argument "code_departement" will be used with the value "21" which is the french administrative code for Côte d'Or.
+The argument "code_departement" will be used with the value "21" which is the French administrative code for Côte d'Or.
 
 ```{r, eval = FALSE}
 station_21 <- get_qualite_rivieres_station(code_departement = "21")
@@ -114,10 +116,10 @@ station_21 <- get_qualite_rivieres_station(code_departement = "21")
 station_21
 ```
 
-The result of the query gives a tibble of 466 lines and 48 columns which means that the database comprises 466 water stations in the Côte d'Or department being described by 48 parameters.
+The result of the query gives a tibble of 466 rows and 48 columns which means that the database comprises 466 water stations in the Côte d'Or department being described by 48 parameters.
 
 
-## Retrieving nitrates concentration in river water of the Côte d'or department
+## Retrieving nitrate concentration in river water of the Côte d'or department
 
 The function `get_qualite_rivieres_analyse(…)` is used to get the physico-chemical analysis for selected stations. 
 Arguments for the function can be listed as follow:
@@ -126,15 +128,15 @@ Arguments for the function can be listed as follow:
 list_params(api = "qualite_rivieres", endpoint = "analyse_pc")
 ```
 
-These arguments are described in the[Hub'eau API web page](https://hubeau.eaufrance.fr/page/api-qualite-cours-deau#/physicochimie/analyse_pc).
+These arguments are described in the [Hub'eau API web page](https://hubeau.eaufrance.fr/page/api-qualite-cours-deau#/physicochimie/analyse_pc).
 
-Needed arguments in this example are:
+The arguments in this example are:
 
-- `code_departement`: french administrative code for department ("21" for Côte d'Or)
-- `code_param`: Code of the physico-chemical parameter; if more than one parameter, codes must be separated by a commas; maximum number of code is 200. The code of a given parameter that can be found in the [french water reference system "Sandre](https://www.sandre.eaufrance.fr/Rechercher-une-donnee-d-un-jeu); For nitrates the code is "1340"
+- `code_departement`: French administrative code for department ("21" for Côte d'Or)
+- `code_param`: Code of the physico-chemical parameter; if more than one parameter, codes must be separated by a commas; the maximum number of codes is 200. The code of a given parameter that can be found in the [French water reference system "Sandre"](https://www.sandre.eaufrance.fr/Rechercher-une-donnee-d-un-jeu). For nitrates the code is "1340"
 - `date_debut_prelevement` et `date_fin_prelevement`: beginning and end dates of samples ("_yyyy-mm-dd_" format).
 
-The query can be written as follow:
+The query can be written as follows:
 
 ```{r, eval = FALSE}
 nitrates_21_raw <- get_qualite_rivieres_analyse(code_departement = "21", 
@@ -148,7 +150,7 @@ dim(nitrates_21_raw)
 nitrates_21_raw
 ```
 
-The query gives a tibble of more than 13000 lines and 134 columns. 
+The query returns a tibble of more than 13000 lines and 134 columns. 
 Each line corresponds to a nitrate concentration value (`resultat`) in mg.L^-1^ 
 for a given station (`code_station`) and for a given date (`date_prelevement`).
 
@@ -200,7 +202,7 @@ analysis can be computed or not.
 ## Selection of stations available for analysis
 
 In the following example, a list of the stations of the Côte d'Or department is 
-created (`get_qualite_rivieres_station(code_departement = "21"`) 
+created.
 
 ```{r, eval = FALSE}
 #list of station to query 
@@ -213,8 +215,8 @@ Total number of stations is:
 nrow(station_21)
 ```
 
-We use the function `get_qualite_rivieres_analyse(code_station = "")` for retrieving 
-nitrate concentration values (`code_parametre = "1340")` from 2000 to 2022. 
+We use the function `get_qualite_rivieres_analyse()` to retrieve 
+nitrate concentration values (`code_parametre = "1340"`) from 2000 to 2022. 
 
 ```{r, eval = FALSE}
 nitrates_21 <- get_qualite_rivieres_analyse(
@@ -236,10 +238,12 @@ nitrates_21 <- get_qualite_rivieres_analyse(
 We compute some annual statistics for each station:
 
 ```{r}
-nitrates_21$date_prelevement <- as.POSIXct(nitrates_21$date_prelevement)
-nitrates_21$year <- year(nitrates_21$date_prelevement)
+nitrates_21 <- nitrates_21 %>% 
+  mutate(date_prelevement = as.POSIXct(date_prelevement),
+         year = year(date_prelevement))
 
-station_stats <- nitrates_21 %>% group_by(code_station, libelle_station, year) %>%
+station_stats <- nitrates_21 %>%
+  group_by(code_station, libelle_station, year) %>%
   summarise(nb_analyses = n(), 
             nitrate_mean = mean(resultat),
             nitrate_p90 = quantile(resultat, probs = 0.9), 
@@ -254,18 +258,20 @@ Stations with less than 10 values per year on average and less than 10 years of 
 are excluded of the statistical analysis. 
 
 ```{r}
-valid_stations <- station_stats %>% group_by(code_station, libelle_station) %>%
+valid_stations <- station_stats %>%
+  group_by(code_station, libelle_station) %>%
   summarise(analyses_per_year = mean(nb_analyses), nb_years = n()) %>%
   filter(analyses_per_year >= 10, nb_years >= 10)
+
 valid_stations
 ```
 
-The number of lines of the tibble `valid_stations` corresponds to the number of 
+The number of rows of the tibble `valid_stations` corresponds to the number of 
 stations with at least 10 samples per year on average and 10 years of data.
 
 ## Statistical analysis of samples
 
-Then, we plot the year distribution of nitrate levels with violin plots.
+Then, we plot the annual distribution of nitrate levels with violin plots.
 
 ```{r}
 plot_nitrates <- function(code) {
@@ -325,6 +331,6 @@ plot_nitrates <- function(code) {
 }
 ```
 
-```{r}
+```{r, message = FALSE, results='hide', fig.keep='all'}
 lapply(valid_stations$code_station, plot_nitrates)
 ```
