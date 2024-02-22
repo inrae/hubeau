@@ -50,7 +50,10 @@ API documentation: <https://hubeau.eaufrance.fr/page/api-poisson>
 
 Available function:
 
-- [get_poisson_observations()]: scientific fishery observations
+- [get_poisson_operations()]: sampling operations carried out at stations measuring the quality of rivers
+- [get_poisson_observations()]: fish observations made during sampling operations
+- [get_poisson_indicateurs()]: the IPR and IPR+ indicators calculated from fish observations
+- [get_poisson_stations()]: stations measuring the quality of rivers
 
 ## API "Prélèvements en eau"
 

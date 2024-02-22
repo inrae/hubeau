@@ -2,9 +2,18 @@
 % Please edit documentation in R/get_poisson.R
 \name{get_poisson_observations}
 \alias{get_poisson_observations}
+\alias{get_poisson_indicateurs}
+\alias{get_poisson_operations}
+\alias{get_poisson_stations}
 \title{Retrieve data from API "Poisson"}
 \usage{
 get_poisson_observations(...)
+
+get_poisson_indicateurs(...)
+
+get_poisson_operations(...)
+
+get_poisson_stations(...)
 }
 \arguments{
 \item{...}{parameters of the queries and their values in the format
@@ -25,18 +34,29 @@ See the API documentation for available filter parameters: \url{https://hubeau.e
 }
 \examples{
 \dontrun{
+# Get the endpoints available for the API "Poisson"
+list_endpoints(api = "poisson")
+
+# List the stations available in Brest
+get_poisson_stations(libelle_commune = "Brest")
+
+# List the operations available in Brest
+get_poisson_operations(libelle_commune = "Brest")
+
+# List the indicators available in Brest
+get_poisson_indicateurs(libelle_commune = "Brest")
+
 # Get the query parameters for the requested API/endpoint
 list_params(api = "poisson",
                      endpoint = "observations")
 
 # Retrieve selected fields on a river fish sampled in Brest
 library(dplyr)
-fields <- paste("code_operation",
+fields <- c("code_operation",
                 "date_operation",
                 "libelle_point_prelevement_aspe",
                 "effectif_lot",
-                "code_alternatif_taxon",
-                sep = ",")
+                "code_alternatif_taxon")
 
 brest_fishes <- get_poisson_observations(
   list(

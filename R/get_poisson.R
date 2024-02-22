@@ -15,18 +15,29 @@
 #'
 #' @examples
 #' \dontrun{
+#' # Get the endpoints available for the API "Poisson"
+#' list_endpoints(api = "poisson")
+#'
+#' # List the stations available in Brest
+#' get_poisson_stations(libelle_commune = "Brest")
+#'
+#' # List the operations available in Brest
+#' get_poisson_operations(libelle_commune = "Brest")
+#'
+#' # List the indicators available in Brest
+#' get_poisson_indicateurs(libelle_commune = "Brest")
+#'
 #' # Get the query parameters for the requested API/endpoint
 #' list_params(api = "poisson",
 #'                      endpoint = "observations")
 #'
 #' # Retrieve selected fields on a river fish sampled in Brest
 #' library(dplyr)
-#' fields <- paste("code_operation",
+#' fields <- c("code_operation",
 #'                 "date_operation",
 #'                 "libelle_point_prelevement_aspe",
 #'                 "effectif_lot",
-#'                 "code_alternatif_taxon",
-#'                 sep = ",")
+#'                 "code_alternatif_taxon")
 #'
 #' brest_fishes <- get_poisson_observations(
 #'   list(
@@ -47,3 +58,37 @@ get_poisson_observations <- function(...) {
 
   convert_list_to_tibble(l)
 }
+
+#' @export
+#' @rdname get_poisson
+get_poisson_indicateurs <- function(...) {
+
+  l <- doApiQuery(api = "poisson",
+                  endpoint = "indicateurs",
+                  ...)
+
+  convert_list_to_tibble(l)
+}
+
+#' @export
+#' @rdname get_poisson
+get_poisson_operations <- function(...) {
+
+  l <- doApiQuery(api = "poisson",
+                  endpoint = "operations",
+                  ...)
+
+  convert_list_to_tibble(l)
+}
+
+#' @export
+#' @rdname get_poisson
+get_poisson_stations <- function(...) {
+
+  l <- doApiQuery(api = "poisson",
+                  endpoint = "stations",
+                  ...)
+
+  convert_list_to_tibble(l)
+}
+
