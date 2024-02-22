@@ -73,6 +73,17 @@ Available functions:
 - [get_qualite_eau_potable_resultats_dis()]: samples, analysis results and sanitary 
   conclusions from the sanitary control of the distributed water commune by commune
   
+## API "Qualité des cours d'eau"
+
+API documentation: <https://hubeau.eaufrance.fr/page/api-qualite-cours-deau>
+
+Available functions:
+
+- [get_qualite_rivieres_station()]: measuring stations for river quality
+- [get_qualite_rivieres_operation()]: physico-chemical operations
+- [get_qualite_rivieres_analyse()]: results of physico-chemical analyses
+- [get_qualite_rivieres_condition_environnementale()]: environmental conditions for analyses
+
 ## API "Qualité des nappes d'eau souterraines"
 
 API documentation: <https://hubeau.eaufrance.fr/page/api-qualite-nappes>

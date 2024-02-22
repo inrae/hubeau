@@ -139,6 +139,22 @@ Available functions:
   samples, analysis results and sanitary conclusions from the sanitary
   control of the distributed water commune by commune
 
+## API “Qualité des cours d’eau”
+
+API documentation:
+<https://hubeau.eaufrance.fr/page/api-qualite-cours-deau>
+
+Available functions:
+
+- [`get_qualite_rivieres_station`](https://inrae.github.io/hubeau/reference/get_qualite_rivieres.html):
+  measuring stations for river quality
+- [`get_qualite_rivieres_operation`](https://inrae.github.io/hubeau/reference/get_qualite_rivieres.html):
+  physico-chemical operations
+- [`get_qualite_rivieres_analyse`](https://inrae.github.io/hubeau/reference/get_qualite_rivieres.html):
+  results of physico-chemical analyses
+- [`get_qualite_rivieres_condition_environnementale`](https://inrae.github.io/hubeau/reference/get_qualite_rivieres.html):
+  environmental conditions for analyses
+
 ## API “Qualité des nappes d’eau souterraines”
 
 API documentation: <https://hubeau.eaufrance.fr/page/api-qualite-nappes>
