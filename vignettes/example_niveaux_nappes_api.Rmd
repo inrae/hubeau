@@ -148,7 +148,7 @@ ggplot(data = yearly_mean_water_table_level,
 
 # Mapping
 
-The 'stations' dataframe is transformed into a `sf` geographical object.
+The `stations` data.frame is transformed into a `sf` geographical object.
 
 ```{r}
 stations_geo <- stations %>% 
@@ -156,20 +156,28 @@ stations_geo <- stations %>%
            crs = 4626)
 ```
 
-Then they are mapped using the `mapview` R package.
+We create a plot for each station ready to be displayed as map "pop-up".
 
-```{r, fig.width = 8, fig.height = 8}
-mapview(stations_geo,
-        map.types = c(
-          "OpenStreetMap",
-          "Esri.WorldShadedRelief",
-          "OpenTopoMap"
-                      ))
+```{r}
+p <- lapply(unique(yearly_mean_water_table_level$code_bss),
+            function(x) {
+              ggplot(data = yearly_mean_water_table_level %>% filter(code_bss == x),
+                     aes(x = year,
+                         y = yearly_mean_water_table_level)) +
+                geom_line() +
+                labs(title = x)
+            })
 ```
 
+Then they are mapped using the `mapview` R package. Click on a spot to popup the
+plot.
 
-
-
-
-
-
+```{r, out.width = "100%", fig.asp = 1}
+mapview(
+  stations_geo,
+  map.types = c("OpenStreetMap",
+                "Esri.WorldShadedRelief",
+                "OpenTopoMap"),
+  popup = leafpop::popupGraph(p)
+)
+```
