@@ -1,0 +1,183 @@
+---
+title: "Performing queries on the 'niveaux_nappes' API"
+author: "Pascal Irz & David Dorchies"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{example_niveaux_nappes_api}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.width = 6,
+  fig.asp = 0.618,
+  out.width = "70%",
+  fig.align = "center"
+)
+load(system.file("vignettes/example_niveaux_nappes_api.RData", package = "hubeau"))
+```
+
+This vignette shows how to use the [`hubeau` R package](https://github.com/inrae/hubeau) in order to retrieve data from the French piezometric monitoring network ([portail national d'Accès aux Données sur les Eaux Souterraines, ADES](https://ades.eaufrance.fr/)) from the [API "piézométrie" (or "niveaux nappes")](https://hubeau.eaufrance.fr/page/api-piezometrie) of the [Hub'eau](https://hubeau.eaufrance.fr/) portal. 
+
+We illustrate the use of this API for the geological layer "Calcaires et marnes du Dogger du bassin versant du Clain libres" (`code=GG063`) with an example of map and chart useful for the interpretation of these data.
+
+```{r}
+my_water_table_code <- "GG063"
+```
+
+# Getting started
+
+First, we need to load the packages used in this vignette for processing data and
+display results on charts and map:
+
+```{r setup}
+library(hubeau)
+
+library(dplyr)
+library(sf)
+library(mapview)
+library(ggplot2)
+library(purrr)
+```
+
+"niveaux_nappes" is one of the `r length(hubeau::list_apis())` APIs that can be queried with the `{hubeau}` R package.
+
+The list of the API endpoints is provided by the function `list_endpoints`.
+
+```{r}
+list_endpoints(api = "niveaux_nappes")
+```
+
+- `chroniques` long-term time series
+- `chroniques_tr` real time observations
+- `stations` lists the monitoring stations
+
+The tables can be joined *at least* by the field `code_bss` (i.e. the site Id).
+
+For each endpoint, the function `list_params()` gives the different parameters that can be retrieved. 
+
+```{r}
+list_params(api = "niveaux_nappes",
+            endpoint = "stations")
+```
+
+# Retrieving the data
+
+## Sites
+
+Download the data.
+
+```{r, eval = FALSE}
+stations <- get_niveaux_nappes_stations(
+  codes_masse_eau_edl = my_water_table_code
+)
+```
+
+## Time series
+
+The aim here is to retrieve the time series of water levels measures in the piezometers.
+
+```{r}
+param_chroniques <- paste(
+    list_params(api = "niveaux_nappes",
+                endpoint = "chroniques"),
+    collapse = ","
+)
+```
+
+No field allows to select a departement, so it is necessary to iterate through stations. 
+
+```{r, eval = FALSE}
+water_table_level <- map_df(
+  .x = stations$code_bss,
+  .f = function(x)
+    get_niveaux_nappes_chroniques(code_bss = x,
+                                  date_debut_mesure = "2015-01-01")
+)
+```
+
+# Tidying the data
+
+The dataframe is processed to get a 'year' and a 'month' variables, then averaged by year for each site.
+
+```{r, eval = FALSE}
+water_table_level <- water_table_level %>% 
+  mutate(date_mesure = lubridate::ymd(date_mesure),
+         year = lubridate::year(date_mesure),
+         month = lubridate::month(date_mesure))
+```
+
+Selection, for each of the stations, of the years with 12 months of data. 
+This is done to prevent incomplete time periods to influence the yearly mean water level excessively.
+
+```{r, eval = FALSE}
+yearly_mean_water_table_level <- water_table_level %>% 
+  group_by(code_bss,
+           year) %>% 
+    summarise(n_months = n_distinct(month)) %>% 
+    filter(n_months == 12) # complete years
+
+yearly_mean_water_table_level <- yearly_mean_water_table_level %>% 
+  select(-n_months) %>% 
+  left_join(water_table_level) %>% # filtering join
+  group_by(code_bss,
+           year,
+           month) %>% 
+    summarise(monthly_mean_water_table_level = mean(niveau_nappe_eau, na.rm = TRUE)) %>% 
+  group_by(code_bss,
+           year) %>% 
+    summarise(yearly_mean_water_table_level = mean(monthly_mean_water_table_level, na.rm = TRUE)) %>% 
+  ungroup()
+```
+
+# Plotting
+
+```{r, fig.width = 8, fig.height = 8}
+ggplot(data = yearly_mean_water_table_level,
+       aes(x = year,
+           y = yearly_mean_water_table_level)) +
+  geom_line() +
+  facet_wrap(~code_bss,
+             scales = "free_y")
+         
+```
+
+# Mapping
+
+The `stations` data.frame is transformed into a `sf` geographical object.
+
+```{r}
+stations_geo <- stations %>% 
+  st_as_sf(coords = c("x", "y"),
+           crs = 4626)
+```
+
+We create a plot for each station ready to be displayed as map "pop-up".
+
+```{r}
+p <- lapply(unique(yearly_mean_water_table_level$code_bss),
+            function(x) {
+              ggplot(data = yearly_mean_water_table_level %>% filter(code_bss == x),
+                     aes(x = year,
+                         y = yearly_mean_water_table_level)) +
+                geom_line() +
+                labs(title = x)
+            })
+```
+
+Then they are mapped using the `mapview` R package. Click on a spot to popup the
+plot.
+
+```{r, out.width = "100%", fig.asp = 1}
+mapview(
+  stations_geo,
+  map.types = c("OpenStreetMap",
+                "Esri.WorldShadedRelief",
+                "OpenTopoMap"),
+  popup = leafpop::popupGraph(p)
+)
+```

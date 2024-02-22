@@ -1,6 +1,6 @@
 ---
 title: "Performing queries on the 'Ecoulement' API"
-author: "Pascal Irz, David Dorchies"
+author: "Pascal Irz & David Dorchies"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
@@ -60,7 +60,7 @@ list_endpoints(api = "ecoulement")
 
 - `stations` lists the monitoring stations
 - `campagnes` lists the surveys
-- `observations` is the data itself, indicating if, at the date of the survey, the river flows or if it is dry (which is assessed visually in the field).
+- `observations` is the data itself, indicating if, at the date of the survey, the river flows or if it is dry (which is assessed visually in the field)
 
 `station` and `observations` can be joined *at least* by the field `code_station`.
 
