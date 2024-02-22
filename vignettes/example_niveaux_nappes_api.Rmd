@@ -111,9 +111,10 @@ water_table_level <- water_table_level %>%
          month = lubridate::month(date_mesure))
 ```
 
-Selection, for each of the stations, of the years with 12 months of data. This is done to prevent incomplete time periods to influence the yearly mean water level excessively.
+Selection, for each of the stations, of the years with 12 months of data. 
+This is done to prevent incomplete time periods to influence the yearly mean water level excessively.
 
-```{r}
+```{r, eval = FALSE}
 yearly_mean_water_table_level <- water_table_level %>% 
   group_by(code_bss,
            year) %>% 
