@@ -154,13 +154,17 @@ API documentation:
 Available functions:
 
 - [`get_qualite_rivieres_station`](https://inrae.github.io/hubeau/reference/get_qualite_rivieres.html):
-  measuring stations for river quality
+  stations (measuring points) on rivers or water bodies where water
+  samples have been taken for water quality analyses
 - [`get_qualite_rivieres_operation`](https://inrae.github.io/hubeau/reference/get_qualite_rivieres.html):
-  physico-chemical operations
+  sampling operations carried out at the stations
 - [`get_qualite_rivieres_analyse`](https://inrae.github.io/hubeau/reference/get_qualite_rivieres.html):
-  results of physico-chemical analyses
+  physico-chemical analyses carried out on samples prepared during
+  sampling operations at the stations
 - [`get_qualite_rivieres_condition_environnementale`](https://inrae.github.io/hubeau/reference/get_qualite_rivieres.html):
-  environmental conditions for analyses
+  environmental conditions (air temperature, presence of leaves, moss,
+  iridescence, etc.) observed during physico-chemical sampling
+  operations
 
 ## API “Qualité des nappes d’eau souterraines”
 

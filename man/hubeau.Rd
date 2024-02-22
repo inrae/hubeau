@@ -101,10 +101,10 @@ API documentation: \url{https://hubeau.eaufrance.fr/page/api-qualite-cours-deau}
 
 Available functions:
 \itemize{
-\item \code{\link[=get_qualite_rivieres_station]{get_qualite_rivieres_station()}}: measuring stations for river quality
-\item \code{\link[=get_qualite_rivieres_operation]{get_qualite_rivieres_operation()}}: physico-chemical operations
-\item \code{\link[=get_qualite_rivieres_analyse]{get_qualite_rivieres_analyse()}}: results of physico-chemical analyses
-\item \code{\link[=get_qualite_rivieres_condition_environnementale]{get_qualite_rivieres_condition_environnementale()}}: environmental conditions for analyses
+\item \code{\link[=get_qualite_rivieres_station]{get_qualite_rivieres_station()}}: stations (measuring points) on rivers or water bodies where water samples have been taken for water quality analyses
+\item \code{\link[=get_qualite_rivieres_operation]{get_qualite_rivieres_operation()}}: sampling operations carried out at the stations
+\item \code{\link[=get_qualite_rivieres_analyse]{get_qualite_rivieres_analyse()}}: physico-chemical analyses carried out on samples prepared during sampling operations at the stations
+\item \code{\link[=get_qualite_rivieres_condition_environnementale]{get_qualite_rivieres_condition_environnementale()}}: environmental conditions (air temperature, presence of leaves, moss, iridescence, etc.) observed during physico-chemical sampling operations
 }
 }
 
