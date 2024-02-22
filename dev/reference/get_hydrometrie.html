@@ -40,10 +40,13 @@ https://hubeau.eaufrance.fr/page/api-hydrometrie'><meta property="og:image" cont
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu"><li>
-      <a href="../articles/data_extraction_naiades.html">Data extraction using the The API "qualité des cours d'eau"</a>
+      <a href="../articles/data_extraction_naiades.html">Getting data from the API "qualité des cours d'eau"</a>
     </li>
     <li>
       <a href="../articles/example_ecoulement_api.html">Performing queries on the 'Ecoulement' API</a>
+    </li>
+    <li>
+      <a href="../articles/example_niveaux_nappes_api.html">Performing queries on the 'niveaux_nappes' API</a>
     </li>
   </ul></li>
 <li>
@@ -227,16 +230,16 @@ if so, one line is added by item and other fields are repeated</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 30 × 14</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    code_site code_station date_obs_elab resultat_obs_elab date_prod  code_statut</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> H0203020  H020302002   2024-01-22                 <span style="text-decoration: underline;">5</span>172 2024-01-2…           4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> H0203020  H020302002   2024-01-23                 <span style="text-decoration: underline;">5</span>196 2024-01-2…           4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> H0203020  H020302002   2024-01-24                 <span style="text-decoration: underline;">5</span>034 2024-01-2…           4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> H0203020  H020302002   2024-01-25                 <span style="text-decoration: underline;">5</span>313 2024-01-2…           4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> H0203020  H020302002   2024-01-26                 <span style="text-decoration: underline;">5</span>489 2024-01-2…           4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> H0203020  H020302002   2024-01-27                 <span style="text-decoration: underline;">5</span>622 2024-01-2…           4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> H0203020  H020302002   2024-01-28                 <span style="text-decoration: underline;">5</span>736 2024-01-2…           4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> H0203020  H020302002   2024-01-29                 <span style="text-decoration: underline;">5</span>732 2024-01-3…           4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> H0203020  H020302002   2024-01-30                 <span style="text-decoration: underline;">5</span>604 2024-01-3…           4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> H0203020  H020302002   2024-01-31                 <span style="text-decoration: underline;">5</span>388 2024-02-0…           4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> H0203020  H020302002   2024-01-23                 <span style="text-decoration: underline;">5</span>196 2024-01-2…           4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> H0203020  H020302002   2024-01-24                 <span style="text-decoration: underline;">5</span>034 2024-01-2…           4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> H0203020  H020302002   2024-01-25                 <span style="text-decoration: underline;">5</span>313 2024-01-2…           4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> H0203020  H020302002   2024-01-26                 <span style="text-decoration: underline;">5</span>489 2024-01-2…           4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> H0203020  H020302002   2024-01-27                 <span style="text-decoration: underline;">5</span>622 2024-01-2…           4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> H0203020  H020302002   2024-01-28                 <span style="text-decoration: underline;">5</span>736 2024-01-2…           4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> H0203020  H020302002   2024-01-29                 <span style="text-decoration: underline;">5</span>732 2024-01-3…           4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> H0203020  H020302002   2024-01-30                 <span style="text-decoration: underline;">5</span>604 2024-01-3…           4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> H0203020  H020302002   2024-01-31                 <span style="text-decoration: underline;">5</span>388 2024-02-0…           4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> H0203020  H020302002   2024-02-01                 <span style="text-decoration: underline;">5</span>153 2024-02-0…           4</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 20 more rows</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 8 more variables: libelle_statut &lt;chr&gt;, code_methode &lt;int&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   libelle_methode &lt;chr&gt;, code_qualification &lt;int&gt;,</span></span>

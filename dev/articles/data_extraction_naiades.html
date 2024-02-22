@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Data extraction using the The API "qualité des cours d'eau" • hubeau</title>
+<title>Getting data from the API "qualité des cours d'eau" • hubeau</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png">
@@ -17,7 +17,7 @@
 <script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script><meta property="og:title" content="Data extraction using the The API " qualit des cours d>
+<script src="../pkgdown.js"></script><meta property="og:title" content="Getting data from the API " qualit des cours d>
 <meta property="og:description" content="hubeau">
 <meta property="og:image" content="https://inrae.github.io/hubeau/logo.png">
 <meta name="robots" content="noindex">
@@ -58,10 +58,13 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
-      <a href="../articles/data_extraction_naiades.html">Data extraction using the The API "qualité des cours d'eau"</a>
+      <a href="../articles/data_extraction_naiades.html">Getting data from the API "qualité des cours d'eau"</a>
     </li>
     <li>
       <a href="../articles/example_ecoulement_api.html">Performing queries on the 'Ecoulement' API</a>
+    </li>
+    <li>
+      <a href="../articles/example_niveaux_nappes_api.html">Performing queries on the 'niveaux_nappes' API</a>
     </li>
   </ul>
 </li>
@@ -89,8 +92,8 @@
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1 data-toc-skip>Data extraction using the The API “qualité des
-cours d’eau”</h1>
+      <h1 data-toc-skip>Getting data from the API “qualité des cours
+d’eau”</h1>
                         <h4 data-toc-skip class="author">Philippe
 Amiotte Suchet, David Dorchies</h4>
             
@@ -102,57 +105,35 @@ Amiotte Suchet, David Dorchies</h4>
 
     
     
-<p>This script applies functions of the <a href="https://cran.r-project.org/package=hubeau" class="external-link">R package Hubeau “Get
-Data from the French National Database on Water Hub’Eau”</a> to query
-the french Naiades database through the <a href="https://hubeau.eaufrance.fr/page/api-qualite-cours-deau" class="external-link">API
+<p>This vignette describes how to use functions of the <a href="https://cran.r-project.org/package=hubeau" class="external-link">R package
+<em>hubeau</em></a> to query the French Naiades database through the <a href="https://hubeau.eaufrance.fr/page/api-qualite-cours-deau" class="external-link">API
 “qualité des cours d’eau”</a>.</p>
 <p>The <a href="https://naiades.eaufrance.fr/" class="external-link">Naiades database</a>
-gather hydrobiology, hydrogeomophomogy and physico-chemical informations
-for french river and lake water. The information is associated with a
-water quality station (location) , a date (the day of the sampling or of
+gathers hydrobiology, hydrogeomophomogy and physico-chemical information
+for French river and lake water. The information is associated with a
+water quality station (location), a date (the day of the sampling or of
 the observation) and a material (water, suspended matter, sediment,
-river bed, fish, …). <strong>The API “qualité des cours d’eau” focuses
-only on water physico-chemical properties.</strong></p>
-<p>This example shows how to extract physico-chemical (here nitrates
-concentration and total pesticides) informations from the Naiades
-database on water station belonging to an administrative entity (here
-the Cote d’Or department).</p>
+river bed, fish, etc.). <strong>The API “qualité des cours d’eau”
+focuses only on water physico-chemical properties.</strong></p>
+<p>This example shows how to get physico-chemical information (here
+nitrates concentration) from the Naiades database on water monitoring
+sites belonging to an administrative entity (here the Cote d’Or
+department).</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://inrae.github.io/hubeau/">hubeau</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Attaching package: 'dplyr'</span></span>
-<span><span class="co">#&gt; The following objects are masked from 'package:stats':</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;     filter, lag</span></span>
-<span><span class="co">#&gt; The following objects are masked from 'package:base':</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;     intersect, setdiff, setequal, union</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://lubridate.tidyverse.org" class="external-link">lubridate</a></span><span class="op">)</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Attaching package: 'lubridate'</span></span>
-<span><span class="co">#&gt; The following objects are masked from 'package:base':</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;     date, intersect, setdiff, union</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://hbiostat.org/R/Hmisc/" class="external-link">Hmisc</a></span><span class="op">)</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Attaching package: 'Hmisc'</span></span>
-<span><span class="co">#&gt; The following objects are masked from 'package:dplyr':</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;     src, summarize</span></span>
-<span><span class="co">#&gt; The following objects are masked from 'package:base':</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;     format.pval, units</span></span></code></pre></div>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://hbiostat.org/R/Hmisc/" class="external-link">Hmisc</a></span><span class="op">)</span></span></code></pre></div>
 <div class="section level2">
 <h2 id="get-started">Get started<a class="anchor" aria-label="anchor" href="#get-started"></a>
 </h2>
 <div class="section level3">
 <h3 id="how-it-works">How it works<a class="anchor" aria-label="anchor" href="#how-it-works"></a>
 </h3>
-<p>The Hubeau package provides functions to query the databases of the
-french water information system using the Hub’eau API.</p>
-<p>The function names are wrtitten as follow:
+<p>The <em>hubeau</em> package provides functions to query the databases
+of the French water information system using the Hub’eau API.</p>
+<p>The functions are named as follows:
 <code>hubeau::get_[API]_[endpoint](argument)</code> where:</p>
 <ul>
 <li><p>[API] is the name of the API (one API = one database)</p></li>
@@ -160,16 +141,16 @@ french water information system using the Hub’eau API.</p>
 database; the query is defined by a list of arguments.</p></li>
 </ul>
 <p>For example the function <code><a href="../reference/get_qualite_rivieres.html">get_qualite_rivieres_station()</a></code>
-uses the API “qualité des cours d’eau” to recover the water quality
-stations corresponding to requirements described in the station()
+uses the API “qualité des cours d’eau” to get the water quality stations
+corresponding to requirements described in the <code>station()</code>
 function.</p>
 <p>See the <a href="https://github.com/inrae/hubeau#api-hydrom%C3%A9trie" class="external-link">readme in
-the R package Hubeau</a></p>
+the R package <em>hubeau</em></a>.</p>
 </div>
 <div class="section level3">
-<h3 id="listing-the-available-api-in-the-r-package">Listing the available API in the R package<a class="anchor" aria-label="anchor" href="#listing-the-available-api-in-the-r-package"></a>
+<h3 id="listing-the-apis-searchable-with-the-hubeau-r-package">Listing the APIs searchable with the <em>hubeau</em> R package<a class="anchor" aria-label="anchor" href="#listing-the-apis-searchable-with-the-hubeau-r-package"></a>
 </h3>
-<p>The 0.4.1 version is able to query 10 different databases which can
+<p>The <em>hubeau</em> R package allows to query 11 databases which can
 be listed as follow:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/lists.html">list_apis</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -187,7 +168,7 @@ database</a>.</p>
 </h3>
 <p>The function
 <code>list_endpoints(api = "name of the api given by &lt;list_apis&gt;")</code>
-of the Hubeau R package lists the available endpoints. For the
+of the <em>hubeau</em> R package lists the available endpoints. For the
 <code>qualite_rivieres</code> API it gives:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/lists.html">list_endpoints</a></span><span class="op">(</span>api <span class="op">=</span> <span class="st">"qualite_rivieres"</span><span class="op">)</span></span>
@@ -201,7 +182,7 @@ physico-chemical analysis;</p></li>
 <li><p>[<strong>operation_pc</strong>] lists the sampling operation
 occuring on each water station;</p></li>
 <li><p>[<strong>condition_environnementale_pc</strong>] lists the
-environmental conditions observed during water sampming (air
+environmental conditions observed during water sampling (air
 temperature, presence of mosses, alguae, etc.);</p></li>
 <li><p>[<strong>analyse_pc</strong>] gives the results of the
 physico-chemical analysis made on water samples of a selected water
@@ -216,7 +197,8 @@ database.</p>
 <p>The function
 <code>list_params(api = "name of the api", endpoint = "name of the endpoint")</code>
 gives the arguments which can be used in the query. These arguments
-correspond the parameters of the Hub’eau API and are described in the <a href="https://hubeau.eaufrance.fr/page/api-qualite-cours-deau" class="external-link">Hub’eau
+correspond to the parameters of the Hub’eau API and are described in the
+<a href="https://hubeau.eaufrance.fr/page/api-qualite-cours-deau" class="external-link">Hub’eau
 web page of the API</a>.</p>
 <p>For example, the following instruction lists the available arguments
 for the endpoint “condition_environnementale_pc”:</p>
@@ -241,10 +223,10 @@ for the endpoint “condition_environnementale_pc”:</p>
 <h2 id="extracting-physico-chemical-data">Extracting physico-chemical data<a class="anchor" aria-label="anchor" href="#extracting-physico-chemical-data"></a>
 </h2>
 <p>This example shows how to extract the nitrates concentration values
-in river water samples for station located in the Cote d’Or department
+in river water samples for stations located in the Cote d’Or department
 from 2000 to 2022.</p>
 <div class="section level3">
-<h3 id="availability-of-station-in-the-côte-dor-department">Availability of station in the Côte d’Or department<a class="anchor" aria-label="anchor" href="#availability-of-station-in-the-c%C3%B4te-dor-department"></a>
+<h3 id="availability-of-stations-in-the-côte-dor-department">Availability of stations in the Côte d’Or department<a class="anchor" aria-label="anchor" href="#availability-of-stations-in-the-c%C3%B4te-dor-department"></a>
 </h3>
 <p>The function <code>get_qualite_rivieres_station(…)</code> will be
 used to list the available stations. Arguments for the function can be
@@ -269,7 +251,7 @@ listed as follow:</p>
 <span><span class="co">#&gt; [46] "nom_sous_bassin"        "page"                   "size"                  </span></span>
 <span><span class="co">#&gt; [49] "sort"                   "type_entite_hydro"</span></span></code></pre></div>
 <p>The argument “code_departement” will be used with the value “21”
-which is the french administrative code for Côte d’Or.</p>
+which is the French administrative code for Côte d’Or.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">station_21</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_qualite_rivieres.html">get_qualite_rivieres_station</a></span><span class="op">(</span>code_departement <span class="op">=</span> <span class="st">"21"</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
@@ -294,13 +276,13 @@ which is the french administrative code for Côte d’Or.</p>
 <span><span class="co">#&gt; <span style="color: #949494;">#   libelle_region &lt;chr&gt;, code_cours_eau &lt;chr&gt;, nom_cours_eau &lt;chr&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   uri_cours_eau &lt;chr&gt;, code_masse_deau &lt;chr&gt;, code_eu_masse_deau &lt;chr&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   nom_masse_deau &lt;chr&gt;, uri_masse_deau &lt;chr&gt;, code_eu_sous_bassin &lt;chr&gt;, …</span></span></span></code></pre></div>
-<p>The result of the query gives a tibble of 466 lines and 48 columns
+<p>The result of the query gives a tibble of 466 rows and 48 columns
 which means that the database comprises 466 water stations in the Côte
 d’Or department being described by 48 parameters.</p>
 </div>
 <div class="section level3">
-<h3 id="retrieving-nitrates-concentration-in-river-water-of-the-côte-dor-department">Retrieving nitrates concentration in river water of the Côte d’or
-department<a class="anchor" aria-label="anchor" href="#retrieving-nitrates-concentration-in-river-water-of-the-c%C3%B4te-dor-department"></a>
+<h3 id="retrieving-nitrate-concentration-in-river-water-of-the-côte-dor-department">Retrieving nitrate concentration in river water of the Côte d’or
+department<a class="anchor" aria-label="anchor" href="#retrieving-nitrate-concentration-in-river-water-of-the-c%C3%B4te-dor-department"></a>
 </h3>
 <p>The function <code>get_qualite_rivieres_analyse(…)</code> is used to
 get the physico-chemical analysis for selected stations. Arguments for
@@ -324,25 +306,26 @@ the function can be listed as follow:</p>
 <span><span class="co">#&gt; [43] "nom_bassin_dce"         "nom_cours_eau"          "nom_groupe_parametres" </span></span>
 <span><span class="co">#&gt; [46] "nom_sous_bassin"        "page"                   "size"                  </span></span>
 <span><span class="co">#&gt; [49] "sort"                   "type_entite_hydro"</span></span></code></pre></div>
-<p>These arguments are described in the<a href="https://hubeau.eaufrance.fr/page/api-qualite-cours-deau#/physicochimie/analyse_pc" class="external-link">Hub’eau
+<p>These arguments are described in the <a href="https://hubeau.eaufrance.fr/page/api-qualite-cours-deau#/physicochimie/analyse_pc" class="external-link">Hub’eau
 API web page</a>.</p>
-<p>Needed arguments in this example are:</p>
+<p>The arguments in this example are:</p>
 <ul>
 <li>
-<code>code_departement</code>: french administrative code for
+<code>code_departement</code>: French administrative code for
 department (“21” for Côte d’Or)</li>
 <li>
 <code>code_param</code>: Code of the physico-chemical parameter; if
-more than one parameter, codes must be separated by a commas; maximum
-number of code is 200. The code of a given parameter that can be found
-in the <a href="https://www.sandre.eaufrance.fr/Rechercher-une-donnee-d-un-jeu" class="external-link">french
-water reference system “Sandre</a>; For nitrates the code is “1340”</li>
+more than one parameter, codes must be separated by a commas; the
+maximum number of codes is 200. The code of a given parameter that can
+be found in the <a href="https://www.sandre.eaufrance.fr/Rechercher-une-donnee-d-un-jeu" class="external-link">French
+water reference system “Sandre”</a>. For nitrates the code is
+“1340”</li>
 <li>
 <code>date_debut_prelevement</code> et
 <code>date_fin_prelevement</code>: beginning and end dates of samples
 (“<em>yyyy-mm-dd</em>” format).</li>
 </ul>
-<p>The query can be written as follow:</p>
+<p>The query can be written as follows:</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">nitrates_21_raw</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_qualite_rivieres.html">get_qualite_rivieres_analyse</a></span><span class="op">(</span>code_departement <span class="op">=</span> <span class="st">"21"</span>, </span>
 <span>                                            date_debut_prelevement <span class="op">=</span> <span class="st">"2000-01-01"</span>, </span>
@@ -372,7 +355,7 @@ water reference system “Sandre</a>; For nitrates the code is “1340”</li>
 <span><span class="co">#&gt; <span style="color: #949494;">#   code_parametre &lt;chr&gt;, libelle_parametre &lt;chr&gt;, uri_parametre &lt;chr&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   resultat &lt;dbl&gt;, code_groupe_parametre1 &lt;chr&gt;, code_groupe_parametre2 &lt;chr&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   code_groupe_parametre3 &lt;chr&gt;, code_groupe_parametre4 &lt;chr&gt;, …</span></span></span></code></pre></div>
-<p>The query gives a tibble of more than 13000 lines and 134 columns.
+<p>The query returns a tibble of more than 13000 lines and 134 columns.
 Each line corresponds to a nitrate concentration value
 (<code>resultat</code>) in mg.L<sup>-1</sup> for a given station
 (<code>code_station</code>) and for a given date
@@ -441,8 +424,7 @@ statistical/graphical analysis can be computed or not.</p>
 <h3 id="selection-of-stations-available-for-analysis">Selection of stations available for analysis<a class="anchor" aria-label="anchor" href="#selection-of-stations-available-for-analysis"></a>
 </h3>
 <p>In the following example, a list of the stations of the Côte d’Or
-department is created
-(<code>get_qualite_rivieres_station(code_departement = "21"</code>)</p>
+department is created.</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">#list of station to query </span></span>
 <span><span class="va">station_21</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_qualite_rivieres.html">get_qualite_rivieres_station</a></span><span class="op">(</span>code_departement <span class="op">=</span> <span class="st">"21"</span><span class="op">)</span></span></code></pre></div>
@@ -450,10 +432,9 @@ department is created
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">station_21</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 468</span></span></code></pre></div>
-<p>We use the function
-<code>get_qualite_rivieres_analyse(code_station = "")</code> for
-retrieving nitrate concentration values
-(<code>code_parametre = "1340")</code> from 2000 to 2022.</p>
+<p>We use the function <code><a href="../reference/get_qualite_rivieres.html">get_qualite_rivieres_analyse()</a></code> to
+retrieve nitrate concentration values
+(<code>code_parametre = "1340"</code>) from 2000 to 2022.</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">nitrates_21</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_qualite_rivieres.html">get_qualite_rivieres_analyse</a></span><span class="op">(</span></span>
 <span>  code_departement <span class="op">=</span> <span class="st">"21"</span>, </span>
@@ -471,10 +452,12 @@ retrieving nitrate concentration values
 <span><span class="op">)</span></span></code></pre></div>
 <p>We compute some annual statistics for each station:</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">nitrates_21</span><span class="op">$</span><span class="va">date_prelevement</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.POSIXlt.html" class="external-link">as.POSIXct</a></span><span class="op">(</span><span class="va">nitrates_21</span><span class="op">$</span><span class="va">date_prelevement</span><span class="op">)</span></span>
-<span><span class="va">nitrates_21</span><span class="op">$</span><span class="va">year</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://lubridate.tidyverse.org/reference/year.html" class="external-link">year</a></span><span class="op">(</span><span class="va">nitrates_21</span><span class="op">$</span><span class="va">date_prelevement</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">nitrates_21</span> <span class="op">&lt;-</span> <span class="va">nitrates_21</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>date_prelevement <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.POSIXlt.html" class="external-link">as.POSIXct</a></span><span class="op">(</span><span class="va">date_prelevement</span><span class="op">)</span>,</span>
+<span>         year <span class="op">=</span> <span class="fu"><a href="https://lubridate.tidyverse.org/reference/year.html" class="external-link">year</a></span><span class="op">(</span><span class="va">date_prelevement</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">station_stats</span> <span class="op">&lt;-</span> <span class="va">nitrates_21</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">code_station</span>, <span class="va">libelle_station</span>, <span class="va">year</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span><span class="va">station_stats</span> <span class="op">&lt;-</span> <span class="va">nitrates_21</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">code_station</span>, <span class="va">libelle_station</span>, <span class="va">year</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span>nb_analyses <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html" class="external-link">n</a></span><span class="op">(</span><span class="op">)</span>, </span>
 <span>            nitrate_mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">resultat</span><span class="op">)</span>,</span>
 <span>            nitrate_p90 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/quantile.html" class="external-link">quantile</a></span><span class="op">(</span><span class="va">resultat</span>, probs <span class="op">=</span> <span class="fl">0.9</span><span class="op">)</span>, </span>
@@ -499,11 +482,11 @@ corresponds to the number of stations with at least one sample.</p>
 <p>Stations with less than 10 values per year on average and less than
 10 years of data are excluded of the statistical analysis.</p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">valid_stations</span> <span class="op">&lt;-</span> <span class="va">station_stats</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">code_station</span>, <span class="va">libelle_station</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<code class="sourceCode R"><span><span class="va">valid_stations</span> <span class="op">&lt;-</span> <span class="va">station_stats</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">code_station</span>, <span class="va">libelle_station</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span>analyses_per_year <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">nb_analyses</span><span class="op">)</span>, nb_years <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html" class="external-link">n</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">analyses_per_year</span> <span class="op">&gt;=</span> <span class="fl">10</span>, <span class="va">nb_years</span> <span class="op">&gt;=</span> <span class="fl">10</span><span class="op">)</span></span>
-<span><span class="co">#&gt; `summarise()` has grouped output by 'code_station'. You can override using the</span></span>
-<span><span class="co">#&gt; `.groups` argument.</span></span>
+<span></span>
 <span><span class="va">valid_stations</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 13 × 4</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># Groups:   code_station [13]</span></span></span>
@@ -522,14 +505,14 @@ corresponds to the number of stations with at least one sample.</p>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">11</span> 06016500     <span style="color: #949494;">"</span>OUCHE A ECHENON <span style="color: #949494;">"</span>                                 11.2       22</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">12</span> 06017050     <span style="color: #949494;">"</span>SAONE A CHARREY-SUR-SAONE <span style="color: #949494;">"</span>                       12.9       22</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">13</span> 06017070     <span style="color: #949494;">"</span>SAONE A SEURRE <span style="color: #949494;">"</span>                                  12.8       16</span></span></code></pre></div>
-<p>The number of lines of the tibble <code>valid_stations</code>
+<p>The number of rows of the tibble <code>valid_stations</code>
 corresponds to the number of stations with at least 10 samples per year
 on average and 10 years of data.</p>
 </div>
 <div class="section level3">
 <h3 id="statistical-analysis-of-samples">Statistical analysis of samples<a class="anchor" aria-label="anchor" href="#statistical-analysis-of-samples"></a>
 </h3>
-<p>Then, we plot the year distribution of nitrate levels with violin
+<p>Then, we plot the annual distribution of nitrate levels with violin
 plots.</p>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">plot_nitrates</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">code</span><span class="op">)</span> <span class="op">{</span></span>
@@ -588,45 +571,8 @@ plots.</p>
 <span>    <span class="op">)</span>  <span class="co"># adds the mean and the standard deviation in blue</span></span>
 <span><span class="op">}</span></span></code></pre></div>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="va">valid_stations</span><span class="op">$</span><span class="va">code_station</span>, <span class="va">plot_nitrates</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [[1]]</span></span></code></pre></div>
-<p><img src="data_extraction_naiades_files/figure-html/unnamed-chunk-19-1.png" width="90%" style="display: block; margin: auto;"></p>
-<pre><code><span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; [[2]]</span></span></code></pre>
-<p><img src="data_extraction_naiades_files/figure-html/unnamed-chunk-19-2.png" width="90%" style="display: block; margin: auto;"></p>
-<pre><code><span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; [[3]]</span></span></code></pre>
-<p><img src="data_extraction_naiades_files/figure-html/unnamed-chunk-19-3.png" width="90%" style="display: block; margin: auto;"></p>
-<pre><code><span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; [[4]]</span></span></code></pre>
-<p><img src="data_extraction_naiades_files/figure-html/unnamed-chunk-19-4.png" width="90%" style="display: block; margin: auto;"></p>
-<pre><code><span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; [[5]]</span></span></code></pre>
-<p><img src="data_extraction_naiades_files/figure-html/unnamed-chunk-19-5.png" width="90%" style="display: block; margin: auto;"></p>
-<pre><code><span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; [[6]]</span></span></code></pre>
-<p><img src="data_extraction_naiades_files/figure-html/unnamed-chunk-19-6.png" width="90%" style="display: block; margin: auto;"></p>
-<pre><code><span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; [[7]]</span></span></code></pre>
-<p><img src="data_extraction_naiades_files/figure-html/unnamed-chunk-19-7.png" width="90%" style="display: block; margin: auto;"></p>
-<pre><code><span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; [[8]]</span></span></code></pre>
-<p><img src="data_extraction_naiades_files/figure-html/unnamed-chunk-19-8.png" width="90%" style="display: block; margin: auto;"></p>
-<pre><code><span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; [[9]]</span></span></code></pre>
-<p><img src="data_extraction_naiades_files/figure-html/unnamed-chunk-19-9.png" width="90%" style="display: block; margin: auto;"></p>
-<pre><code><span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; [[10]]</span></span></code></pre>
-<p><img src="data_extraction_naiades_files/figure-html/unnamed-chunk-19-10.png" width="90%" style="display: block; margin: auto;"></p>
-<pre><code><span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; [[11]]</span></span></code></pre>
-<p><img src="data_extraction_naiades_files/figure-html/unnamed-chunk-19-11.png" width="90%" style="display: block; margin: auto;"></p>
-<pre><code><span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; [[12]]</span></span></code></pre>
-<p><img src="data_extraction_naiades_files/figure-html/unnamed-chunk-19-12.png" width="90%" style="display: block; margin: auto;"></p>
-<pre><code><span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; [[13]]</span></span></code></pre>
-<p><img src="data_extraction_naiades_files/figure-html/unnamed-chunk-19-13.png" width="90%" style="display: block; margin: auto;"></p>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="va">valid_stations</span><span class="op">$</span><span class="va">code_station</span>, <span class="va">plot_nitrates</span><span class="op">)</span></span></code></pre></div>
+<p><img src="data_extraction_naiades_files/figure-html/unnamed-chunk-19-1.png" width="90%" style="display: block; margin: auto;"><img src="data_extraction_naiades_files/figure-html/unnamed-chunk-19-2.png" width="90%" style="display: block; margin: auto;"><img src="data_extraction_naiades_files/figure-html/unnamed-chunk-19-3.png" width="90%" style="display: block; margin: auto;"><img src="data_extraction_naiades_files/figure-html/unnamed-chunk-19-4.png" width="90%" style="display: block; margin: auto;"><img src="data_extraction_naiades_files/figure-html/unnamed-chunk-19-5.png" width="90%" style="display: block; margin: auto;"><img src="data_extraction_naiades_files/figure-html/unnamed-chunk-19-6.png" width="90%" style="display: block; margin: auto;"><img src="data_extraction_naiades_files/figure-html/unnamed-chunk-19-7.png" width="90%" style="display: block; margin: auto;"><img src="data_extraction_naiades_files/figure-html/unnamed-chunk-19-8.png" width="90%" style="display: block; margin: auto;"><img src="data_extraction_naiades_files/figure-html/unnamed-chunk-19-9.png" width="90%" style="display: block; margin: auto;"><img src="data_extraction_naiades_files/figure-html/unnamed-chunk-19-10.png" width="90%" style="display: block; margin: auto;"><img src="data_extraction_naiades_files/figure-html/unnamed-chunk-19-11.png" width="90%" style="display: block; margin: auto;"><img src="data_extraction_naiades_files/figure-html/unnamed-chunk-19-12.png" width="90%" style="display: block; margin: auto;"><img src="data_extraction_naiades_files/figure-html/unnamed-chunk-19-13.png" width="90%" style="display: block; margin: auto;"></p>
 </div>
 </div>
   </div>
