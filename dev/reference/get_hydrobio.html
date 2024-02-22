@@ -120,6 +120,7 @@ for a given API endpoint and see the API documentation for their description</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [17] "format"                   "latitude"                </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [19] "libelle_station_hydrobio" "longitude"               </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [21] "page"                     "size"                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [23] "sort"                    </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">get_hydrobio_stations_hydrobio</span><span class="op">(</span>code_region <span class="op">=</span> <span class="fl">52</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1,015 × 1,875</span></span>
@@ -146,15 +147,20 @@ for a given API endpoint and see the API documentation for their description</p>
 <span class="r-in"><span><span class="co"># Retrieve the hydrobiological bioassessment indices in the city of Rennes</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="lists.html">list_params</a></span><span class="op">(</span>api <span class="op">=</span> <span class="st">"hydrobio"</span>,</span></span>
 <span class="r-in"><span>            endpoint <span class="op">=</span> <span class="st">"indices"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "bbox"                   "code_banque_reference"  "code_bassin"           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [4] "code_commune"           "code_cours_eau"         "code_departement"      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] "code_indice"            "code_masse_eau"         "code_prelevement"      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "code_qualification"     "code_region"            "code_sous_bassin"      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [13] "code_station_hydrobio"  "code_support"           "date_debut_prelevement"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [16] "date_fin_prelevement"   "distance"               "fields"                </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "format"                 "latitude"               "libelle_indice"        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [22] "longitude"              "page"                   "resultat_indice_max"   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [25] "resultat_indice_min"    "size"                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "bbox"                       "code_banque_reference"     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [3] "code_bassin"                "code_commune"              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [5] "code_cours_eau"             "code_departement"          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] "code_indice"                "code_masse_eau"            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] "code_operation_prelevement" "code_prelevement"          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [11] "code_qualification"         "code_region"               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [13] "code_sous_bassin"           "code_station_hydrobio"     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [15] "code_support"               "date_debut_prelevement"    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [17] "date_fin_prelevement"       "distance"                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "fields"                     "format"                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [21] "latitude"                   "libelle_indice"            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [23] "longitude"                  "page"                      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [25] "resultat_indice_max"        "resultat_indice_min"       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [27] "size"                       "sort"                      </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">get_hydrobio_indices</span><span class="op">(</span>code_commune <span class="op">=</span> <span class="fl">35051</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 258 × 44</span></span>
@@ -181,19 +187,20 @@ for a given API endpoint and see the API documentation for their description</p>
 <span class="r-in"><span><span class="co"># species records in the city of Rennes</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="lists.html">list_params</a></span><span class="op">(</span>api <span class="op">=</span> <span class="st">"hydrobio"</span>,</span></span>
 <span class="r-in"><span>            endpoint <span class="op">=</span> <span class="st">"taxons"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "bbox"                    "code_appel_taxon"       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [3] "code_banque_reference"   "code_bassin"            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [5] "code_commune"            "code_cours_eau"         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] "code_departement"        "code_masse_eau"         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] "code_prelevement"        "code_qualification"     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [11] "code_region"             "code_sous_bassin"       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [13] "code_station_hydrobio"   "code_support"           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [15] "code_type_resultat"      "codes_indices_operation"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [17] "date_debut_prelevement"  "date_fin_prelevement"   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "distance"                "fields"                 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [21] "format"                  "latitude"               </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [23] "longitude"               "page"                   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [25] "size"                   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "bbox"                       "code_appel_taxon"          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [3] "code_banque_reference"      "code_bassin"               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [5] "code_commune"               "code_cours_eau"            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] "code_departement"           "code_masse_eau"            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] "code_operation_prelevement" "code_prelevement"          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [11] "code_qualification"         "code_region"               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [13] "code_sous_bassin"           "code_station_hydrobio"     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [15] "code_support"               "code_type_resultat"        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [17] "codes_indices_operation"    "date_debut_prelevement"    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "date_fin_prelevement"       "distance"                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [21] "fields"                     "format"                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [23] "latitude"                   "longitude"                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [25] "page"                       "size"                      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [27] "sort"                      </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">get_hydrobio_taxons</span><span class="op">(</span>code_commune <span class="op">=</span> <span class="fl">35051</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 13,151 × 90</span></span>
