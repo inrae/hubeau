@@ -1,9 +1,5 @@
 utils::globalVariables(
   c(
-    'code_commune',
-    'libelle_departement',
-    'libelle_region',
-    'libelle_station',
-    'longitude'
+    "libelle_station"
   )
 )
