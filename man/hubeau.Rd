@@ -92,6 +92,19 @@ conclusions from the sanitary control of the distributed water commune by commun
 }
 }
 
+\subsection{API "Qualité des cours d'eau"}{
+
+API documentation: \url{https://hubeau.eaufrance.fr/page/api-qualite-cours-deau}
+
+Available functions:
+\itemize{
+\item \code{\link[=get_qualite_rivieres_station]{get_qualite_rivieres_station()}}: measuring stations for river quality
+\item \code{\link[=get_qualite_rivieres_operation]{get_qualite_rivieres_operation()}}: physico-chemical operations
+\item \code{\link[=get_qualite_rivieres_analyse]{get_qualite_rivieres_analyse()}}: results of physico-chemical analyses
+\item \code{\link[=get_qualite_rivieres_condition_environnementale]{get_qualite_rivieres_condition_environnementale()}}: environmental conditions for analyses
+}
+}
+
 \subsection{API "Qualité des nappes d'eau souterraines"}{
 
 API documentation: \url{https://hubeau.eaufrance.fr/page/api-qualite-nappes}

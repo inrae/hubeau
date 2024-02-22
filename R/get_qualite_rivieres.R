@@ -11,7 +11,7 @@
 #'
 #' - `get_qualite_rivieres_station` retrieves physico-chemical measuring stations
 #' - `get_qualite_rivieres_operation` retrieves physico-chemical operations
-#' - `get_qualite_rivieres_analyse` retrieves physico-chemical analysis
+#' - `get_qualite_rivieres_analyse` retrieves physico-chemical analyses
 #' - `get_qualite_rivieres_condition_environnementale` retrieves physico-chemical
 #' environmental conditions for analyses (please note that pagination is based
 #' on the number of analyses)
