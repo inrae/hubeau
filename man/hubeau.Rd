@@ -63,7 +63,10 @@ API documentation: \url{https://hubeau.eaufrance.fr/page/api-poisson}
 
 Available function:
 \itemize{
-\item \code{\link[=get_poisson_observations]{get_poisson_observations()}}: scientific fishery observations
+\item \code{\link[=get_poisson_operations]{get_poisson_operations()}}: sampling operations carried out at stations measuring the quality of rivers
+\item \code{\link[=get_poisson_observations]{get_poisson_observations()}}: fish observations made during sampling operations
+\item \code{\link[=get_poisson_indicateurs]{get_poisson_indicateurs()}}: the IPR and IPR+ indicators calculated from fish observations
+\item \code{\link[=get_poisson_stations]{get_poisson_stations()}}: stations measuring the quality of rivers
 }
 }
 
