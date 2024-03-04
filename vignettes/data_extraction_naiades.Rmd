@@ -22,11 +22,11 @@ knitr::opts_chunk$set(
 load(system.file("vignettes/data_extraction_naiades.RData", package = "hubeau"))
 ```
 
-This vignette describes how to use functions of the [R package *hubeau*](https://cran.r-project.org/package=hubeau) to query the French Naiades database through the [API "qualité des cours d'eau"](https://hubeau.eaufrance.fr/page/api-qualite-cours-deau).
+This vignette describes how to use functions of the [R package *hubeau*](https://cran.r-project.org/package=hubeau) to query the French Naïades database through the [API "qualité des cours d'eau"](https://hubeau.eaufrance.fr/page/api-qualite-cours-deau).
 
-The [Naiades database](https://naiades.eaufrance.fr/) gathers hydrobiology, hydrogeomophomogy and physico-chemical information for French river and lake water. The information is associated with a water quality station (location), a date (the day of the sampling or of the observation) and a material (water, suspended matter, sediment, river bed, fish, etc.). **The API "qualité des cours d'eau" focuses only on water physico-chemical properties.**
+The [Naïades database](https://naiades.eaufrance.fr/) gathers hydrobiology, hydrogeomophomogy and physico-chemical information for French river and lake water. The information is associated with a water quality station (location), a date (the day of the sampling or of the observation) and a material (water, suspended matter, sediment, river bed, fish, etc.). **The API "qualité des cours d'eau" focuses only on water physico-chemical properties.**
 
-This example shows how to get physico-chemical information (here nitrates concentration) from the Naiades database on water monitoring sites belonging to an administrative entity (here the Cote d'Or department).
+This example shows how to get physico-chemical information (here nitrates concentration) from the Naïades database on water monitoring sites belonging to an administrative entity (here the Cote d'Or department).
 
 ```{r}
 library(hubeau)
@@ -60,7 +60,7 @@ The *hubeau* R package allows to query 11 databases which can be listed as follo
 list_apis()
 ```
 
-The name of the API which will be used below is `"qualite_rivieres"` using the ["qualité des cours d'eau" Hub'eau API](https://hubeau.eaufrance.fr/page/api-qualite-cours-deau) allowing to query the [Naiades database](https://naiades.eaufrance.fr/bienvenue-naiades).
+The name of the API which will be used below is `"qualite_rivieres"` using the ["qualité des cours d'eau" Hub'eau API](https://hubeau.eaufrance.fr/page/api-qualite-cours-deau) allowing to query the [Naïades database](https://naiades.eaufrance.fr/bienvenue-naiades).
 
 ## Available endpoints for the "qualite_rivieres" API
 
