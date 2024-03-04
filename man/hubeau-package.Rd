@@ -23,7 +23,7 @@ Useful links:
 
 Other contributors:
 \itemize{
-  \item Pascal Irz \email{pascal.irz@ofb.gouv.fr} (\href{https://orcid.org/00000-0002-2066-8935}{ORCID}) [contributor]
+  \item Pascal Irz \email{pascal.irz@ofb.gouv.fr} (\href{https://orcid.org/0000-0002-2066-8935}{ORCID}) [contributor]
   \item Sébastien Grall \email{seinormigr.grall@gmail.com} [contributor]
   \item Philippe Amiotte Suchet \email{philippe.amiotte-suchet@u-bourgogne.fr} (\href{https://orcid.org/0000-0003-3514-1447}{ORCID}) [contributor]
 }
