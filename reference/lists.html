@@ -19,7 +19,7 @@ list_params() returns the list of available parameters for an API endpoint."><me
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">hubeau</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.0</span>
       </span>
     </div>
 
@@ -34,7 +34,13 @@ list_params() returns the list of available parameters for an API endpoint."><me
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu"><li>
+      <a href="../articles/data_extraction_naiades.html">Getting data from the API "qualité des cours d'eau"</a>
+    </li>
+    <li>
       <a href="../articles/example_ecoulement_api.html">Performing queries on the 'Ecoulement' API</a>
+    </li>
+    <li>
+      <a href="../articles/example_niveaux_nappes_api.html">Performing queries on the 'niveaux_nappes' API</a>
     </li>
   </ul></li>
 <li>
@@ -105,7 +111,7 @@ functions <code>get_[API]_[endpoint]</code> used for querying the APIs.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "prelevements"         "indicateurs_services" "hydrometrie"         </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [4] "niveaux_nappes"       "poisson"              "ecoulement"          </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [7] "hydrobio"             "temperature"          "qualite_eau_potable" </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "qualite_nappes"      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "qualite_nappes"       "qualite_rivieres"    </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># To get the available endpoints in an API</span></span></span>
 <span class="r-in"><span><span class="fu">list_endpoints</span><span class="op">(</span><span class="st">"prelevements"</span><span class="op">)</span></span></span>

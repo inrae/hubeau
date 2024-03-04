@@ -25,7 +25,7 @@ https://hubeau.eaufrance.fr/page/api-hydrometrie'><meta property="og:image" cont
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">hubeau</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.0</span>
       </span>
     </div>
 
@@ -40,7 +40,13 @@ https://hubeau.eaufrance.fr/page/api-hydrometrie'><meta property="og:image" cont
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu"><li>
+      <a href="../articles/data_extraction_naiades.html">Getting data from the API "qualité des cours d'eau"</a>
+    </li>
+    <li>
       <a href="../articles/example_ecoulement_api.html">Performing queries on the 'Ecoulement' API</a>
+    </li>
+    <li>
+      <a href="../articles/example_niveaux_nappes_api.html">Performing queries on the 'niveaux_nappes' API</a>
     </li>
   </ul></li>
 <li>
@@ -130,7 +136,7 @@ if so, one line is added by item and other fields are repeated</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> H0210010  La Seine à Polisy     REEL                 <span style="text-decoration: underline;">802</span>885           6<span style="text-decoration: underline;">774</span>610</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> H0321040  L'Ource à Celles-sur… REEL                 <span style="text-decoration: underline;">804</span>893           6<span style="text-decoration: underline;">776</span>215</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> H0400010  La Seine à Bar-sur-S… REEL                 <span style="text-decoration: underline;">802</span>511           6<span style="text-decoration: underline;">780</span>502</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> H0400020  La Seine à Courtenot  REEL                 <span style="text-decoration: underline;">799</span>402           6<span style="text-decoration: underline;">782</span>747</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> H0400020  La Seine à Courtenot  REEL                 <span style="text-decoration: underline;">798</span>933           6<span style="text-decoration: underline;">783</span>584</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> H0413010  La Sarce à Virey-sou… REEL                 <span style="text-decoration: underline;">796</span>857           6<span style="text-decoration: underline;">783</span>149</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> H0503010  L'Hozain à Buchères … REEL                 <span style="text-decoration: underline;">782</span>364           6<span style="text-decoration: underline;">794</span>544</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> H0702010  La Barse à Montiéram… REEL                 <span style="text-decoration: underline;">795</span>978           6<span style="text-decoration: underline;">793</span>759</span>
@@ -154,7 +160,7 @@ if so, one line is added by item and other fields are repeated</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> H0210010  La Seine à Polisy     REEL                 <span style="text-decoration: underline;">802</span>885           6<span style="text-decoration: underline;">774</span>610</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> H0321040  L'Ource à Celles-sur… REEL                 <span style="text-decoration: underline;">804</span>893           6<span style="text-decoration: underline;">776</span>215</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> H0400010  La Seine à Bar-sur-S… REEL                 <span style="text-decoration: underline;">802</span>511           6<span style="text-decoration: underline;">780</span>502</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> H0400020  La Seine à Courtenot  REEL                 <span style="text-decoration: underline;">799</span>402           6<span style="text-decoration: underline;">782</span>747</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> H0400020  La Seine à Courtenot  REEL                 <span style="text-decoration: underline;">798</span>933           6<span style="text-decoration: underline;">783</span>584</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> H0413010  La Sarce à Virey-sou… REEL                 <span style="text-decoration: underline;">796</span>857           6<span style="text-decoration: underline;">783</span>149</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> H0503010  L'Hozain à Buchères … REEL                 <span style="text-decoration: underline;">782</span>364           6<span style="text-decoration: underline;">794</span>544</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 18 more rows</span></span>
@@ -198,7 +204,7 @@ if so, one line is added by item and other fields are repeated</p></dd>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Retrieve the hydrometric monthly mean flow at site 'H0203020'</span></span></span>
 <span class="r-in"><span><span class="fu">get_hydrometrie_obs_elab</span><span class="op">(</span>code_entite <span class="op">=</span> <span class="st">"H0203020"</span>, grandeur_hydro_elab <span class="op">=</span> <span class="st">"QmM"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 661 × 14</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 671 × 14</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    code_site code_station date_obs_elab resultat_obs_elab date_prod  code_statut</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> H0203020  H020302001   1968-02-01                 <span style="text-decoration: underline;">6</span>246 2021-09-1…          16</span>
@@ -211,7 +217,7 @@ if so, one line is added by item and other fields are repeated</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> H0203020  H020302001   1968-09-01                 <span style="text-decoration: underline;">3</span>451 2021-09-1…          16</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> H0203020  H020302001   1968-10-01                 <span style="text-decoration: underline;">4</span>242 2021-09-1…          16</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> H0203020  H020302001   1968-11-01                 <span style="text-decoration: underline;">2</span>675 2021-09-1…          16</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 651 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 661 more rows</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 8 more variables: libelle_statut &lt;chr&gt;, code_methode &lt;int&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   libelle_methode &lt;chr&gt;, code_qualification &lt;int&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   libelle_qualification &lt;chr&gt;, longitude &lt;dbl&gt;, latitude &lt;dbl&gt;,</span></span>
@@ -221,20 +227,20 @@ if so, one line is added by item and other fields are repeated</p></dd>
 <span class="r-in"><span><span class="fu">get_hydrometrie_obs_elab</span><span class="op">(</span>code_entite <span class="op">=</span> <span class="st">"H0203020"</span>,</span></span>
 <span class="r-in"><span>                         date_debut_obs_elab <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/format.html" class="external-link">format</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html" class="external-link">Sys.Date</a></span><span class="op">(</span><span class="op">)</span> <span class="op">-</span><span class="fl">30</span>, <span class="st">"%Y-%m-%d"</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>                         grandeur_hydro_elab <span class="op">=</span> <span class="st">"QmJ"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 30 × 14</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 23 × 14</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    code_site code_station date_obs_elab resultat_obs_elab date_prod  code_statut</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> H0203020  H020302002   2023-05-01                 <span style="text-decoration: underline;">2</span>103 2023-05-3…           4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> H0203020  H020302002   2023-05-02                 <span style="text-decoration: underline;">1</span>980 2023-05-3…           4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> H0203020  H020302002   2023-05-03                 <span style="text-decoration: underline;">1</span>918 2023-05-3…           4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> H0203020  H020302002   2023-05-04                 <span style="text-decoration: underline;">1</span>861 2023-05-3…           4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> H0203020  H020302002   2023-05-05                 <span style="text-decoration: underline;">1</span>896 2023-05-3…           4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> H0203020  H020302002   2023-05-06                 <span style="text-decoration: underline;">1</span>814 2023-05-3…           4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> H0203020  H020302002   2023-05-07                 <span style="text-decoration: underline;">1</span>779 2023-05-3…           4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> H0203020  H020302002   2023-05-08                 <span style="text-decoration: underline;">1</span>729 2023-05-3…           4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> H0203020  H020302002   2023-05-09                 <span style="text-decoration: underline;">1</span>806 2023-05-3…           4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> H0203020  H020302002   2023-05-10                 <span style="text-decoration: underline;">2</span>051 2023-05-3…           4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 20 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> H0203020  H020302002   2024-02-03                 <span style="text-decoration: underline;">4</span>606 2024-02-0…           4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> H0203020  H020302002   2024-02-04                 <span style="text-decoration: underline;">4</span>340 2024-02-0…           4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> H0203020  H020302002   2024-02-05                 <span style="text-decoration: underline;">4</span>094 2024-02-0…           4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> H0203020  H020302002   2024-02-06                 <span style="text-decoration: underline;">3</span>842 2024-02-0…           4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> H0203020  H020302002   2024-02-07                 <span style="text-decoration: underline;">3</span>726 2024-02-0…           4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> H0203020  H020302002   2024-02-08                 <span style="text-decoration: underline;">4</span>102 2024-02-0…           4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> H0203020  H020302002   2024-02-09                 <span style="text-decoration: underline;">4</span>251 2024-02-1…           4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> H0203020  H020302002   2024-02-10                 <span style="text-decoration: underline;">5</span>008 2024-02-1…           4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> H0203020  H020302002   2024-02-11                 <span style="text-decoration: underline;">7</span>130 2024-02-1…           4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> H0203020  H020302002   2024-02-12                 <span style="text-decoration: underline;">8</span>692 2024-02-1…           4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 13 more rows</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 8 more variables: libelle_statut &lt;chr&gt;, code_methode &lt;int&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   libelle_methode &lt;chr&gt;, code_qualification &lt;int&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   libelle_qualification &lt;chr&gt;, longitude &lt;dbl&gt;, latitude &lt;dbl&gt;,</span></span>

@@ -60,7 +60,10 @@ API &quot;Poisson&quot;
 
 API documentation: https://hubeau.eaufrance.fr/page/api-poisson
 Available function:
-get_poisson_observations(): scientific fishery observations
+get_poisson_operations(): sampling operations carried out at stations measuring the quality of rivers
+get_poisson_observations(): fish observations made during sampling operations
+get_poisson_indicateurs(): the IPR and IPR+ indicators calculated from fish observations
+get_poisson_stations(): stations measuring the quality of rivers
 
 
 
@@ -88,6 +91,20 @@ get_qualite_eau_potable_communes_udi(): links between &quot;UDI&quot; (Distribut
 or networks) and communes
 get_qualite_eau_potable_resultats_dis(): samples, analysis results and sanitary
 conclusions from the sanitary control of the distributed water commune by commune
+
+
+
+
+
+API &quot;Qualité des cours d'eau&quot;
+
+
+API documentation: https://hubeau.eaufrance.fr/page/api-qualite-cours-deau
+Available functions:
+get_qualite_rivieres_station(): stations (measuring points) on rivers or water bodies where water samples have been taken for water quality analyses
+get_qualite_rivieres_operation(): sampling operations carried out at the stations
+get_qualite_rivieres_analyse(): physico-chemical analyses carried out on samples prepared during sampling operations at the stations
+get_qualite_rivieres_condition_environnementale(): environmental conditions (air temperature, presence of leaves, moss, iridescence, etc.) observed during physico-chemical sampling operations
 
 
 
@@ -133,7 +150,7 @@ get_temperature_chronique(): river temperature time series
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">hubeau</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.0</span>
       </span>
     </div>
 
@@ -148,7 +165,13 @@ get_temperature_chronique(): river temperature time series
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu"><li>
+      <a href="../articles/data_extraction_naiades.html">Getting data from the API "qualité des cours d'eau"</a>
+    </li>
+    <li>
       <a href="../articles/example_ecoulement_api.html">Performing queries on the 'Ecoulement' API</a>
+    </li>
+    <li>
+      <a href="../articles/example_niveaux_nappes_api.html">Performing queries on the 'niveaux_nappes' API</a>
     </li>
   </ul></li>
 <li>
@@ -223,7 +246,10 @@ These functions are named as follow: <code>hubeau::get_[API]_[endpoint]</code>.<
 
 
 <p>API documentation: <a href="https://hubeau.eaufrance.fr/page/api-poisson" class="external-link">https://hubeau.eaufrance.fr/page/api-poisson</a></p>
-<p>Available function:</p><ul><li><p><code><a href="get_poisson.html">get_poisson_observations()</a></code>: scientific fishery observations</p></li>
+<p>Available function:</p><ul><li><p><code><a href="get_poisson.html">get_poisson_operations()</a></code>: sampling operations carried out at stations measuring the quality of rivers</p></li>
+<li><p><code><a href="get_poisson.html">get_poisson_observations()</a></code>: fish observations made during sampling operations</p></li>
+<li><p><code><a href="get_poisson.html">get_poisson_indicateurs()</a></code>: the IPR and IPR+ indicators calculated from fish observations</p></li>
+<li><p><code><a href="get_poisson.html">get_poisson_stations()</a></code>: stations measuring the quality of rivers</p></li>
 </ul></div>
 
 <div class="section">
@@ -245,6 +271,17 @@ These functions are named as follow: <code>hubeau::get_[API]_[endpoint]</code>.<
 or networks) and communes</p></li>
 <li><p><code><a href="get_qualite_eau_potable.html">get_qualite_eau_potable_resultats_dis()</a></code>: samples, analysis results and sanitary
 conclusions from the sanitary control of the distributed water commune by commune</p></li>
+</ul></div>
+
+<div class="section">
+<h3 id="api-qualit-des-cours-d-eau-">API "Qualité des cours d'eau"<a class="anchor" aria-label="anchor" href="#api-qualit-des-cours-d-eau-"></a></h3>
+
+
+<p>API documentation: <a href="https://hubeau.eaufrance.fr/page/api-qualite-cours-deau" class="external-link">https://hubeau.eaufrance.fr/page/api-qualite-cours-deau</a></p>
+<p>Available functions:</p><ul><li><p><code><a href="get_qualite_rivieres.html">get_qualite_rivieres_station()</a></code>: stations (measuring points) on rivers or water bodies where water samples have been taken for water quality analyses</p></li>
+<li><p><code><a href="get_qualite_rivieres.html">get_qualite_rivieres_operation()</a></code>: sampling operations carried out at the stations</p></li>
+<li><p><code><a href="get_qualite_rivieres.html">get_qualite_rivieres_analyse()</a></code>: physico-chemical analyses carried out on samples prepared during sampling operations at the stations</p></li>
+<li><p><code><a href="get_qualite_rivieres.html">get_qualite_rivieres_condition_environnementale()</a></code>: environmental conditions (air temperature, presence of leaves, moss, iridescence, etc.) observed during physico-chemical sampling operations</p></li>
 </ul></div>
 
 <div class="section">

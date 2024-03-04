@@ -13,7 +13,13 @@
     <loc>https://inrae.github.io/hubeau/LICENSE.html</loc>
   </url>
   <url>
+    <loc>https://inrae.github.io/hubeau/articles/data_extraction_naiades.html</loc>
+  </url>
+  <url>
     <loc>https://inrae.github.io/hubeau/articles/example_ecoulement_api.html</loc>
+  </url>
+  <url>
+    <loc>https://inrae.github.io/hubeau/articles/example_niveaux_nappes_api.html</loc>
   </url>
   <url>
     <loc>https://inrae.github.io/hubeau/articles/index.html</loc>
@@ -61,7 +67,13 @@
     <loc>https://inrae.github.io/hubeau/reference/get_qualite_nappes.html</loc>
   </url>
   <url>
+    <loc>https://inrae.github.io/hubeau/reference/get_qualite_rivieres.html</loc>
+  </url>
+  <url>
     <loc>https://inrae.github.io/hubeau/reference/get_temperature.html</loc>
+  </url>
+  <url>
+    <loc>https://inrae.github.io/hubeau/reference/hubeau-package.html</loc>
   </url>
   <url>
     <loc>https://inrae.github.io/hubeau/reference/hubeau.html</loc>

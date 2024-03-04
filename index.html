@@ -42,7 +42,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">hubeau</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.0</span>
       </span>
     </div>
 
@@ -59,7 +59,13 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
+      <a href="articles/data_extraction_naiades.html">Getting data from the API "qualité des cours d'eau"</a>
+    </li>
+    <li>
       <a href="articles/example_ecoulement_api.html">Performing queries on the 'Ecoulement' API</a>
+    </li>
+    <li>
+      <a href="articles/example_niveaux_nappes_api.html">Performing queries on the 'niveaux_nappes' API</a>
     </li>
   </ul>
 </li>
@@ -183,7 +189,13 @@
 <p>Available function:</p>
 <ul>
 <li>
-<a href="https://inrae.github.io/hubeau/reference/get_poisson.html"><code>get_poisson_observations</code></a>: scientific fishery observations</li>
+<a href="https://inrae.github.io/hubeau/reference/get_poisson.html"><code>get_poisson_operations</code></a>: sampling operations carried out at stations measuring the quality of rivers</li>
+<li>
+<a href="https://inrae.github.io/hubeau/reference/get_poisson.html"><code>get_poisson_observations</code></a>: fish observations made during sampling operations</li>
+<li>
+<a href="https://inrae.github.io/hubeau/reference/get_poisson.html"><code>get_poisson_indicateurs</code></a>: the IPR and IPR+ indicators calculated from fish observations</li>
+<li>
+<a href="https://inrae.github.io/hubeau/reference/get_poisson.html"><code>get_poisson_stations</code></a>: stations measuring the quality of rivers</li>
 </ul>
 </div>
 <div class="section level2">
@@ -210,6 +222,22 @@
 <a href="https://inrae.github.io/hubeau/reference/get_qualite_eau_potable.html"><code>get_qualite_eau_potable_communes_udi</code></a>: links between “UDI” (Distribution units or networks) and communes</li>
 <li>
 <a href="https://inrae.github.io/hubeau/reference/get_qualite_eau_potable.html"><code>get_qualite_eau_potable_resultats_dis</code></a>: samples, analysis results and sanitary conclusions from the sanitary control of the distributed water commune by commune</li>
+</ul>
+</div>
+<div class="section level2">
+<h2 id="api-qualité-des-cours-deau">API “Qualité des cours d’eau”<a class="anchor" aria-label="anchor" href="#api-qualit%C3%A9-des-cours-deau"></a>
+</h2>
+<p>API documentation: <a href="https://hubeau.eaufrance.fr/page/api-qualite-cours-deau" class="external-link uri">https://hubeau.eaufrance.fr/page/api-qualite-cours-deau</a></p>
+<p>Available functions:</p>
+<ul>
+<li>
+<a href="https://inrae.github.io/hubeau/reference/get_qualite_rivieres.html"><code>get_qualite_rivieres_station</code></a>: stations (measuring points) on rivers or water bodies where water samples have been taken for water quality analyses</li>
+<li>
+<a href="https://inrae.github.io/hubeau/reference/get_qualite_rivieres.html"><code>get_qualite_rivieres_operation</code></a>: sampling operations carried out at the stations</li>
+<li>
+<a href="https://inrae.github.io/hubeau/reference/get_qualite_rivieres.html"><code>get_qualite_rivieres_analyse</code></a>: physico-chemical analyses carried out on samples prepared during sampling operations at the stations</li>
+<li>
+<a href="https://inrae.github.io/hubeau/reference/get_qualite_rivieres.html"><code>get_qualite_rivieres_condition_environnementale</code></a>: environmental conditions (air temperature, presence of leaves, moss, iridescence, etc.) observed during physico-chemical sampling operations</li>
 </ul>
 </div>
 <div class="section level2">

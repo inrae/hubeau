@@ -24,7 +24,7 @@ See the API documentation for available filter parameters: https://hubeau.eaufra
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">hubeau</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.0</span>
       </span>
     </div>
 
@@ -39,7 +39,13 @@ See the API documentation for available filter parameters: https://hubeau.eaufra
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu"><li>
+      <a href="../articles/data_extraction_naiades.html">Getting data from the API "qualité des cours d'eau"</a>
+    </li>
+    <li>
       <a href="../articles/example_ecoulement_api.html">Performing queries on the 'Ecoulement' API</a>
+    </li>
+    <li>
+      <a href="../articles/example_niveaux_nappes_api.html">Performing queries on the 'niveaux_nappes' API</a>
     </li>
   </ul></li>
 <li>
@@ -114,97 +120,104 @@ for a given API endpoint and see the API documentation for their description</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [17] "format"                   "latitude"                </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [19] "libelle_station_hydrobio" "longitude"               </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [21] "page"                     "size"                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [23] "sort"                    </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">get_hydrobio_stations_hydrobio</span><span class="op">(</span>code_region <span class="op">=</span> <span class="fl">52</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 942 × 1,799</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1,015 × 1,875</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    code_station_hydrobio libelle_station_hydrobio           uri_station_hydrobio</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 03271654              LA CHEVAUCHERIE A MONTAUDIN 1      http://id.eaufrance…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 03271657              LE RUISSEAU DE LA MORINIÈRE A SAI… http://id.eaufrance…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 03271661              LA HOGUE A SAINT-BERTHEVIN-LA-TAN… http://id.eaufrance…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 03271679              LA FUTAIE A SAINT-ELLIER-DU-MAINE… http://id.eaufrance…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 03271699              LA FUTAIE A PONTMAIN 2             http://id.eaufrance…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 03271710              LA FUTAIE A PONTMAIN 3             http://id.eaufrance…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 03271730              LA GLAINE A LA BAZOUGE-DU-DESERT 2 http://id.eaufrance…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 03271850              L'AIRON A LANDIVY 1                http://id.eaufrance…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 04098400              LOIRE à MONTSOREAU                 http://id.eaufrance…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 04102000              THOUET à MONTREUIL-BELLAY          http://id.eaufrance…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 932 more rows</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 1,796 more variables: coordonnee_x &lt;dbl&gt;, coordonnee_y &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   code_projection &lt;chr&gt;, code_cours_eau &lt;chr&gt;, libelle_cours_eau &lt;lgl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   uri_cours_eau &lt;lgl&gt;, code_masse_eau &lt;chr&gt;, libelle_masse_eau &lt;lgl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   uri_masse_eau &lt;lgl&gt;, code_sous_bassin &lt;lgl&gt;, libelle_sous_bassin &lt;lgl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   code_bassin &lt;lgl&gt;, libelle_bassin &lt;lgl&gt;, code_commune &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 03271654              LA CHEVAUCHERIE A MONTAUDIN 1      https://id.eaufranc…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 03271657              LE RUISSEAU DE LA MORINIÈRE A SAI… https://id.eaufranc…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 03271661              LA HOGUE A SAINT-BERTHEVIN-LA-TAN… https://id.eaufranc…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 03271679              LA FUTAIE A SAINT-ELLIER-DU-MAINE… https://id.eaufranc…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 03271699              LA FUTAIE A PONTMAIN 2             https://id.eaufranc…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 03271710              LA FUTAIE A PONTMAIN 3             https://id.eaufranc…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 03271730              LA GLAINE A LA BAZOUGE-DU-DESERT 2 https://id.eaufranc…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 03271850              L'AIRON A LANDIVY 1                https://id.eaufranc…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 04098400              LOIRE à MONTSOREAU                 https://id.eaufranc…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 04102000              THOUET à MONTREUIL-BELLAY          https://id.eaufranc…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 1,005 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 1,872 more variables: coordonnee_x &lt;dbl&gt;, coordonnee_y &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   code_projection &lt;chr&gt;, code_cours_eau &lt;chr&gt;, libelle_cours_eau &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   uri_cours_eau &lt;chr&gt;, code_masse_eau &lt;chr&gt;, libelle_masse_eau &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   uri_masse_eau &lt;chr&gt;, code_sous_bassin &lt;chr&gt;, libelle_sous_bassin &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   code_bassin &lt;chr&gt;, libelle_bassin &lt;chr&gt;, code_commune &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   libelle_commune &lt;chr&gt;, code_departement &lt;chr&gt;, libelle_departement &lt;chr&gt;, …</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Retrieve the hydrobiological bioassessment indices in the city of Rennes</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="lists.html">list_params</a></span><span class="op">(</span>api <span class="op">=</span> <span class="st">"hydrobio"</span>,</span></span>
 <span class="r-in"><span>            endpoint <span class="op">=</span> <span class="st">"indices"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "bbox"                   "code_banque_reference"  "code_bassin"           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [4] "code_commune"           "code_cours_eau"         "code_departement"      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] "code_indice"            "code_masse_eau"         "code_prelevement"      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "code_qualification"     "code_region"            "code_sous_bassin"      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [13] "code_station_hydrobio"  "code_support"           "date_debut_prelevement"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [16] "date_fin_prelevement"   "distance"               "fields"                </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "format"                 "latitude"               "libelle_indice"        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [22] "longitude"              "page"                   "resultat_indice_max"   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [25] "resultat_indice_min"    "size"                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "bbox"                       "code_banque_reference"     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [3] "code_bassin"                "code_commune"              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [5] "code_cours_eau"             "code_departement"          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] "code_indice"                "code_masse_eau"            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] "code_operation_prelevement" "code_prelevement"          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [11] "code_qualification"         "code_region"               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [13] "code_sous_bassin"           "code_station_hydrobio"     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [15] "code_support"               "date_debut_prelevement"    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [17] "date_fin_prelevement"       "distance"                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "fields"                     "format"                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [21] "latitude"                   "libelle_indice"            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [23] "longitude"                  "page"                      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [25] "resultat_indice_max"        "resultat_indice_min"       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [27] "size"                       "sort"                      </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">get_hydrobio_indices</span><span class="op">(</span>code_commune <span class="op">=</span> <span class="fl">35051</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 242 × 43</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 258 × 44</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    code_indice libelle_indice       code_station_hydrobio libelle_station_hydr…¹</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 1000        Indice Biologique G… 04204600              VILAINE à CESSON-SEVI…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 1000        Indice Biologique G… 04204600              VILAINE à CESSON-SEVI…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 1001        Variété taxonomique… 04204600              VILAINE à CESSON-SEVI…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 1001        Variété taxonomique… 04204600              VILAINE à CESSON-SEVI…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 1002        Numéro d'ordre du g… 04204600              VILAINE à CESSON-SEVI…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 1002        Numéro d'ordre du g… 04204600              VILAINE à CESSON-SEVI…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 1003        Indice Biologique G… 04204600              VILAINE à CESSON-SEVI…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 1003        Indice Biologique G… 04204600              VILAINE à CESSON-SEVI…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 1003        Indice Biologique G… 04204600              VILAINE à CESSON-SEVI…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 1003        Indice Biologique G… 04204600              VILAINE à CESSON-SEVI…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 232 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 7644        Score de la métriqu… 04204300              VILAINE à CESSON-SEVI…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 7745        Score de la métriqu… 04204300              VILAINE à CESSON-SEVI…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 7746        Score de la métriqu… 04204300              VILAINE à CESSON-SEVI…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 7743        Score de la métriqu… 04204300              VILAINE à CESSON-SEVI…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 7036        Indice Poisson Rivi… 04204300              VILAINE à CESSON-SEVI…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 7744        Score de la métriqu… 04204300              VILAINE à CESSON-SEVI…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 7786        Score de la métriqu… 04204300              VILAINE à CESSON-SEVI…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 7787        Score de la métriqu… 04204300              VILAINE à CESSON-SEVI…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 8056        Métrique Polyvoltin… 04204300              VILAINE à CESSON-SEVI…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 8050        Nombre de taxons co… 04204300              VILAINE à CESSON-SEVI…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 248 more rows</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ abbreviated name: ¹​libelle_station_hydrobio</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 39 more variables: uri_station_hydrobio &lt;lgl&gt;, date_prelevement &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 40 more variables: uri_station_hydrobio &lt;chr&gt;, date_prelevement &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   resultat_indice &lt;dbl&gt;, unite_indice &lt;chr&gt;, coordonnee_x &lt;dbl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   coordonnee_y &lt;dbl&gt;, code_projection &lt;chr&gt;, code_cours_eau &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   libelle_cours_eau &lt;lgl&gt;, uri_cours_eau &lt;lgl&gt;, code_masse_eau &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   libelle_masse_eau &lt;lgl&gt;, uri_masse_eau &lt;lgl&gt;, code_sous_bassin &lt;lgl&gt;, …</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   libelle_cours_eau &lt;chr&gt;, uri_cours_eau &lt;chr&gt;, code_masse_eau &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   libelle_masse_eau &lt;chr&gt;, uri_masse_eau &lt;chr&gt;, code_sous_bassin &lt;chr&gt;, …</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># species records in the city of Rennes</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="lists.html">list_params</a></span><span class="op">(</span>api <span class="op">=</span> <span class="st">"hydrobio"</span>,</span></span>
 <span class="r-in"><span>            endpoint <span class="op">=</span> <span class="st">"taxons"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "bbox"                    "code_appel_taxon"       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [3] "code_banque_reference"   "code_bassin"            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [5] "code_commune"            "code_cours_eau"         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] "code_departement"        "code_masse_eau"         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] "code_prelevement"        "code_qualification"     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [11] "code_region"             "code_sous_bassin"       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [13] "code_station_hydrobio"   "code_support"           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [15] "code_type_resultat"      "codes_indices_operation"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [17] "date_debut_prelevement"  "date_fin_prelevement"   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "distance"                "fields"                 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [21] "format"                  "latitude"               </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [23] "longitude"               "page"                   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [25] "size"                   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "bbox"                       "code_appel_taxon"          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [3] "code_banque_reference"      "code_bassin"               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [5] "code_commune"               "code_cours_eau"            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] "code_departement"           "code_masse_eau"            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] "code_operation_prelevement" "code_prelevement"          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [11] "code_qualification"         "code_region"               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [13] "code_sous_bassin"           "code_station_hydrobio"     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [15] "code_support"               "code_type_resultat"        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [17] "codes_indices_operation"    "date_debut_prelevement"    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "date_fin_prelevement"       "distance"                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [21] "fields"                     "format"                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [23] "latitude"                   "longitude"                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [25] "page"                       "size"                      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [27] "sort"                      </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">get_hydrobio_taxons</span><span class="op">(</span>code_commune <span class="op">=</span> <span class="fl">35051</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 12,331 × 89</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    code_station_hydrobio libelle_station_hydrobio uri_station_hydrobio</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                    <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>               </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 04204300              VILAINE à CESSON-SEVIGNE <span style="color: #BB0000;">NA</span>                  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 04204300              VILAINE à CESSON-SEVIGNE <span style="color: #BB0000;">NA</span>                  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 04204300              VILAINE à CESSON-SEVIGNE <span style="color: #BB0000;">NA</span>                  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 04204300              VILAINE à CESSON-SEVIGNE <span style="color: #BB0000;">NA</span>                  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 04204300              VILAINE à CESSON-SEVIGNE <span style="color: #BB0000;">NA</span>                  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 04204300              VILAINE à CESSON-SEVIGNE <span style="color: #BB0000;">NA</span>                  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 04204300              VILAINE à CESSON-SEVIGNE <span style="color: #BB0000;">NA</span>                  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 04204300              VILAINE à CESSON-SEVIGNE <span style="color: #BB0000;">NA</span>                  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 04204300              VILAINE à CESSON-SEVIGNE <span style="color: #BB0000;">NA</span>                  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 04204300              VILAINE à CESSON-SEVIGNE <span style="color: #BB0000;">NA</span>                  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 12,321 more rows</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 86 more variables: date_prelevement &lt;chr&gt;, code_support &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 13,151 × 90</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    code_station_hydrobio libelle_station_hydrobio uri_station_hydrobio          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 04204300              VILAINE à CESSON-SEVIGNE https://id.eaufrance.fr/Stati…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 04204300              VILAINE à CESSON-SEVIGNE https://id.eaufrance.fr/Stati…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 04204300              VILAINE à CESSON-SEVIGNE https://id.eaufrance.fr/Stati…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 04204300              VILAINE à CESSON-SEVIGNE https://id.eaufrance.fr/Stati…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 04204300              VILAINE à CESSON-SEVIGNE https://id.eaufrance.fr/Stati…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 04204300              VILAINE à CESSON-SEVIGNE https://id.eaufrance.fr/Stati…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 04204300              VILAINE à CESSON-SEVIGNE https://id.eaufrance.fr/Stati…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 04204300              VILAINE à CESSON-SEVIGNE https://id.eaufrance.fr/Stati…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 04204300              VILAINE à CESSON-SEVIGNE https://id.eaufrance.fr/Stati…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 04204300              VILAINE à CESSON-SEVIGNE https://id.eaufrance.fr/Stati…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 13,141 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 87 more variables: date_prelevement &lt;chr&gt;, code_support &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   libelle_support &lt;chr&gt;, code_appel_taxon &lt;chr&gt;, libelle_appel_taxon &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   codes_taxons_parents1 &lt;chr&gt;, codes_taxons_parents2 &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   codes_taxons_parents3 &lt;chr&gt;, codes_taxons_parents4 &lt;chr&gt;,</span></span>
