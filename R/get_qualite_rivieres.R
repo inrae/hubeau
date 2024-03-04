@@ -18,6 +18,9 @@
 #'
 #' See the API documentation for available filter parameters: \url{https://hubeau.eaufrance.fr/page/api-qualite-cours-deau}
 #'
+#' @details
+#' Endpoints ending by `_pc` are aliases of the functions without the suffix `_pc`.
+#'
 #' @inheritParams doApiQuery
 #' @inherit convert_list_to_tibble return return
 #'
@@ -121,12 +124,20 @@ get_qualite_rivieres_analyse <- function(...) {
 
 #' @export
 #' @rdname get_qualite_rivieres
+get_qualite_rivieres_analyse_pc <- get_qualite_rivieres_analyse
+
+#' @export
+#' @rdname get_qualite_rivieres
 get_qualite_rivieres_condition_environnementale <- function(...) {
   l <- doApiQuery(api = "qualite_rivieres",
                   endpoint = "condition_environnementale_pc",
                   ...)
   convert_list_to_tibble(l) %>% fix_encoding_libelle_station
 }
+
+#' @export
+#' @rdname get_qualite_rivieres
+get_qualite_rivieres_condition_environnementale_pc <- get_qualite_rivieres_condition_environnementale
 
 #' @export
 #' @rdname get_qualite_rivieres
@@ -139,12 +150,20 @@ get_qualite_rivieres_operation <- function(...) {
 
 #' @export
 #' @rdname get_qualite_rivieres
+get_qualite_rivieres_operation_pc <- get_qualite_rivieres_operation
+
+#' @export
+#' @rdname get_qualite_rivieres
 get_qualite_rivieres_station <- function(...) {
   l <- doApiQuery(api = "qualite_rivieres",
                   endpoint = "station_pc",
                   ...)
   convert_list_to_tibble(l) %>% fix_encoding_libelle_station
 }
+
+#' @export
+#' @rdname get_qualite_rivieres
+get_qualite_rivieres_station_pc <- get_qualite_rivieres_station
 
 fix_encoding_libelle_station <- function(df) {
   if ("libelle_station" %in% names(df)) {

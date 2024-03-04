@@ -2,18 +2,30 @@
 % Please edit documentation in R/get_qualite_rivieres.R
 \name{get_qualite_rivieres_analyse}
 \alias{get_qualite_rivieres_analyse}
+\alias{get_qualite_rivieres_analyse_pc}
 \alias{get_qualite_rivieres_condition_environnementale}
+\alias{get_qualite_rivieres_condition_environnementale_pc}
 \alias{get_qualite_rivieres_operation}
+\alias{get_qualite_rivieres_operation_pc}
 \alias{get_qualite_rivieres_station}
+\alias{get_qualite_rivieres_station_pc}
 \title{Retrieve data from API "Qualité physico-chimique des cours d'eau"}
 \usage{
 get_qualite_rivieres_analyse(...)
 
+get_qualite_rivieres_analyse_pc(...)
+
 get_qualite_rivieres_condition_environnementale(...)
+
+get_qualite_rivieres_condition_environnementale_pc(...)
 
 get_qualite_rivieres_operation(...)
 
+get_qualite_rivieres_operation_pc(...)
+
 get_qualite_rivieres_station(...)
+
+get_qualite_rivieres_station_pc(...)
 }
 \arguments{
 \item{...}{parameters of the queries and their values in the format
@@ -42,6 +54,9 @@ on the number of analyses)
 }
 
 See the API documentation for available filter parameters: \url{https://hubeau.eaufrance.fr/page/api-qualite-cours-deau}
+}
+\details{
+Endpoints ending by \verb{_pc} are aliases of the functions without the suffix \verb{_pc}.
 }
 \examples{
 \dontrun{
