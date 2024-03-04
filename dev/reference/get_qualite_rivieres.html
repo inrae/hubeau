@@ -96,11 +96,19 @@ on the number of analyses)</p></li>
     <div id="ref-usage">
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">get_qualite_rivieres_analyse</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
 <span></span>
+<span><span class="fu">get_qualite_rivieres_analyse_pc</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
+<span></span>
 <span><span class="fu">get_qualite_rivieres_condition_environnementale</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">get_qualite_rivieres_condition_environnementale_pc</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">get_qualite_rivieres_operation</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">get_qualite_rivieres_station</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">get_qualite_rivieres_operation_pc</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">get_qualite_rivieres_station</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">get_qualite_rivieres_station_pc</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -117,6 +125,10 @@ for a given API endpoint and see the API documentation for their description</p>
     
 
 <p>A <a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble::tibble</a> with one row by record and one column by field.</p>
+    </div>
+    <div id="details">
+    <h2>Details</h2>
+    <p>Endpoints ending by <code>_pc</code> are aliases of the functions without the suffix <code>_pc</code>.</p>
     </div>
 
     <div id="ref-examples">
