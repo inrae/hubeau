@@ -25,7 +25,7 @@ https://hubeau.eaufrance.fr/page/api-hydrometrie'><meta property="og:image" cont
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">hubeau</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.4.1.9000</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.5.0.9000</span>
       </span>
     </div>
 
@@ -204,7 +204,7 @@ if so, one line is added by item and other fields are repeated</p></dd>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Retrieve the hydrometric monthly mean flow at site 'H0203020'</span></span></span>
 <span class="r-in"><span><span class="fu">get_hydrometrie_obs_elab</span><span class="op">(</span>code_entite <span class="op">=</span> <span class="st">"H0203020"</span>, grandeur_hydro_elab <span class="op">=</span> <span class="st">"QmM"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 671 × 14</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 666 × 14</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    code_site code_station date_obs_elab resultat_obs_elab date_prod  code_statut</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> H0203020  H020302001   1968-02-01                 <span style="text-decoration: underline;">6</span>246 2021-09-1…          16</span>
@@ -217,7 +217,7 @@ if so, one line is added by item and other fields are repeated</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> H0203020  H020302001   1968-09-01                 <span style="text-decoration: underline;">3</span>451 2021-09-1…          16</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> H0203020  H020302001   1968-10-01                 <span style="text-decoration: underline;">4</span>242 2021-09-1…          16</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> H0203020  H020302001   1968-11-01                 <span style="text-decoration: underline;">2</span>675 2021-09-1…          16</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 661 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 656 more rows</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 8 more variables: libelle_statut &lt;chr&gt;, code_methode &lt;int&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   libelle_methode &lt;chr&gt;, code_qualification &lt;int&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   libelle_qualification &lt;chr&gt;, longitude &lt;dbl&gt;, latitude &lt;dbl&gt;,</span></span>
@@ -227,20 +227,20 @@ if so, one line is added by item and other fields are repeated</p></dd>
 <span class="r-in"><span><span class="fu">get_hydrometrie_obs_elab</span><span class="op">(</span>code_entite <span class="op">=</span> <span class="st">"H0203020"</span>,</span></span>
 <span class="r-in"><span>                         date_debut_obs_elab <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/format.html" class="external-link">format</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html" class="external-link">Sys.Date</a></span><span class="op">(</span><span class="op">)</span> <span class="op">-</span><span class="fl">30</span>, <span class="st">"%Y-%m-%d"</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>                         grandeur_hydro_elab <span class="op">=</span> <span class="st">"QmJ"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 23 × 14</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 30 × 14</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    code_site code_station date_obs_elab resultat_obs_elab date_prod  code_statut</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> H0203020  H020302002   2024-02-03                 <span style="text-decoration: underline;">4</span>606 2024-02-0…           4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> H0203020  H020302002   2024-02-04                 <span style="text-decoration: underline;">4</span>340 2024-02-0…           4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> H0203020  H020302002   2024-02-05                 <span style="text-decoration: underline;">4</span>094 2024-02-0…           4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> H0203020  H020302002   2024-02-06                 <span style="text-decoration: underline;">3</span>842 2024-02-0…           4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> H0203020  H020302002   2024-02-07                 <span style="text-decoration: underline;">3</span>726 2024-02-0…           4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> H0203020  H020302002   2024-02-08                 <span style="text-decoration: underline;">4</span>102 2024-02-0…           4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> H0203020  H020302002   2024-02-09                 <span style="text-decoration: underline;">4</span>251 2024-02-1…           4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> H0203020  H020302002   2024-02-10                 <span style="text-decoration: underline;">5</span>008 2024-02-1…           4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> H0203020  H020302002   2024-02-11                 <span style="text-decoration: underline;">7</span>130 2024-02-1…           4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> H0203020  H020302002   2024-02-12                 <span style="text-decoration: underline;">8</span>692 2024-02-1…           4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 13 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> H0203020  H020302002   2024-02-24                <span style="text-decoration: underline;">13</span>020 2024-03-1…          12</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> H0203020  H020302002   2024-02-25                <span style="text-decoration: underline;">13</span>369 2024-03-1…          12</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> H0203020  H020302002   2024-02-26                <span style="text-decoration: underline;">13</span>559 2024-03-1…          12</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> H0203020  H020302002   2024-02-27                <span style="text-decoration: underline;">13</span>781 2024-03-1…          12</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> H0203020  H020302002   2024-02-28                <span style="text-decoration: underline;">13</span>722 2024-03-1…          12</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> H0203020  H020302002   2024-02-29                <span style="text-decoration: underline;">13</span>327 2024-03-1…          12</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> H0203020  H020302002   2024-03-01                <span style="text-decoration: underline;">12</span>422 2024-03-1…          12</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> H0203020  H020302002   2024-03-02                <span style="text-decoration: underline;">11</span>293 2024-03-1…          12</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> H0203020  H020302002   2024-03-03                <span style="text-decoration: underline;">10</span>724 2024-03-1…          12</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> H0203020  H020302002   2024-03-04                <span style="text-decoration: underline;">10</span>857 2024-03-1…          12</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 20 more rows</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 8 more variables: libelle_statut &lt;chr&gt;, code_methode &lt;int&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   libelle_methode &lt;chr&gt;, code_qualification &lt;int&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   libelle_qualification &lt;chr&gt;, longitude &lt;dbl&gt;, latitude &lt;dbl&gt;,</span></span>
