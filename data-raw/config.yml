@@ -1,5 +1,6 @@
 default:
-  api_url: https://hubeau.eaufrance.fr/api
+  api_url: https://hubeau.eaufrance.fr
+  api_path: api
   api_docs: api-docs
   user_agent: https://github.com/inrae/hubeau
   apis:
@@ -8,7 +9,7 @@ default:
     indicateurs_services:
       path: v0/indicateurs_services
     hydrometrie:
-      path: v1/hydrometrie
+      path: v2/hydrometrie
     niveaux_nappes:
       path: v1/niveaux_nappes
     poisson:
