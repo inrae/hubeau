@@ -94,6 +94,7 @@ get_hydrometrie_sites  <- function(...,
     endpoint = "sites",
     ...
   )
+  attributes_l <- attributes(l)
   l <- lapply(l, function(x) {
     fields <-
       c(
@@ -127,6 +128,7 @@ get_hydrometrie_sites  <- function(...,
     }
     x
   })
+  attributes(l) <- attributes_l
   convert_list_to_tibble(l)
 }
 
