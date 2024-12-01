@@ -7,7 +7,7 @@ library(httr)
 
 defineApis <- function(api, cfg) {
   message("Processing API: ", api$path)
-  query <- file.path(cfg$api_url, api$path, cfg$api_docs)
+  query <- file.path(cfg$api_url, cfg$api_path, api$path, cfg$api_docs)
   d <- content(GET(query), as = "parsed")
   sapply(c("swagger", "openapi"), function(fmt) {
     if (!is.null(d[[fmt]])) {
@@ -15,7 +15,7 @@ defineApis <- function(api, cfg) {
     }
   })
   path_endpoints <- names(d$paths)
-  path_endpoints <- path_endpoints[!grepl(".csv", path_endpoints, fixed = TRUE)]
+  path_endpoints <- path_endpoints[!grepl("\\.(csv|xml)$", path_endpoints)]
   endpoints <- basename(path_endpoints)
   fields <- lapply(path_endpoints, function(ep) {
     if(!is.null(d$paths[[ep]]$get$parameters)) {
@@ -23,8 +23,9 @@ defineApis <- function(api, cfg) {
     }
   })
   l <- lapply(seq_along(endpoints), function(i) {
-    path <- gsub(api$path, "", path_endpoints[i])
+    path <- file.path(d$basePath, path_endpoints[i])
     path <- gsub("^/+", "", path)
+    path <- gsub("//", "/", path)
     list(path = path,
          fields = fields[[i]])
   })
