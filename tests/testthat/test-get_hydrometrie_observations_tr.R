@@ -9,14 +9,14 @@ test_that("entities not in ('station', 'site', 'both') should throw an error", {
   )
 })
 
+skip_on_cran()
+
 test_that("`entities = 'station'` => 'code_station' must be always not NA", {
-  skip_on_cran()
   df <- get_hydrometrie_observations_tr(params, entities = "station")
   expect_true(all(!is.na(df$code_station)))
 })
 
 test_that("`entities = 'site'` => 'code_station' must be always NA", {
-  skip_on_cran()
   df <- get_hydrometrie_observations_tr(params, entities = "site")
   expect_true(all(is.na(df$code_station)))
 })
