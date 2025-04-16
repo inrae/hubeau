@@ -1,4 +1,9 @@
-# hubeau (development version)
+# hubeau 0.5.1
+
+Bug fixes 
+---------
+
+* CRAN check failed due to test depending on network connection (#49)
 
 # hubeau 0.5.0
 

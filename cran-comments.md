@@ -2,18 +2,11 @@
 
 0 errors | 0 warnings | 0 note
 
-* This is a new release.
+* This is a patch for this issue raising from CRAN:
 
-New features
-------------
+══ Failed tests ════════════════════════════════════════════════════════════════
+── Error ('test-doApiQuery.R:2:3'): A query of more than 20000 records ─────────
+&lt;curl_error_couldnt_resolve_host/curl_error/error/condition&gt;
+Error in `curl::curl_fetch_memory(url, handle = handle)`: Could not resolve hostname [hubeau.eaufrance.fr]: Could not resolve host: hubeau.eaufrance.fr
 
-* Add API "Qualité des cours d'eau"  (#9)
-* Add new vignette for niveaux nappes API  (#42)
-* Update API Poisson with new endpoints  (#40)
-* Allow the use of R vector for fields with multiple arguments  (#37)
-
-Internal changes
-----------------
-
-* "Solve warning: `@docType "package"` is deprecated  (#36, #39)
-* Remove extra variables in globals.R  (#35)
+skip_on_cran has been added on such tests depending on network connections.

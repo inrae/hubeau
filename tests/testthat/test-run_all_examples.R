@@ -25,5 +25,3 @@ lapply(db, function(Rd_fun) {
     })
   }
 })
-
-
