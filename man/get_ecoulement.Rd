@@ -36,15 +36,15 @@ See the API documentation for available filter parameters: \url{https://hubeau.e
 \dontrun{
 # Retrieve 2022 observation campaigns in the Jura French department
 get_ecoulement_campagnes(
-  list(code_departement = "39",
-       date_campagne_min = "2022-01-01",
-       date_campagne_max = "2022-12-31")
+  code_departement = "39",
+  date_campagne_min = "2022-01-01",
+  date_campagne_max = "2022-12-31"
 )
 
 # Retrieve river stations
 stations_39 <- get_ecoulement_stations(
-  list(code_departement = "39",
-       fields = "code_station,libelle_cours_eau,libelle_commune")
+  code_departement = "39",
+  fields = "code_station,libelle_cours_eau,libelle_commune"
 )
 stations_39
 
@@ -55,10 +55,10 @@ list_params(api = "ecoulement",
 # Retrieve the river flow data in the Jura departement in 2022 with
 # a selection of the fields
 onde_39 <- get_ecoulement_observations(
-  list(code_departement = "39",
+  code_departement = "39",
        date_observation_min = "2022-01-01",
        date_observation_max = "2022-12-31",
-       fields = "code_station,libelle_station,date_observation,libelle_ecoulement")
+       fields = "code_station,libelle_station,date_observation,libelle_ecoulement"
 )
 onde_39
 }
