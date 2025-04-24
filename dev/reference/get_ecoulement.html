@@ -24,7 +24,7 @@ See the API documentation for available filter parameters: https://hubeau.eaufra
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">hubeau</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.5.0.9000</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.5.1.9000</span>
       </span>
     </div>
 
@@ -108,9 +108,9 @@ for a given API endpoint and see the API documentation for their description</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \dontrun{</span></span></span>
 <span class="r-in"><span><span class="co"># Retrieve 2022 observation campaigns in the Jura French department</span></span></span>
 <span class="r-in"><span><span class="fu">get_ecoulement_campagnes</span><span class="op">(</span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>code_departement <span class="op">=</span> <span class="st">"39"</span>,</span></span>
-<span class="r-in"><span>       date_campagne_min <span class="op">=</span> <span class="st">"2022-01-01"</span>,</span></span>
-<span class="r-in"><span>       date_campagne_max <span class="op">=</span> <span class="st">"2022-12-31"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  code_departement <span class="op">=</span> <span class="st">"39"</span>,</span></span>
+<span class="r-in"><span>  date_campagne_min <span class="op">=</span> <span class="st">"2022-01-01"</span>,</span></span>
+<span class="r-in"><span>  date_campagne_max <span class="op">=</span> <span class="st">"2022-12-31"</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 8 × 10</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   code_campagne date_campagne nombre_modalite_ecoulement code_type_campagne</span>
@@ -129,8 +129,8 @@ for a given API endpoint and see the API documentation for their description</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Retrieve river stations</span></span></span>
 <span class="r-in"><span><span class="va">stations_39</span> <span class="op">&lt;-</span> <span class="fu">get_ecoulement_stations</span><span class="op">(</span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>code_departement <span class="op">=</span> <span class="st">"39"</span>,</span></span>
-<span class="r-in"><span>       fields <span class="op">=</span> <span class="st">"code_station,libelle_cours_eau,libelle_commune"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  code_departement <span class="op">=</span> <span class="st">"39"</span>,</span></span>
+<span class="r-in"><span>  fields <span class="op">=</span> <span class="st">"code_station,libelle_cours_eau,libelle_commune"</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">stations_39</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 43 × 3</span></span>
@@ -165,10 +165,10 @@ for a given API endpoint and see the API documentation for their description</p>
 <span class="r-in"><span><span class="co"># Retrieve the river flow data in the Jura departement in 2022 with</span></span></span>
 <span class="r-in"><span><span class="co"># a selection of the fields</span></span></span>
 <span class="r-in"><span><span class="va">onde_39</span> <span class="op">&lt;-</span> <span class="fu">get_ecoulement_observations</span><span class="op">(</span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>code_departement <span class="op">=</span> <span class="st">"39"</span>,</span></span>
+<span class="r-in"><span>  code_departement <span class="op">=</span> <span class="st">"39"</span>,</span></span>
 <span class="r-in"><span>       date_observation_min <span class="op">=</span> <span class="st">"2022-01-01"</span>,</span></span>
 <span class="r-in"><span>       date_observation_max <span class="op">=</span> <span class="st">"2022-12-31"</span>,</span></span>
-<span class="r-in"><span>       fields <span class="op">=</span> <span class="st">"code_station,libelle_station,date_observation,libelle_ecoulement"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>       fields <span class="op">=</span> <span class="st">"code_station,libelle_station,date_observation,libelle_ecoulement"</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">onde_39</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 336 × 4</span></span>
@@ -180,10 +180,10 @@ for a given API endpoint and see the API documentation for their description</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> U1084012     Ruisseau de la Serre à Sali… 2022-10-24       Ecoulement visibl…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> U1120011     ruisseau de la foret à Meno… 2022-10-24       Ecoulement visibl…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> U2722011     Rivière la Sablonne à Bouss… 2022-10-24       Ecoulement visibl…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> U2542013     Ruisseau l'Arne à Louvatange 2022-10-24       Ecoulement visibl…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> U2542012     Ruisseau des Vaux à Chateno… 2022-10-24       Ecoulement visibl…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> U1084011     Ruisseau de la Vèze à Offla… 2022-10-24       Ecoulement visibl…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> U2530002     La Doulonne à Fraisans       2022-10-24       Ecoulement visibl…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> U2530001     La grabusse à Dampierre      2022-10-24       Ecoulement visibl…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> U2542013     Ruisseau l'Arne à Louvatange 2022-10-24       Ecoulement visibl…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> U2542012     Ruisseau des Vaux à Chateno… 2022-10-24       Ecoulement visibl…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> U2542011     Ruisseau Du Moulinot à Aman… 2022-10-24       Ecoulement visibl…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 326 more rows</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
