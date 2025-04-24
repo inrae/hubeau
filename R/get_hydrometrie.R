@@ -40,11 +40,18 @@
 #'                          grandeur_hydro_elab = "QmJ")
 #' }
 get_hydrometrie_obs_elab <- function(...) {
-  l <- doApiQuery(
-    api = "hydrometrie",
-    endpoint = "obs_elab",
-    ...
-  )
+  # BEGIN - Upward compatibility to API v1
+  params <- convert_ellipsis_to_params(...)
+  if (params$grandeur_hydro_elab == "QmJ") {
+    warning(
+      "The parameter `grandeur_hydro_elab = \"QmJ\"` is deprecated, ",
+      "use `grandeur_hydro_elab = \"QmnJ\"` instead."
+    )
+    params$grandeur_hydro_elab <- "QmnJ"
+  }
+  params$api <- "hydrometrie"
+  params$endpoint <- "obs_elab"
+  l <- do.call(doApiQuery, params)
   convert_list_to_tibble(l)
 }
 
@@ -52,11 +59,12 @@ get_hydrometrie_obs_elab <- function(...) {
 #' @param entities 1-length [character] string filtering the rows of the returned value, possible values are: "station" for filtering on station rows, "site" for filtering on site rows, "both" for keeping all the rows
 #' @rdname get_hydrometrie
 #' @export
-get_hydrometrie_observations_tr  <- function(...,
-                                             entities = "station") {
+get_hydrometrie_observations_tr <- function(..., entities = "station") {
   # Checks
-  if(!entities %in% c("station", "site", "both")) {
-    stop("Argument 'entities' must be one of these values: 'station', 'site', 'both'")
+  if (!entities %in% c("station", "site", "both")) {
+    stop(
+      "Argument 'entities' must be one of these values: 'station', 'site', 'both'"
+    )
   }
 
   l <- doApiQuery(
@@ -86,8 +94,7 @@ get_hydrometrie_observations_tr  <- function(...,
 #' @param unique_site optional [logical], if set to `FALSE` sites with several different locations produce one row by different location otherwise the first location found is used for fields `code_commune_site`, `libelle_commune`, `code_departement`, `code_region`, `libelle_region`, `libelle_departement`
 #' @rdname get_hydrometrie
 #' @export
-get_hydrometrie_sites  <- function(...,
-                                   unique_site = TRUE) {
+get_hydrometrie_sites <- function(..., unique_site = TRUE) {
   l <- doApiQuery(
     api = "hydrometrie",
     endpoint = "sites",
@@ -109,7 +116,7 @@ get_hydrometrie_sites  <- function(...,
       if (!is.null(x[[field]])) {
         fieldValue <- unique(unlist(x[[field]]))
         if (unique_site && length(fieldValue) > 1) {
-          if(bFirst) {
+          if (bFirst) {
             warning(
               "The site '",
               x$code_site,
@@ -137,10 +144,8 @@ get_hydrometrie_sites  <- function(...,
 #'        if so, one line is added by item and other fields are repeated
 #' @rdname get_hydrometrie
 #' @export
-get_hydrometrie_stations  <- function(..., code_sandre_reseau_station = FALSE) {
-  l <- doApiQuery(api = "hydrometrie",
-                  endpoint = "stations",
-                  ...)
+get_hydrometrie_stations <- function(..., code_sandre_reseau_station = FALSE) {
+  l <- doApiQuery(api = "hydrometrie", endpoint = "stations", ...)
   l <- lapply(l, function(x) {
     if (!code_sandre_reseau_station) {
       x$code_sandre_reseau_station <- NULL

@@ -63,10 +63,8 @@ doApiQuery <- function(api,
   if (!missing(...)) params <- p_ellipsis
   if (missing(params)) params <- list()
 
-  availableParams <- list_params(api, endpoint)
-
   query <-
-    file.path(.cfg$api_url, .cfg$apis[[api]]$path, .cfg$apis[[api]]$endpoints[[endpoint]]$path)
+    file.path(.cfg$api_url, .cfg$apis[[api]]$endpoints[[endpoint]]$path)
   for (paramName in names(params)) {
     if (!paramName %in% .cfg$apis[[api]]$endpoints[[endpoint]]$fields) {
       stop(
