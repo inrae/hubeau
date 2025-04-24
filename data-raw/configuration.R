@@ -23,6 +23,10 @@ defineApis <- function(api, cfg) {
     }
   })
   l <- lapply(seq_along(endpoints), function(i) {
+    if (is.null(d$basePath)) {
+      # Missing basePath on ecoulement API
+      d$basePath <- gsub(.cfg$api_url, "", d$servers[[1]]$url, fixed = TRUE)
+    }
     path <- file.path(d$basePath, path_endpoints[i])
     path <- gsub("^/+", "", path)
     path <- gsub("//", "/", path)

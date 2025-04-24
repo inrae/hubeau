@@ -1,6 +1,6 @@
 params <- list(
   bbox = "1.6,47.79,1.8,47.99",
-  date_debut_obs = format(Sys.Date() - 3),
+  date_debut_obs = format(Sys.Date() - 10),
   grandeur_hydro = "Q"
 )
 
