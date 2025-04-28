@@ -1,8 +1,13 @@
-# hubeau (development version)
+# hubeau 0.5.2
+
+Bug fixes
+---------
+
+* Update API Hydrométrie to v2 (#45)
 
 # hubeau 0.5.1
 
-Bug fixes 
+Bug fixes
 ---------
 
 * CRAN check failed due to test depending on network connection (#49)
