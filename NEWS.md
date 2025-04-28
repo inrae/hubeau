@@ -1,3 +1,5 @@
+# hubeau (development version)
+
 # hubeau 0.5.2
 
 Bug fixes
