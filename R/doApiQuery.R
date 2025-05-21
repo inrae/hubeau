@@ -46,16 +46,15 @@
 #'                    annee = "2018")
 #' convert_list_to_tibble(resp)
 #' }
-doApiQuery <- function(api,
-                       endpoint,
-                       ..., params) {
-
+doApiQuery <- function(api, endpoint, ..., params) {
   if (!missing(...)) {
     p_ellipsis <- convert_ellipsis_to_params(...)
   }
   if (!missing(params)) {
-    warning("The use of the parameter `params` is deprecated and can be removed ",
-            "in a future version. Please use the argument `...` instead.")
+    warning(
+      "The use of the parameter `params` is deprecated and can be removed ",
+      "in a future version. Please use the argument `...` instead."
+    )
     if (!missing(...)) {
       stop("Parameters `...` and `params` can't be used together")
     }
@@ -84,13 +83,15 @@ doApiQuery <- function(api,
       if (length(params[[paramName]]) > 1) {
         params[[paramName]] <- paste(params[[paramName]], collapse = ",")
       }
-      query <- urltools::param_set(query,
-                                   key = paramName,
-                                   value = params[[paramName]])
+      query <- urltools::param_set(
+        query,
+        key = paramName,
+        value = params[[paramName]]
+      )
     }
   }
   user_agent <- options("hubeau.user_agent")[[1]]
-  if(is.null(user_agent)) user_agent <- .cfg$user_agent
+  if (is.null(user_agent)) user_agent <- .cfg$user_agent
   user_agent <- httr::user_agent(user_agent)
 
   data <- list()
@@ -123,7 +124,7 @@ doApiQuery <- function(api,
           "The request reach the API limitation of 20000 records.\n",
           "Use filter arguments to reduce the number of records of your query."
         )
-      } else if(as.numeric(l$count) == 0) {
+      } else if (as.numeric(l$count) == 0) {
         data <- list()
         break
       }
@@ -150,10 +151,12 @@ convert_ellipsis_to_params <- function(...) {
     params <- params[[1]]
   }
   if (any(names(params) == "")) {
-    stop("All filter parameters have to be named.\n",
-         "For example:\n",
-         "`get_qualite_nappes_stations(code_commune = 34116)` is correct\n",
-         "`get_qualite_nappes_stations(34116)` is wrong\n")
+    stop(
+      "All filter parameters have to be named.\n",
+      "For example:\n",
+      "`get_qualite_nappes_stations(code_commune = 34116)` is correct\n",
+      "`get_qualite_nappes_stations(34116)` is wrong\n"
+    )
   }
   return(params)
 }
@@ -194,37 +197,42 @@ convert_list_to_tibble <- function(l) {
 
 #' Flatten a nested list to a one-level list
 #'
-#' @details
-#' This function is part of the rlist package \url{https://cran.r-project.org/package=rlist}
-#' as it existed the 2023-02-14.
-#'
-#' The function is essentially a slightly modified version of \code{flatten2}
-#' provided by Tommy at \href{https://stackoverflow.com/a/8139959/2906900}{stackoverflow.com} who
-#' has full credit of the implementation of this function.
-#'
 #' @param x \code{list}
-#' @param use.names \code{logical}. Should the names of \code{x} be kept?
-#' @param classes A character vector of class names, or "ANY" to match any class.
-#' @author \href{https://stackoverflow.com/users/662787/tommy}{Tommy}
+#'
 #' @noRd
 #' @examples
 #' p <- list(a=1,b=list(b1=2,b2=3),c=list(c1=list(c11='a',c12='x'),c2=3))
 #' list.flatten(p)
 #'
 #' p <- list(a=1,b=list(x="a",y="b",z=10))
-#' list.flatten(p, classes = "numeric")
-#' list.flatten(p, classes = "character")
-list.flatten <- function(x, use.names = TRUE, classes = "ANY") {
-  len <- sum(rapply(x, function(x) 1L, classes = classes))
-  y <- vector("list", len)
-  i <- 0L
-  items <- rapply(x, function(x) {
-    i <<- i + 1L
-    y[[i]] <<- x
-    TRUE
-  }, classes = classes)
-  if (use.names && !is.null(nm <- names(items)))
-    names(y) <- nm
-  y
-}
+#' list.flatten(p)
+list.flatten <- function(x) {
+  flatten_helper <- function(x, name_prefix = NULL, seen_names = list()) {
+    if (!is.list(x)) {
+      full_name <- name_prefix
+      count <- seen_names[[full_name]] %||% 0
+      if (count > 0) {
+        full_name <- paste0(full_name, "_", count + 1)
+      }
+      seen_names[[name_prefix]] <- count + 1
+      return(list(values = setNames(list(x), full_name), seen = seen_names))
+    } else {
+      result <- list(values = list(), seen = seen_names)
+      for (i in seq_along(x)) {
+        nm <- names(x)[i]
+        if (is.null(nm) || nm == "") {
+          nm <- paste0("V", i)
+        }
+        new_prefix <- if (!is.null(name_prefix))
+          paste0(name_prefix, ".", nm) else nm
+        res <- flatten_helper(x[[i]], new_prefix, result$seen)
+        result$values <- c(result$values, res$values)
+        result$seen <- res$seen
+      }
+      return(result)
+    }
+  }
 
+  res <- flatten_helper(x)
+  return(res$values)
+}
